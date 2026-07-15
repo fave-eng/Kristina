@@ -205,7 +205,6 @@
 
   const CloudService = {
     client: null,
-    user: null,
     syncing: false,
     timers: {},
     isConfigured() {
@@ -219,39 +218,20 @@
     async init() {
       if (!this.isConfigured()) return null;
       if (!this.client) {
-        this.client = window.supabase.createClient(config.supabase.url, config.supabase.anonKey, {
-          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
-        });
-        this.client.auth.onAuthStateChange((_event, session) => {
-          this.user = session?.user || null;
-          renderCloudPanel();
-        });
+        this.client = window.supabase.createClient(
+          config.supabase.url,
+          config.supabase.anonKey
+        );
       }
-      const { data, error } = await this.client.auth.getSession();
-      if (error) throw error;
-      this.user = data.session?.user || null;
-      return this.user;
-    },
-    async signIn(email, password) {
-      if (!this.client) await this.init();
-      const { data, error } = await this.client.auth.signInWithPassword({ email, password });
-      if (error) throw error;
-      this.user = data.user || data.session?.user || null;
-      return this.user;
-    },
-    async signOut() {
-      if (!this.client) return;
-      const { error } = await this.client.auth.signOut();
-      if (error) throw error;
-      this.user = null;
+      return this.client;
     },
     queue(section) {
-      if (!this.isConfigured() || !this.user || this.syncing) return;
+      if (!this.isConfigured() || !this.client || this.syncing) return;
       window.clearTimeout(this.timers[section]);
       this.timers[section] = window.setTimeout(() => {
         window.ProgressService.syncToCloud(section).catch((error) => {
           console.error('Ошибка облачного сохранения:', error);
-          renderCloudPanel('Не удалось сохранить в облако');
+          showToast('Не удалось сохранить прогресс в Supabase');
         });
       }, 450);
     }
@@ -314,9 +294,9 @@
       return ok;
     },
     async syncFromCloud() {
-      if (!CloudService.isConfigured() || !CloudService.user) return false;
+      if (!CloudService.isConfigured()) return false;
+      if (!CloudService.client) await CloudService.init();
       CloudService.syncing = true;
-      renderCloudPanel('Загрузка прогресса…');
       try {
         const client = CloudService.client;
         const [homeworkResponse, vocabularyResponse, vocabularyTopicsResponse, grammarResponse] = await Promise.all([
@@ -384,18 +364,16 @@
         });
         storage.write(key('grammar'), grammar);
         await this.syncToCloud();
-        renderCloudPanel('Синхронизировано');
         return true;
       } finally {
         CloudService.syncing = false;
       }
     },
     async syncToCloud(section = 'all') {
-      if (!CloudService.isConfigured() || !CloudService.user) return false;
+      if (!CloudService.isConfigured()) return false;
+      if (!CloudService.client) await CloudService.init();
       const client = CloudService.client;
-      const userId = CloudService.user.id;
       const sections = section === 'all' ? ['homework', 'vocabulary', 'grammar'] : [section];
-      renderCloudPanel('Сохранение…');
 
       if (sections.includes('homework')) {
         const progress = this.loadHomeworkProgress();
@@ -407,7 +385,6 @@
           const total = Number(result.total || 0);
           const correct = Number(result.correct || 0);
           return {
-            user_id: userId,
             student_id: studentId,
             student_name: safeText(student.nameRu || student.nameEn),
             lesson_id: lessonId,
@@ -422,7 +399,7 @@
           };
         });
         if (rows.length) {
-          const { error } = await client.from(tables.homework).upsert(rows, { onConflict: 'user_id,student_id,lesson_id' });
+          const { error } = await client.from(tables.homework).upsert(rows, { onConflict: 'student_id,lesson_id' });
           if (error) throw error;
         }
       }
@@ -432,7 +409,6 @@
         const wordRows = Object.entries(progress.words).filter(([wordKey]) => VOCABULARY_CATALOG.byKey.has(wordKey)).map(([wordKey, state]) => {
           const record = VOCABULARY_CATALOG.byKey.get(wordKey);
           return {
-            user_id: userId,
             student_id: studentId,
             word_key: wordKey,
             word_id: safeText(record?.word?.id, wordKey),
@@ -444,14 +420,14 @@
           };
         });
         if (wordRows.length) {
-          const { error } = await client.from(tables.vocabulary).upsert(wordRows, { onConflict: 'user_id,student_id,word_key' });
+          const { error } = await client.from(tables.vocabulary).upsert(wordRows, { onConflict: 'student_id,word_key' });
           if (error) throw error;
         }
         const topicRows = Object.entries(progress.topics)
           .filter(([, topic]) => Array.isArray(topic.tests) && topic.tests.length)
-          .map(([topicId, topic]) => ({ user_id: userId, student_id: studentId, topic_id: topicId, tests: topic.tests }));
+          .map(([topicId, topic]) => ({ student_id: studentId, topic_id: topicId, tests: topic.tests }));
         if (topicRows.length) {
-          const { error } = await client.from(tables.vocabularyTopics).upsert(topicRows, { onConflict: 'user_id,student_id,topic_id' });
+          const { error } = await client.from(tables.vocabularyTopics).upsert(topicRows, { onConflict: 'student_id,topic_id' });
           if (error) throw error;
         }
       }
@@ -459,7 +435,6 @@
       if (sections.includes('grammar')) {
         const progress = this.loadGrammarProgress();
         const rows = Object.entries(progress.topics).map(([topicId, state]) => ({
-          user_id: userId,
           student_id: studentId,
           topic_id: topicId,
           passed: Boolean(state.passed),
@@ -467,56 +442,13 @@
           best_score: Number(state.bestScore || 0)
         }));
         if (rows.length) {
-          const { error } = await client.from(tables.grammar).upsert(rows, { onConflict: 'user_id,student_id,topic_id' });
+          const { error } = await client.from(tables.grammar).upsert(rows, { onConflict: 'student_id,topic_id' });
           if (error) throw error;
         }
       }
-      renderCloudPanel('Сохранено в облаке');
       return true;
     }
   };
-
-  function renderCloudPanel(message = '') {
-    if (!CloudService.isConfigured()) return;
-    const main = document.querySelector('main');
-    if (!main) return;
-    let panel = byId('cloud-sync-panel');
-    if (!panel) {
-      panel = document.createElement('section');
-      panel.id = 'cloud-sync-panel';
-      panel.className = 'cloud-sync-panel reveal';
-      main.prepend(panel);
-    }
-    if (CloudService.user) {
-      panel.innerHTML = `<div><strong>☁️ Облачный прогресс включён</strong><p>${escapeHtml(message || 'Данные сохраняются локально и в Supabase.')}</p></div><button class="btn btn-ghost btn-small" id="cloud-sign-out" type="button">Выйти</button>`;
-      byId('cloud-sign-out').onclick = async () => {
-        try {
-          await CloudService.signOut();
-          renderCloudPanel('Выход выполнен');
-        } catch (error) {
-          showToast(`Ошибка выхода: ${error.message}`);
-        }
-      };
-      return;
-    }
-    panel.innerHTML = `<div class="cloud-login-copy"><strong>☁️ Вход для сохранения прогресса</strong><p>${escapeHtml(message || 'Без входа данные остаются только на этом устройстве.')}</p></div><form id="cloud-login-form" class="cloud-login-form"><label><span>Email</span><input class="text-field" id="cloud-email" type="email" autocomplete="username" required></label><label><span>Пароль</span><input class="text-field" id="cloud-password" type="password" autocomplete="current-password" required></label><button class="btn btn-primary" id="cloud-login-button" type="submit">Войти</button></form>`;
-    byId('cloud-login-form').onsubmit = async (event) => {
-      event.preventDefault();
-      const button = byId('cloud-login-button');
-      button.disabled = true;
-      try {
-        await CloudService.signIn(byId('cloud-email').value.trim(), byId('cloud-password').value);
-        await window.ProgressService.syncFromCloud();
-        await refreshCurrentView();
-        showToast('Прогресс синхронизирован с Supabase');
-      } catch (error) {
-        renderCloudPanel('Проверьте email и пароль.');
-        showToast(`Не удалось войти: ${error.message}`);
-      } finally {
-        if (byId('cloud-login-button')) byId('cloud-login-button').disabled = false;
-      }
-    };
-  }
 
   function fillConfig() {
     const values = {
@@ -1030,7 +962,7 @@
     root.innerHTML = `<div class="card lesson-intro"><div><span class="eyebrow">Домашнее задание</span><p>${escapeHtml(lesson.subtitle || '')}</p></div><span class="lesson-points">${pointsLabel}</span></div>
       ${roadmap}
       <div id="lesson-blocks">${renderedBlocks}</div>
-      <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Проверить ответы</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Отправить преподавателю</button></div><p class="muted save-note">После проверки ответы сохраняются на устройстве и синхронизируются с Supabase после входа.</p></div>`;
+      <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Проверить ответы</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Отправить преподавателю</button></div><p class="muted save-note">После проверки ответы сохраняются на устройстве и сразу синхронизируются с Supabase.</p></div>`;
 
     restoreLessonAnswers(root, blocks, savedResult?.answers);
     if (savedResult && Number(savedResult.total) > 0) {
@@ -1083,9 +1015,9 @@
     });
     byId('submit-lesson').addEventListener('click', () => {
       const updatedProgress = window.ProgressService.loadHomeworkProgress();
-      updatedProgress.submissions[lesson.id] = { savedAt: new Date().toISOString(), status: CloudService.user ? 'pending-cloud' : 'local' };
+      updatedProgress.submissions[lesson.id] = { savedAt: new Date().toISOString(), status: CloudService.isConfigured() ? 'pending-cloud' : 'local' };
       window.ProgressService.saveHomeworkProgress(updatedProgress);
-      showToast(CloudService.user ? 'Ответы сохранены и отправляются в Supabase.' : 'Ответы сохранены на устройстве. Войдите, чтобы отправить их в Supabase.');
+      showToast(CloudService.isConfigured() ? 'Ответы сохранены и отправляются в Supabase.' : 'Ответы сохранены на устройстве.');
     });
   }
 
@@ -1345,14 +1277,11 @@
     if (!CloudService.isConfigured()) return;
     try {
       await CloudService.init();
-      renderCloudPanel();
-      if (CloudService.user) {
-        await window.ProgressService.syncFromCloud();
-        await refreshCurrentView();
-      }
+      await window.ProgressService.syncFromCloud();
+      await refreshCurrentView();
     } catch (error) {
       console.error('Ошибка подключения к Supabase:', error);
-      renderCloudPanel('Облако временно недоступно. Локальный прогресс продолжает работать.');
+      showToast('Supabase временно недоступен. Локальный прогресс продолжает работать.');
     }
   }
 
