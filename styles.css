@@ -1058,3 +1058,23 @@ body[data-view="lesson"] #lesson-root {
     width: 100%;
   }
 }
+.lesson-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 24px;
+  color: #4f46e5;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lesson-back-link:hover {
+  text-decoration: underline;
+}
+
+.lesson-back-link:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.25);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
