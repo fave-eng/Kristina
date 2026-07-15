@@ -218,9 +218,33 @@
     async init() {
       if (!this.isConfigured()) return null;
       if (!this.client) {
+        // Удаляем сохранённую сессию старой версии сайта.
+        // Иначе Supabase может отправлять запросы как authenticated,
+        // хотя новая схема рассчитана на роль anon.
+        try {
+          const projectRef = new URL(config.supabase.url).hostname.split('.')[0];
+          window.localStorage.removeItem(`sb-${projectRef}-auth-token`);
+        } catch (error) {
+          console.warn('Не удалось очистить старую Supabase-сессию:', error);
+        }
+
+        const emptyAuthStorage = {
+          getItem() { return null; },
+          setItem() {},
+          removeItem() {}
+        };
+
         this.client = window.supabase.createClient(
           config.supabase.url,
-          config.supabase.anonKey
+          config.supabase.anonKey,
+          {
+            auth: {
+              persistSession: false,
+              autoRefreshToken: false,
+              detectSessionInUrl: false,
+              storage: emptyAuthStorage
+            }
+          }
         );
       }
       return this.client;
@@ -1281,7 +1305,8 @@
       await refreshCurrentView();
     } catch (error) {
       console.error('Ошибка подключения к Supabase:', error);
-      showToast('Supabase временно недоступен. Локальный прогресс продолжает работать.');
+      const detail = safeText(error?.message || error?.details || error?.hint);
+      showToast(detail ? `Ошибка Supabase: ${detail}` : 'Supabase временно недоступен.');
     }
   }
 
