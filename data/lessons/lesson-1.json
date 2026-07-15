@@ -1,0 +1,912 @@
+{
+  "id": "lesson-1",
+  "number": 1,
+  "title": "Why did they call you that?",
+  "subtitle": "Reading and Workbook practice: names and vowel sounds",
+  "status": "available",
+  "vocabularyId": "",
+  "publishedAt": "2026-07-15",
+  "totalPoints": 51,
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "Student’s Book",
+      "title": "Reading · Naming customs around the world",
+      "text": "Read the article, then complete exercises 3c and 3d."
+    },
+    {
+      "type": "reading",
+      "id": "sb-reading",
+      "title": "Naming customs around the world",
+      "sections": [
+        {
+          "number": 1,
+          "heading": "Korea",
+          "text": "Names in Korea are written with the surname first, and the first name is written as two parts. So, if Yeon Seok has the surname Lee, his name is written Lee Yeon Seok. Two-part first names are never shortened; that is, Lee Yeon Seok will always be called Yeon Seok, not Yeon."
+        },
+        {
+          "number": 2,
+          "heading": "Russia",
+          "text": "Russian names have three parts: a first name, a patronymic (a middle name based on the father’s first name), and the father’s surname. If Viktor Aleksandrovich Rakhmaninov has two children, his son’s name might be Mikhail Viktorevich Rakhmaninov and his daughter’s name might be Svetlana Viktorovna Rakhmaninova (the ‘a’ at the end of all three names shows that she is female)."
+        },
+        {
+          "number": 3,
+          "heading": "Spanish-speaking countries",
+          "text": "In most Spanish-speaking countries, people have a first name (sometimes in two parts, e.g. Maria José, Juan Carlos) and two surnames, their father’s and their mother’s, for example, Maria José López Ramírez. In Spain, traditionally the father’s surname goes first, followed by the mother’s, but nowadays the order can be reversed. However, both surnames are always used and on any form, people will be asked for their surnames, not their surname."
+        },
+        {
+          "number": 4,
+          "heading": "India",
+          "text": "India has many religions and languages which influence the naming customs. Hindu first names are usually based on the position of the planets at the date and time of birth, but the names are often shortened by family and friends. For example, a brother and sister may have the formal names Aditya and Aarushi, but family and friends may call them Adi and Ashi for short."
+        },
+        {
+          "number": 5,
+          "heading": "China",
+          "text": "Chinese names are made up of three ‘characters’: a one-character surname followed by a two-character first name, e.g. Li Xiu Ying. A child’s official name is used for their birth certificate and for school, but Chinese children often have a different name that is used among friends and classmates."
+        },
+        {
+          "number": 6,
+          "heading": "Afghanistan",
+          "text": "Afghan names traditionally consist of only a first name. Male first names are usually Arabic double names, e.g. Abdul Ahad, and women are generally given Persian names, e.g. Jasmine. Surnames are chosen only when needed. Commonly, this is when people have contact with the Western world. The surname may be related to the tribe the person comes from, their place of birth, or their profession, e.g. ‘Doctor’. This may result in people within the same family having different surnames."
+        },
+        {
+          "number": 7,
+          "heading": "The UK",
+          "text": "Since the 15th century, British women have taken their husband’s surname when they get married, so when Sophie Jones marries Peter Elliot, she becomes Mrs Sophie Elliot. However, 14% of married women now choose to keep their maiden name. If they do so, couples sometimes then combine their surnames for their children, so if Sophie decided to keep the surname Jones, their children might have the surname Jones-Elliot or Elliot-Jones."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "sb-3c",
+      "title": "3c. Read the article again. In which country or countries…?",
+      "instructions": "Choose all the correct answers. Some questions have more than one answer.",
+      "items": [
+        {
+          "id": "1",
+          "prompt": "does the surname come before the first name?",
+          "input": "multiple",
+          "options": [
+            "Korea",
+            "Russia",
+            "Spanish-speaking countries",
+            "India",
+            "China",
+            "Afghanistan",
+            "The UK"
+          ],
+          "answer": [
+            0,
+            4
+          ],
+          "explanation": "Korea and China."
+        },
+        {
+          "id": "2",
+          "prompt": "do people have no surname?",
+          "input": "multiple",
+          "options": [
+            "Korea",
+            "Russia",
+            "Spanish-speaking countries",
+            "India",
+            "China",
+            "Afghanistan",
+            "The UK"
+          ],
+          "answer": [
+            5
+          ],
+          "explanation": "Afghanistan."
+        },
+        {
+          "id": "3",
+          "prompt": "do people have more than one surname?",
+          "input": "multiple",
+          "options": [
+            "Korea",
+            "Russia",
+            "Spanish-speaking countries",
+            "India",
+            "China",
+            "Afghanistan",
+            "The UK"
+          ],
+          "answer": [
+            2
+          ],
+          "explanation": "Spanish-speaking countries."
+        },
+        {
+          "id": "4",
+          "prompt": "do people have a middle name connected to their father’s name?",
+          "input": "multiple",
+          "options": [
+            "Korea",
+            "Russia",
+            "Spanish-speaking countries",
+            "India",
+            "China",
+            "Afghanistan",
+            "The UK"
+          ],
+          "answer": [
+            1
+          ],
+          "explanation": "Russia."
+        },
+        {
+          "id": "5",
+          "prompt": "do some people stop using the surname they were born with?",
+          "input": "multiple",
+          "options": [
+            "Korea",
+            "Russia",
+            "Spanish-speaking countries",
+            "India",
+            "China",
+            "Afghanistan",
+            "The UK"
+          ],
+          "answer": [
+            6
+          ],
+          "explanation": "The UK."
+        },
+        {
+          "id": "6",
+          "prompt": "are people given names depending on when they were born?",
+          "input": "multiple",
+          "options": [
+            "Korea",
+            "Russia",
+            "Spanish-speaking countries",
+            "India",
+            "China",
+            "Afghanistan",
+            "The UK"
+          ],
+          "answer": [
+            3
+          ],
+          "explanation": "India."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "sb-3d",
+      "title": "3d. Write about naming customs in your country",
+      "instructions": "Answer in English. This task is saved and sent to the teacher, but it is not graded automatically.",
+      "items": [
+        {
+          "id": "response",
+          "prompt": "What is the naming custom in your country? Has it changed over the years? Do you think it ought to change?",
+          "input": "textarea",
+          "scored": false,
+          "placeholder": "Write 4–6 sentences…"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "Workbook",
+      "title": "Exercise 1 · Vocabulary: names",
+      "text": "Complete parts a, b, and c."
+    },
+    {
+      "type": "exercise",
+      "id": "wb-1a",
+      "title": "1a. Match the sentence halves",
+      "items": [
+        {
+          "id": "1",
+          "prompt": "Her name’s Katheryn, but she’s called…",
+          "input": "select",
+          "options": [
+            "his father, Robert Downey Senior.",
+            "Barbara Vine.",
+            "Katy for short.",
+            "for Bradley.",
+            "is Sting.",
+            "Peter Gene Hernandez to Bruno Mars."
+          ],
+          "answer": 2,
+          "explanation": "Katy for short."
+        },
+        {
+          "id": "2",
+          "prompt": "Gordon Sumner’s nickname…",
+          "input": "select",
+          "options": [
+            "his father, Robert Downey Senior.",
+            "Barbara Vine.",
+            "Katy for short.",
+            "for Bradley.",
+            "is Sting.",
+            "Peter Gene Hernandez to Bruno Mars."
+          ],
+          "answer": 4,
+          "explanation": "is Sting."
+        },
+        {
+          "id": "3",
+          "prompt": "The singer changed his name from…",
+          "input": "select",
+          "options": [
+            "his father, Robert Downey Senior.",
+            "Barbara Vine.",
+            "Katy for short.",
+            "for Bradley.",
+            "is Sting.",
+            "Peter Gene Hernandez to Bruno Mars."
+          ],
+          "answer": 5,
+          "explanation": "Peter Gene Hernandez to Bruno Mars."
+        },
+        {
+          "id": "4",
+          "prompt": "Robert Downey Junior is named after…",
+          "input": "select",
+          "options": [
+            "his father, Robert Downey Senior.",
+            "Barbara Vine.",
+            "Katy for short.",
+            "for Bradley.",
+            "is Sting.",
+            "Peter Gene Hernandez to Bruno Mars."
+          ],
+          "answer": 0,
+          "explanation": "his father, Robert Downey Senior."
+        },
+        {
+          "id": "5",
+          "prompt": "Ruth Rendell sometimes wrote under the pseudonym…",
+          "input": "select",
+          "options": [
+            "his father, Robert Downey Senior.",
+            "Barbara Vine.",
+            "Katy for short.",
+            "for Bradley.",
+            "is Sting.",
+            "Peter Gene Hernandez to Bruno Mars."
+          ],
+          "answer": 1,
+          "explanation": "Barbara Vine."
+        },
+        {
+          "id": "6",
+          "prompt": "Brad is short…",
+          "input": "select",
+          "options": [
+            "his father, Robert Downey Senior.",
+            "Barbara Vine.",
+            "Katy for short.",
+            "for Bradley.",
+            "is Sting.",
+            "Peter Gene Hernandez to Bruno Mars."
+          ],
+          "answer": 3,
+          "explanation": "for Bradley."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "wb-1b",
+      "title": "1b. Complete the definitions with a word from the list",
+      "wordBank": [
+        "first name",
+        "full name",
+        "initials",
+        "maiden name",
+        "married name",
+        "middle name"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "prompt": "Your ___ is a name that your parents choose for you when you are born.",
+          "input": "text",
+          "answer": "first name",
+          "explanation": "first name"
+        },
+        {
+          "id": "2",
+          "prompt": "A ___ is the name between a person’s first name and surname.",
+          "input": "text",
+          "answer": "middle name",
+          "explanation": "middle name"
+        },
+        {
+          "id": "3",
+          "prompt": "A woman’s ___ is her surname before she gets married.",
+          "input": "text",
+          "answer": "maiden name",
+          "explanation": "maiden name"
+        },
+        {
+          "id": "4",
+          "prompt": "A woman’s ___ is her surname after she gets married.",
+          "input": "text",
+          "answer": "married name",
+          "explanation": "married name"
+        },
+        {
+          "id": "5",
+          "prompt": "Your ___ is your whole name, including your first name, any middle names, and your family name.",
+          "input": "text",
+          "answer": "full name",
+          "explanation": "full name"
+        },
+        {
+          "id": "6",
+          "prompt": "Your ___ are the first letters of all your names.",
+          "input": "text",
+          "answer": "initials",
+          "explanation": "initials"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "wb-1c",
+      "title": "1c. Complete the text with the words from 1a and 1b",
+      "instructions": "Write one word in each space. Item 1 is the example.",
+      "wordBank": [
+        "called",
+        "nickname",
+        "changed",
+        "named after",
+        "pseudonym",
+        "short for",
+        "first name",
+        "full name",
+        "initials",
+        "maiden name",
+        "married name",
+        "middle name"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "She wrote six romances under the ___ Mary Westmacott.",
+          "input": "text",
+          "example": true,
+          "exampleAnswer": "pseudonym"
+        },
+        {
+          "id": "2",
+          "prompt": "Agatha Christie’s ___ name and surname are known worldwide.",
+          "input": "text",
+          "answer": "first",
+          "acceptedAnswers": [
+            "first",
+            "first name"
+          ],
+          "explanation": "first"
+        },
+        {
+          "id": "3",
+          "prompt": "Few people know what the rest of the writer’s ___, A.M.C.C., stand for.",
+          "input": "text",
+          "answer": "initials",
+          "explanation": "initials"
+        },
+        {
+          "id": "4",
+          "prompt": "Agatha had two ___ names, Mary and Clarissa.",
+          "input": "text",
+          "answer": "middle",
+          "acceptedAnswers": [
+            "middle",
+            "middle name"
+          ],
+          "explanation": "middle"
+        },
+        {
+          "id": "5",
+          "prompt": "Her ___ name was Agatha Mary Clarissa Christie.",
+          "input": "text",
+          "answer": "full",
+          "acceptedAnswers": [
+            "full",
+            "full name"
+          ],
+          "explanation": "full"
+        },
+        {
+          "id": "6",
+          "prompt": "Christie was, in fact, her ___ name — in 1914 she married Archie Christie.",
+          "input": "text",
+          "answer": "married",
+          "acceptedAnswers": [
+            "married",
+            "married name"
+          ],
+          "explanation": "married"
+        },
+        {
+          "id": "7",
+          "prompt": "‘Archie’ is ___ for Archibald.",
+          "input": "text",
+          "answer": "short",
+          "acceptedAnswers": [
+            "short",
+            "short for"
+          ],
+          "explanation": "short"
+        },
+        {
+          "id": "8",
+          "prompt": "Agatha’s ___ name was Miller.",
+          "input": "text",
+          "answer": "maiden",
+          "acceptedAnswers": [
+            "maiden",
+            "maiden name"
+          ],
+          "explanation": "maiden"
+        },
+        {
+          "id": "9",
+          "prompt": "When she married Max Mallowan, she did not ___ her name again.",
+          "input": "text",
+          "answer": "change",
+          "acceptedAnswers": [
+            "change",
+            "changed"
+          ],
+          "explanation": "change"
+        },
+        {
+          "id": "10",
+          "prompt": "Her sister Margaret was ___ ‘Madge’ for short.",
+          "input": "text",
+          "answer": "called",
+          "explanation": "called"
+        },
+        {
+          "id": "11",
+          "prompt": "Madge was ___ after their grandmother’s sister.",
+          "input": "text",
+          "answer": "named",
+          "acceptedAnswers": [
+            "named",
+            "named after"
+          ],
+          "explanation": "named"
+        },
+        {
+          "id": "12",
+          "prompt": "Her brother Louis’s ___ was ‘Monty’.",
+          "input": "text",
+          "answer": "nickname",
+          "explanation": "nickname"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "Workbook",
+      "title": "Exercise 2 · Pronunciation: vowel sounds",
+      "text": "Sort the names by vowel sound, then complete the listening task."
+    },
+    {
+      "type": "exercise",
+      "id": "wb-2a",
+      "title": "2a. Write the names in the chart",
+      "instructions": "Choose the sound in the stressed syllable. Adele is the example.",
+      "items": [
+        {
+          "id": "adele",
+          "prompt": "Adele",
+          "input": "select",
+          "example": true,
+          "exampleAnswer": "3 · egg /e/"
+        },
+        {
+          "id": "alex",
+          "prompt": "Alex",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 0,
+          "explanation": "cat /æ/"
+        },
+        {
+          "id": "bill",
+          "prompt": "Bill",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 4,
+          "explanation": "fish /ɪ/"
+        },
+        {
+          "id": "caroline",
+          "prompt": "Caroline",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 5,
+          "explanation": "bike /aɪ/"
+        },
+        {
+          "id": "chris",
+          "prompt": "Chris",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 4,
+          "explanation": "fish /ɪ/"
+        },
+        {
+          "id": "emily",
+          "prompt": "Emily",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 2,
+          "explanation": "egg /e/"
+        },
+        {
+          "id": "eve",
+          "prompt": "Eve",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 3,
+          "explanation": "tree /iː/"
+        },
+        {
+          "id": "james",
+          "prompt": "James",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 1,
+          "explanation": "train /eɪ/"
+        },
+        {
+          "id": "joe",
+          "prompt": "Joe",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 7,
+          "explanation": "phone /əʊ/"
+        },
+        {
+          "id": "kate",
+          "prompt": "Kate",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 1,
+          "explanation": "train /eɪ/"
+        },
+        {
+          "id": "leo",
+          "prompt": "Leo",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 3,
+          "explanation": "tree /iː/"
+        },
+        {
+          "id": "mike",
+          "prompt": "Mike",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 5,
+          "explanation": "bike /aɪ/"
+        },
+        {
+          "id": "paula",
+          "prompt": "Paula",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 6,
+          "explanation": "horse /ɔː/"
+        },
+        {
+          "id": "sam",
+          "prompt": "Sam",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 0,
+          "explanation": "cat /æ/"
+        },
+        {
+          "id": "sean",
+          "prompt": "Sean",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 6,
+          "explanation": "horse /ɔː/"
+        },
+        {
+          "id": "sophie",
+          "prompt": "Sophie",
+          "input": "select",
+          "options": [
+            "1 · cat /æ/",
+            "2 · train /eɪ/",
+            "3 · egg /e/",
+            "4 · tree /iː/",
+            "5 · fish /ɪ/",
+            "6 · bike /aɪ/",
+            "7 · horse /ɔː/",
+            "8 · phone /əʊ/"
+          ],
+          "answer": 7,
+          "explanation": "phone /əʊ/"
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "id": "wb-2b-audio",
+      "title": "2b. Listen and check. Then listen again and repeat the names.",
+      "text": "Audio 1.1",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_1.1.mp3",
+      "response": false
+    },
+    {
+      "type": "exercise",
+      "id": "wb-2c",
+      "title": "2c. Listen and complete the sentences",
+      "instructions": "Audio 1.2. Type one word or phrase in each gap. Sentence 1 is the example.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_1.2.mp3",
+      "items": [
+        {
+          "id": "1",
+          "prompt": "Sentence 1",
+          "input": "gaps",
+          "example": true,
+          "exampleAnswer": "Anna’s carrying a black bag."
+        },
+        {
+          "id": "2",
+          "prompt": "Sentence 2",
+          "input": "gaps",
+          "segments": [
+            "",
+            "’s ",
+            " a ",
+            " today."
+          ],
+          "answers": [
+            "Amy",
+            "making",
+            "cake"
+          ],
+          "explanation": "Amy’s making a cake today."
+        },
+        {
+          "id": "3",
+          "prompt": "Sentence 3",
+          "input": "gaps",
+          "segments": [
+            "",
+            "’s sending a ",
+            " to a ",
+            "."
+          ],
+          "answers": [
+            "Jessica",
+            "message",
+            "friend"
+          ],
+          "explanation": "Jessica’s sending a message to a friend."
+        },
+        {
+          "id": "4",
+          "prompt": "Sentence 4",
+          "input": "gaps",
+          "segments": [
+            "",
+            "’s seeing his ",
+            " this ",
+            "."
+          ],
+          "answers": [
+            "Peter",
+            "niece",
+            "evening"
+          ],
+          "explanation": "Peter’s seeing his niece this evening."
+        },
+        {
+          "id": "5",
+          "prompt": "Sentence 5",
+          "input": "gaps",
+          "segments": [
+            "",
+            "’s ",
+            " this year."
+          ],
+          "answers": [
+            "Linda",
+            "visiting India"
+          ],
+          "explanation": "Linda’s visiting India this year."
+        },
+        {
+          "id": "6",
+          "prompt": "Sentence 6",
+          "input": "gaps",
+          "segments": [
+            "",
+            "’s ",
+            " is quite ",
+            "."
+          ],
+          "answers": [
+            "Simon",
+            "wife",
+            "nice"
+          ],
+          "explanation": "Simon’s wife is quite nice."
+        },
+        {
+          "id": "7",
+          "prompt": "Sentence 7",
+          "input": "gaps",
+          "segments": [
+            "",
+            " is ordering ",
+            "."
+          ],
+          "answers": [
+            "George",
+            "more water"
+          ],
+          "explanation": "George is ordering more water."
+        },
+        {
+          "id": "8",
+          "prompt": "Sentence 8",
+          "input": "gaps",
+          "segments": [
+            "",
+            "’s ",
+            " alone."
+          ],
+          "answers": [
+            "Tony",
+            "going home"
+          ],
+          "explanation": "Tony’s going home alone."
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "id": "wb-2d-audio",
+      "title": "2d. Listen again and repeat the sentences.",
+      "text": "Use Audio 1.2 and repeat each sentence aloud.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_1.2.mp3",
+      "response": false
+    }
+  ]
+}
