@@ -29,6 +29,19 @@
 
   <main id="main" class="main-content container">
 
+    <section class="section reveal" aria-labelledby="progress-title">
+      <div class="section-heading"><div><span class="eyebrow">Стартовая точка</span><h2 id="progress-title">Мой прогресс</h2></div></div>
+      <div class="stats-grid">
+        <div class="card stat-card"><strong id="home-stat-completed">0</strong><span>ДЗ выполнено</span></div>
+        <div class="card stat-card"><strong id="vocab-stat-known">0</strong><span>Слов выучено</span></div>
+        <div class="card stat-card"><strong id="grammar-stat-passed">0</strong><span>Тем грамматики</span></div>
+        <div class="card stat-card"><strong data-config="level"></strong><span>Уровень</span></div>
+      </div>
+      <div class="card section">
+        <div class="progress-list" id="home-progress-list"></div>
+      </div>
+    </section>
+
     <section class="section reveal" aria-labelledby="quick-title">
       <div class="section-heading"><div><span class="eyebrow">Навигация</span><h2 id="quick-title">Быстрый доступ</h2></div></div>
       <div class="quick-grid">
@@ -44,34 +57,21 @@
       </div>
     </section>
 
+    <section class="section reveal" aria-labelledby="current-title">
+      <div class="section-heading"><div><span class="eyebrow">Продолжить</span><h2 id="current-title">Текущий материал</h2></div></div>
+      <div id="current-material"></div>
+    </section>
+
+    <section class="section reveal" aria-labelledby="knowledge-title">
+      <div class="section-heading"><div><span class="eyebrow">Справочник</span><h2 id="knowledge-title">База знаний</h2></div></div>
+      <div class="card empty-state"><div class="empty-state-icon">🧠</div><h3>Теория появится постепенно</h3><p>Здесь будут храниться опубликованные преподавателем памятки, правила и полезные материалы для повторения.</p></div>
+    </section>
+
     <section class="section reveal" aria-labelledby="book-title">
       <div class="card book-card">
         <div class="book-cover" aria-hidden="true">📘</div>
         <div><span class="eyebrow">Основной учебник</span><h3 id="book-title" data-config="textbook"></h3><p class="book-edition" data-config="textbookEdition"></p></div>
       </div>
-    </section>
-
-    <section class="section reveal" aria-labelledby="progress-title">
-      <div class="section-heading"><div><span class="eyebrow">Стартовая точка</span><h2 id="progress-title">Мой прогресс</h2></div></div>
-      <div class="stats-grid">
-        <div class="card stat-card"><strong id="home-stat-completed">0</strong><span>ДЗ выполнено</span></div>
-        <div class="card stat-card"><strong id="vocab-stat-known">0</strong><span>Слов выучено</span></div>
-        <div class="card stat-card"><strong id="grammar-stat-passed">0</strong><span>Тем грамматики</span></div>
-        <div class="card stat-card"><strong data-config="level"></strong><span>Уровень</span></div>
-      </div>
-      <div class="card section">
-        <div class="progress-list" id="home-progress-list"></div>
-      </div>
-    </section>
-
-    <section class="section reveal" aria-labelledby="current-title">
-      <div class="section-heading"><div><span class="eyebrow">Продолжить</span><h2 id="current-title">Текущий материал</h2></div></div>
-      <div id="current-material" class="card disabled empty-state"></div>
-    </section>
-
-    <section class="section reveal" aria-labelledby="knowledge-title">
-      <div class="section-heading"><div><span class="eyebrow">Справочник</span><h2 id="knowledge-title">База знаний</h2></div></div>
-      <div class="card empty-state"><div class="empty-state-icon">🧠</div><h3>Теория появится постепенно</h3><p>Теория будет добавляться в соответствии с программой и учебником ученика.</p></div>
     </section>
 
   </main>
