@@ -9,8 +9,8 @@ window.APP_CONFIG = {
   },
 
   supabase: {
-    url: "ТВОЙ_SUPABASE_URL",
-    anonKey: "ТВОЙ_ANON_KEY",
+    url: "https://svejqcrkxkiheucglikq.supabase.co",
+    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN2ZWpxY3JreGtpaGV1Y2dsaWtxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwMTE5MDUsImV4cCI6MjA5OTU4NzkwNX0.UUX5_atNjuNdexdhrGQG24UgXLibOE9VgpNcQo3t3nw",
     authMode: "password",
 
     tables: {
