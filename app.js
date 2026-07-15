@@ -3,9 +3,13 @@
 
   const config = window.APP_CONFIG || {};
   const student = config.student || {};
-  const HOMEWORK_DATA = Array.isArray(window.HOMEWORK_DATA) ? window.HOMEWORK_DATA : [];
+  let HOMEWORK_DATA = [];
   const RAW_VOCABULARY_DATA = Array.isArray(window.VOCABULARY_DATA) ? window.VOCABULARY_DATA : [];
   const GRAMMAR_DATA = Array.isArray(window.GRAMMAR_DATA) ? window.GRAMMAR_DATA : [];
+  const lessonCache = new Map();
+  const lessonsPath = 'data/lessons';
+  const maxLessonNumber = 200;
+  const maxConsecutiveMissingLessons = 3;
 
   const safeText = (value, fallback = '') => value === undefined || value === null ? fallback : String(value);
   const escapeHtml = (value) => safeText(value)
@@ -32,6 +36,84 @@
     const time = Date.parse(value || '');
     return Number.isFinite(time) ? time : 0;
   };
+
+  function normalizeLesson(rawLesson, requestedId = '') {
+    if (!rawLesson || typeof rawLesson !== 'object') return null;
+    const id = safeText(rawLesson.id || requestedId).trim();
+    if (!/^lesson-\d+$/.test(id)) return null;
+    const inferredNumber = Number(id.replace('lesson-', '')) || 0;
+    return {
+      ...rawLesson,
+      id,
+      number: Number(rawLesson.number || inferredNumber),
+      title: safeText(rawLesson.title, `Lesson ${inferredNumber}`),
+      subtitle: safeText(rawLesson.subtitle, 'Интерактивное домашнее задание'),
+      status: safeText(rawLesson.status, 'available'),
+      page: `lesson.html?id=${encodeURIComponent(id)}`,
+      blocks: Array.isArray(rawLesson.blocks) ? rawLesson.blocks : []
+    };
+  }
+
+  async function fetchLessonFile(id) {
+    const cleanId = safeText(id).trim();
+    if (!/^lesson-\d+$/.test(cleanId)) return null;
+    if (lessonCache.has(cleanId)) return lessonCache.get(cleanId);
+
+    const promise = (async () => {
+      const url = new URL(`${lessonsPath}/${cleanId}.json`, document.baseURI);
+      const response = await fetch(url, { cache: 'no-store' });
+      if (response.status === 404) return null;
+      if (!response.ok) throw new Error(`Не удалось загрузить ${cleanId}.json: ${response.status}`);
+      const lesson = normalizeLesson(await response.json(), cleanId);
+      if (!lesson) throw new Error(`Файл ${cleanId}.json имеет неверную структуру.`);
+      return lesson;
+    })();
+
+    lessonCache.set(cleanId, promise);
+    try {
+      return await promise;
+    } catch (error) {
+      lessonCache.delete(cleanId);
+      throw error;
+    }
+  }
+
+  async function discoverHomeworkData() {
+    const lessons = [];
+    let consecutiveMissing = 0;
+
+    for (let number = 1; number <= maxLessonNumber; number += 1) {
+      const lesson = await fetchLessonFile(`lesson-${number}`);
+      if (lesson) {
+        lessons.push(lesson);
+        consecutiveMissing = 0;
+      } else {
+        consecutiveMissing += 1;
+        if (consecutiveMissing >= maxConsecutiveMissingLessons) break;
+      }
+    }
+
+    return lessons.sort((a, b) => Number(a.number || 0) - Number(b.number || 0));
+  }
+
+  async function loadHomeworkData() {
+    const view = document.body?.dataset?.view || '';
+    const requestedId = queryParam('id');
+
+    if (view === 'lesson' && requestedId) {
+      const lesson = await fetchLessonFile(requestedId);
+      HOMEWORK_DATA = lesson ? [lesson] : [];
+    } else {
+      HOMEWORK_DATA = await discoverHomeworkData();
+    }
+
+    window.HOMEWORK_DATA = HOMEWORK_DATA;
+    return HOMEWORK_DATA;
+  }
+
+  async function resolveLessonContent(lesson) {
+    return lesson || null;
+  }
 
   function normalizeWordKey(value) {
     return safeText(value)
@@ -425,7 +507,7 @@
       try {
         await CloudService.signIn(byId('cloud-email').value.trim(), byId('cloud-password').value);
         await window.ProgressService.syncFromCloud();
-        refreshCurrentView();
+        await refreshCurrentView();
         showToast('Прогресс синхронизирован с Supabase');
       } catch (error) {
         renderCloudPanel('Проверьте email и пароль.');
@@ -631,12 +713,77 @@
     draw();
   }
 
+  function renderReadingSections(block) {
+    const sections = Array.isArray(block.sections) ? block.sections : [];
+    if (!sections.length) {
+      const text = escapeHtml(block.text || '').replaceAll('\n', '<br>');
+      return `<p class="reading-copy">${text}</p>`;
+    }
+    return `<div class="reading-sections">${sections.map((section) => `<section class="reading-section">
+      <div class="reading-section-heading"><span class="reading-number">${escapeHtml(section.number || '')}</span><h4>${escapeHtml(section.heading || '')}</h4></div>
+      <p>${escapeHtml(section.text || '')}</p>
+    </section>`).join('')}</div>`;
+  }
+
+  function renderExerciseItem(item, blockId, index) {
+    const itemId = safeText(item.id, `${index + 1}`);
+    const number = item.number === undefined ? index + 1 : item.number;
+    const prompt = escapeHtml(item.prompt || '');
+    const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+    const numberMarkup = number === '' || number === null ? '' : `<span class="exercise-number">${escapeHtml(number)}</span>`;
+
+    if (item.example) {
+      return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+        <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
+        <div class="example-answer"><span>Example</span><strong>${escapeHtml(item.exampleAnswer || '')}</strong></div>
+      </div>`;
+    }
+
+    let control = '';
+    if (item.input === 'multiple' || item.input === 'single') {
+      const inputType = item.input === 'multiple' ? 'checkbox' : 'radio';
+      control = `<div class="option-list compact-options">${(item.options || []).map((option, optionIndex) => `<label class="option"><input type="${inputType}" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('')}</div>`;
+    } else if (item.input === 'select') {
+      control = `<select id="${escapeHtml(inputId)}"><option value="">Choose an answer</option>${(item.options || []).map((option, optionIndex) => `<option value="${optionIndex}">${escapeHtml(option)}</option>`).join('')}</select>`;
+    } else if (item.input === 'textarea') {
+      control = `<textarea id="${escapeHtml(inputId)}" placeholder="${escapeHtml(item.placeholder || '')}"></textarea>`;
+    } else if (item.input === 'gaps') {
+      const answers = Array.isArray(item.answers) ? item.answers : [];
+      const segments = Array.isArray(item.segments) ? item.segments : [];
+      control = `<div class="sentence-gaps" aria-label="${prompt}">${answers.map((answer, gapIndex) => `${gapIndex < segments.length ? `<span>${escapeHtml(segments[gapIndex])}</span>` : ''}<input class="gap-input" data-gap-index="${gapIndex}" aria-label="Gap ${gapIndex + 1}" autocomplete="off">`).join('')}${segments.length > answers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : ''}</div>`;
+    } else {
+      control = `<input class="text-field" id="${escapeHtml(inputId)}" autocomplete="off" placeholder="${escapeHtml(item.placeholder || '')}">`;
+    }
+
+    return `<div class="exercise-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="${escapeHtml(item.input || 'text')}">
+      <div class="exercise-item-header">${numberMarkup}<label class="exercise-prompt" for="${escapeHtml(inputId)}">${prompt}</label></div>
+      <div class="exercise-control">${control}</div>
+      <div class="feedback" aria-live="polite"></div>
+    </div>`;
+  }
+
   function renderLessonBlock(block, index) {
     const id = safeText(block.id, `task-${index}`);
     const title = escapeHtml(block.title || block.prompt || `Задание ${index + 1}`);
     const text = escapeHtml(block.text || '').replaceAll('\n', '<br>');
+
+    if (block.type === 'section') {
+      return `<header class="lesson-section-title lesson-block"><span class="eyebrow">${escapeHtml(block.eyebrow || 'Материал')}</span><h2>${title}</h2>${text ? `<p class="muted">${text}</p>` : ''}</header>`;
+    }
     if (block.type === 'info') return `<article class="card info-card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;
     if (block.type === 'tip') return `<article class="card tip-card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;
+    if (block.type === 'reading') return `<article class="card lesson-block reading-card"><div class="reading-title"><span class="eyebrow">Reading</span><h3>${title}</h3></div>${renderReadingSections(block)}</article>`;
+    if (block.type === 'exercise') {
+      const items = Array.isArray(block.items) ? block.items : [];
+      const wordBank = Array.isArray(block.wordBank) && block.wordBank.length
+        ? `<div class="word-bank" aria-label="Word bank">${block.wordBank.map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`
+        : '';
+      const player = block.audio ? `<audio class="audio-player" controls preload="none" src="${escapeHtml(block.audio)}"></audio>` : '';
+      return `<article class="card lesson-block exercise-card" data-task="${escapeHtml(id)}" data-type="exercise">
+        <div class="exercise-heading"><span class="eyebrow">Exercise</span><h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}</div>
+        <div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex)).join('')}</div>
+      </article>`;
+    }
     if (block.type === 'text' || block.type === 'translate') return `<article class="card lesson-block" data-task="${escapeHtml(id)}" data-type="${escapeHtml(block.type)}"><label class="field-label" for="${escapeHtml(id)}">${title}</label>${block.source ? `<p class="muted">${escapeHtml(block.source)}</p>` : ''}<input class="text-field" id="${escapeHtml(id)}" name="${escapeHtml(id)}" autocomplete="off"><div class="feedback"></div></article>`;
     if (block.type === 'textarea') return `<article class="card lesson-block" data-task="${escapeHtml(id)}" data-type="textarea"><label class="field-label" for="${escapeHtml(id)}">${title}</label><textarea id="${escapeHtml(id)}" name="${escapeHtml(id)}"></textarea><div class="feedback"></div></article>`;
     if (block.type === 'single' || block.type === 'multiple') {
@@ -659,19 +806,100 @@
     }
     if (block.type === 'audio') {
       const player = block.audio ? `<audio class="audio-player" controls preload="none" src="${escapeHtml(block.audio)}"></audio>` : '<p class="muted">Аудиофайл ещё не прикреплён.</p>';
-      return `<article class="card lesson-block" data-task="${escapeHtml(id)}" data-type="audio"><h3>${title}</h3>${player}<input class="text-field" id="${escapeHtml(id)}" aria-label="Ответ на аудиозадание"><div class="feedback"></div></article>`;
-    }
-    if (block.type === 'reading') {
-      return `<article class="card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;
+      const response = block.response === false ? '' : `<input class="text-field" id="${escapeHtml(id)}" aria-label="Ответ на аудиозадание"><div class="feedback"></div>`;
+      const taskAttrs = block.response === false ? '' : ` data-task="${escapeHtml(id)}" data-type="audio"`;
+      return `<article class="card lesson-block audio-card"${taskAttrs}><div class="audio-icon" aria-hidden="true">🎧</div><div class="audio-content"><h3>${title}</h3>${text ? `<p class="muted">${text}</p>` : ''}${player}${response}</div></article>`;
     }
     return '';
   }
 
   function normalizeAnswer(value) {
-    return safeText(value).trim().toLocaleLowerCase('en').replace(/\s+/g, ' ');
+    return safeText(value)
+      .normalize('NFKC')
+      .replace(/[’‘`]/g, "'")
+      .trim()
+      .toLocaleLowerCase('en')
+      .replace(/[.!?,;:]+$/g, '')
+      .replace(/\s+/g, ' ');
+  }
+
+  function textAnswerMatches(item, actual) {
+    const accepted = Array.isArray(item.acceptedAnswers) && item.acceptedAnswers.length
+      ? item.acceptedAnswers
+      : Array.isArray(item.answer) ? item.answer : [item.answer];
+    return accepted.some((answer) => normalizeAnswer(answer) !== '' && normalizeAnswer(answer) === normalizeAnswer(actual));
+  }
+
+  function checkExerciseItem(item, itemNode) {
+    const inputType = item.input || 'text';
+    let actual;
+    let correct = false;
+
+    if (inputType === 'multiple') {
+      actual = [...itemNode.querySelectorAll('input:checked')].map((input) => Number(input.value)).sort((a, b) => a - b);
+      const expected = [...(item.answer || [])].map(Number).sort((a, b) => a - b);
+      correct = JSON.stringify(actual) === JSON.stringify(expected);
+    } else if (inputType === 'single') {
+      actual = itemNode.querySelector('input:checked')?.value ?? '';
+      correct = Number(actual) === Number(item.answer);
+    } else if (inputType === 'select') {
+      actual = itemNode.querySelector('select')?.value ?? '';
+      correct = actual !== '' && Number(actual) === Number(item.answer);
+    } else if (inputType === 'gaps') {
+      actual = [...itemNode.querySelectorAll('[data-gap-index]')].map((input) => input.value);
+      const expected = Array.isArray(item.answers) ? item.answers : [];
+      correct = expected.length > 0 && expected.every((answer, index) => {
+        const accepted = Array.isArray(answer) ? answer : [answer];
+        return accepted.some((variant) => normalizeAnswer(variant) === normalizeAnswer(actual[index]));
+      });
+    } else {
+      actual = itemNode.querySelector('input, textarea')?.value || '';
+      correct = textAnswerMatches(item, actual);
+    }
+
+    return { actual, correct };
+  }
+
+  function checkExerciseBlock(block, node) {
+    const actual = {};
+    let correctCount = 0;
+    let total = 0;
+
+    (Array.isArray(block.items) ? block.items : []).forEach((item, index) => {
+      if (item.example) return;
+      const itemId = safeText(item.id, `${index + 1}`);
+      const itemNode = node.querySelector(`[data-exercise-item="${CSS.escape(itemId)}"]`);
+      if (!itemNode) return;
+      const result = checkExerciseItem(item, itemNode);
+      actual[itemId] = result.actual;
+      const feedback = itemNode.querySelector('.feedback');
+
+      if (item.scored === false) {
+        itemNode.classList.remove('is-correct', 'is-wrong');
+        itemNode.classList.add('is-saved');
+        if (feedback) {
+          feedback.className = 'feedback show neutral';
+          feedback.textContent = 'Ответ сохранён для преподавателя.';
+        }
+        return;
+      }
+
+      total += 1;
+      if (result.correct) correctCount += 1;
+      itemNode.classList.toggle('is-correct', result.correct);
+      itemNode.classList.toggle('is-wrong', !result.correct);
+      itemNode.classList.remove('is-saved');
+      if (feedback) {
+        feedback.className = `feedback show ${result.correct ? 'good' : 'bad'}`;
+        feedback.textContent = result.correct ? 'Верно!' : safeText(item.explanation, 'Проверь ответ и попробуй ещё раз.');
+      }
+    });
+
+    return { actual, correctCount, total };
   }
 
   function checkLessonTask(block, node) {
+    if (block.type === 'exercise') return checkExerciseBlock(block, node);
     let actual;
     let correct = false;
     if (block.type === 'single') {
@@ -692,27 +920,107 @@
       if (Array.isArray(block.answer)) correct = block.answer.some((answer) => normalizeAnswer(answer) === normalizeAnswer(actual));
       else correct = normalizeAnswer(block.answer) !== '' && normalizeAnswer(block.answer) === normalizeAnswer(actual);
     }
-    return { correct, actual };
+    return { correctCount: correct ? 1 : 0, total: 1, actual };
   }
 
-  function renderLesson() {
+  function restoreExerciseAnswers(block, node, saved) {
+    if (!saved || typeof saved !== 'object') return;
+    (Array.isArray(block.items) ? block.items : []).forEach((item, index) => {
+      if (item.example) return;
+      const itemId = safeText(item.id, `${index + 1}`);
+      const value = saved[itemId];
+      if (value === undefined) return;
+      const itemNode = node.querySelector(`[data-exercise-item="${CSS.escape(itemId)}"]`);
+      if (!itemNode) return;
+      const inputType = item.input || 'text';
+      if (inputType === 'multiple') {
+        const selected = new Set(Array.isArray(value) ? value.map(Number) : []);
+        itemNode.querySelectorAll('input[type="checkbox"]').forEach((input) => { input.checked = selected.has(Number(input.value)); });
+      } else if (inputType === 'single') {
+        const input = itemNode.querySelector(`input[value="${CSS.escape(safeText(value))}"]`);
+        if (input) input.checked = true;
+      } else if (inputType === 'select') {
+        const select = itemNode.querySelector('select');
+        if (select) select.value = safeText(value);
+      } else if (inputType === 'gaps') {
+        const values = Array.isArray(value) ? value : [];
+        itemNode.querySelectorAll('[data-gap-index]').forEach((input, gapIndex) => { input.value = safeText(values[gapIndex]); });
+      } else {
+        const input = itemNode.querySelector('input, textarea');
+        if (input) input.value = safeText(value);
+      }
+    });
+  }
+
+  function restoreLessonAnswers(root, blocks, savedAnswers) {
+    if (!savedAnswers || typeof savedAnswers !== 'object') return;
+    blocks.forEach((block, index) => {
+      const taskId = safeText(block.id, `task-${index}`);
+      const value = savedAnswers[taskId];
+      if (value === undefined) return;
+      const node = root.querySelector(`[data-task="${CSS.escape(taskId)}"]`);
+      if (!node) return;
+      if (block.type === 'exercise') {
+        restoreExerciseAnswers(block, node, value);
+      } else if (block.type === 'single') {
+        const input = node.querySelector(`input[value="${CSS.escape(safeText(value))}"]`);
+        if (input) input.checked = true;
+      } else if (block.type === 'multiple') {
+        const selected = new Set(Array.isArray(value) ? value.map(Number) : []);
+        node.querySelectorAll('input[type="checkbox"]').forEach((input) => { input.checked = selected.has(Number(input.value)); });
+      } else if (block.type === 'select') {
+        const select = node.querySelector('select');
+        if (select) select.value = safeText(value);
+      } else if (block.type === 'match') {
+        const values = Array.isArray(value) ? value : [];
+        node.querySelectorAll('[data-match-index]').forEach((select, matchIndex) => { select.value = safeText(values[matchIndex]); });
+      } else {
+        const input = node.querySelector('input, textarea');
+        if (input) input.value = safeText(value);
+      }
+    });
+  }
+
+  async function renderLesson() {
     const id = queryParam('id');
-    const lesson = HOMEWORK_DATA.find((item) => item.id === id && item.status !== 'draft');
+    const lessonRecord = HOMEWORK_DATA.find((item) => item.id === id && item.status !== 'draft');
     const root = byId('lesson-root');
-    if (!lesson || lesson.status === 'locked') {
+    if (!lessonRecord || lessonRecord.status === 'locked') {
       root.innerHTML = emptyState('📝', 'Задание ещё не опубликовано', 'Преподаватель добавит материал после урока.');
       return;
     }
-    byId('lesson-hero-title').textContent = safeText(lesson.title, 'Задание');
-    byId('lesson-hero-subtitle').textContent = safeText(lesson.subtitle, 'Интерактивная практика');
-    const blocks = Array.isArray(lesson.blocks) ? lesson.blocks : [];
+
+    byId('lesson-hero-title').textContent = safeText(lessonRecord.title, 'Задание');
+    byId('lesson-hero-subtitle').textContent = safeText(lessonRecord.subtitle, 'Интерактивная практика');
+    root.innerHTML = '<div class="card empty-state compact-empty"><div class="empty-state-icon">⏳</div><h3>Загружаем задание…</h3></div>';
+
+    let lesson;
+    try {
+      lesson = await resolveLessonContent(lessonRecord);
+    } catch (error) {
+      console.error('Ошибка загрузки содержимого урока:', error);
+      root.innerHTML = emptyState('⚠️', 'Не удалось загрузить задание', 'Проверьте наличие JSON-файла урока в папке data/lessons и корректность его структуры.');
+      return;
+    }
+
+    const blocks = Array.isArray(lesson?.blocks) ? lesson.blocks : [];
     if (!blocks.length) {
       root.innerHTML = emptyState('📝', 'Задание ещё не опубликовано', 'Содержание появится после подготовки преподавателем.');
       return;
     }
-    root.innerHTML = `<div class="card"><span class="eyebrow">Домашнее задание</span><h2>${escapeHtml(lesson.title)}</h2><p class="muted">${escapeHtml(lesson.subtitle || '')}</p></div>
+
+    const progress = window.ProgressService.loadHomeworkProgress();
+    const savedResult = progress.results[lesson.id];
+    const pointsLabel = Number(lesson.totalPoints || 0) > 0 ? ` · ${escapeHtml(lesson.totalPoints)} points` : '';
+    const hasManualResponses = blocks.some((block) => block.type === 'exercise' && (block.items || []).some((item) => item.scored === false));
+    root.innerHTML = `<div class="card lesson-intro"><span class="eyebrow">Домашнее задание${pointsLabel}</span><h2>${escapeHtml(lesson.title)}</h2><p class="muted">${escapeHtml(lesson.subtitle || '')}</p></div>
       <div id="lesson-blocks">${blocks.map(renderLessonBlock).join('')}</div>
-      <div class="card section"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Проверить ответы</button><button class="btn btn-secondary" id="submit-lesson" type="button" disabled>Отправить преподавателю</button></div></div>`;
+      <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Проверить ответы</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Отправить преподавателю</button></div><p class="muted save-note">После проверки ответы сохраняются на устройстве и синхронизируются с Supabase после входа.</p></div>`;
+
+    restoreLessonAnswers(root, blocks, savedResult?.answers);
+    if (savedResult && Number(savedResult.total) > 0) {
+      byId('lesson-result').innerHTML = `<h3>Сохранённый результат: ${Number(savedResult.correct || 0)} из ${Number(savedResult.total || 0)}</h3><p class="muted">${Number(savedResult.percent || 0)}% правильных ответов</p>`;
+    }
 
     root.querySelectorAll('[data-reorder-source]').forEach((source) => {
       source.addEventListener('click', (event) => {
@@ -727,8 +1035,10 @@
     });
 
     byId('check-lesson').addEventListener('click', () => {
-      const checkable = blocks.filter((block) => ['text','textarea','single','multiple','select','match','reorder','translate','audio'].includes(block.type));
+      const checkableTypes = ['text','textarea','single','multiple','select','match','reorder','translate','audio','exercise'];
+      const checkable = blocks.filter((block) => checkableTypes.includes(block.type) && !(block.type === 'audio' && block.response === false));
       let correct = 0;
+      let total = 0;
       const answers = {};
       checkable.forEach((block, index) => {
         const taskId = safeText(block.id, `task-${index}`);
@@ -736,23 +1046,30 @@
         if (!node) return;
         const result = checkLessonTask(block, node);
         answers[taskId] = result.actual;
-        if (result.correct) correct += 1;
-        const feedback = node.querySelector('.feedback');
-        feedback.className = `feedback show ${result.correct ? 'good' : 'bad'}`;
-        feedback.textContent = result.correct ? 'Верно!' : safeText(block.explanation, 'Проверь ответ и попробуй ещё раз.');
+        correct += Number(result.correctCount || 0);
+        total += Number(result.total || 0);
+        if (block.type !== 'exercise') {
+          const feedback = node.querySelector('.feedback');
+          const isCorrect = Number(result.correctCount || 0) === Number(result.total || 0);
+          if (feedback) {
+            feedback.className = `feedback show ${isCorrect ? 'good' : 'bad'}`;
+            feedback.textContent = isCorrect ? 'Верно!' : safeText(block.explanation, 'Проверь ответ и попробуй ещё раз.');
+          }
+        }
       });
-      const percent = safePercent(correct, checkable.length);
-      byId('lesson-result').innerHTML = `<h3>Результат: ${correct} из ${checkable.length}</h3><p class="muted">${percent}% правильных ответов</p>`;
-      const progress = window.ProgressService.loadHomeworkProgress();
-      progress.results[lesson.id] = { correct, total: checkable.length, percent, answers, checkedAt: new Date().toISOString() };
-      if (checkable.length > 0 && correct === checkable.length && !progress.completedIds.includes(lesson.id)) progress.completedIds.push(lesson.id);
-      window.ProgressService.saveHomeworkProgress(progress);
+      const percent = safePercent(correct, total);
+      const manualNote = hasManualResponses ? ' · развёрнутый ответ сохранён отдельно и не входит в балл' : '';
+      byId('lesson-result').innerHTML = `<h3>Результат: ${correct} из ${total}</h3><p class="muted">${percent}% правильных ответов${manualNote}</p>`;
+      const updatedProgress = window.ProgressService.loadHomeworkProgress();
+      updatedProgress.results[lesson.id] = { correct, total, percent, answers, checkedAt: new Date().toISOString() };
+      if (total > 0 && correct === total && !updatedProgress.completedIds.includes(lesson.id)) updatedProgress.completedIds.push(lesson.id);
+      window.ProgressService.saveHomeworkProgress(updatedProgress);
       byId('submit-lesson').disabled = false;
     });
     byId('submit-lesson').addEventListener('click', () => {
-      const progress = window.ProgressService.loadHomeworkProgress();
-      progress.submissions[lesson.id] = { savedAt: new Date().toISOString(), status: CloudService.user ? 'pending-cloud' : 'local' };
-      window.ProgressService.saveHomeworkProgress(progress);
+      const updatedProgress = window.ProgressService.loadHomeworkProgress();
+      updatedProgress.submissions[lesson.id] = { savedAt: new Date().toISOString(), status: CloudService.user ? 'pending-cloud' : 'local' };
+      window.ProgressService.saveHomeworkProgress(updatedProgress);
       showToast(CloudService.user ? 'Ответы сохранены и отправляются в Supabase.' : 'Ответы сохранены на устройстве. Войдите, чтобы отправить их в Supabase.');
     });
   }
@@ -979,7 +1296,7 @@
     drawMode();
   }
 
-  function refreshCurrentView() {
+  async function refreshCurrentView() {
     const view = document.body.dataset.view;
     const renderers = {
       home: renderHome,
@@ -991,24 +1308,32 @@
       vocabulary: renderVocabulary
     };
     try {
-      renderers[view]?.();
+      await renderers[view]?.();
     } catch (error) {
       console.error('Ошибка отображения страницы:', error);
       const main = document.querySelector('main');
       if (main) main.innerHTML = emptyState('⚠️', 'Не удалось открыть страницу', 'Проверьте структуру данных и попробуйте обновить страницу.');
     }
   }
+
   async function init() {
     fillConfig();
     markNavigation();
-    refreshCurrentView();
+    try {
+      await loadHomeworkData();
+    } catch (error) {
+      console.error('Ошибка загрузки каталога уроков:', error);
+      HOMEWORK_DATA = [];
+      window.HOMEWORK_DATA = HOMEWORK_DATA;
+    }
+    await refreshCurrentView();
     if (!CloudService.isConfigured()) return;
     try {
       await CloudService.init();
       renderCloudPanel();
       if (CloudService.user) {
         await window.ProgressService.syncFromCloud();
-        refreshCurrentView();
+        await refreshCurrentView();
       }
     } catch (error) {
       console.error('Ошибка подключения к Supabase:', error);
