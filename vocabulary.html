@@ -235,9 +235,34 @@
         });
       }
 
+      function reorderVocabularyModes(root) {
+        const modes = root.querySelector('#vocab-modes');
+        if (!modes || modes.dataset.orderReady === 'true') return;
+
+        const labels = {
+          all: 'Все слова',
+          cards: 'Карточки',
+          difficult: 'Трудные',
+          test: 'Тест'
+        };
+        const order = ['all', 'cards', 'difficult', 'test'];
+
+        order.forEach((modeName) => {
+          const button = modes.querySelector(`[data-mode="${modeName}"]`);
+          if (!button) return;
+          button.textContent = labels[modeName];
+          modes.appendChild(button);
+        });
+
+        modes.dataset.orderReady = 'true';
+        const allWordsButton = modes.querySelector('[data-mode="all"]');
+        window.requestAnimationFrame(() => allWordsButton?.click());
+      }
+
       function decorateVocabulary() {
         const root = document.getElementById('vocabulary-root');
         if (!root) return;
+        reorderVocabularyModes(root);
         decorateFlashcard(root);
         decorateWordList(root);
       }
