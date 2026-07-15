@@ -27,7 +27,7 @@ window.APP_CONFIG = {
     cloudSync: true,
     telegramNotifications: false
   }
-},
+};
   
 These public values belong in the existing config.js if its Supabase fields are still empty:
 
