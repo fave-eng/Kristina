@@ -717,11 +717,11 @@
     const sections = Array.isArray(block.sections) ? block.sections : [];
     if (!sections.length) {
       const text = escapeHtml(block.text || '').replaceAll('\n', '<br>');
-      return `<p class="reading-copy">${text}</p>`;
+      return `<div class="reading-copy-wrap"><p class="reading-copy">${text}</p></div>`;
     }
     return `<div class="reading-sections">${sections.map((section) => `<section class="reading-section">
       <div class="reading-section-heading"><span class="reading-number">${escapeHtml(section.number || '')}</span><h4>${escapeHtml(section.heading || '')}</h4></div>
-      <p>${escapeHtml(section.text || '')}</p>
+      <p class="reading-section-copy">${escapeHtml(section.text || '')}</p>
     </section>`).join('')}</div>`;
   }
 
@@ -768,15 +768,18 @@
     const text = escapeHtml(block.text || '').replaceAll('\n', '<br>');
 
     if (block.type === 'section') {
-      return `<header class="lesson-section-title lesson-block"><span class="eyebrow">${escapeHtml(block.eyebrow || 'Материал')}</span><h2>${title}</h2>${text ? `<p class="muted">${text}</p>` : ''}</header>`;
+      return `<header id="lesson-section-${index}" class="lesson-section-title lesson-block" data-lesson-section><span class="lesson-section-step">${escapeHtml(block.__sectionNumber || index + 1)}</span><div><span class="eyebrow">${escapeHtml(block.eyebrow || 'Материал')}</span><h2>${title}</h2>${text ? `<p class="muted">${text}</p>` : ''}</div></header>`;
     }
     if (block.type === 'info') return `<article class="card info-card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;
     if (block.type === 'tip') return `<article class="card tip-card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;
-    if (block.type === 'reading') return `<article class="card lesson-block reading-card"><div class="reading-title"><span class="eyebrow">Reading</span><h3>${title}</h3></div>${renderReadingSections(block)}</article>`;
+    if (block.type === 'reading') {
+      const sectionCount = Array.isArray(block.sections) ? block.sections.length : 0;
+      return `<article class="card lesson-block reading-card"><div class="reading-title"><div><span class="eyebrow">Reading</span><h3>${title}</h3></div>${sectionCount ? `<span class="reading-count">${sectionCount} sections</span>` : ''}</div>${renderReadingSections(block)}</article>`;
+    }
     if (block.type === 'exercise') {
       const items = Array.isArray(block.items) ? block.items : [];
       const wordBank = Array.isArray(block.wordBank) && block.wordBank.length
-        ? `<div class="word-bank" aria-label="Word bank">${block.wordBank.map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`
+        ? `<div class="word-bank" aria-label="Word bank"><strong class="word-bank-label">Word bank</strong>${block.wordBank.map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`
         : '';
       const player = block.audio ? `<audio class="audio-player" controls preload="none" src="${escapeHtml(block.audio)}"></audio>` : '';
       return `<article class="card lesson-block exercise-card" data-task="${escapeHtml(id)}" data-type="exercise">
@@ -1011,10 +1014,22 @@
 
     const progress = window.ProgressService.loadHomeworkProgress();
     const savedResult = progress.results[lesson.id];
-    const pointsLabel = Number(lesson.totalPoints || 0) > 0 ? ` · ${escapeHtml(lesson.totalPoints)} points` : '';
+    const pointsLabel = Number(lesson.totalPoints || 0) > 0 ? `${escapeHtml(lesson.totalPoints)} проверяемых ответов` : 'Без автоматической оценки';
     const hasManualResponses = blocks.some((block) => block.type === 'exercise' && (block.items || []).some((item) => item.scored === false));
-    root.innerHTML = `<div class="card lesson-intro"><span class="eyebrow">Домашнее задание${pointsLabel}</span><h2>${escapeHtml(lesson.title)}</h2><p class="muted">${escapeHtml(lesson.subtitle || '')}</p></div>
-      <div id="lesson-blocks">${blocks.map(renderLessonBlock).join('')}</div>
+    const lessonSections = blocks
+      .map((block, blockIndex) => block.type === 'section' ? { block, blockIndex } : null)
+      .filter(Boolean);
+    const roadmap = lessonSections.length
+      ? `<nav class="card lesson-roadmap" aria-label="План домашнего задания"><div class="lesson-roadmap-heading"><span class="eyebrow">План задания</span><p>Проходи блоки по порядку — ответы сохранятся после проверки.</p></div><ol>${lessonSections.map(({ block, blockIndex }, sectionIndex) => `<li><a href="#lesson-section-${blockIndex}"><span>${sectionIndex + 1}</span><strong>${escapeHtml(block.title || `Часть ${sectionIndex + 1}`)}</strong></a></li>`).join('')}</ol></nav>`
+      : '';
+    let sectionNumber = 0;
+    const renderedBlocks = blocks.map((block, blockIndex) => {
+      if (block.type === 'section') sectionNumber += 1;
+      return renderLessonBlock(block.type === 'section' ? { ...block, __sectionNumber: sectionNumber } : block, blockIndex);
+    }).join('');
+    root.innerHTML = `<div class="card lesson-intro"><div><span class="eyebrow">Домашнее задание</span><p>${escapeHtml(lesson.subtitle || '')}</p></div><span class="lesson-points">${pointsLabel}</span></div>
+      ${roadmap}
+      <div id="lesson-blocks">${renderedBlocks}</div>
       <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Проверить ответы</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Отправить преподавателю</button></div><p class="muted save-note">После проверки ответы сохраняются на устройстве и синхронизируются с Supabase после входа.</p></div>`;
 
     restoreLessonAnswers(root, blocks, savedResult?.answers);
