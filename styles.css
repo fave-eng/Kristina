@@ -139,6 +139,7 @@ p { margin: 0; }
 
 .list { display: grid; gap: 14px; }
 .item-card { display: flex; align-items: center; gap: 14px; }
+.current-material-card { min-height: 104px; }
 .item-main { min-width: 0; flex: 1; }
 .item-main h3 { overflow-wrap: anywhere; }
 .item-main p { color: var(--muted); margin-top: 4px; font-size: .9rem; }
