@@ -504,7 +504,27 @@
       progressMarkup('Грамматика', t.grammarPassed, t.grammarTotal, 'green')
     ].join('');
     const current = byId('current-material');
-    if (current) current.innerHTML = '<div class="empty-state-icon">✨</div><h3>Текущий материал пока не опубликован</h3><p>Материалы по учебнику будут добавлены преподавателем.</p>';
+    if (current) {
+      const homeworkProgress = window.ProgressService.loadHomeworkProgress();
+      const currentHomework = HOMEWORK_DATA
+        .filter((item) => item.status === 'available' && !homeworkProgress.completedIds.includes(item.id))
+        .sort((a, b) => dateMs(b.publishedAt) - dateMs(a.publishedAt) || Number(b.number || 0) - Number(a.number || 0))[0];
+
+      if (currentHomework) {
+        const href = currentHomework.page || `lesson.html?id=${encodeURIComponent(currentHomework.id)}`;
+        current.innerHTML = `<a class="card interactive item-card current-material-card" href="${escapeHtml(href)}">
+          <div class="item-icon">✨</div>
+          <div class="item-main"><h3>${escapeHtml(safeText(currentHomework.title, 'Текущее задание'))}</h3><p>${escapeHtml(safeText(currentHomework.subtitle, 'Продолжить работу с опубликованным материалом.'))}</p></div>
+          <span class="status-badge status-available">Продолжить</span>
+        </a>`;
+      } else {
+        const publishedHomework = HOMEWORK_DATA.filter((item) => ['available', 'completed'].includes(item.status));
+        const everythingCompleted = publishedHomework.length > 0 && publishedHomework.every((item) => item.status === 'completed' || homeworkProgress.completedIds.includes(item.id));
+        current.innerHTML = everythingCompleted
+          ? '<a class="card interactive item-card current-material-card" href="homework.html"><div class="item-icon">✅</div><div class="item-main"><h3>Все опубликованные материалы выполнены</h3><p>Новый материал появится после следующей публикации преподавателя.</p></div><span class="arrow" aria-hidden="true">→</span></a>'
+          : '<div class="card disabled empty-state"><div class="empty-state-icon">✨</div><h3>Текущий материал пока не опубликован</h3><p>Здесь автоматически появится последнее доступное домашнее задание.</p></div>';
+      }
+    }
   }
 
   function renderHomework() {
@@ -978,7 +998,6 @@
       if (main) main.innerHTML = emptyState('⚠️', 'Не удалось открыть страницу', 'Проверьте структуру данных и попробуйте обновить страницу.');
     }
   }
-
   async function init() {
     fillConfig();
     markNavigation();
