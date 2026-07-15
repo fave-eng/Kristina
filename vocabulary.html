@@ -103,99 +103,101 @@
     (() => {
       'use strict';
 
-      const synth = window.speechSynthesis;
-      const canSpeak = Boolean(synth && window.SpeechSynthesisUtterance);
+      /*
+       * Фиксированный британский женский голос Emma.
+       * Оно не зависит от системных голосов Safari, iPhone, Android или Windows.
+       * Для воспроизведения нужен интернет — сайт и так опубликован на GitHub Pages.
+       */
+      const PRIMARY_TTS_ENDPOINT = 'https://api.streamelements.com/kappa/v2/speech';
+      const FALLBACK_TTS_ENDPOINT = 'https://translate.google.com/translate_tts';
+      const FIXED_VOICE = 'Emma';
+      const TTS_LANGUAGE = 'en-GB';
+      const PLAYBACK_RATE = 0.92;
+
+      let activeAudio = null;
       let activeButton = null;
-      let cachedVoice = null;
 
-      const preferredVoices = [
-        /Microsoft Sonia Online.*Natural/i,
-        /Google UK English Female/i,
-        /^Serena$/i,
-        /Siri.*(?:Female|Voice 4)/i,
-        /Microsoft Libby Online.*Natural/i,
-        /^Samantha(?: \(Enhanced\)| \(Premium\))?$/i,
-        /^Ava(?: \(Enhanced\)| \(Premium\))?$/i,
-        /Microsoft Jenny Online.*Natural/i,
-        /Microsoft Aria Online.*Natural/i,
-        /Google US English/i,
-        /^Moira$/i,
-        /^Karen$/i,
-        /^Tessa$/i,
-        /^Fiona$/i,
-        /^Victoria$/i,
-        /^Allison$/i,
-        /^Susan$/i,
-        /^Zoe$/i
-      ];
-
-      const lowMaleVoices = /Daniel|Alex|Fred|Tom|Oliver|Arthur|George|Ralph|Albert/i;
-
-      function voiceScore(voice) {
-        const name = String(voice.name || '');
-        const lang = String(voice.lang || '');
-        let score = 0;
-
-        const preferredIndex = preferredVoices.findIndex((pattern) => pattern.test(name));
-        if (preferredIndex >= 0) score += 1000 - (preferredIndex * 35);
-        if (/Natural|Premium|Enhanced/i.test(name)) score += 260;
-        if (/Female/i.test(name)) score += 180;
-        if (/^en-GB$/i.test(lang)) score += 170;
-        else if (/^en-US$/i.test(lang)) score += 115;
-        else if (/^en-(AU|IE|NZ|ZA)$/i.test(lang)) score += 80;
-        else if (/^en/i.test(lang)) score += 45;
-        if (lowMaleVoices.test(name)) score -= 500;
-
-        return score;
-      }
-
-      function selectNaturalVoice() {
-        if (!canSpeak) return null;
-        const voices = synth.getVoices().filter((voice) => /^en/i.test(voice.lang || ''));
-        if (!voices.length) return null;
-        return voices.slice().sort((a, b) => voiceScore(b) - voiceScore(a))[0] || null;
-      }
-
-      function refreshVoice() {
-        cachedVoice = selectNaturalVoice();
-      }
-
-      refreshVoice();
-      if (canSpeak) {
-        synth.addEventListener?.('voiceschanged', refreshVoice);
-        window.setTimeout(refreshVoice, 250);
-        window.setTimeout(refreshVoice, 1000);
-      }
-
-      function stopSpeakingState() {
-        if (activeButton) activeButton.classList.remove('is-speaking');
-        activeButton = null;
-      }
-
-      function speak(text, button) {
-        const cleanText = String(text || '').trim();
-        if (!cleanText || !canSpeak) return;
-
-        synth.cancel();
-        stopSpeakingState();
-
-        const utterance = new SpeechSynthesisUtterance(cleanText);
-        const voice = cachedVoice || selectNaturalVoice();
-        if (voice) {
-          utterance.voice = voice;
-          utterance.lang = voice.lang || 'en-GB';
-        } else {
-          utterance.lang = 'en-GB';
+      function stopAudio() {
+        if (activeAudio) {
+          activeAudio.pause();
+          activeAudio.currentTime = 0;
+          activeAudio = null;
         }
-        utterance.rate = cleanText.includes(' ') ? 0.74 : 0.7;
-        utterance.pitch = 1.08;
-        utterance.volume = 1;
+        if (activeButton) {
+          activeButton.classList.remove('is-speaking');
+          activeButton = null;
+        }
+      }
 
+      function showAudioError() {
+        const toast = document.getElementById('app-toast');
+        if (!toast) return;
+        toast.textContent = 'Не удалось загрузить произношение. Проверьте интернет-соединение.';
+        toast.classList.add('show');
+        window.setTimeout(() => toast.classList.remove('show'), 3200);
+      }
+
+      function buildAudioUrls(text) {
+        const cleanText = String(text || '').trim();
+        const primaryParams = new URLSearchParams({
+          voice: FIXED_VOICE,
+          text: cleanText
+        });
+        const fallbackParams = new URLSearchParams({
+          ie: 'UTF-8',
+          client: 'tw-ob',
+          tl: TTS_LANGUAGE,
+          q: cleanText
+        });
+        return [
+          `${PRIMARY_TTS_ENDPOINT}?${primaryParams.toString()}`,
+          `${FALLBACK_TTS_ENDPOINT}?${fallbackParams.toString()}`
+        ];
+      }
+
+      async function playPronunciation(text, button = null) {
+        const cleanText = String(text || '').trim();
+        if (!cleanText) return;
+
+        stopAudio();
         activeButton = button;
-        button.classList.add('is-speaking');
-        utterance.onend = stopSpeakingState;
-        utterance.onerror = stopSpeakingState;
-        synth.speak(utterance);
+        button?.classList.add('is-speaking');
+
+        const urls = buildAudioUrls(cleanText);
+
+        async function tryProvider(index) {
+          if (index >= urls.length) {
+            stopAudio();
+            showAudioError();
+            return;
+          }
+
+          const audio = new Audio(urls[index]);
+          audio.preload = 'auto';
+          audio.playbackRate = PLAYBACK_RATE;
+          audio.preservesPitch = true;
+          audio.mozPreservesPitch = true;
+          audio.webkitPreservesPitch = true;
+          activeAudio = audio;
+
+          const finish = () => {
+            if (activeAudio === audio) stopAudio();
+          };
+          audio.addEventListener('ended', finish, { once: true });
+          audio.addEventListener('error', () => {
+            if (activeAudio === audio) activeAudio = null;
+            tryProvider(index + 1);
+          }, { once: true });
+
+          try {
+            await audio.play();
+          } catch (error) {
+            if (activeAudio === audio) activeAudio = null;
+            await tryProvider(index + 1);
+          }
+        }
+
+        await tryProvider(0);
       }
 
       function makeButton(word, extraClass = '') {
@@ -205,15 +207,10 @@
         button.setAttribute('aria-label', `Прослушать произношение: ${word}`);
         button.title = `Прослушать: ${word}`;
         button.textContent = '🔊';
-        if (!canSpeak) {
-          button.disabled = true;
-          button.classList.add('is-unavailable');
-          button.title = 'Озвучивание не поддерживается этим браузером';
-        }
         button.addEventListener('click', (event) => {
           event.preventDefault();
           event.stopPropagation();
-          speak(word, button);
+          playPronunciation(word, button);
         });
         return button;
       }
@@ -274,9 +271,7 @@
         decorateVocabulary();
       }
 
-      window.addEventListener('pagehide', () => {
-        if (canSpeak) synth.cancel();
-      });
+      window.addEventListener('pagehide', stopAudio);
     })();
   </script>
 </body>
