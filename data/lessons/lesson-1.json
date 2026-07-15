@@ -5,8 +5,13 @@
   "subtitle": "Reading and Workbook practice: names and vowel sounds",
   "status": "available",
   "vocabularyId": "vocab-lesson-1",
+  "grammarIds": [],
   "publishedAt": "2026-07-15",
   "totalPoints": 51,
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
   "blocks": [
     {
       "type": "section",
