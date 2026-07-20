@@ -582,12 +582,20 @@
     return [...new Map(topics.map((topic) => [topic.id, topic])).values()];
   }
 
+  function compactGrammarTitle(topic) {
+    const id = safeText(topic?.id).toLowerCase();
+    if (id.includes('suffix')) return 'Суффиксы';
+    if (id.includes('pronoun')) return 'Местоимения';
+    const title = safeText(topic?.title, 'Грамматика').split(':')[0].trim();
+    return title.length > 22 ? `${title.slice(0, 20).trim()}…` : title;
+  }
+
   function lessonMaterialLinks(lesson, mode = 'hub') {
     const vocabulary = getLessonVocabularyTopic(lesson);
     const grammarTopics = getLessonGrammarTopics(lesson);
     if (!vocabulary && !grammarTopics.length) return '';
 
-    const links = [];
+    const entries = [];
     const seen = new Set();
 
     if (vocabulary) {
@@ -595,7 +603,14 @@
       const key = `vocab:${href}`;
       if (!seen.has(key)) {
         seen.add(key);
-        links.push(`<a class="lesson-material-link vocab" href="${escapeHtml(href)}"><span class="lesson-material-link-main"><span class="lesson-material-icon" aria-hidden="true">💥</span><span class="lesson-material-text"><strong>Словарь</strong><small>${escapeHtml(vocabulary.title || 'Vocabulary')}</small></span></span><span class="lesson-material-arrow" aria-hidden="true">→</span></a>`);
+        entries.push({
+          type: 'vocab',
+          icon: '💥',
+          label: 'Словарь',
+          shortLabel: 'Словарь',
+          title: safeText(vocabulary.title, 'Vocabulary'),
+          href
+        });
       }
     }
 
@@ -605,16 +620,25 @@
       const key = `grammar:${href}`;
       if (seen.has(key)) return;
       seen.add(key);
-      links.push(`<a class="lesson-material-link grammar" href="${escapeHtml(href)}"><span class="lesson-material-link-main"><span class="lesson-material-icon" aria-hidden="true">📐</span><span class="lesson-material-text"><strong>Грамматика</strong><small>${escapeHtml(topic.title || 'Grammar')}</small></span></span><span class="lesson-material-arrow" aria-hidden="true">→</span></a>`);
+      entries.push({
+        type: 'grammar',
+        icon: '📐',
+        label: 'Грамматика',
+        shortLabel: compactGrammarTitle(topic),
+        title: safeText(topic.title, 'Grammar'),
+        href
+      });
     });
 
-    if (!links.length) return '';
+    if (!entries.length) return '';
 
-    const description = mode === 'lesson'
-      ? 'Открой словарь и грамматику по этой домашней работе.'
-      : 'Ниже — прямые переходы к словарю и грамматике этого урока.';
+    if (mode === 'hub') {
+      const links = entries.map((entry) => `<a class="lesson-material-chip ${escapeHtml(entry.type)}" href="${escapeHtml(entry.href)}" aria-label="Открыть: ${escapeHtml(entry.label)} — ${escapeHtml(entry.title)}" title="${escapeHtml(entry.title)}"><span class="lesson-material-chip-icon" aria-hidden="true">${escapeHtml(entry.icon)}</span><span class="lesson-material-chip-label">${escapeHtml(entry.shortLabel)}</span><span class="lesson-material-chip-arrow" aria-hidden="true">→</span></a>`).join('');
+      return `<div class="lesson-materials lesson-materials-hub"><span class="lesson-materials-compact-label">Материалы</span><div class="lesson-material-links">${links}</div></div>`;
+    }
 
-    return `<div class="lesson-materials lesson-materials-${escapeHtml(mode)}"><div class="lesson-materials-heading"><span class="eyebrow">Материалы урока</span><p>${escapeHtml(description)}</p></div><div class="lesson-material-links">${links.join('')}</div></div>`;
+    const links = entries.map((entry) => `<a class="lesson-material-link ${escapeHtml(entry.type)}" href="${escapeHtml(entry.href)}"><span class="lesson-material-link-main"><span class="lesson-material-icon" aria-hidden="true">${escapeHtml(entry.icon)}</span><span class="lesson-material-text"><strong>${escapeHtml(entry.label)}</strong><small>${escapeHtml(entry.title)}</small></span></span><span class="lesson-material-arrow" aria-hidden="true">→</span></a>`).join('');
+    return `<div class="lesson-materials lesson-materials-lesson"><div class="lesson-materials-heading"><span class="eyebrow">Открыть материалы</span><p>Словарь и грамматика по этой домашней работе.</p></div><div class="lesson-material-links">${links}</div></div>`;
   }
 
   function renderHomework() {
