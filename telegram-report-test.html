@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Служебная страница проверки Telegram-отчётов">
-  <title>Проверка Telegram-отчёта</title>
+  <title>Проверка Telegram-отчёта v2</title>
   <link rel="stylesheet" href="styles.css?v=5">
   <style>
     .test-grid { display: grid; gap: 14px; }
@@ -35,7 +35,7 @@
   <header class="hero hero-compact">
     <span class="star one">✦</span><span class="star two">✦</span>
     <div class="container hero-content">
-      <span class="hero-badge">Служебная проверка</span>
+      <span class="hero-badge">Служебная проверка · v2</span>
       <h1>Telegram-отчёт по домашней работе</h1>
       <p>Страница проверяет всю цепочку: запись в Supabase → чтение результата → вызов Edge Function → отправка сообщения в Telegram.</p>
     </div>
@@ -244,10 +244,25 @@
             .eq('lesson_id', TEST_LESSON_ID)
             .single();
           if (readError) throw readError;
-          if (savedRow.status !== 'submitted' || savedRow.submitted_at !== submittedAt) throw new Error('Тестовая запись сохранилась не полностью.');
+
+          // PostgreSQL may return the same UTC moment as +00:00 instead of Z.
+          // Compare timestamps as dates, not as literal strings.
+          log('Тестовая запись прочитана из Supabase.', savedRow);
+          const savedStatus = String(savedRow?.status || '').toLowerCase();
+          const expectedTime = Date.parse(submittedAt);
+          const savedTime = Date.parse(savedRow?.submitted_at || '');
+          const sameSubmissionTime = Number.isFinite(expectedTime) && Number.isFinite(savedTime)
+            && Math.abs(savedTime - expectedTime) < 1000;
+
+          if (savedStatus !== 'submitted') {
+            throw new Error(`Статус тестовой записи: ${savedRow?.status || 'не указан'}, ожидался submitted.`);
+          }
+          if (!sameSubmissionTime) {
+            throw new Error(`Время отправки не совпало. Записано: ${savedRow?.submitted_at || 'не указано'}. Ожидалось: ${submittedAt}.`);
+          }
 
           setStatus('status-db', 'success', 'Тестовая работа записана и прочитана обратно.');
-          log('Тестовая запись подтверждена.', savedRow);
+          log('Тестовая запись подтверждена. Формат времени Supabase корректно распознан.');
 
           const endpoint = `${String(config.supabase.url).replace(/\/+$/, '')}/functions/v1/notify-telegram`;
           setStatus('status-function', 'working', 'Вызываем notify-telegram…');
