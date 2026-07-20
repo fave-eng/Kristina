@@ -6,13 +6,14 @@
   "status": "available",
   "vocabularyId": "vocab-lesson-2",
   "grammarIds": [
+    "grammar-adjective-suffixes",
     "grammar-pronouns"
   ],
   "publishedAt": "2026-07-20",
   "totalPoints": 40,
   "notification": {
     "enabled": true,
-    "version": 1
+    "version": 2
   },
   "blocks": [
     {

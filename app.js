@@ -565,6 +565,41 @@
     }
   }
 
+
+  function getLessonVocabularyTopic(lesson) {
+    const vocabularyId = safeText(lesson?.vocabularyId).trim();
+    return VOCABULARY_CATALOG.allTopics.find((topic) => topic.id === vocabularyId)
+      || VOCABULARY_CATALOG.allTopics.find((topic) => topic.linkedLessonId === lesson?.id)
+      || null;
+  }
+
+  function getLessonGrammarTopics(lesson) {
+    const ids = Array.isArray(lesson?.grammarIds) ? lesson.grammarIds.map((id) => safeText(id).trim()).filter(Boolean) : [];
+    const topics = ids.map((id) => GRAMMAR_DATA.find((topic) => topic.id === id)).filter(Boolean);
+    GRAMMAR_DATA.filter((topic) => topic.linkedLessonId === lesson?.id).forEach((topic) => topics.push(topic));
+    return [...new Map(topics.map((topic) => [topic.id, topic])).values()];
+  }
+
+  function lessonMaterialLinks(lesson, mode = 'hub') {
+    const vocabulary = getLessonVocabularyTopic(lesson);
+    const grammarTopics = getLessonGrammarTopics(lesson);
+    if (!vocabulary && !grammarTopics.length) return '';
+
+    const links = [];
+    if (vocabulary) {
+      const href = vocabulary.page || `vocabulary.html?id=${encodeURIComponent(vocabulary.id)}`;
+      links.push(`<a class="lesson-material-link vocab" href="${escapeHtml(href)}"><span>💥</span><span><strong>Словарь</strong><small>${escapeHtml(vocabulary.title || 'Vocabulary')}</small></span></a>`);
+    }
+    grammarTopics.forEach((topic) => {
+      if (topic.status === 'locked' || topic.status === 'draft') return;
+      const href = topic.page || `grammar-topic.html?id=${encodeURIComponent(topic.id)}`;
+      links.push(`<a class="lesson-material-link grammar" href="${escapeHtml(href)}"><span>📐</span><span><strong>Грамматика</strong><small>${escapeHtml(topic.title || 'Grammar')}</small></span></a>`);
+    });
+    if (!links.length) return '';
+
+    return `<div class="lesson-materials lesson-materials-${escapeHtml(mode)}"><div class="lesson-materials-heading"><span class="eyebrow">Материалы урока</span><p>Повтори слова и правила, связанные с этим уроком.</p></div><div class="lesson-material-links">${links.join('')}</div></div>`;
+  }
+
   function renderHomework() {
     const progress = window.ProgressService.loadHomeworkProgress();
     const published = HOMEWORK_DATA.filter((item) => item.status !== 'draft');
@@ -586,13 +621,18 @@
       const subtitle = locked ? 'Материал откроется после публикации преподавателем.' : safeText(item.subtitle, 'Интерактивное задание');
       const status = complete ? 'completed' : safeText(item.status, 'available');
       const label = complete ? 'Выполнено' : status === 'available' ? 'Доступно' : status === 'locked' ? 'Закрыто' : 'Черновик';
-      const tag = locked ? 'div' : 'a';
-      const href = locked ? '' : ` href="${escapeHtml(item.page || `lesson.html?id=${encodeURIComponent(item.id)}`)}"`;
-      return `<${tag} class="card item-card ${locked ? 'disabled' : 'interactive'}"${href}>
-        <div class="item-icon">${complete ? '✅' : locked ? '🔒' : '📝'}</div>
-        <div class="item-main"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(subtitle)}</p></div>
-        <span class="status-badge status-${escapeHtml(status)}">${escapeHtml(label)}</span>
-      </${tag}>`;
+      if (locked) {
+        return `<article class="card lesson-hub-card disabled"><div class="lesson-hub-main"><div class="item-icon">🔒</div><div class="item-main"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(subtitle)}</p></div><span class="status-badge status-locked">${escapeHtml(label)}</span></div></article>`;
+      }
+      const href = item.page || `lesson.html?id=${encodeURIComponent(item.id)}`;
+      return `<article class="card lesson-hub-card">
+        <a class="lesson-hub-main interactive" href="${escapeHtml(href)}">
+          <div class="item-icon">${complete ? '✅' : '📝'}</div>
+          <div class="item-main"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(subtitle)}</p></div>
+          <span class="status-badge status-${escapeHtml(status)}">${escapeHtml(label)}</span>
+        </a>
+        ${lessonMaterialLinks(item, 'hub')}
+      </article>`;
     }).join('');
   }
 
@@ -983,7 +1023,9 @@
       if (block.type === 'section') sectionNumber += 1;
       return renderLessonBlock(block.type === 'section' ? { ...block, __sectionNumber: sectionNumber } : block, blockIndex);
     }).join('');
+    const linkedMaterials = lessonMaterialLinks(lesson, 'lesson');
     root.innerHTML = `<div class="card lesson-intro"><div><span class="eyebrow">Домашнее задание</span><p>${escapeHtml(lesson.subtitle || '')}</p></div><span class="lesson-points">${pointsLabel}</span></div>
+      ${linkedMaterials}
       ${roadmap}
       <div id="lesson-blocks">${renderedBlocks}</div>
       <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Проверить ответы</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Отправить преподавателю</button></div><p class="muted save-note">После проверки ответы сохраняются на устройстве и сразу синхронизируются с Supabase.</p></div>`;
@@ -1151,7 +1193,7 @@
 
       ${mistakes.length ? `<section class="section" id="grammar-mistakes" aria-labelledby="grammar-mistakes-title"><div class="section-heading"><div><span class="eyebrow">Common mistakes</span><h2 id="grammar-mistakes-title">Частые ошибки</h2></div></div><article class="card info-card lesson-block"><div class="list">${mistakes.map((mistake) => `<p>• ${escapeHtml(mistake)}</p>`).join('')}</div></article></section>` : ''}
 
-      <section class="section" id="grammar-practice-section" aria-labelledby="grammar-practice-title"><div class="section-heading"><div><span class="eyebrow">Practice</span><h2 id="grammar-practice-title">4 упражнения: от простого к сложному</h2></div></div><div id="grammar-quiz"></div></section>
+      <section class="section" id="grammar-practice-section" aria-labelledby="grammar-practice-title"><div class="section-heading"><div><span class="eyebrow">Practice</span><h2 id="grammar-practice-title">${Array.isArray(topic.exercises) ? topic.exercises.length : 0} упражнений: от простого к сложному</h2></div></div><div id="grammar-quiz"></div></section>
     `;
 
     renderGrammarPractice(topic, byId('grammar-quiz'));

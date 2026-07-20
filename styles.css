@@ -1249,3 +1249,125 @@ body[data-view="lesson"] #lesson-root {
     grid-template-columns: 1fr;
   }
 }
+
+/* Linked lesson materials in the homework hub and lesson page */
+.lesson-hub-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.lesson-hub-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  transition: background .18s ease;
+}
+
+.lesson-hub-main.interactive:hover {
+  background: #fbfcff;
+}
+
+.lesson-materials {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #fbfcff);
+}
+
+.lesson-materials-hub {
+  margin: 0;
+  padding: 15px 18px 18px;
+  border-width: 1px 0 0;
+  border-radius: 0;
+  background: #f8fafc;
+}
+
+.lesson-materials-lesson {
+  margin-top: 14px;
+  padding: 18px;
+  border-color: #dbe3ff;
+}
+
+.lesson-materials-heading p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.lesson-material-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.lesson-materials-lesson .lesson-material-links {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lesson-material-link {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 64px;
+  padding: 11px 12px;
+  border: 1px solid #dbe3ff;
+  border-radius: 14px;
+  background: white;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+
+.lesson-material-link:hover {
+  transform: translateY(-1px);
+  border-color: #a5b4fc;
+  box-shadow: 0 8px 18px rgba(79, 70, 229, .08);
+}
+
+.lesson-material-link > span:first-child {
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.lesson-material-link > span:last-child {
+  min-width: 0;
+}
+
+.lesson-material-link strong,
+.lesson-material-link small {
+  display: block;
+}
+
+.lesson-material-link strong {
+  font-size: .84rem;
+}
+
+.lesson-material-link small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .74rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.lesson-material-link.vocab {
+  border-color: #fecdd3;
+  background: #fffafb;
+}
+
+.lesson-material-link.grammar {
+  border-color: #c7d2fe;
+  background: #fafaff;
+}
+
+@media (max-width: 620px) {
+  .lesson-hub-main {
+    align-items: flex-start;
+    padding: 17px;
+  }
+
+  .lesson-material-links,
+  .lesson-materials-lesson .lesson-material-links {
+    grid-template-columns: 1fr;
+  }
+}
