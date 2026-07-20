@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Personal English learning space">
+  <meta name="description" content="Персональное пространство ученика английского языка">
   <title>Vocabulary trainer</title>
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -69,16 +69,16 @@
   <script src="app.js" defer></script>
 </head>
 <body class="has-bottom-nav" data-page="vocabulary" data-view="vocabulary">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
 
   <header class="hero hero-compact">
     <span class="star one">✦</span><span class="star two">✦</span>
     <div class="container hero-content reveal">
-      <a class="vocab-back-link" href="vocabulary-hub.html" aria-label="Back to vocabulary topics"><span class="vocab-back-arrow" aria-hidden="true">←</span><span>Back to topics</span></a>
+      <a class="vocab-back-link" href="vocabulary-hub.html" aria-label="Вернуться к словарным темам"><span class="vocab-back-arrow" aria-hidden="true">←</span><span>Назад к темам</span></a>
       <br>
       <span class="hero-badge">✦ <span data-config="level"></span> Level · Individual Course</span>
       <h1><span id="vocab-hero-title">Vocabulary</span></h1>
-      <p><span id="vocab-hero-subtitle">Personal vocabulary trainer</span></p>
+      <p><span id="vocab-hero-subtitle">Персональный тренажёр</span></p>
     </div>
     <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path fill="#f8fafc" d="M0,66 C220,102 410,10 696,52 C963,91 1115,99 1440,35 L1440,100 L0,100 Z"></path></svg>
   </header>
@@ -91,7 +91,7 @@
 
   </main>
 
-  <nav class="bottom-nav" aria-label="Main navigation">
+  <nav class="bottom-nav" aria-label="Основная навигация">
     <a class="nav-link" data-nav="home" href="index.html"><span class="nav-icon">🏠</span><span>Home</span></a>
     <a class="nav-link" data-nav="homework" href="homework.html"><span class="nav-icon">📝</span><span>HW</span></a>
     <a class="nav-link" data-nav="grammar" href="grammar.html"><span class="nav-icon">📐</span><span>Grammar</span></a>
@@ -103,109 +103,78 @@
     (() => {
       'use strict';
 
-      /**
-       * Shared word and phrase pronunciation service using the browser Web Speech API.
-       * No separate vocabulary MP3 files or external TTS services are used.
+      /*
+       * Та же озвучка, что использовалась в старых словарях:
+       * системный Web Speech API, британский английский en-GB,
+       * стандартная скорость и высота голоса устройства.
        */
-      const PronunciationService = {
-        voices: [],
+      const speech = window.speechSynthesis;
+      let activeButton = null;
 
-        refreshVoices() {
-          this.voices = window.speechSynthesis?.getVoices?.() || [];
-        },
-
-        speak(text) {
-          const spokenText = String(text || '')
-            .replace(/\s*\/\s*/g, ' or ')
-            .trim();
-
-          if (!spokenText || !('speechSynthesis' in window) ||
-              typeof SpeechSynthesisUtterance === 'undefined') {
-            return false;
-          }
-
-          window.speechSynthesis.cancel();
-
-          const utterance = new SpeechSynthesisUtterance(spokenText);
-          utterance.lang = 'en-GB';
-          utterance.rate = 1;
-          utterance.pitch = 1.08;
-          utterance.volume = 1;
-
-          const preferredVoiceNames = [
-            'Martha', 'Serena', 'Kate', 'Sonia', 'Google UK English Female',
-            'Samantha', 'Microsoft Sonia Online', 'Microsoft Libby Online'
-          ];
-          const englishVoice = preferredVoiceNames
-            .map((name) => this.voices.find((voice) => String(voice.name || '').toLowerCase().includes(name.toLowerCase())))
-            .find(Boolean) || this.voices.find(
-            (voice) => String(voice.lang || '').toLowerCase() === 'en-gb' && voice.localService
-          ) || this.voices.find(
-            (voice) => String(voice.lang || '').toLowerCase() === 'en-gb'
-          ) || this.voices.find(
-            (voice) => String(voice.lang || '').toLowerCase().startsWith('en') && voice.localService
-          ) || this.voices.find(
-            (voice) => String(voice.lang || '').toLowerCase().startsWith('en')
-          );
-
-          if (englishVoice) {
-            utterance.voice = englishVoice;
-          }
-
-          window.speechSynthesis.speak(utterance);
-          return true;
-        }
-      };
-
-      window.PronunciationService = PronunciationService;
-      PronunciationService.refreshVoices();
-
-      if ('speechSynthesis' in window) {
-        if (typeof window.speechSynthesis.addEventListener === 'function') {
-          window.speechSynthesis.addEventListener(
-            'voiceschanged',
-            () => PronunciationService.refreshVoices()
-          );
-        } else {
-          window.speechSynthesis.onvoiceschanged =
-            () => PronunciationService.refreshVoices();
+      function stopAudio() {
+        if (speech) speech.cancel();
+        if (activeButton) {
+          activeButton.classList.remove('is-speaking');
+          activeButton = null;
         }
       }
 
       function showAudioError() {
         const toast = document.getElementById('app-toast');
         if (!toast) return;
-        toast.textContent = 'Pronunciation is unavailable on this device.';
+        toast.textContent = 'Озвучивание недоступно на этом устройстве.';
         toast.classList.add('show');
         window.setTimeout(() => toast.classList.remove('show'), 2800);
       }
 
-      function makeButton(text, extraClass = '') {
-        const button = document.createElement('button');
-        const isAvailable = 'speechSynthesis' in window &&
-          typeof SpeechSynthesisUtterance !== 'undefined';
+      function prepareSpeechText(text) {
+        return String(text || '')
+          .trim()
+          .replace(/\s*\/\s*/g, ' or ');
+      }
 
-        button.type = 'button';
-        button.className = `pronounce-btn ${extraClass}`.trim();
-        button.setAttribute('aria-label', `Listen to the pronunciation: ${text}`);
-        button.title = `Listen: ${text}`;
-        button.textContent = '🔊';
-
-        if (!isAvailable) {
-          button.disabled = true;
-          button.classList.add('is-unavailable');
-          button.title = 'Pronunciation is unavailable on this device';
+      function playPronunciation(text, button = null) {
+        const cleanText = prepareSpeechText(text);
+        if (!cleanText || !speech || typeof SpeechSynthesisUtterance === 'undefined') {
+          showAudioError();
+          return;
         }
 
+        stopAudio();
+        activeButton = button;
+        button?.classList.add('is-speaking');
+
+        const utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.lang = 'en-GB';
+        utterance.rate = 1;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+
+        utterance.onend = () => {
+          if (activeButton === button) stopAudio();
+        };
+        utterance.onerror = (event) => {
+          if (event?.error !== 'canceled' && event?.error !== 'interrupted') {
+            showAudioError();
+          }
+          if (activeButton === button) stopAudio();
+        };
+
+        speech.speak(utterance);
+      }
+
+      function makeButton(word, extraClass = '') {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `pronounce-btn ${extraClass}`.trim();
+        button.setAttribute('aria-label', `Прослушать произношение: ${word}`);
+        button.title = `Прослушать: ${word}`;
+        button.textContent = '🔊';
         button.addEventListener('click', (event) => {
           event.preventDefault();
           event.stopPropagation();
-
-          if (!PronunciationService.speak(text)) {
-            showAudioError();
-          }
+          playPronunciation(word, button);
         });
-
         return button;
       }
 
@@ -213,23 +182,16 @@
         const front = root.querySelector('.flash-front');
         const wordNode = front?.querySelector('.flash-word');
         if (!front || !wordNode || front.querySelector('.flash-pronounce')) return;
-
-        front.appendChild(
-          makeButton(wordNode.textContent, 'flash-pronounce')
-        );
+        front.appendChild(makeButton(wordNode.textContent, 'flash-pronounce'));
       }
 
       function decorateWordList(root) {
         root.querySelectorAll('.word-card').forEach((card) => {
           if (card.querySelector('.word-card-pronounce')) return;
-
           const wordNode = card.querySelector('strong');
           if (!wordNode) return;
-
           card.classList.add('has-pronunciation');
-          card.appendChild(
-            makeButton(wordNode.textContent, 'word-card-pronounce')
-          );
+          card.appendChild(makeButton(wordNode.textContent, 'word-card-pronounce'));
         });
       }
 
@@ -238,10 +200,10 @@
         if (!modes || modes.dataset.orderReady === 'true') return;
 
         const labels = {
-          all: 'All words',
-          cards: 'Flashcards',
-          difficult: 'Difficult',
-          test: 'Test'
+          all: 'Все слова',
+          cards: 'Карточки',
+          difficult: 'Трудные',
+          test: 'Тест'
         };
         const order = ['all', 'cards', 'difficult', 'test'];
 
@@ -260,7 +222,6 @@
       function decorateVocabulary() {
         const root = document.getElementById('vocabulary-root');
         if (!root) return;
-
         reorderVocabularyModes(root);
         decorateFlashcard(root);
         decorateWordList(root);
@@ -273,11 +234,7 @@
         decorateVocabulary();
       }
 
-      window.addEventListener('pagehide', () => {
-        if ('speechSynthesis' in window) {
-          window.speechSynthesis.cancel();
-        }
-      });
+      window.addEventListener('pagehide', stopAudio);
     })();
   </script>
 </body>
