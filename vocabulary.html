@@ -128,10 +128,16 @@
 
           const utterance = new SpeechSynthesisUtterance(spokenText);
           utterance.lang = 'en-GB';
-          utterance.rate = 0.85;
+          utterance.rate = 1;
+          utterance.pitch = 1;
+          utterance.volume = 1;
 
           const englishVoice = this.voices.find(
-            (voice) => voice.lang === 'en-GB'
+            (voice) => String(voice.lang || '').toLowerCase() === 'en-gb' && voice.localService
+          ) || this.voices.find(
+            (voice) => String(voice.lang || '').toLowerCase() === 'en-gb'
+          ) || this.voices.find(
+            (voice) => String(voice.lang || '').toLowerCase().startsWith('en') && voice.localService
           ) || this.voices.find(
             (voice) => String(voice.lang || '').toLowerCase().startsWith('en')
           );

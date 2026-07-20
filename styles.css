@@ -1078,3 +1078,174 @@ body[data-view="lesson"] #lesson-root {
   border-radius: 6px;
 }
 
+
+/* Grammar topic redesign */
+.grammar-intro-card {
+  background: linear-gradient(145deg, #ffffff, #f5f7ff);
+  border-color: #dbe3ff;
+}
+
+.grammar-lead {
+  margin-top: 10px;
+  line-height: 1.75;
+}
+
+.grammar-formula-box {
+  margin-top: 16px;
+  padding: 15px 16px;
+  border: 1px dashed #c7d2fe;
+  border-radius: 15px;
+  background: #f8f7ff;
+}
+
+.grammar-formula-box strong {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: #4338ca;
+}
+
+.grammar-anchor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.grammar-anchor-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #dbe3ff;
+  border-radius: 999px;
+  background: white;
+  color: #3730a3;
+  font-weight: 700;
+  font-size: .86rem;
+}
+
+.grammar-glance-grid,
+.grammar-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.grammar-glance-card,
+.grammar-mini-card {
+  box-shadow: none;
+}
+
+.grammar-glance-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.grammar-glance-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 14px;
+  background: #eef2ff;
+  font-size: 1.2rem;
+}
+
+.grammar-pattern {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.grammar-example-sentence {
+  margin-top: 10px;
+  color: #475569;
+}
+
+.grammar-mini-card {
+  background: linear-gradient(145deg, #fff, #fbfcff);
+}
+
+.grammar-mini-card p {
+  margin-top: 8px;
+  color: #334155;
+}
+
+.grammar-mini-example {
+  margin-top: 12px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-weight: 700;
+}
+
+.grammar-example-group {
+  background: linear-gradient(145deg, #fff, #fbfcff);
+}
+
+.grammar-example-item {
+  color: #334155;
+  line-height: 1.7;
+}
+
+.grammar-exercise-card {
+  overflow: hidden;
+}
+
+.grammar-exercise-heading {
+  position: relative;
+}
+
+.grammar-step-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.grammar-step-badge,
+.grammar-difficulty {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 800;
+}
+
+.grammar-step-badge {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.grammar-difficulty {
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.grammar-practice-actions {
+  margin-top: 16px;
+  border-color: #dbe3ff;
+  background: linear-gradient(145deg, #fff, #f8f7ff);
+}
+
+.grammar-success-note {
+  margin-top: 10px;
+  color: #334155;
+}
+
+@media (max-width: 620px) {
+  .grammar-glance-grid,
+  .grammar-mini-grid {
+    grid-template-columns: 1fr;
+  }
+}

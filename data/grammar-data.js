@@ -3,225 +3,321 @@
  */
 window.GRAMMAR_DATA = [
   {
-    "id": "grammar-pronouns",
-    "order": 1,
-    "title": "Pronouns: subject, object and possessive forms",
-    "level": "Intermediate Plus",
-    "status": "available",
-    "page": "grammar-topic.html?id=grammar-pronouns",
-    "passed": false,
-    "attempts": 0,
-    "explanation": "В английском местоимение меняет форму в зависимости от своей роли. Перед глаголом обычно ставим местоимение-подлежащее: I, you, he, she, it, we, they. После глагола или предлога используем объектную форму: me, you, him, her, it, us, them. Притяжательное прилагательное ставится перед существительным: my book, their tickets. Притяжательное местоимение заменяет всё словосочетание и употребляется без существительного: This book is mine. В конструкциях с двумя дополнениями возможны два порядка: give me the book или give the book to me. Когда предмет заменён местоимением it / them, нужен порядок give it to me, buy them for her.",
-    "formula": "Subject pronoun + verb · verb / preposition + object pronoun · possessive adjective + noun · possessive pronoun (without a noun) · verb + thing + to / for + person",
-    "affirmative": "I called him. She showed us her photos. Their car is new, but ours is older. He sold it to me. My mum made it for us.",
-    "table": {
-      "headers": [
-        "Лицо",
-        "Подлежащее",
-        "Дополнение",
-        "Перед существительным",
-        "Без существительного"
-      ],
-      "rows": [
-        [
-          "1-е лицо, ед. ч.",
-          "I",
-          "me",
-          "my",
-          "mine"
+    id: "grammar-pronouns",
+    order: 1,
+    title: "Pronouns: subject, object and possessive forms",
+    level: "B1",
+    status: "available",
+    page: "grammar-topic.html?id=grammar-pronouns",
+    passed: false,
+    attempts: 0,
+    explanation: "Местоимения в английском меняют форму в зависимости от функции в предложении. Чтобы быстро ориентироваться, задай себе три вопроса: кто делает действие, на кого направлено действие и чей это предмет. Отдельно запомни порядок слов с to / for, когда в предложении два дополнения.",
+    formula: "subject pronoun + verb · verb / preposition + object pronoun · possessive adjective + noun · possessive pronoun (without a noun) · verb + thing + to / for + person",
+    glanceCards: [
+      {
+        icon: "👤",
+        label: "Subject pronoun",
+        hint: "кто делает действие",
+        pattern: "I / you / he / she / it / we / they",
+        example: "She works from home."
+      },
+      {
+        icon: "🎯",
+        label: "Object pronoun",
+        hint: "на кого направлено действие",
+        pattern: "me / you / him / her / it / us / them",
+        example: "I can see them."
+      },
+      {
+        icon: "👜",
+        label: "Possessive adjective",
+        hint: "ставим перед существительным",
+        pattern: "my / your / his / her / its / our / their",
+        example: "Her laptop is new."
+      },
+      {
+        icon: "🏷️",
+        label: "Possessive pronoun",
+        hint: "заменяет всё словосочетание",
+        pattern: "mine / yours / his / hers / ours / theirs",
+        example: "This seat is ours."
+      }
+    ],
+    anchorLinks: [
+      { id: "grammar-at-a-glance", title: "Быстрый обзор" },
+      { id: "grammar-tables", title: "Таблицы" },
+      { id: "grammar-examples", title: "Примеры" },
+      { id: "grammar-mistakes", title: "Ошибки" },
+      { id: "grammar-practice-section", title: "Практика" }
+    ],
+    miniRules: [
+      {
+        title: "1. Ask “Who?”",
+        text: "Если слово отвечает на вопрос «кто?» и стоит перед глаголом, обычно нужен subject pronoun.",
+        example: "They live in Warsaw."
+      },
+      {
+        title: "2. Ask “Whom?” or “to whom?”",
+        text: "После глагола или предлога используем object pronoun.",
+        example: "I spoke to her after class."
+      },
+      {
+        title: "3. Check the noun",
+        text: "Если после формы идёт существительное, нужен possessive adjective. Если существительного нет — possessive pronoun.",
+        example: "My notes are here. Yours are on the desk."
+      },
+      {
+        title: "4. Remember to / for",
+        text: "Когда предмет заменён местоимением it / them, ставим it / them + to / for + person.",
+        example: "Send it to me. Buy them for us."
+      }
+    ],
+    tables: [
+      {
+        title: "Main forms",
+        headers: [
+          "Meaning",
+          "Subject",
+          "Object",
+          "Before a noun",
+          "Without a noun"
         ],
-        [
-          "2-е лицо",
-          "you",
-          "you",
-          "your",
-          "yours"
-        ],
-        [
-          "3-е лицо, муж.",
-          "he",
-          "him",
-          "his",
-          "his"
-        ],
-        [
-          "3-е лицо, жен.",
-          "she",
-          "her",
-          "her",
-          "hers"
-        ],
-        [
-          "Предмет / животное",
-          "it",
-          "it",
-          "its",
-          "—"
-        ],
-        [
-          "1-е лицо, мн. ч.",
-          "we",
-          "us",
-          "our",
-          "ours"
-        ],
-        [
-          "3-е лицо, мн. ч.",
-          "they",
-          "them",
-          "their",
-          "theirs"
+        rows: [
+          ["I", "I", "me", "my", "mine"],
+          ["you", "you", "you", "your", "yours"],
+          ["he", "he", "him", "his", "his"],
+          ["she", "she", "her", "her", "hers"],
+          ["it", "it", "it", "its", "—"],
+          ["we", "we", "us", "our", "ours"],
+          ["they", "they", "them", "their", "theirs"]
         ]
-      ]
-    },
-    "examples": [
-      "His name is Tom. — His стоит перед существительным name.",
-      "I always stay with her. — После предлога with нужна объектная форма her.",
-      "I’ve forgotten mine. — Mine заменяет словосочетание my dictionary.",
-      "They gave us their tickets. — Если оба дополнения являются существительными, лицо можно поставить перед предметом.",
-      "My cousin sold it to me. — Если предмет выражен местоимением it / them, используем to / for.",
-      "She bought them for you. — Buy, make и get обычно употребляются с for.",
-      "He sent them to her. — Give, send, show, lend, sell и read обычно употребляются с to."
+      },
+      {
+        title: "Word order with two objects",
+        headers: ["Pattern", "Use it when…", "Example"],
+        rows: [
+          ["give me the book", "both objects are nouns / a person comes first", "She showed us her photos."],
+          ["give the book to me", "you want to stress the thing or the person", "He sent the email to me."],
+          ["give it to me", "the thing is a pronoun", "Please give it to me."],
+          ["buy it for her", "verbs like buy / make / get", "I bought it for her."],
+          ["read it to them", "verbs like give / send / show / lend / sell / read", "She read it to them."]
+        ]
+      }
     ],
-    "commonMistakes": [
-      "Не говорим me car или mine car. Перед существительным нужно my car, а без существительного — mine.",
-      "После предлога нельзя использовать форму подлежащего: with she ✗ → with her ✓.",
-      "Не ставим объектные местоимения в порядке give me it ✗. Правильно: give it to me.",
-      "Its — притяжательное прилагательное без апострофа. It’s означает it is или it has.",
-      "После buy / make / get обычно используем for: buy it for her. После give / send / show / sell / read — to: send it to him."
+    exampleGroups: [
+      {
+        title: "Compare the forms",
+        items: [
+          "He called me after the meeting.",
+          "My manager sent me a message, but hers didn’t reply.",
+          "Their office is in the city centre, and ours is near the station."
+        ]
+      },
+      {
+        title: "Spot the difference",
+        items: [
+          "This is my charger. — The charger is mine.",
+          "We invited them to our house. — They invited us to theirs.",
+          "Can you show me your ticket? — Sorry, I can’t find mine."
+        ]
+      },
+      {
+        title: "to / for in context",
+        items: [
+          "Could you send it to him before lunch?",
+          "I made a playlist for you.",
+          "Our teacher read the email to us."
+        ]
+      }
     ],
-    "quiz": [
+    commonMistakes: [
+      "me car ✗ → my car ✓. Перед существительным нужен possessive adjective.",
+      "with she ✗ → with her ✓. После предлога используем object pronoun.",
+      "give me it ✗ → give it to me ✓. Если предмет — местоимение, нужен порядок it + to / for + person.",
+      "its laptop = его/её у предмета или животного, а it’s = it is / it has.",
+      "their / there / they’re — это три разные формы: притяжательное, место и сокращение от they are."
+    ],
+    exercises: [
       {
-        "prompt": "My brother lives in London. I often stay with ___.",
-        "options": [
-          "he",
-          "him",
-          "his",
-          "himself"
-        ],
-        "answer": 1,
-        "explanation": "После with нужна объектная форма him."
+        type: "exercise",
+        title: "Choose the correct form",
+        difficulty: "Easy",
+        instructions: "Выбери правильное местоимение. Сначала определи функцию слова в предложении.",
+        items: [
+          {
+            id: "1",
+            input: "single",
+            prompt: "My sister is a doctor. ___ works at a private clinic.",
+            options: ["She", "Her", "Hers", "Herself"],
+            answer: 0,
+            explanation: "Перед глаголом works нужно местоимение-подлежащее: She."
+          },
+          {
+            id: "2",
+            input: "single",
+            prompt: "I know Olivia, but I don’t know ___.",
+            options: ["she", "hers", "her", "their"],
+            answer: 2,
+            explanation: "После know нужна объектная форма her."
+          },
+          {
+            id: "3",
+            input: "single",
+            prompt: "Is this Ben’s jacket? — No, ___ is on the chair.",
+            options: ["his", "him", "he", "her"],
+            answer: 0,
+            explanation: "His заменяет his jacket, поэтому существительное не нужно."
+          },
+          {
+            id: "4",
+            input: "single",
+            prompt: "We finished ___ project yesterday.",
+            options: ["we", "our", "ours", "us"],
+            answer: 1,
+            explanation: "Перед существительным project ставим our."
+          }
+        ]
       },
       {
-        "prompt": "We have a new teacher. ___ name is Mrs Brown.",
-        "options": [
-          "She",
-          "Her",
-          "Hers",
-          "Him"
-        ],
-        "answer": 1,
-        "explanation": "Перед существительным name ставим притяжательное прилагательное her."
+        type: "exercise",
+        title: "Complete the sentence",
+        difficulty: "Medium",
+        instructions: "Впиши правильную форму местоимения. Обрати внимание на слова после пропуска.",
+        wordBank: ["them", "your", "mine", "us", "their"],
+        items: [
+          {
+            id: "1",
+            input: "gaps",
+            prompt: "Fill in the gaps.",
+            segments: ["Can you help ", " with ", " homework?"],
+            answers: [["us"], ["our"]],
+            explanation: "Help us = помочь нам; our homework = наше домашнее задание."
+          },
+          {
+            id: "2",
+            input: "gaps",
+            prompt: "Fill in the gaps.",
+            segments: ["These bags are ", ". Those over there are ", "."],
+            answers: [["their"], ["mine"]],
+            explanation: "Their bags — перед существительным; mine — без существительного."
+          },
+          {
+            id: "3",
+            input: "gaps",
+            prompt: "Fill in the gaps.",
+            segments: ["I invited Jake and Eva, but they didn’t answer ", "."],
+            answers: [["me"]],
+            explanation: "После answer нужна объектная форма me."
+          },
+          {
+            id: "4",
+            input: "gaps",
+            prompt: "Fill in the gaps.",
+            segments: ["Is this ", " seat, or should I take another one?"],
+            answers: [["your"]],
+            explanation: "Перед существительным seat нужна форма your."
+          }
+        ]
       },
       {
-        "prompt": "This isn’t my umbrella. ___ is by the door.",
-        "options": [
-          "My",
-          "Mine",
-          "Me",
-          "I"
-        ],
-        "answer": 1,
-        "explanation": "Mine заменяет my umbrella."
+        type: "exercise",
+        title: "Choose the correct sentence",
+        difficulty: "Medium → Hard",
+        instructions: "Теперь проверь порядок слов с двумя дополнениями и выбор to / for.",
+        items: [
+          {
+            id: "1",
+            input: "single",
+            prompt: "Choose the correct sentence.",
+            options: [
+              "Could you send me it tonight?",
+              "Could you send it to me tonight?",
+              "Could you send to me it tonight?",
+              "Could you it send to me tonight?"
+            ],
+            answer: 1,
+            explanation: "Когда предмет — местоимение it, нужен порядок it + to + person."
+          },
+          {
+            id: "2",
+            input: "single",
+            prompt: "Choose the correct sentence.",
+            options: [
+              "I bought for her a coffee.",
+              "I bought her it a coffee.",
+              "I bought a coffee for her.",
+              "I bought to her a coffee."
+            ],
+            answer: 2,
+            explanation: "С buy обычно используем for: bought a coffee for her."
+          },
+          {
+            id: "3",
+            input: "single",
+            prompt: "Choose the correct sentence.",
+            options: [
+              "The guide showed them the way.",
+              "The guide showed to them the way.",
+              "The guide showed the way them.",
+              "The guide showed them to the way."
+            ],
+            answer: 0,
+            explanation: "Оба дополнения — существительное и местоимение лица; естественный порядок: showed them the way."
+          },
+          {
+            id: "4",
+            input: "single",
+            prompt: "Choose the correct sentence.",
+            options: [
+              "She read us it.",
+              "She read it for us.",
+              "She read it to us.",
+              "She read to us it."
+            ],
+            answer: 2,
+            explanation: "С read в значении «читать кому-то» используем to."
+          }
+        ]
       },
       {
-        "prompt": "Emma and Ian invited ___ to their wedding.",
-        "options": [
-          "we",
-          "our",
-          "ours",
-          "us"
-        ],
-        "answer": 3,
-        "explanation": "После invited нужна объектная форма us."
-      },
-      {
-        "prompt": "The children can’t find ___ gloves.",
-        "options": [
-          "they",
-          "them",
-          "their",
-          "theirs"
-        ],
-        "answer": 2,
-        "explanation": "Перед существительным gloves ставим their."
-      },
-      {
-        "prompt": "Choose the correct sentence.",
-        "options": [
-          "My cousin sold me it.",
-          "My cousin sold it to me.",
-          "My cousin sold to me it.",
-          "My cousin sold it me."
-        ],
-        "answer": 1,
-        "explanation": "Когда предмет — местоимение it, используем it + to + person."
-      },
-      {
-        "prompt": "I bought these flowers ___ my mum.",
-        "options": [
-          "to",
-          "for",
-          "at",
-          "of"
-        ],
-        "answer": 1,
-        "explanation": "С buy используем for."
-      },
-      {
-        "prompt": "She read the story ___ the children.",
-        "options": [
-          "for",
-          "to",
-          "of",
-          "from"
-        ],
-        "answer": 1,
-        "explanation": "С read в значении «читать кому-то» используем to."
-      },
-      {
-        "prompt": "Do you know where my keys are? I can’t find ___.",
-        "options": [
-          "they",
-          "their",
-          "them",
-          "theirs"
-        ],
-        "answer": 2,
-        "explanation": "Keys — множественное число; после find нужна объектная форма them."
-      },
-      {
-        "prompt": "Our car is old, but ___ is new.",
-        "options": [
-          "their",
-          "them",
-          "they",
-          "theirs"
-        ],
-        "answer": 3,
-        "explanation": "Theirs заменяет their car и употребляется без существительного."
-      },
-      {
-        "prompt": "Choose the correct sentence.",
-        "options": [
-          "She made for us it.",
-          "She made us it.",
-          "She made it for us.",
-          "She made it to us."
-        ],
-        "answer": 2,
-        "explanation": "С make используем предмет + for + person: made it for us."
-      },
-      {
-        "prompt": "My grandmother is reading the story to Max. She is reading ___ to ___.",
-        "options": [
-          "it / him",
-          "him / it",
-          "it / he",
-          "its / him"
-        ],
-        "answer": 0,
-        "explanation": "Story → it; Max → him."
+        type: "exercise",
+        title: "Correct the mistake",
+        difficulty: "Hard",
+        instructions: "Перепиши предложения правильно. Пиши полную исправленную версию.",
+        items: [
+          {
+            id: "1",
+            input: "text",
+            prompt: "Correct the sentence: Me and Anna are working on this report.",
+            placeholder: "Write the correct sentence",
+            acceptedAnswers: ["Anna and I are working on this report", "Anna and I are working on this report."],
+            explanation: "В роли подлежащего используем I, а не me; вежливее ставить Anna первой."
+          },
+          {
+            id: "2",
+            input: "text",
+            prompt: "Correct the sentence: Please send me them before 5 p.m.",
+            placeholder: "Write the correct sentence",
+            acceptedAnswers: ["Please send them to me before 5 p.m.", "Please send them to me before 5 pm", "Please send them to me before 5 p.m", "Please send them to me before 5pm"],
+            explanation: "Them — местоимение-предмет, поэтому порядок: them + to me."
+          },
+          {
+            id: "3",
+            input: "text",
+            prompt: "Correct the sentence: This desk is her.",
+            placeholder: "Write the correct sentence",
+            acceptedAnswers: ["This desk is hers.", "This desk is hers"],
+            explanation: "После be без существительного нужна форма hers."
+          },
+          {
+            id: "4",
+            input: "text",
+            prompt: "Correct the sentence: I bought it to my brother for his birthday.",
+            placeholder: "Write the correct sentence",
+            acceptedAnswers: ["I bought it for my brother for his birthday.", "I bought it for my brother for his birthday"],
+            explanation: "С buy используем for, а не to."
+          }
+        ]
       }
     ]
   }
