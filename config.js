@@ -24,6 +24,7 @@ window.APP_CONFIG = {
   features: {
     homework: true,
     vocabulary: true,
+    wordPronunciation: true,
     grammar: true,
     cloudSync: true,
     telegramNotifications: false

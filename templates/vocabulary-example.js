@@ -18,8 +18,7 @@ window.VOCABULARY_TECHNICAL_EXAMPLE = {
       ru: "пример",
       transcription: "/ɪɡˈzɑːmpəl/",
       exampleEn: "This is an example.",
-      exampleRu: "Это пример.",
-      audio: ""
+      exampleRu: "Это пример."
     }
   ]
 };

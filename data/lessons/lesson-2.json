@@ -1,0 +1,491 @@
+{
+  "id": "lesson-2",
+  "number": 2,
+  "title": "Life in colour",
+  "subtitle": "Workbook practice: adjective suffixes and pronouns",
+  "status": "available",
+  "vocabularyId": "vocab-lesson-2",
+  "grammarIds": [
+    "grammar-pronouns"
+  ],
+  "publishedAt": "2026-07-20",
+  "totalPoints": 40,
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "Workbook · Unit 1B",
+      "title": "Vocabulary · Adjective suffixes",
+      "text": "Complete exercises 1a and 1b. Make adjectives from the words in brackets."
+    },
+    {
+      "type": "tip",
+      "title": "Adjective suffixes",
+      "text": "Use these suffixes: -able / -ible, -ate, -ive, -ous, -ful. Example: ATTRACT → attractive."
+    },
+    {
+      "type": "exercise",
+      "id": "wb-1a",
+      "title": "1a. Complete the sentences with the adjective form",
+      "instructions": "Use a suffix from the list. Type only the missing adjective.",
+      "wordBank": [
+        "-able / -ible",
+        "-ate",
+        "-ive",
+        "-ous",
+        "-ful"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "I think Charlie’s very ______ — he always looks great! (ATTRACT)",
+          "example": true,
+          "exampleAnswer": "attractive"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "My aunt is a very ______ woman. She volunteers at a hospital every weekend. (COMPASSION)",
+          "input": "text",
+          "answer": "compassionate",
+          "explanation": "COMPASSION → compassionate."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "My girlfriend is very ______. She isn’t afraid to express her opinion. (ASSERT)",
+          "input": "text",
+          "answer": "assertive",
+          "explanation": "ASSERT → assertive."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "It was very ______ of you to visit me in hospital. (THOUGHT)",
+          "input": "text",
+          "answer": "thoughtful",
+          "explanation": "THOUGHT → thoughtful."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "Sue’s a ______ child. We all adore her. (LOVE)",
+          "input": "text",
+          "answer": "loveable",
+          "acceptedAnswers": [
+            "loveable",
+            "lovable"
+          ],
+          "explanation": "LOVE → loveable (also spelled lovable)."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "I’m very ______ of my friend’s new car. (ENVY)",
+          "input": "text",
+          "answer": "envious",
+          "explanation": "ENVY → envious."
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "She’s a ______ author. She’s written many books and won several important prizes. (SUCCESS)",
+          "input": "text",
+          "answer": "successful",
+          "explanation": "SUCCESS → successful."
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "prompt": "Jess is a ______ teenager. She often looks after the neighbour’s children. (RESPONSE)",
+          "input": "text",
+          "answer": "responsible",
+          "explanation": "RESPONSE → responsible."
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "prompt": "My sister is rather ______. She doesn’t think before she acts. (IMPULSE)",
+          "input": "text",
+          "answer": "impulsive",
+          "explanation": "IMPULSE → impulsive."
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "prompt": "My nephew is really ______. He often does my shopping for me. (HELP)",
+          "input": "text",
+          "answer": "helpful",
+          "explanation": "HELP → helpful."
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "prompt": "Philip was quite ______ in his teens, but now he’s calmed down. (REBEL)",
+          "input": "text",
+          "answer": "rebellious",
+          "explanation": "REBEL → rebellious."
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "prompt": "You have to be careful what you say to Helen. She’s very ______. (SENSE)",
+          "input": "text",
+          "answer": "sensitive",
+          "explanation": "SENSE → sensitive."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "wb-1b",
+      "title": "1b. Make adjectives from the nouns and verbs",
+      "instructions": "Use each word from the list once. Type only the missing adjective.",
+      "wordBank": [
+        "affection",
+        "consider",
+        "create",
+        "glamour",
+        "possess",
+        "power",
+        "rely"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "Maria’s children are very ______. They always give us a big hug when we arrive. (AFFECTION)",
+          "example": true,
+          "exampleAnswer": "affectionate"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "Matt’s girlfriend is very ______. She doesn’t let him talk to other girls. (POSSESS)",
+          "input": "text",
+          "answer": "possessive",
+          "explanation": "POSSESS → possessive."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "My boss is quite ______. She always lets me take time off if my children are ill. (CONSIDER)",
+          "input": "text",
+          "answer": "considerate",
+          "explanation": "CONSIDER → considerate."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "My assistant isn’t very ______. I can’t trust her to do anything important. (RELY)",
+          "input": "text",
+          "answer": "reliable",
+          "explanation": "RELY → reliable."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "Lisa’s very ______. She looks like an actress! (GLAMOUR)",
+          "input": "text",
+          "answer": "glamorous",
+          "explanation": "GLAMOUR → glamorous."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "He’s a very ______ businessman. He owns several large companies and he makes a lot of money. (POWER)",
+          "input": "text",
+          "answer": "powerful",
+          "explanation": "POWER → powerful."
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "Anna’s really ______. She’s made some wonderful sculptures. (CREATE)",
+          "input": "text",
+          "answer": "creative",
+          "explanation": "CREATE → creative."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "Workbook · Unit 1B",
+      "title": "Grammar · Pronouns",
+      "text": "Complete exercises 3a, 3b, and 3c. Pay attention to object pronouns and the word order with to / for."
+    },
+    {
+      "type": "exercise",
+      "id": "wb-3a",
+      "title": "3a. Complete the sentences with a pronoun or possessive adjective",
+      "instructions": "Type only the missing word.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "My wife and I are having a baby girl. We’re going to call ______ Eloise.",
+          "example": true,
+          "exampleAnswer": "her"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "I’d like you to meet my new boyfriend. ______ name’s Tom.",
+          "input": "text",
+          "answer": "His",
+          "explanation": "Use the possessive adjective his before the noun name."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "I’m staying at my sister’s house. I always stay with ______ when I go to the UK.",
+          "input": "text",
+          "answer": "her",
+          "explanation": "After with, use the object pronoun her."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "We aren’t going to Emma and Ian’s wedding. They haven’t invited ______.",
+          "input": "text",
+          "answer": "us",
+          "explanation": "After invited, use the object pronoun us."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "Can I borrow your dictionary, please? I’ve forgotten ______.",
+          "input": "text",
+          "answer": "mine",
+          "explanation": "Mine replaces my dictionary."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "I have two nephews. ______ names are Richard and Matthew.",
+          "input": "text",
+          "answer": "Their",
+          "explanation": "Use the possessive adjective their before names."
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "We go everywhere by public transport. The bus stops right outside ______ house.",
+          "input": "text",
+          "answer": "our",
+          "explanation": "Use the possessive adjective our before house."
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "prompt": "Do you know where my keys are? I can’t find ______ anywhere.",
+          "input": "text",
+          "answer": "them",
+          "explanation": "Keys is plural, so use them."
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "prompt": "My car is nearly out of petrol. Let’s take ______.",
+          "input": "text",
+          "answer": "yours",
+          "explanation": "Yours replaces your car."
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "prompt": "It’s my dad’s birthday tomorrow. I mustn’t forget to call ______.",
+          "input": "text",
+          "answer": "him",
+          "explanation": "After call, use the object pronoun him."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "wb-3b",
+      "title": "3b. Choose the correct word order",
+      "instructions": "Choose the correct ending for each sentence.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "The children love that book. My husband reads…",
+          "example": true,
+          "exampleAnswer": "it to them"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "They gave…",
+          "input": "single",
+          "options": [
+            "us their tickets",
+            "their tickets us"
+          ],
+          "answer": 0,
+          "explanation": "They gave us their tickets."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "I’ll send… when I arrive.",
+          "input": "single",
+          "options": [
+            "a message you",
+            "you a message"
+          ],
+          "answer": 1,
+          "explanation": "I’ll send you a message when I arrive."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "What do you think of my curtains? My mum made…",
+          "input": "single",
+          "options": [
+            "them for me",
+            "for me them"
+          ],
+          "answer": 0,
+          "explanation": "My mum made them for me."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "She showed…",
+          "input": "single",
+          "options": [
+            "me her holiday photos",
+            "her holiday photos me"
+          ],
+          "answer": 0,
+          "explanation": "She showed me her holiday photos."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "I’m going to lend…",
+          "input": "single",
+          "options": [
+            "a suitcase her",
+            "her a suitcase"
+          ],
+          "answer": 1,
+          "explanation": "I’m going to lend her a suitcase."
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "Do you like my new phone? My cousin sold…",
+          "input": "single",
+          "options": [
+            "to me it",
+            "it to me"
+          ],
+          "answer": 1,
+          "explanation": "My cousin sold it to me."
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "prompt": "Put on these gloves. I bought…",
+          "input": "single",
+          "options": [
+            "them for you",
+            "for you them"
+          ],
+          "answer": 0,
+          "explanation": "I bought them for you."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "wb-3c",
+      "title": "3c. Complete the answers using pronouns and to / for",
+      "instructions": "Change the word order. Type only the missing part after the subject.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "A: Who showed you the photo? B: Jack ______.",
+          "example": true,
+          "exampleAnswer": "showed it to me"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "A: Who sent Sophie those flowers? B: Her husband ______.",
+          "input": "text",
+          "answer": "sent them to her",
+          "explanation": "Her husband sent them to her."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "A: Who’s going to buy your girlfriend a car? B: Her father ______.",
+          "input": "text",
+          "answer": "is going to buy it for her",
+          "acceptedAnswers": [
+            "is going to buy it for her",
+            "'s going to buy it for her"
+          ],
+          "explanation": "Her father is going to buy it for her."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "A: Who sold your parents their new car? B: Their neighbour ______.",
+          "input": "text",
+          "answer": "sold it to them",
+          "explanation": "Their neighbour sold it to them."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "A: Who makes your lunch? B: My mum ______.",
+          "input": "text",
+          "answer": "makes it for us",
+          "explanation": "My mum makes it for us."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "A: Who gave you and your husband that picture? B: A colleague ______.",
+          "input": "text",
+          "answer": "gave it to us",
+          "explanation": "A colleague gave it to us."
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "A: Who’s going to get you and your friends the tickets? B: My brother ______.",
+          "input": "text",
+          "answer": "is going to get them for us",
+          "acceptedAnswers": [
+            "is going to get them for us",
+            "'s going to get them for us"
+          ],
+          "explanation": "My brother is going to get them for us."
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "prompt": "A: Who’s reading Max the story? B: His grandmother ______.",
+          "input": "text",
+          "answer": "is reading it to him",
+          "acceptedAnswers": [
+            "is reading it to him",
+            "'s reading it to him"
+          ],
+          "explanation": "His grandmother is reading it to him."
+        }
+      ]
+    }
+  ]
+}

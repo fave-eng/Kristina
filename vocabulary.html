@@ -103,73 +103,60 @@
     (() => {
       'use strict';
 
-      /*
-       * Озвучивание через системный Web Speech API.
-       * Внешние TTS-сервисы не используются: нет сетевых ошибок и CORS-блокировок.
-       * Голос выбирается автоматически из наиболее естественных женских English voices.
+      /**
+       * Единый сервис произношения слов и фраз через Web Speech API браузера.
+       * Отдельные MP3 для словаря и внешние TTS-сервисы не используются.
        */
-      const speech = window.speechSynthesis;
-      let voices = [];
-      let activeButton = null;
+      const PronunciationService = {
+        voices: [],
 
-      const preferredFemaleNames = [
-        'sonia', 'libby', 'serena', 'samantha', 'ava', 'shelley', 'emma',
-        'jenny', 'aria', 'natasha', 'hazel', 'susan', 'kate', 'moira',
-        'fiona', 'tessa', 'karen', 'victoria', 'zira', 'martha', 'maisie'
-      ];
-      const likelyMaleNames = [
-        'daniel', 'alex', 'oliver', 'arthur', 'george', 'ryan', 'fred',
-        'tom', 'ralph', 'reed', 'rocko', 'eddy', 'guy', 'david', 'james'
-      ];
+        refreshVoices() {
+          this.voices = window.speechSynthesis?.getVoices?.() || [];
+        },
 
-      function refreshVoices() {
-        voices = speech ? speech.getVoices() : [];
-      }
+        speak(text) {
+          const spokenText = String(text || '')
+            .replace(/\s*\/\s*/g, ' or ')
+            .trim();
 
-      refreshVoices();
-      if (speech && 'onvoiceschanged' in speech) {
-        speech.addEventListener('voiceschanged', refreshVoices);
-      }
+          if (!spokenText || !('speechSynthesis' in window) ||
+              typeof SpeechSynthesisUtterance === 'undefined') {
+            return false;
+          }
 
-      function scoreVoice(voice) {
-        const name = String(voice?.name || '').toLowerCase();
-        const lang = String(voice?.lang || '').toLowerCase();
-        let score = 0;
+          window.speechSynthesis.cancel();
 
-        if (lang === 'en-gb') score += 90;
-        else if (lang.startsWith('en-gb')) score += 85;
-        else if (lang === 'en-ie') score += 70;
-        else if (lang === 'en-au' || lang === 'en-nz') score += 65;
-        else if (lang.startsWith('en-us')) score += 55;
-        else if (lang.startsWith('en')) score += 40;
-        else score -= 200;
+          const utterance = new SpeechSynthesisUtterance(spokenText);
+          utterance.lang = 'en-GB';
+          utterance.rate = 0.85;
 
-        preferredFemaleNames.forEach((candidate, index) => {
-          if (name.includes(candidate)) score += 110 - index;
-        });
-        likelyMaleNames.forEach((candidate) => {
-          if (name.includes(candidate)) score -= 120;
-        });
+          const englishVoice = this.voices.find(
+            (voice) => voice.lang === 'en-GB'
+          ) || this.voices.find(
+            (voice) => String(voice.lang || '').toLowerCase().startsWith('en')
+          );
 
-        if (/natural|neural|premium|enhanced|online/.test(name)) score += 35;
-        if (/female|woman/.test(name)) score += 45;
-        if (voice?.localService) score += 8;
-        if (voice?.default) score += 2;
-        return score;
-      }
+          if (englishVoice) {
+            utterance.voice = englishVoice;
+          }
 
-      function selectBestVoice() {
-        refreshVoices();
-        return [...voices]
-          .filter((voice) => String(voice.lang || '').toLowerCase().startsWith('en'))
-          .sort((a, b) => scoreVoice(b) - scoreVoice(a))[0] || null;
-      }
+          window.speechSynthesis.speak(utterance);
+          return true;
+        }
+      };
 
-      function stopAudio() {
-        if (speech) speech.cancel();
-        if (activeButton) {
-          activeButton.classList.remove('is-speaking');
-          activeButton = null;
+      window.PronunciationService = PronunciationService;
+      PronunciationService.refreshVoices();
+
+      if ('speechSynthesis' in window) {
+        if (typeof window.speechSynthesis.addEventListener === 'function') {
+          window.speechSynthesis.addEventListener(
+            'voiceschanged',
+            () => PronunciationService.refreshVoices()
+          );
+        } else {
+          window.speechSynthesis.onvoiceschanged =
+            () => PronunciationService.refreshVoices();
         }
       }
 
@@ -181,52 +168,32 @@
         window.setTimeout(() => toast.classList.remove('show'), 2800);
       }
 
-      function playPronunciation(text, button = null) {
-        const cleanText = String(text || '').trim();
-        if (!cleanText || !speech || typeof SpeechSynthesisUtterance === 'undefined') {
-          showAudioError();
-          return;
-        }
-
-        stopAudio();
-        activeButton = button;
-        button?.classList.add('is-speaking');
-
-        const utterance = new SpeechSynthesisUtterance(cleanText);
-        const selectedVoice = selectBestVoice();
-        if (selectedVoice) utterance.voice = selectedVoice;
-        utterance.lang = selectedVoice?.lang || 'en-GB';
-
-        const isPhrase = cleanText.includes(' ') || cleanText.length > 18;
-        utterance.rate = isPhrase ? 0.76 : 0.70;
-        utterance.pitch = 1.16;
-        utterance.volume = 1;
-
-        utterance.onend = () => {
-          if (activeButton === button) stopAudio();
-        };
-        utterance.onerror = (event) => {
-          if (event?.error !== 'canceled' && event?.error !== 'interrupted') {
-            showAudioError();
-          }
-          if (activeButton === button) stopAudio();
-        };
-
-        speech.speak(utterance);
-      }
-
-      function makeButton(word, extraClass = '') {
+      function makeButton(text, extraClass = '') {
         const button = document.createElement('button');
+        const isAvailable = 'speechSynthesis' in window &&
+          typeof SpeechSynthesisUtterance !== 'undefined';
+
         button.type = 'button';
         button.className = `pronounce-btn ${extraClass}`.trim();
-        button.setAttribute('aria-label', `Прослушать произношение: ${word}`);
-        button.title = `Прослушать: ${word}`;
+        button.setAttribute('aria-label', `Прослушать произношение: ${text}`);
+        button.title = `Прослушать: ${text}`;
         button.textContent = '🔊';
+
+        if (!isAvailable) {
+          button.disabled = true;
+          button.classList.add('is-unavailable');
+          button.title = 'Озвучивание недоступно на этом устройстве';
+        }
+
         button.addEventListener('click', (event) => {
           event.preventDefault();
           event.stopPropagation();
-          playPronunciation(word, button);
+
+          if (!PronunciationService.speak(text)) {
+            showAudioError();
+          }
         });
+
         return button;
       }
 
@@ -234,16 +201,23 @@
         const front = root.querySelector('.flash-front');
         const wordNode = front?.querySelector('.flash-word');
         if (!front || !wordNode || front.querySelector('.flash-pronounce')) return;
-        front.appendChild(makeButton(wordNode.textContent, 'flash-pronounce'));
+
+        front.appendChild(
+          makeButton(wordNode.textContent, 'flash-pronounce')
+        );
       }
 
       function decorateWordList(root) {
         root.querySelectorAll('.word-card').forEach((card) => {
           if (card.querySelector('.word-card-pronounce')) return;
+
           const wordNode = card.querySelector('strong');
           if (!wordNode) return;
+
           card.classList.add('has-pronunciation');
-          card.appendChild(makeButton(wordNode.textContent, 'word-card-pronounce'));
+          card.appendChild(
+            makeButton(wordNode.textContent, 'word-card-pronounce')
+          );
         });
       }
 
@@ -274,6 +248,7 @@
       function decorateVocabulary() {
         const root = document.getElementById('vocabulary-root');
         if (!root) return;
+
         reorderVocabularyModes(root);
         decorateFlashcard(root);
         decorateWordList(root);
@@ -286,7 +261,11 @@
         decorateVocabulary();
       }
 
-      window.addEventListener('pagehide', stopAudio);
+      window.addEventListener('pagehide', () => {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+      });
     })();
   </script>
 </body>
