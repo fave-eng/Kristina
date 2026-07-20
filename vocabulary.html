@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Персональное пространство ученика английского языка">
+  <meta name="description" content="Personal English learning space">
   <title>Vocabulary trainer</title>
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -69,16 +69,16 @@
   <script src="app.js" defer></script>
 </head>
 <body class="has-bottom-nav" data-page="vocabulary" data-view="vocabulary">
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="hero hero-compact">
     <span class="star one">✦</span><span class="star two">✦</span>
     <div class="container hero-content reveal">
-      <a class="vocab-back-link" href="vocabulary-hub.html" aria-label="Вернуться к словарным темам"><span class="vocab-back-arrow" aria-hidden="true">←</span><span>Назад к темам</span></a>
+      <a class="vocab-back-link" href="vocabulary-hub.html" aria-label="Back to vocabulary topics"><span class="vocab-back-arrow" aria-hidden="true">←</span><span>Back to topics</span></a>
       <br>
       <span class="hero-badge">✦ <span data-config="level"></span> Level · Individual Course</span>
       <h1><span id="vocab-hero-title">Vocabulary</span></h1>
-      <p><span id="vocab-hero-subtitle">Персональный тренажёр</span></p>
+      <p><span id="vocab-hero-subtitle">Personal vocabulary trainer</span></p>
     </div>
     <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path fill="#f8fafc" d="M0,66 C220,102 410,10 696,52 C963,91 1115,99 1440,35 L1440,100 L0,100 Z"></path></svg>
   </header>
@@ -91,7 +91,7 @@
 
   </main>
 
-  <nav class="bottom-nav" aria-label="Основная навигация">
+  <nav class="bottom-nav" aria-label="Main navigation">
     <a class="nav-link" data-nav="home" href="index.html"><span class="nav-icon">🏠</span><span>Home</span></a>
     <a class="nav-link" data-nav="homework" href="homework.html"><span class="nav-icon">📝</span><span>HW</span></a>
     <a class="nav-link" data-nav="grammar" href="grammar.html"><span class="nav-icon">📐</span><span>Grammar</span></a>
@@ -104,9 +104,9 @@
       'use strict';
 
       /*
-       * Та же озвучка, что использовалась в старых словарях:
-       * системный Web Speech API, британский английский en-GB,
-       * стандартная скорость и высота голоса устройства.
+       * The same pronunciation method as in the reference vocabulary file:
+       * system Web Speech API, British English (en-GB),
+       * standard device speed, pitch and volume.
        */
       const speech = window.speechSynthesis;
       let activeButton = null;
@@ -122,7 +122,7 @@
       function showAudioError() {
         const toast = document.getElementById('app-toast');
         if (!toast) return;
-        toast.textContent = 'Озвучивание недоступно на этом устройстве.';
+        toast.textContent = 'Pronunciation is unavailable on this device.';
         toast.classList.add('show');
         window.setTimeout(() => toast.classList.remove('show'), 2800);
       }
@@ -167,8 +167,8 @@
         const button = document.createElement('button');
         button.type = 'button';
         button.className = `pronounce-btn ${extraClass}`.trim();
-        button.setAttribute('aria-label', `Прослушать произношение: ${word}`);
-        button.title = `Прослушать: ${word}`;
+        button.setAttribute('aria-label', `Listen to the pronunciation: ${word}`);
+        button.title = `Listen: ${word}`;
         button.textContent = '🔊';
         button.addEventListener('click', (event) => {
           event.preventDefault();
@@ -200,10 +200,10 @@
         if (!modes || modes.dataset.orderReady === 'true') return;
 
         const labels = {
-          all: 'Все слова',
-          cards: 'Карточки',
-          difficult: 'Трудные',
-          test: 'Тест'
+          all: 'All words',
+          cards: 'Flashcards',
+          difficult: 'Difficult',
+          test: 'Test'
         };
         const order = ['all', 'cards', 'difficult', 'test'];
 
