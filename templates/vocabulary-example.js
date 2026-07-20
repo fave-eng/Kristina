@@ -1,10 +1,10 @@
 /**
- * ТЕХНИЧЕСКИЙ ПРИМЕР. Файл не подключён к ученическому сайту.
+ * TECHNICAL EXAMPLE. This file is not loaded by the student site.
  */
 window.VOCABULARY_TECHNICAL_EXAMPLE = {
   id: "vocab-example",
-  title: "Название темы",
-  label: "Урок",
+  title: "Topic title",
+  label: "Lesson",
   icon: "💬",
   type: "lesson",
   linkedLessonId: "lesson-example",
@@ -12,8 +12,8 @@ window.VOCABULARY_TECHNICAL_EXAMPLE = {
   words: [
     {
       id: "word-example",
-      // uniqueKey можно указать вручную только для разных значений одинакового написания.
-      // Без uniqueKey повторяющееся поле en будет автоматически исключено.
+      // Set uniqueKey manually only for different meanings with the same spelling.
+      // Without uniqueKey, a duplicate en value is removed automatically.
       en: "example",
       ru: "пример",
       transcription: "/ɪɡˈzɑːmpəl/",

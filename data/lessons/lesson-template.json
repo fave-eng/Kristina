@@ -1,8 +1,8 @@
 {
   "id": "lesson-3",
   "number": 3,
-  "title": "Название следующего урока",
-  "subtitle": "Краткое описание задания",
+  "title": "Next lesson title",
+  "subtitle": "Short assignment description",
   "status": "draft",
   "vocabularyId": "vocab-lesson-3",
   "grammarIds": [],
@@ -12,6 +12,6 @@
     "enabled": false,
     "version": 1
   },
-  "templateNote": "Следующая домашняя работа должна храниться в lesson-3.json. Для каждой новой работы одновременно увеличивайте номер в имени файла, id, number, vocabularyId и linkedLessonId.",
+  "templateNote": "The next homework assignment must be stored in lesson-3.json. For every new assignment, increase the number in the file name, id, number, vocabularyId and linkedLessonId together.",
   "blocks": []
 }

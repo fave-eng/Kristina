@@ -1,7 +1,7 @@
 /**
- * Словарные темы Кристины.
- * Новые темы добавляются отдельными объектами в массив VOCABULARY_DATA.
- * Повторяющиеся английские слова и фразы автоматически исключаются движком сайта.
+ * Kristina’s vocabulary topics.
+ * Add each new topic as a separate object in VOCABULARY_DATA.
+ * Duplicate English words and phrases are removed automatically by the site engine.
  */
 window.VOCABULARY_DATA = [
   {

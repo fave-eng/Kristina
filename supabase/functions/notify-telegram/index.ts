@@ -27,20 +27,20 @@ function isHttpUrl(value: unknown): value is string {
 function buildMessage(hasVocabulary: boolean): string {
   if (hasVocabulary) {
     return [
-      '🚀 <b>Новые материалы уже доступны!</b>',
+      '🚀 <b>New learning materials are available!</b>',
       '',
-      'Сначала изучи слова к уроку — так выполнять домашнюю работу будет легче. Затем переходи к заданиям.',
+      'Start with the lesson vocabulary — it will make the homework easier. Then continue to the assignment.',
       '',
-      'Удачи! Если что-то будет непонятно, отметь вопросы — разберём их на следующем уроке ✨',
+      'Good luck! Note any questions and we will discuss them in the next lesson ✨',
     ].join('\n')
   }
 
   return [
-    '🚀 <b>Новые материалы уже доступны!</b>',
+    '🚀 <b>New learning materials are available!</b>',
     '',
-    'Переходи к домашней работе. Если что-то будет непонятно, отметь вопросы — разберём их на следующем уроке.',
+    'Continue to the homework assignment. Note any questions and we will discuss them in the next lesson.',
     '',
-    'Удачи! ✨',
+    'Good luck! ✨',
   ].join('\n')
 }
 
@@ -198,14 +198,14 @@ export default {
 
     const keyboard: Array<Array<{ text: string; url: string }>> = []
     if (vocabulary) {
-      keyboard.push([{ text: '💥 Открыть словарь', url: vocabulary.url }])
+      keyboard.push([{ text: '💥 Open vocabulary', url: vocabulary.url }])
     }
-    keyboard.push([{ text: '📝 Перейти к заданию', url: homework.url }])
+    keyboard.push([{ text: '📝 Open homework', url: homework.url }])
 
     grammar.forEach((item: any, index: number) => {
       const label = grammar.length === 1
-        ? '📐 Повторить грамматику'
-        : `📐 ${String(item.title || `Грамматика ${index + 1}`).slice(0, 48)}`
+        ? '📐 Review grammar'
+        : `📐 ${String(item.title || `Grammar ${index + 1}`).slice(0, 48)}`
       keyboard.push([{ text: label, url: item.url }])
     })
 

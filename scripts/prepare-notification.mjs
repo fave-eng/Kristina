@@ -78,7 +78,7 @@ for (const lesson of lessons) {
   const validVocabulary = vocabulary && Array.isArray(vocabulary.words) && vocabulary.words.length > 0
     ? {
         id: vocabulary.id,
-        title: vocabulary.title || 'Слова к уроку',
+        title: vocabulary.title || 'Lesson vocabulary',
         wordCount: vocabulary.words.length,
         url: pageUrl(
           siteBaseUrl,
@@ -94,7 +94,7 @@ for (const lesson of lessons) {
     .filter((topic) => explicitGrammarIds.includes(topic.id) || topic.linkedLessonId === lesson.id)
     .map((topic) => ({
       id: topic.id,
-      title: topic.title || 'Грамматика',
+      title: topic.title || 'Grammar',
       url: pageUrl(
         siteBaseUrl,
         topic.page,
@@ -109,7 +109,7 @@ for (const lesson of lessons) {
     notificationVersion: Number(lesson.notification?.version || 1),
     homework: {
       id: lesson.id,
-      title: lesson.title || 'Домашняя работа',
+      title: lesson.title || 'Homework',
       url: pageUrl(
         siteBaseUrl,
         lesson.page,

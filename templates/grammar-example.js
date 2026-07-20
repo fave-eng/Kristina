@@ -1,5 +1,5 @@
 /**
- * ТЕХНИЧЕСКИЙ ПРИМЕР. Файл не подключён к ученическому сайту.
+ * TECHNICAL EXAMPLE. This file is not loaded by the student site.
  */
 window.GRAMMAR_TECHNICAL_EXAMPLE = {
   id: "grammar-example",
@@ -22,8 +22,8 @@ window.GRAMMAR_TECHNICAL_EXAMPLE = {
     }
   ],
   anchorLinks: [
-    { id: "grammar-at-a-glance", title: "Быстрый обзор" },
-    { id: "grammar-practice-section", title: "Практика" }
+    { id: "grammar-at-a-glance", title: "Quick overview" },
+    { id: "grammar-practice-section", title: "Practice" }
   ],
   miniRules: [
     {

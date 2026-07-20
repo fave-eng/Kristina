@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Персональное пространство ученика английского языка">
+  <meta name="description" content="Personal English learning space">
   <title>Vocabulary trainer</title>
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -69,16 +69,16 @@
   <script src="app.js" defer></script>
 </head>
 <body class="has-bottom-nav" data-page="vocabulary" data-view="vocabulary">
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="hero hero-compact">
     <span class="star one">✦</span><span class="star two">✦</span>
     <div class="container hero-content reveal">
-      <a class="vocab-back-link" href="vocabulary-hub.html" aria-label="Вернуться к словарным темам"><span class="vocab-back-arrow" aria-hidden="true">←</span><span>Назад к темам</span></a>
+      <a class="vocab-back-link" href="vocabulary-hub.html" aria-label="Back to vocabulary topics"><span class="vocab-back-arrow" aria-hidden="true">←</span><span>Back to topics</span></a>
       <br>
       <span class="hero-badge">✦ <span data-config="level"></span> Level · Individual Course</span>
       <h1><span id="vocab-hero-title">Vocabulary</span></h1>
-      <p><span id="vocab-hero-subtitle">Персональный тренажёр</span></p>
+      <p><span id="vocab-hero-subtitle">Personal vocabulary trainer</span></p>
     </div>
     <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path fill="#f8fafc" d="M0,66 C220,102 410,10 696,52 C963,91 1115,99 1440,35 L1440,100 L0,100 Z"></path></svg>
   </header>
@@ -91,7 +91,7 @@
 
   </main>
 
-  <nav class="bottom-nav" aria-label="Основная навигация">
+  <nav class="bottom-nav" aria-label="Main navigation">
     <a class="nav-link" data-nav="home" href="index.html"><span class="nav-icon">🏠</span><span>Home</span></a>
     <a class="nav-link" data-nav="homework" href="homework.html"><span class="nav-icon">📝</span><span>HW</span></a>
     <a class="nav-link" data-nav="grammar" href="grammar.html"><span class="nav-icon">📐</span><span>Grammar</span></a>
@@ -104,8 +104,8 @@
       'use strict';
 
       /**
-       * Единый сервис произношения слов и фраз через Web Speech API браузера.
-       * Отдельные MP3 для словаря и внешние TTS-сервисы не используются.
+       * Shared word and phrase pronunciation service using the browser Web Speech API.
+       * No separate vocabulary MP3 files or external TTS services are used.
        */
       const PronunciationService = {
         voices: [],
@@ -129,10 +129,16 @@
           const utterance = new SpeechSynthesisUtterance(spokenText);
           utterance.lang = 'en-GB';
           utterance.rate = 1;
-          utterance.pitch = 1;
+          utterance.pitch = 1.08;
           utterance.volume = 1;
 
-          const englishVoice = this.voices.find(
+          const preferredVoiceNames = [
+            'Martha', 'Serena', 'Kate', 'Sonia', 'Google UK English Female',
+            'Samantha', 'Microsoft Sonia Online', 'Microsoft Libby Online'
+          ];
+          const englishVoice = preferredVoiceNames
+            .map((name) => this.voices.find((voice) => String(voice.name || '').toLowerCase().includes(name.toLowerCase())))
+            .find(Boolean) || this.voices.find(
             (voice) => String(voice.lang || '').toLowerCase() === 'en-gb' && voice.localService
           ) || this.voices.find(
             (voice) => String(voice.lang || '').toLowerCase() === 'en-gb'
@@ -169,7 +175,7 @@
       function showAudioError() {
         const toast = document.getElementById('app-toast');
         if (!toast) return;
-        toast.textContent = 'Озвучивание недоступно на этом устройстве.';
+        toast.textContent = 'Pronunciation is unavailable on this device.';
         toast.classList.add('show');
         window.setTimeout(() => toast.classList.remove('show'), 2800);
       }
@@ -181,14 +187,14 @@
 
         button.type = 'button';
         button.className = `pronounce-btn ${extraClass}`.trim();
-        button.setAttribute('aria-label', `Прослушать произношение: ${text}`);
-        button.title = `Прослушать: ${text}`;
+        button.setAttribute('aria-label', `Listen to the pronunciation: ${text}`);
+        button.title = `Listen: ${text}`;
         button.textContent = '🔊';
 
         if (!isAvailable) {
           button.disabled = true;
           button.classList.add('is-unavailable');
-          button.title = 'Озвучивание недоступно на этом устройстве';
+          button.title = 'Pronunciation is unavailable on this device';
         }
 
         button.addEventListener('click', (event) => {
@@ -232,10 +238,10 @@
         if (!modes || modes.dataset.orderReady === 'true') return;
 
         const labels = {
-          all: 'Все слова',
-          cards: 'Карточки',
-          difficult: 'Трудные',
-          test: 'Тест'
+          all: 'All words',
+          cards: 'Flashcards',
+          difficult: 'Difficult',
+          test: 'Test'
         };
         const order = ['all', 'cards', 'difficult', 'test'];
 

@@ -1,5 +1,5 @@
 /**
- * Опубликованные грамматические темы.
+ * Published grammar topics.
  */
 window.GRAMMAR_DATA = [
   {
@@ -46,23 +46,23 @@ window.GRAMMAR_DATA = [
     "anchorLinks": [
       {
         "id": "grammar-at-a-glance",
-        "title": "Быстрый обзор"
+        "title": "Quick overview"
       },
       {
         "id": "grammar-tables",
-        "title": "Таблицы"
+        "title": "Tables"
       },
       {
         "id": "grammar-examples",
-        "title": "Примеры"
+        "title": "Examples"
       },
       {
         "id": "grammar-mistakes",
-        "title": "Ошибки"
+        "title": "Common mistakes"
       },
       {
         "id": "grammar-practice-section",
-        "title": "Практика"
+        "title": "Practice"
       }
     ],
     "miniRules": [
@@ -530,23 +530,23 @@ window.GRAMMAR_DATA = [
     "anchorLinks": [
       {
         "id": "grammar-at-a-glance",
-        "title": "Суффиксы"
+        "title": "Suffixes"
       },
       {
         "id": "grammar-rule-map",
-        "title": "Как выбрать"
+        "title": "How to choose"
       },
       {
         "id": "grammar-tables",
-        "title": "Таблицы"
+        "title": "Tables"
       },
       {
         "id": "grammar-mistakes",
-        "title": "Написание"
+        "title": "Spelling"
       },
       {
         "id": "grammar-practice-section",
-        "title": "Практика"
+        "title": "Practice"
       }
     ],
     "miniRules": [
