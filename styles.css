@@ -1308,10 +1308,11 @@ body[data-view="lesson"] #lesson-root {
 .lesson-material-link {
   min-width: 0;
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  min-height: 64px;
-  padding: 11px 12px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 66px;
+  padding: 11px 13px;
   border: 1px solid #dbe3ff;
   border-radius: 14px;
   background: white;
@@ -1324,12 +1325,19 @@ body[data-view="lesson"] #lesson-root {
   box-shadow: 0 8px 18px rgba(79, 70, 229, .08);
 }
 
-.lesson-material-link > span:first-child {
+.lesson-material-link-main {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.lesson-material-icon {
   font-size: 1.15rem;
   line-height: 1.2;
 }
 
-.lesson-material-link > span:last-child {
+.lesson-material-text {
   min-width: 0;
 }
 
@@ -1348,6 +1356,13 @@ body[data-view="lesson"] #lesson-root {
   font-size: .74rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.lesson-material-arrow {
+  flex: 0 0 auto;
+  color: #64748b;
+  font-size: 1.05rem;
+  font-weight: 800;
 }
 
 .lesson-material-link.vocab {
@@ -1370,4 +1385,15 @@ body[data-view="lesson"] #lesson-root {
   .lesson-materials-lesson .lesson-material-links {
     grid-template-columns: 1fr;
   }
+}
+
+/* Sequential homework numbering */
+.homework-number {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--indigo);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }

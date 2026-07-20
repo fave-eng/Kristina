@@ -45,7 +45,9 @@
     return {
       ...rawLesson,
       id,
-      number: Number(rawLesson.number || inferredNumber),
+      // Номер домашней работы всегда берётся из имени файла lesson-N.json.
+      // Так нумерация остаётся последовательной и не сбивается при добавлении словаря или грамматики.
+      number: inferredNumber,
       title: safeText(rawLesson.title, `Lesson ${inferredNumber}`),
       subtitle: safeText(rawLesson.subtitle, 'Интерактивное домашнее задание'),
       status: safeText(rawLesson.status, 'available'),
@@ -552,7 +554,7 @@
         const href = currentHomework.page || `lesson.html?id=${encodeURIComponent(currentHomework.id)}`;
         current.innerHTML = `<a class="card interactive item-card current-material-card" href="${escapeHtml(href)}">
           <div class="item-icon">✨</div>
-          <div class="item-main"><h3>${escapeHtml(safeText(currentHomework.title, 'Текущее задание'))}</h3><p>${escapeHtml(safeText(currentHomework.subtitle, 'Продолжить работу с опубликованным материалом.'))}</p></div>
+          <div class="item-main"><span class="homework-number">Домашняя работа №${Number(currentHomework.number || 0)}</span><h3>${escapeHtml(safeText(currentHomework.title, 'Текущее задание'))}</h3><p>${escapeHtml(safeText(currentHomework.subtitle, 'Продолжить работу с опубликованным материалом.'))}</p></div>
           <span class="status-badge status-available">Продолжить</span>
         </a>`;
       } else {
@@ -586,18 +588,33 @@
     if (!vocabulary && !grammarTopics.length) return '';
 
     const links = [];
+    const seen = new Set();
+
     if (vocabulary) {
       const href = vocabulary.page || `vocabulary.html?id=${encodeURIComponent(vocabulary.id)}`;
-      links.push(`<a class="lesson-material-link vocab" href="${escapeHtml(href)}"><span>💥</span><span><strong>Словарь</strong><small>${escapeHtml(vocabulary.title || 'Vocabulary')}</small></span></a>`);
+      const key = `vocab:${href}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        links.push(`<a class="lesson-material-link vocab" href="${escapeHtml(href)}"><span class="lesson-material-link-main"><span class="lesson-material-icon" aria-hidden="true">💥</span><span class="lesson-material-text"><strong>Словарь</strong><small>${escapeHtml(vocabulary.title || 'Vocabulary')}</small></span></span><span class="lesson-material-arrow" aria-hidden="true">→</span></a>`);
+      }
     }
+
     grammarTopics.forEach((topic) => {
       if (topic.status === 'locked' || topic.status === 'draft') return;
       const href = topic.page || `grammar-topic.html?id=${encodeURIComponent(topic.id)}`;
-      links.push(`<a class="lesson-material-link grammar" href="${escapeHtml(href)}"><span>📐</span><span><strong>Грамматика</strong><small>${escapeHtml(topic.title || 'Grammar')}</small></span></a>`);
+      const key = `grammar:${href}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      links.push(`<a class="lesson-material-link grammar" href="${escapeHtml(href)}"><span class="lesson-material-link-main"><span class="lesson-material-icon" aria-hidden="true">📐</span><span class="lesson-material-text"><strong>Грамматика</strong><small>${escapeHtml(topic.title || 'Grammar')}</small></span></span><span class="lesson-material-arrow" aria-hidden="true">→</span></a>`);
     });
+
     if (!links.length) return '';
 
-    return `<div class="lesson-materials lesson-materials-${escapeHtml(mode)}"><div class="lesson-materials-heading"><span class="eyebrow">Материалы урока</span><p>Повтори слова и правила, связанные с этим уроком.</p></div><div class="lesson-material-links">${links.join('')}</div></div>`;
+    const description = mode === 'lesson'
+      ? 'Открой словарь и грамматику по этой домашней работе.'
+      : 'Ниже — прямые переходы к словарю и грамматике этого урока.';
+
+    return `<div class="lesson-materials lesson-materials-${escapeHtml(mode)}"><div class="lesson-materials-heading"><span class="eyebrow">Материалы урока</span><p>${escapeHtml(description)}</p></div><div class="lesson-material-links">${links.join('')}</div></div>`;
   }
 
   function renderHomework() {
@@ -622,13 +639,13 @@
       const status = complete ? 'completed' : safeText(item.status, 'available');
       const label = complete ? 'Выполнено' : status === 'available' ? 'Доступно' : status === 'locked' ? 'Закрыто' : 'Черновик';
       if (locked) {
-        return `<article class="card lesson-hub-card disabled"><div class="lesson-hub-main"><div class="item-icon">🔒</div><div class="item-main"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(subtitle)}</p></div><span class="status-badge status-locked">${escapeHtml(label)}</span></div></article>`;
+        return `<article class="card lesson-hub-card disabled"><div class="lesson-hub-main"><div class="item-icon">🔒</div><div class="item-main"><span class="homework-number">Домашняя работа №${Number(item.number || 0)}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(subtitle)}</p></div><span class="status-badge status-locked">${escapeHtml(label)}</span></div></article>`;
       }
       const href = item.page || `lesson.html?id=${encodeURIComponent(item.id)}`;
       return `<article class="card lesson-hub-card">
         <a class="lesson-hub-main interactive" href="${escapeHtml(href)}">
           <div class="item-icon">${complete ? '✅' : '📝'}</div>
-          <div class="item-main"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(subtitle)}</p></div>
+          <div class="item-main"><span class="homework-number">Домашняя работа №${Number(item.number || 0)}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(subtitle)}</p></div>
           <span class="status-badge status-${escapeHtml(status)}">${escapeHtml(label)}</span>
         </a>
         ${lessonMaterialLinks(item, 'hub')}
@@ -990,7 +1007,7 @@
     }
 
     byId('lesson-hero-title').textContent = safeText(lessonRecord.title, 'Задание');
-    byId('lesson-hero-subtitle').textContent = safeText(lessonRecord.subtitle, 'Интерактивная практика');
+    byId('lesson-hero-subtitle').textContent = `Домашняя работа №${Number(lessonRecord.number || 0)} · ${safeText(lessonRecord.subtitle, 'Интерактивная практика')}`;
     root.innerHTML = '<div class="card empty-state compact-empty"><div class="empty-state-icon">⏳</div><h3>Загружаем задание…</h3></div>';
 
     let lesson;
@@ -1024,7 +1041,7 @@
       return renderLessonBlock(block.type === 'section' ? { ...block, __sectionNumber: sectionNumber } : block, blockIndex);
     }).join('');
     const linkedMaterials = lessonMaterialLinks(lesson, 'lesson');
-    root.innerHTML = `<div class="card lesson-intro"><div><span class="eyebrow">Домашнее задание</span><p>${escapeHtml(lesson.subtitle || '')}</p></div><span class="lesson-points">${pointsLabel}</span></div>
+    root.innerHTML = `<div class="card lesson-intro"><div><span class="eyebrow">Домашняя работа №${Number(lesson.number || 0)}</span><p>${escapeHtml(lesson.subtitle || '')}</p></div><span class="lesson-points">${pointsLabel}</span></div>
       ${linkedMaterials}
       ${roadmap}
       <div id="lesson-blocks">${renderedBlocks}</div>
