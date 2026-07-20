@@ -263,6 +263,45 @@
     }
   };
 
+
+  const HomeworkReportService = {
+    isConfigured() {
+      return Boolean(
+        config.features?.telegramNotifications &&
+        CloudService.isConfigured()
+      );
+    },
+    async send(lessonId) {
+      if (!this.isConfigured()) {
+        return { ok: false, skipped: true, reason: 'not_configured' };
+      }
+
+      const baseUrl = safeText(config.supabase?.url).replace(/\/+$/, '');
+      const anonKey = safeText(config.supabase?.anonKey).trim();
+      const endpoint = `${baseUrl}/functions/v1/notify-telegram`;
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          apikey: anonKey,
+          authorization: `Bearer ${anonKey}`
+        },
+        body: JSON.stringify({
+          eventType: 'homework_report',
+          studentId,
+          lessonId,
+          lessonUrl: window.location.href
+        })
+      });
+
+      const result = await response.json().catch(() => null);
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.error || `Homework report error: HTTP ${response.status}`);
+      }
+      return result;
+    }
+  };
+
   function normalizeVocabularyProgress(value) {
     const words = value?.words && typeof value.words === 'object' ? { ...value.words } : {};
     const topics = {};
@@ -349,8 +388,10 @@
           }
           if (row.status === 'submitted') {
             homework.submissions[row.lesson_id] = { savedAt: row.submitted_at || row.updated_at, status: 'cloud' };
-          }
-          if (Number(row.score_total) > 0 && Number(row.score_correct) === Number(row.score_total)) {
+            // A homework assignment is counted as complete after it is submitted,
+            // even if some answers are incorrect.
+            homework.completedIds.push(row.lesson_id);
+          } else if (Number(row.score_total) > 0 && Number(row.score_correct) === Number(row.score_total)) {
             homework.completedIds.push(row.lesson_id);
           }
         });
@@ -1072,9 +1113,6 @@
       <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Check answers</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Submit to teacher</button></div><p class="muted save-note">After checking, your answers are saved on this device and synced with Supabase.</p></div>`;
 
     restoreLessonAnswers(root, blocks, savedResult?.answers);
-    if (savedResult && Number(savedResult.total) > 0) {
-      byId('lesson-result').innerHTML = `<h3>Saved score: ${Number(savedResult.correct || 0)} of ${Number(savedResult.total || 0)}</h3><p class="muted">${Number(savedResult.percent || 0)}% correct</p>`;
-    }
 
     root.querySelectorAll('[data-reorder-source]').forEach((source) => {
       source.addEventListener('click', (event) => {
@@ -1088,20 +1126,24 @@
       });
     });
 
-    byId('check-lesson').addEventListener('click', () => {
+    const evaluateLesson = () => {
       const checkableTypes = ['text','textarea','single','multiple','select','match','reorder','translate','audio','exercise'];
-      const checkable = blocks.filter((block) => checkableTypes.includes(block.type) && !(block.type === 'audio' && block.response === false));
+      const checkable = blocks
+        .map((block, blockIndex) => ({ block, blockIndex }))
+        .filter(({ block }) => checkableTypes.includes(block.type) && !(block.type === 'audio' && block.response === false));
       let correct = 0;
       let total = 0;
       const answers = {};
-      checkable.forEach((block, index) => {
-        const taskId = safeText(block.id, `task-${index}`);
+
+      checkable.forEach(({ block, blockIndex }) => {
+        const taskId = safeText(block.id, `task-${blockIndex}`);
         const node = root.querySelector(`[data-task="${CSS.escape(taskId)}"]`);
         if (!node) return;
         const result = checkLessonTask(block, node);
         answers[taskId] = result.actual;
         correct += Number(result.correctCount || 0);
         total += Number(result.total || 0);
+
         if (block.type !== 'exercise') {
           const feedback = node.querySelector('.feedback');
           const isCorrect = Number(result.correctCount || 0) === Number(result.total || 0);
@@ -1111,20 +1153,79 @@
           }
         }
       });
-      const percent = safePercent(correct, total);
+
+      return { correct, total, percent: safePercent(correct, total), answers };
+    };
+
+    // Restore not only the values, but also the green/red review state after reload.
+    if (savedResult && Number(savedResult.total) > 0) {
+      evaluateLesson();
+      byId('lesson-result').innerHTML = `<h3>Saved score: ${Number(savedResult.correct || 0)} of ${Number(savedResult.total || 0)}</h3><p class="muted">${Number(savedResult.percent || 0)}% correct</p>`;
+    }
+
+    byId('check-lesson').addEventListener('click', () => {
+      const result = evaluateLesson();
       const manualNote = hasManualResponses ? ' · the extended answer is saved separately and is not included in the score' : '';
-      byId('lesson-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct${manualNote}</p>`;
+      byId('lesson-result').innerHTML = `<h3>Score: ${result.correct} of ${result.total}</h3><p class="muted">${result.percent}% correct${manualNote}</p>`;
       const updatedProgress = window.ProgressService.loadHomeworkProgress();
-      updatedProgress.results[lesson.id] = { correct, total, percent, answers, checkedAt: new Date().toISOString() };
-      if (total > 0 && correct === total && !updatedProgress.completedIds.includes(lesson.id)) updatedProgress.completedIds.push(lesson.id);
+      updatedProgress.results[lesson.id] = {
+        correct: result.correct,
+        total: result.total,
+        percent: result.percent,
+        answers: result.answers,
+        checkedAt: new Date().toISOString()
+      };
       window.ProgressService.saveHomeworkProgress(updatedProgress);
       byId('submit-lesson').disabled = false;
     });
-    byId('submit-lesson').addEventListener('click', () => {
+
+    byId('submit-lesson').addEventListener('click', async () => {
+      const button = byId('submit-lesson');
       const updatedProgress = window.ProgressService.loadHomeworkProgress();
-      updatedProgress.submissions[lesson.id] = { savedAt: new Date().toISOString(), status: CloudService.isConfigured() ? 'pending-cloud' : 'local' };
+      const result = updatedProgress.results[lesson.id];
+      if (!result || Number(result.total || 0) <= 0) {
+        showToast('Check the answers before submitting the homework.');
+        return;
+      }
+
+      const submittedAt = new Date().toISOString();
+      updatedProgress.submissions[lesson.id] = {
+        savedAt: submittedAt,
+        status: CloudService.isConfigured() ? 'pending-cloud' : 'local'
+      };
+      // Submission, not a perfect score, marks the homework as completed.
+      if (!updatedProgress.completedIds.includes(lesson.id)) updatedProgress.completedIds.push(lesson.id);
       window.ProgressService.saveHomeworkProgress(updatedProgress);
-      showToast(CloudService.isConfigured() ? 'Your answers have been saved and are being sent to Supabase.' : 'Your answers have been saved on this device.');
+
+      button.disabled = true;
+      const originalText = button.textContent;
+      button.textContent = 'Sending…';
+
+      try {
+        if (CloudService.isConfigured()) {
+          // Wait until the submitted row is really written before the report function reads it.
+          await window.ProgressService.syncToCloud('homework');
+          const report = await HomeworkReportService.send(lesson.id);
+          const latest = window.ProgressService.loadHomeworkProgress();
+          latest.submissions[lesson.id] = {
+            savedAt: submittedAt,
+            status: report?.skipped ? 'cloud' : 'report-sent'
+          };
+          window.ProgressService.saveHomeworkProgress(latest);
+          showToast(report?.skipped ? 'Homework saved in Supabase.' : 'Homework submitted. The teacher received the Telegram report.');
+        } else {
+          showToast('Homework saved on this device. Supabase is not configured.');
+        }
+      } catch (error) {
+        console.error('Homework submission/report error:', error);
+        const latest = window.ProgressService.loadHomeworkProgress();
+        latest.submissions[lesson.id] = { savedAt: submittedAt, status: 'report-failed' };
+        window.ProgressService.saveHomeworkProgress(latest);
+        showToast(`Homework saved, but the Telegram report was not sent: ${safeText(error?.message, 'unknown error')}`);
+      } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
     });
   }
 
