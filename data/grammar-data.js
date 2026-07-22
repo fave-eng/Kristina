@@ -842,8 +842,8 @@ window.GRAMMAR_DATA = [
             "prompt": "Complete the sentence.",
             "segments": [
               "Our team leader is both ",
-              " and ",
-              ", so people trust her decisions."
+              " (ASSERT) and ",
+              " (RESPONSE), so people trust her decisions."
             ],
             "answers": [
               [
@@ -861,8 +861,8 @@ window.GRAMMAR_DATA = [
             "prompt": "Complete the sentence.",
             "segments": [
               "The designer is extremely ",
-              ", and her latest collection looks very ",
-              "."
+              " (CREATE), and her latest collection looks very ",
+              " (GLAMOUR)."
             ],
             "answers": [
               [
@@ -880,8 +880,8 @@ window.GRAMMAR_DATA = [
             "prompt": "Complete the sentence.",
             "segments": [
               "Tom is usually ",
-              ", but he can become ",
-              " when he is tired."
+              " (HELP), but he can become ",
+              " (IMPULSE) when he is tired."
             ],
             "answers": [
               [
@@ -899,8 +899,8 @@ window.GRAMMAR_DATA = [
             "prompt": "Complete the sentence.",
             "segments": [
               "The charity was very ",
-              " because it had many ",
-              " volunteers."
+              " (SUCCESS) because it had many ",
+              " (COMPASSION) volunteers."
             ],
             "answers": [
               [
