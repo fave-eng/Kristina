@@ -1,6 +1,7 @@
 import { withSupabase } from 'npm:@supabase/server@^1'
 
 const encoder = new TextEncoder()
+const FUNCTION_VERSION = 'homework-reports-v3'
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-notify-secret',
@@ -8,7 +9,10 @@ const corsHeaders = {
 }
 
 function json(body: unknown, status = 200) {
-  return Response.json(body, { status, headers: corsHeaders })
+  const responseBody = body && typeof body === 'object' && !Array.isArray(body)
+    ? { ...(body as Record<string, unknown>), functionVersion: FUNCTION_VERSION }
+    : body
+  return Response.json(responseBody, { status, headers: corsHeaders })
 }
 
 function secureEqual(left: string, right: string): boolean {
