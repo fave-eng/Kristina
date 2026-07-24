@@ -1,0 +1,483 @@
+{
+  "id": "lesson-3",
+  "number": 3,
+  "title": "Can you remember…? 1",
+  "subtitle": "Review practice: grammar, Social English, and clothes colours",
+  "status": "available",
+  "publishedAt": "2026-07-24",
+  "totalPoints": 29,
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "Can you remember…? 1",
+      "title": "Grammar",
+      "text": "Complete the six sentences. Type the two missing words in each sentence."
+    },
+    {
+      "type": "exercise",
+      "id": "cyr-grammar-1",
+      "title": "1. Complete the sentences",
+      "instructions": "Type one word in each gap.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "His name’s Enrique, but he’s called Kike ",
+            " ",
+            "."
+          ],
+          "answers": [
+            [
+              "for"
+            ],
+            [
+              "short"
+            ]
+          ],
+          "explanation": "He’s called Kike for short."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "This isn’t my jacket. That beige one ",
+            " ",
+            "."
+          ],
+          "answers": [
+            [
+              "is"
+            ],
+            [
+              "mine"
+            ]
+          ],
+          "explanation": "That beige one is mine."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "This isn’t my book. A friend lent it ",
+            " ",
+            "."
+          ],
+          "answers": [
+            [
+              "to"
+            ],
+            [
+              "me"
+            ]
+          ],
+          "explanation": "A friend lent it to me."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "I’m not looking for expensive trainers; I want to buy some ",
+            " ",
+            "."
+          ],
+          "answers": [
+            [
+              "cheap"
+            ],
+            [
+              "ones"
+            ]
+          ],
+          "explanation": "I want to buy some cheap ones."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "It takes me a lot longer to get to work now because I live ",
+            " ",
+            " away than I used to."
+          ],
+          "answers": [
+            [
+              "much"
+            ],
+            [
+              "further"
+            ]
+          ],
+          "explanation": "I live much further away than I used to."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "My neighbours don’t look after their garden. Theirs is ",
+            " ",
+            " attractive garden in the street."
+          ],
+          "answers": [
+            [
+              "the"
+            ],
+            [
+              "least"
+            ]
+          ],
+          "explanation": "Theirs is the least attractive garden in the street."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "Practical English",
+      "title": "Social English",
+      "text": "Complete the highlighted phrases, then use the phrases to finish the conversations."
+    },
+    {
+      "type": "exercise",
+      "id": "social-3a",
+      "title": "3a. Complete the highlighted phrases",
+      "instructions": "Use a word from the list. Type only the missing word.",
+      "wordBank": [
+        "awful",
+        "day",
+        "great",
+        "lovely",
+        "miss",
+        "take",
+        "weird",
+        "wow"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "A: It’s lovely to see you. B: It’s ______ to see you, too.",
+          "input": "text",
+          "answer": "great",
+          "explanation": "It’s great to see you, too."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "A: I can’t believe we’re here, Sophie. B: Neither can I. It’s ______, isn’t it?",
+          "input": "text",
+          "answer": "weird",
+          "explanation": "It’s weird, isn’t it?"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "A: Look at this top I’ve just bought! B: Oh ______! It’s amazing!",
+          "input": "text",
+          "answer": "wow",
+          "explanation": "Oh wow! It’s amazing!"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "A: I’ve lost my passport. B: It’s not your ______, is it?",
+          "input": "text",
+          "answer": "day",
+          "explanation": "It’s not your day, is it?"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "A: I really ______ you. B: Me too.",
+          "input": "text",
+          "answer": "miss",
+          "explanation": "I really miss you."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "A: They’ve cancelled my flight. B: Oh no! That’s ______.",
+          "input": "text",
+          "answer": "awful",
+          "explanation": "That’s awful."
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "A: I’ll put my bag in my room. B: Please, let me ______ that for you.",
+          "input": "text",
+          "answer": "take",
+          "explanation": "Please, let me take that for you."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "social-3b",
+      "title": "3b. Complete the conversations",
+      "instructions": "Choose the highlighted phrase from exercise 3a that completes each gap.",
+      "items": [
+        {
+          "id": "1",
+          "number": "1a",
+          "prompt": "A: I can’t believe you’re so far away. B: Yes, it’s weird, isn’t it? It seems strange talking to you on the phone. A: ______ B: Me, too.",
+          "input": "select",
+          "options": [
+            "I really miss you.",
+            "It’s great to see you, too.",
+            "Oh wow!",
+            "That’s awful.",
+            "It’s not your day, is it?",
+            "let me take that"
+          ],
+          "answer": 0,
+          "explanation": "I really miss you."
+        },
+        {
+          "id": "2",
+          "number": "2a",
+          "prompt": "A: It’s lovely to see you. B: ______",
+          "input": "select",
+          "options": [
+            "I really miss you.",
+            "It’s great to see you, too.",
+            "Oh wow!",
+            "That’s awful.",
+            "It’s not your day, is it?",
+            "let me take that"
+          ],
+          "answer": 1,
+          "explanation": "It’s great to see you, too."
+        },
+        {
+          "id": "3",
+          "number": "2b",
+          "prompt": "A: I’ve brought you some flowers. B: ______ They’re beautiful!",
+          "input": "select",
+          "options": [
+            "I really miss you.",
+            "It’s great to see you, too.",
+            "Oh wow!",
+            "That’s awful.",
+            "It’s not your day, is it?",
+            "let me take that"
+          ],
+          "answer": 2,
+          "explanation": "Oh wow! They’re beautiful!"
+        },
+        {
+          "id": "4",
+          "number": "3a",
+          "prompt": "A: I’ve been sitting in a traffic jam for two hours. B: Oh no! ______",
+          "input": "select",
+          "options": [
+            "I really miss you.",
+            "It’s great to see you, too.",
+            "Oh wow!",
+            "That’s awful.",
+            "It’s not your day, is it?",
+            "let me take that"
+          ],
+          "answer": 3,
+          "explanation": "That’s awful."
+        },
+        {
+          "id": "5",
+          "number": "3b",
+          "prompt": "A: And now I’m finally here, I’ve just realized I’ve left my wallet at home. B: ______",
+          "input": "select",
+          "options": [
+            "I really miss you.",
+            "It’s great to see you, too.",
+            "Oh wow!",
+            "That’s awful.",
+            "It’s not your day, is it?",
+            "let me take that"
+          ],
+          "answer": 4,
+          "explanation": "It’s not your day, is it?"
+        },
+        {
+          "id": "6",
+          "number": 4,
+          "prompt": "A: I’ll put my bag in the boot. B: No, no, ______. It’s too heavy for you.",
+          "input": "select",
+          "options": [
+            "I really miss you.",
+            "It’s great to see you, too.",
+            "Oh wow!",
+            "That’s awful.",
+            "It’s not your day, is it?",
+            "let me take that"
+          ],
+          "answer": 5,
+          "explanation": "No, no, let me take that. It’s too heavy for you."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "Review · Grammar & Vocabulary",
+      "title": "What the colour of your clothes says about you",
+      "text": "Read the article and choose a, b, or c for each gap."
+    },
+    {
+      "type": "reading",
+      "id": "colour-reading",
+      "title": "What the colour of your clothes says about you",
+      "text": "Some psychologists think that the colour of [1] ______ clothes says a lot about us. They believe that red, purple, or grey clothes give people [2] ______ impressions of what we are like.\n\nRed clothes attract attention and suggest that the wearer is [3] ______. Red is one of the [4] ______ colours to wear when you want to impress or persuade someone to do something for [5] ______. Black and blue are a bit [6] ______ impressive than red, but they also suggest power. Black is more serious than the other two and suggests the wearer is confident and ambitious. If you are going to a job interview, you should probably wear blue, as it shows that you are [7] ______ and can be trusted. People who are optimistic generally wear [8] ______ brighter colours like pink, orange, or yellow. Purple indicates elegance, style, and [9] ______ talent — it’s a colour often worn by artists. Grey is the [10] ______ neutral of all the colours. Grey clothes suggest that a person doesn’t like attracting attention and would rather be on their own."
+    },
+    {
+      "type": "exercise",
+      "id": "grammar-vocabulary-4",
+      "title": "4. Read the article. Choose a, b, or c",
+      "instructions": "Choose the correct word for each numbered gap.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "the colour of ______ clothes",
+          "input": "single",
+          "options": [
+            "our",
+            "ours",
+            "their"
+          ],
+          "answer": 0,
+          "explanation": "Use our before the noun clothes."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "give people ______ impressions",
+          "input": "single",
+          "options": [
+            "difference",
+            "different",
+            "differents"
+          ],
+          "answer": 1,
+          "explanation": "Different is the adjective before impressions."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "suggest that the wearer is ______",
+          "input": "single",
+          "options": [
+            "careful",
+            "powerful",
+            "powerless"
+          ],
+          "answer": 1,
+          "explanation": "Red clothes suggest that the wearer is powerful."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "one of the ______ colours to wear",
+          "input": "single",
+          "options": [
+            "best",
+            "better",
+            "most"
+          ],
+          "answer": 0,
+          "explanation": "Use one of the best + plural noun."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "do something for ______",
+          "input": "single",
+          "options": [
+            "you",
+            "your",
+            "yours"
+          ],
+          "answer": 0,
+          "explanation": "After for, use the object pronoun you."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "a bit ______ impressive than red",
+          "input": "single",
+          "options": [
+            "least",
+            "less",
+            "the least"
+          ],
+          "answer": 1,
+          "explanation": "Use less before an adjective in a comparison."
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "it shows that you are ______ and can be trusted",
+          "input": "single",
+          "options": [
+            "affordable",
+            "recognizable",
+            "reliable"
+          ],
+          "answer": 2,
+          "explanation": "Reliable means that you can be trusted."
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "prompt": "wear ______ brighter colours",
+          "input": "single",
+          "options": [
+            "bit",
+            "more",
+            "much"
+          ],
+          "answer": 2,
+          "explanation": "Much can intensify a comparative adjective: much brighter."
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "prompt": "elegance, style, and ______ talent",
+          "input": "single",
+          "options": [
+            "assertive",
+            "creative",
+            "sensitive"
+          ],
+          "answer": 1,
+          "explanation": "Artists are associated with creative talent."
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "prompt": "the ______ neutral of all the colours",
+          "input": "single",
+          "options": [
+            "most",
+            "more",
+            "least"
+          ],
+          "answer": 0,
+          "explanation": "Use the most + adjective for a superlative."
+        }
+      ]
+    }
+  ]
+}
