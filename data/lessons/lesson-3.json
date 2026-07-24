@@ -2,7 +2,7 @@
   "id": "lesson-3",
   "number": 3,
   "title": "Can you remember…? 1",
-  "subtitle": "Review practice: grammar, Social English, and clothes colours",
+  "subtitle": "Review practice: Social English, grammar, and clothes colours",
   "status": "available",
   "publishedAt": "2026-07-24",
   "totalPoints": 29,
@@ -11,140 +11,6 @@
     "version": 1
   },
   "blocks": [
-    {
-      "type": "section",
-      "eyebrow": "Can you remember…? 1",
-      "title": "Grammar",
-      "text": "Complete the six sentences. Type the two missing words in each sentence."
-    },
-    {
-      "type": "exercise",
-      "id": "cyr-grammar-1",
-      "title": "1. Complete the sentences",
-      "instructions": "Type one word in each gap.",
-      "items": [
-        {
-          "id": "1",
-          "number": 1,
-          "prompt": "Complete the sentence.",
-          "input": "gaps",
-          "segments": [
-            "His name’s Enrique, but he’s called Kike ",
-            " ",
-            "."
-          ],
-          "answers": [
-            [
-              "for"
-            ],
-            [
-              "short"
-            ]
-          ],
-          "explanation": "He’s called Kike for short."
-        },
-        {
-          "id": "2",
-          "number": 2,
-          "prompt": "Complete the sentence.",
-          "input": "gaps",
-          "segments": [
-            "This isn’t my jacket. That beige one ",
-            " ",
-            "."
-          ],
-          "answers": [
-            [
-              "is"
-            ],
-            [
-              "mine"
-            ]
-          ],
-          "explanation": "That beige one is mine."
-        },
-        {
-          "id": "3",
-          "number": 3,
-          "prompt": "Complete the sentence.",
-          "input": "gaps",
-          "segments": [
-            "This isn’t my book. A friend lent it ",
-            " ",
-            "."
-          ],
-          "answers": [
-            [
-              "to"
-            ],
-            [
-              "me"
-            ]
-          ],
-          "explanation": "A friend lent it to me."
-        },
-        {
-          "id": "4",
-          "number": 4,
-          "prompt": "Complete the sentence.",
-          "input": "gaps",
-          "segments": [
-            "I’m not looking for expensive trainers; I want to buy some ",
-            " ",
-            "."
-          ],
-          "answers": [
-            [
-              "cheap"
-            ],
-            [
-              "ones"
-            ]
-          ],
-          "explanation": "I want to buy some cheap ones."
-        },
-        {
-          "id": "5",
-          "number": 5,
-          "prompt": "Complete the sentence.",
-          "input": "gaps",
-          "segments": [
-            "It takes me a lot longer to get to work now because I live ",
-            " ",
-            " away than I used to."
-          ],
-          "answers": [
-            [
-              "much"
-            ],
-            [
-              "further"
-            ]
-          ],
-          "explanation": "I live much further away than I used to."
-        },
-        {
-          "id": "6",
-          "number": 6,
-          "prompt": "Complete the sentence.",
-          "input": "gaps",
-          "segments": [
-            "My neighbours don’t look after their garden. Theirs is ",
-            " ",
-            " attractive garden in the street."
-          ],
-          "answers": [
-            [
-              "the"
-            ],
-            [
-              "least"
-            ]
-          ],
-          "explanation": "Theirs is the least attractive garden in the street."
-        }
-      ]
-    },
     {
       "type": "section",
       "eyebrow": "Practical English",
@@ -326,6 +192,140 @@
           ],
           "answer": 5,
           "explanation": "No, no, let me take that. It’s too heavy for you."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "Can you remember…? 1",
+      "title": "Grammar",
+      "text": "Complete the six sentences. Type the two missing words in each sentence."
+    },
+    {
+      "type": "exercise",
+      "id": "cyr-grammar-1",
+      "title": "1. Complete the sentences",
+      "instructions": "Type one word in each gap.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "His name’s Enrique, but he’s called Kike f",
+            " sh",
+            "."
+          ],
+          "answers": [
+            [
+              "or"
+            ],
+            [
+              "ort"
+            ]
+          ],
+          "explanation": "He’s called Kike for short."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "This isn’t my jacket. That beige one i",
+            " m",
+            "."
+          ],
+          "answers": [
+            [
+              "s"
+            ],
+            [
+              "ine"
+            ]
+          ],
+          "explanation": "That beige one is mine."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "This isn’t my book. A friend lent it t",
+            " m",
+            "."
+          ],
+          "answers": [
+            [
+              "o"
+            ],
+            [
+              "e"
+            ]
+          ],
+          "explanation": "A friend lent it to me."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "I’m not looking for expensive trainers; I want to buy some ch",
+            " o",
+            "."
+          ],
+          "answers": [
+            [
+              "eap"
+            ],
+            [
+              "nes"
+            ]
+          ],
+          "explanation": "I want to buy some cheap ones."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "It takes me a lot longer to get to work now because I live m",
+            " f",
+            " away than I used to."
+          ],
+          "answers": [
+            [
+              "uch"
+            ],
+            [
+              "urther"
+            ]
+          ],
+          "explanation": "I live much further away than I used to."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "Complete the sentence.",
+          "input": "gaps",
+          "segments": [
+            "My neighbours don’t look after their garden. Theirs is th",
+            " l",
+            " attractive garden in the street."
+          ],
+          "answers": [
+            [
+              "e"
+            ],
+            [
+              "east"
+            ]
+          ],
+          "explanation": "Theirs is the least attractive garden in the street."
         }
       ]
     },
