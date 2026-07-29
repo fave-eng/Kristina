@@ -1,0 +1,567 @@
+{
+  "id": "lesson-4",
+  "number": 4,
+  "title": "Get ready! Get set! Go!",
+  "subtitle": "Vocabulary: packing",
+  "status": "available",
+  "publishedAt": "2026-07-29",
+  "totalPoints": 33,
+  "vocabularyId": "vocab-lesson-4",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "2A",
+      "title": "VOCABULARY",
+      "text": "packing"
+    },
+    {
+      "type": "exercise",
+      "id": "packing-1a",
+      "title": "1a. Circle the word that is different. Explain why.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "odd-one-out",
+          "options": [
+            "bathrobe",
+            "sunhat",
+            "pyjamas",
+            "slippers"
+          ],
+          "answer": 1,
+          "reasonAnswer": "nightwear",
+          "example": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "odd-one-out",
+          "options": [
+            "toothpaste",
+            "insect repellent",
+            "adaptor",
+            "make-up"
+          ],
+          "answer": 2,
+          "reasonAnswer": "toiletries"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "odd-one-out",
+          "options": [
+            "pack of cards",
+            "charger",
+            "travel iron",
+            "earphones"
+          ],
+          "answer": 0,
+          "reasonAnswer": "electronics"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "odd-one-out",
+          "options": [
+            "ID card",
+            "visa",
+            "driving licence",
+            "razor"
+          ],
+          "answer": 3,
+          "reasonAnswer": "documents"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "odd-one-out",
+          "options": [
+            "flip-flops",
+            "swimsuit",
+            "raincoat",
+            "swimming trunks"
+          ],
+          "answer": 2,
+          "reasonAnswer": "things for the beach"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "packing-1b",
+      "title": "1b. Complete the crossword.",
+      "image": "images/lesson-4/packing-crossword.png",
+      "imageAlt": "Packing crossword with numbered pictures",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "FIRST AID KIT",
+          "example": true,
+          "exampleTextOnly": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "",
+          "input": "text",
+          "answer": "sunscreen"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "",
+          "input": "text",
+          "answer": "hairdryer",
+          "acceptedAnswers": [
+            "hairdryer",
+            "hair dryer"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "",
+          "input": "text",
+          "answer": "beach bag"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "",
+          "input": "text",
+          "answer": "headphones"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "",
+          "input": "text",
+          "answer": "scissors"
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "",
+          "input": "text",
+          "answer": "batteries"
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "prompt": "",
+          "input": "text",
+          "answer": "towel"
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "prompt": "",
+          "input": "text",
+          "answer": "underwear"
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "prompt": "",
+          "input": "text",
+          "answer": "guidebook",
+          "acceptedAnswers": [
+            "guidebook",
+            "guide book"
+          ]
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "prompt": "",
+          "input": "text",
+          "answer": "toothbrush",
+          "acceptedAnswers": [
+            "toothbrush",
+            "tooth brush"
+          ]
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "prompt": "",
+          "input": "text",
+          "answer": "razor"
+        },
+        {
+          "id": "13",
+          "number": 13,
+          "prompt": "",
+          "input": "text",
+          "answer": "washbag",
+          "acceptedAnswers": [
+            "washbag",
+            "wash bag"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "packing-1c",
+      "title": "1c. Complete the text with the words and phrases from the lists.",
+      "wordBanks": [
+        {
+          "label": "Nouns",
+          "words": [
+            "booking confirmation",
+            "driving licence",
+            "passport",
+            "scissors",
+            "shampoo",
+            "travel insurance documents",
+            "underwear",
+            "visa",
+            "washbag"
+          ]
+        },
+        {
+          "label": "Verbs",
+          "words": [
+            "fold",
+            "pack",
+            "roll up",
+            "unpack",
+            "wrap"
+          ]
+        }
+      ],
+      "introTitle": "TIPS FOR PACKING",
+      "introText": "Next time you fly and you have to pack a small bag to take onto the plane and a suitcase for the hold, remember these tips.",
+      "items": [
+        {
+          "id": "heading-suitcase",
+          "displayOnly": true,
+          "displayStyle": "heading",
+          "prompt": "First the suitcase:"
+        },
+        {
+          "id": "1-2",
+          "number": "",
+          "input": "example-gap",
+          "segments": [
+            "Before you start, ",
+            " your jeans, jumpers, and T-shirts to make them smaller, and carefully ",
+            " your shirts and dresses."
+          ],
+          "exampleNumber": 1,
+          "exampleAnswer": "roll up",
+          "gapNumber": 2,
+          "answer": "fold"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "prompt": "______ heavy items like shoes at the bottom of the case.",
+          "segments": [
+            "",
+            " heavy items like shoes at the bottom of the case."
+          ],
+          "answers": [
+            [
+              "pack"
+            ]
+          ]
+        },
+        {
+          "id": "copy-layer",
+          "displayOnly": true,
+          "prompt": "Put a layer of jeans, jumpers, and T-shirts on top of the shoes."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "prompt": "______ fragile items in a towel and put them in the middle of your case.",
+          "segments": [
+            "",
+            " fragile items in a towel and put them in the middle of your case."
+          ],
+          "answers": [
+            [
+              "wrap"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "prompt": "Place shirts and dresses on top of the other clothes. You can ______ them as soon as you arrive and hang them in a cupboard.",
+          "segments": [
+            "Place shirts and dresses on top of the other clothes. You can ",
+            " them as soon as you arrive and hang them in a cupboard."
+          ],
+          "answers": [
+            [
+              "unpack"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "prompt": "Fill the spaces in your case with small items of clothing such as socks and ______.",
+          "segments": [
+            "Fill the spaces in your case with small items of clothing such as socks and ",
+            "."
+          ],
+          "answers": [
+            [
+              "underwear"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "prompt": "Finally, put your ______ with all your toiletries on the top.",
+          "segments": [
+            "Finally, put your ",
+            " with all your toiletries on the top."
+          ],
+          "answers": [
+            [
+              "washbag",
+              "wash bag"
+            ]
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "prompt": "Remember that bottles of ______ and deodorant over 100 ml must go in your case.",
+          "segments": [
+            "Remember that bottles of ",
+            " and deodorant over 100 ml must go in your case."
+          ],
+          "answers": [
+            [
+              "shampoo"
+            ]
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "prompt": "Sharp objects like ______ must also go in here.",
+          "segments": [
+            "Sharp objects like ",
+            " must also go in here."
+          ],
+          "answers": [
+            [
+              "scissors"
+            ]
+          ]
+        },
+        {
+          "id": "heading-hand-luggage",
+          "displayOnly": true,
+          "displayStyle": "heading",
+          "prompt": "Now for your hand luggage:"
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "gaps",
+          "prompt": "Keep all your documents here. Make sure you have your ______, in case the suitcase you have checked in gets lost.",
+          "segments": [
+            "Keep all your documents here. Make sure you have your ",
+            ", in case the suitcase you have checked in gets lost."
+          ],
+          "answers": [
+            [
+              "travel insurance documents"
+            ]
+          ]
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "input": "gaps",
+          "prompt": "Take your ______ to show you have paid for your accommodation.",
+          "segments": [
+            "Take your ",
+            " to show you have paid for your accommodation."
+          ],
+          "answers": [
+            [
+              "booking confirmation"
+            ]
+          ]
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "input": "gaps",
+          "prompt": "Have your ______ with you in case you want to rent a car.",
+          "segments": [
+            "Have your ",
+            " with you in case you want to rent a car."
+          ],
+          "answers": [
+            [
+              "driving licence",
+              "driving license"
+            ]
+          ]
+        },
+        {
+          "id": "13",
+          "number": 13,
+          "input": "gaps",
+          "prompt": "Keep your ID card or ______ in the outside pocket of the bag, if possible – you will probably need to show it more than once.",
+          "segments": [
+            "Keep your ID card or ",
+            " in the outside pocket of the bag, if possible – you will probably need to show it more than once."
+          ],
+          "answers": [
+            [
+              "passport"
+            ]
+          ]
+        },
+        {
+          "id": "14",
+          "number": 14,
+          "input": "gaps",
+          "prompt": "Put your ______ with your travel documents because you will need it to enter the country when you land.",
+          "segments": [
+            "Put your ",
+            " with your travel documents because you will need it to enter the country when you land."
+          ],
+          "answers": [
+            [
+              "visa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "packing-1d",
+      "title": "1d. What would you need to pack for the following situations? Write five items.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "a beach holiday in your own country",
+          "input": "textarea",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "a three-day business trip abroad",
+          "input": "textarea",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "2A",
+      "title": "VOCABULARY FROM READING",
+      "text": ""
+    },
+    {
+      "type": "exercise",
+      "id": "reading-vocabulary",
+      "title": "Complete the sentences with a phrase from the list.",
+      "wordBank": [
+        "develop a magnetic pull",
+        "get your revenge on",
+        "goes completely out the window",
+        "have the urge",
+        "whatever the reason"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "My healthy eating routine always goes completely out the window when I go on holiday.",
+          "example": true,
+          "exampleTextOnly": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "prompt": "I often ______ to book a holiday in the sun when it’s cold and wet outside.",
+          "segments": [
+            "I often ",
+            " to book a holiday in the sun when it’s cold and wet outside."
+          ],
+          "answers": [
+            [
+              "have the urge"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "prompt": "One way to ______ an unfair employer is to start your own business.",
+          "segments": [
+            "One way to ",
+            " an unfair employer is to start your own business."
+          ],
+          "answers": [
+            [
+              "get your revenge on"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "prompt": "______, tourist numbers to the country have grown significantly in the last two years.",
+          "segments": [
+            "",
+            ", tourist numbers to the country have grown significantly in the last two years."
+          ],
+          "answers": [
+            [
+              "whatever the reason"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "prompt": "When I need to study, social media posts from people I don’t even know ______.",
+          "segments": [
+            "When I need to study, social media posts from people I don’t even know ",
+            "."
+          ],
+          "answers": [
+            [
+              "develop a magnetic pull"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -810,15 +810,34 @@
     const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
     const numberMarkup = number === '' || number === null ? '' : `<span class="exercise-number">${escapeHtml(number)}</span>`;
 
+    if (item.displayOnly) {
+      const className = item.displayStyle === 'heading' ? 'exercise-display-heading' : 'exercise-display-copy';
+      return `<div class="${className}" data-exercise-item="${escapeHtml(itemId)}">${prompt}</div>`;
+    }
+
+    if (item.example && item.input === 'odd-one-out') {
+      const selectedIndex = Number(item.answer);
+      const options = (item.options || []).map((option, optionIndex) => `<span class="odd-option ${optionIndex === selectedIndex ? 'selected' : ''}">${escapeHtml(option)}</span>`).join('');
+      return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+        <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
+        <div class="exercise-control"><div class="odd-options">${options}</div><div class="odd-reason">The others are all <strong>${escapeHtml(item.reasonAnswer || '')}</strong>.</div></div>
+      </div>`;
+    }
+
     if (item.example) {
       return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
         <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
-        <div class="example-answer"><span>Example</span><strong>${escapeHtml(item.exampleAnswer || '')}</strong></div>
+        ${item.exampleTextOnly ? '' : `<div class="example-answer"><span>Example</span><strong>${escapeHtml(item.exampleAnswer || '')}</strong></div>`}
       </div>`;
     }
 
     let control = '';
-    if (item.input === 'multiple' || item.input === 'single') {
+    if (item.input === 'example-gap') {
+      const segments = Array.isArray(item.segments) ? item.segments : [];
+      control = `<div class="sentence-gaps numbered-example-gap"><span>${escapeHtml(segments[0] || '')}</span><span class="inline-example-answer"><b>${escapeHtml(item.exampleNumber || 1)}</b> ${escapeHtml(item.exampleAnswer || '')}</span><span>${escapeHtml(segments[1] || '')}</span><span class="inline-gap-number">${escapeHtml(item.gapNumber || 2)}</span><input class="gap-input" data-example-gap autocomplete="off"><span>${escapeHtml(segments[2] || '')}</span></div>`;
+    } else if (item.input === 'odd-one-out') {
+      control = `<div class="odd-one-out-control"><div class="odd-options">${(item.options || []).map((option, optionIndex) => `<label class="odd-option"><input type="radio" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('')}</div><label class="odd-reason" for="${escapeHtml(inputId)}-reason">The others are all <input class="gap-input odd-reason-input" id="${escapeHtml(inputId)}-reason" data-odd-reason autocomplete="off">.</label></div>`;
+    } else if (item.input === 'multiple' || item.input === 'single') {
       const inputType = item.input === 'multiple' ? 'checkbox' : 'radio';
       control = `<div class="option-list compact-options">${(item.options || []).map((option, optionIndex) => `<label class="option"><input type="${inputType}" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('')}</div>`;
     } else if (item.input === 'select') {
@@ -833,8 +852,11 @@
       control = `<input class="text-field" id="${escapeHtml(inputId)}" autocomplete="off" placeholder="${escapeHtml(item.placeholder || '')}">`;
     }
 
+    const itemHeader = numberMarkup || prompt
+      ? `<div class="exercise-item-header">${numberMarkup}<label class="exercise-prompt" for="${escapeHtml(inputId)}">${prompt}</label></div>`
+      : '';
     return `<div class="exercise-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="${escapeHtml(item.input || 'text')}">
-      <div class="exercise-item-header">${numberMarkup}<label class="exercise-prompt" for="${escapeHtml(inputId)}">${prompt}</label></div>
+      ${itemHeader}
       <div class="exercise-control">${control}</div>
       <div class="feedback" aria-live="polite"></div>
     </div>`;
@@ -859,9 +881,15 @@
       const wordBank = Array.isArray(block.wordBank) && block.wordBank.length
         ? `<div class="word-bank" aria-label="Word bank"><strong class="word-bank-label">Word bank</strong>${block.wordBank.map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`
         : '';
+      const wordBanks = Array.isArray(block.wordBanks) && block.wordBanks.length
+        ? `<div class="word-bank-groups">${block.wordBanks.map((group) => `<div class="word-bank" aria-label="${escapeHtml(group.label || 'Word bank')}"><strong class="word-bank-label">${escapeHtml(group.label || 'Word bank')}</strong>${(group.words || []).map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`).join('')}</div>`
+        : '';
       const player = block.audio ? `<audio class="audio-player" controls preload="none" src="${escapeHtml(block.audio)}"></audio>` : '';
+      const image = block.image ? `<a class="exercise-image-link" href="${escapeHtml(block.image)}" target="_blank" rel="noopener"><img class="exercise-image" src="${escapeHtml(block.image)}" alt="${escapeHtml(block.imageAlt || '')}" loading="lazy"></a>` : '';
+      const intro = block.introTitle || block.introText ? `<div class="exercise-source"><h4>${escapeHtml(block.introTitle || '')}</h4>${block.introText ? `<p>${escapeHtml(block.introText)}</p>` : ''}</div>` : '';
       return `<article class="card lesson-block exercise-card" data-task="${escapeHtml(id)}" data-type="exercise">
-        <div class="exercise-heading"><span class="eyebrow">Exercise</span><h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}</div>
+        <div class="exercise-heading"><span class="eyebrow">Exercise</span><h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
+        ${image}${intro}
         <div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex)).join('')}</div>
       </article>`;
     }
@@ -916,7 +944,17 @@
     let actual;
     let correct = false;
 
-    if (inputType === 'multiple') {
+    if (inputType === 'example-gap') {
+      actual = itemNode.querySelector('[data-example-gap]')?.value ?? '';
+      correct = textAnswerMatches(item, actual);
+    } else if (inputType === 'odd-one-out') {
+      const selected = itemNode.querySelector('input[type="radio"]:checked')?.value ?? '';
+      const reason = itemNode.querySelector('[data-odd-reason]')?.value ?? '';
+      actual = { selected, reason };
+      correct = selected !== ''
+        && Number(selected) === Number(item.answer)
+        && normalizeAnswer(reason) === normalizeAnswer(item.reasonAnswer);
+    } else if (inputType === 'multiple') {
       actual = [...itemNode.querySelectorAll('input:checked')].map((input) => Number(input.value)).sort((a, b) => a - b);
       const expected = [...(item.answer || [])].map(Number).sort((a, b) => a - b);
       correct = JSON.stringify(actual) === JSON.stringify(expected);
@@ -947,7 +985,7 @@
     let total = 0;
 
     (Array.isArray(block.items) ? block.items : []).forEach((item, index) => {
-      if (item.example) return;
+      if (item.example || item.displayOnly) return;
       const itemId = safeText(item.id, `${index + 1}`);
       const itemNode = node.querySelector(`[data-exercise-item="${CSS.escape(itemId)}"]`);
       if (!itemNode) return;
@@ -1007,14 +1045,23 @@
   function restoreExerciseAnswers(block, node, saved) {
     if (!saved || typeof saved !== 'object') return;
     (Array.isArray(block.items) ? block.items : []).forEach((item, index) => {
-      if (item.example) return;
+      if (item.example || item.displayOnly) return;
       const itemId = safeText(item.id, `${index + 1}`);
       const value = saved[itemId];
       if (value === undefined) return;
       const itemNode = node.querySelector(`[data-exercise-item="${CSS.escape(itemId)}"]`);
       if (!itemNode) return;
       const inputType = item.input || 'text';
-      if (inputType === 'multiple') {
+      if (inputType === 'example-gap') {
+        const input = itemNode.querySelector('[data-example-gap]');
+        if (input) input.value = safeText(value);
+      } else if (inputType === 'odd-one-out') {
+        const selected = safeText(value?.selected);
+        const input = itemNode.querySelector(`input[type="radio"][value="${CSS.escape(selected)}"]`);
+        if (input) input.checked = true;
+        const reason = itemNode.querySelector('[data-odd-reason]');
+        if (reason) reason.value = safeText(value?.reason);
+      } else if (inputType === 'multiple') {
         const selected = new Set(Array.isArray(value) ? value.map(Number) : []);
         itemNode.querySelectorAll('input[type="checkbox"]').forEach((input) => { input.checked = selected.has(Number(input.value)); });
       } else if (inputType === 'single') {
@@ -1387,7 +1434,9 @@
     const resetCardQueue = () => {
       cardQueue = shuffled(topic.words.filter((word) => {
         const status = progress.words[word.__wordKey]?.status;
-        return mode === 'difficult' ? status === 'difficult' : status !== 'known';
+        return mode === 'difficult'
+          ? status === 'difficult'
+          : !['known', 'reviewed', 'difficult'].includes(status);
       }));
     };
 
@@ -1397,7 +1446,7 @@
         modeRoot.innerHTML = emptyState(
           isDifficult ? '🌟' : '🎉',
           isDifficult ? 'No difficult words yet' : 'You have reviewed all new words in this topic',
-          isDifficult ? 'Mark a word as “Difficult” and it will appear here.' : 'Learned words remain in All words and are not repeated in New words mode.'
+          isDifficult ? 'Mark a word as “Difficult” and it will appear here.' : 'A word is marked as learned only after a correct answer in the test.'
         );
         return;
       }
@@ -1406,13 +1455,13 @@
       modeRoot.innerHTML = `<div class="flash-counter">Remaining: ${remaining}</div><div class="flashcard-stage"><div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Flip the card">
         <div class="flash-face flash-front"><div class="flash-word">${escapeHtml(word.en)}</div>${word.transcription ? `<div class="flash-transcription">${escapeHtml(word.transcription)}</div>` : ''}<p class="muted">Tap to see the translation</p></div>
         <div class="flash-face flash-back"><div class="flash-word">${escapeHtml(word.ru)}</div>${word.exampleEn ? `<p class="flash-example">${escapeHtml(word.exampleEn)}${word.exampleRu ? `<br>${escapeHtml(word.exampleRu)}` : ''}</p>` : ''}</div>
-      </div></div><div class="trainer-actions"><button class="btn btn-danger" id="word-difficult" type="button">Difficult</button><button class="btn btn-success" id="word-known" type="button">I know it</button></div>`;
+      </div></div><div class="trainer-actions"><button class="btn btn-danger" id="word-difficult" type="button">Difficult</button><button class="btn btn-success" id="word-known" type="button">Reviewed</button></div>`;
       const flashcard = byId('flashcard');
       const flip = () => flashcard.classList.toggle('flipped');
       flashcard.addEventListener('click', flip);
       flashcard.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); flip(); } });
       byId('word-known').addEventListener('click', () => {
-        setWordStatus(progress, word, topic.id, 'known');
+        setWordStatus(progress, word, topic.id, 'reviewed');
         cardQueue.shift();
         save();
         drawCard();

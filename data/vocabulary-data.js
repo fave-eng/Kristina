@@ -489,5 +489,196 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Она создала несколько прекрасных скульптур."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-4",
+    "title": "Packing & travel",
+    "label": "Lesson 4 · Get ready! Get set! Go!",
+    "icon": "🧳",
+    "type": "lesson",
+    "linkedLessonId": "lesson-4",
+    "page": "vocabulary.html?id=vocab-lesson-4",
+    "words": [
+      {
+        "id": "lesson-4-adaptor",
+        "en": "adaptor",
+        "ru": "адаптер; переходник",
+        "transcription": "/əˈdæptə/"
+      },
+      {
+        "id": "lesson-4-toiletries",
+        "en": "toiletries",
+        "ru": "туалетные принадлежности; средства гигиены",
+        "transcription": "/ˈtɔɪlətriz/"
+      },
+      {
+        "id": "lesson-4-pack-of-cards",
+        "en": "pack of cards",
+        "ru": "колода карт",
+        "transcription": "/ˌpæk əv ˈkɑːdz/"
+      },
+      {
+        "id": "lesson-4-electronics",
+        "en": "electronics",
+        "ru": "электроника; электронные устройства",
+        "transcription": "/ɪˌlekˈtrɒnɪks/"
+      },
+      {
+        "id": "lesson-4-razor",
+        "en": "razor",
+        "ru": "бритва",
+        "transcription": "/ˈreɪzə/"
+      },
+      {
+        "id": "lesson-4-documents",
+        "en": "documents",
+        "ru": "документы",
+        "transcription": "/ˈdɒkjəmənts/"
+      },
+      {
+        "id": "lesson-4-raincoat",
+        "en": "raincoat",
+        "ru": "дождевик; плащ",
+        "transcription": "/ˈreɪnkəʊt/"
+      },
+      {
+        "id": "lesson-4-things-for-the-beach",
+        "en": "things for the beach",
+        "ru": "вещи для пляжа",
+        "transcription": "/ˌθɪŋz fə ðə ˈbiːtʃ/"
+      },
+      {
+        "id": "lesson-4-headphones",
+        "en": "headphones",
+        "ru": "наушники",
+        "transcription": "/ˈhedfəʊnz/"
+      },
+      {
+        "id": "lesson-4-scissors",
+        "en": "scissors",
+        "ru": "ножницы",
+        "transcription": "/ˈsɪzəz/"
+      },
+      {
+        "id": "lesson-4-batteries",
+        "en": "batteries",
+        "ru": "батарейки",
+        "transcription": "/ˈbætriz/"
+      },
+      {
+        "id": "lesson-4-guidebook",
+        "en": "guidebook",
+        "ru": "путеводитель",
+        "transcription": "/ˈɡaɪdbʊk/"
+      },
+      {
+        "id": "lesson-4-toothbrush",
+        "en": "toothbrush",
+        "ru": "зубная щётка",
+        "transcription": "/ˈtuːθbrʌʃ/"
+      },
+      {
+        "id": "lesson-4-washbag",
+        "en": "washbag",
+        "ru": "несессер; косметичка для средств гигиены",
+        "transcription": "/ˈwɒʃbæɡ/"
+      },
+      {
+        "id": "lesson-4-sunscreen",
+        "en": "sunscreen",
+        "ru": "солнцезащитный крем",
+        "transcription": "/ˈsʌnskriːn/"
+      },
+      {
+        "id": "lesson-4-hairdryer",
+        "en": "hairdryer",
+        "ru": "фен",
+        "transcription": "/ˈheədraɪə/"
+      },
+      {
+        "id": "lesson-4-beach-bag",
+        "en": "beach bag",
+        "ru": "пляжная сумка",
+        "transcription": "/ˈbiːtʃ bæɡ/"
+      },
+      {
+        "id": "lesson-4-underwear",
+        "en": "underwear",
+        "ru": "нижнее бельё",
+        "transcription": "/ˈʌndəweə/"
+      },
+      {
+        "id": "lesson-4-fold",
+        "en": "fold",
+        "ru": "складывать",
+        "transcription": "/fəʊld/"
+      },
+      {
+        "id": "lesson-4-roll-up",
+        "en": "roll up",
+        "ru": "сворачивать",
+        "transcription": "/ˌrəʊl ˈʌp/"
+      },
+      {
+        "id": "lesson-4-unpack",
+        "en": "unpack",
+        "ru": "распаковывать",
+        "transcription": "/ʌnˈpæk/"
+      },
+      {
+        "id": "lesson-4-wrap",
+        "en": "wrap",
+        "ru": "заворачивать",
+        "transcription": "/ræp/"
+      },
+      {
+        "id": "lesson-4-travel-insurance-documents",
+        "en": "travel insurance documents",
+        "ru": "документы о туристической страховке",
+        "transcription": "/ˈtrævəl ɪnˌʃʊərəns ˈdɒkjəmənts/"
+      },
+      {
+        "id": "lesson-4-booking-confirmation",
+        "en": "booking confirmation",
+        "ru": "подтверждение бронирования",
+        "transcription": "/ˈbʊkɪŋ ˌkɒnfəˈmeɪʃən/"
+      },
+      {
+        "id": "lesson-4-driving-licence",
+        "en": "driving licence",
+        "ru": "водительские права",
+        "transcription": "/ˈdraɪvɪŋ ˌlaɪsəns/"
+      },
+      {
+        "id": "lesson-4-have-the-urge",
+        "en": "have the urge",
+        "ru": "испытывать сильное желание",
+        "transcription": "/ˌhæv ði ˈɜːdʒ/"
+      },
+      {
+        "id": "lesson-4-get-your-revenge-on",
+        "en": "get your revenge on",
+        "ru": "отомстить кому-либо",
+        "transcription": "/ˌɡet jə rɪˈvendʒ ɒn/"
+      },
+      {
+        "id": "lesson-4-whatever-the-reason",
+        "en": "whatever the reason",
+        "ru": "какой бы ни была причина",
+        "transcription": "/wɒtˌevə ðə ˈriːzən/"
+      },
+      {
+        "id": "lesson-4-develop-a-magnetic-pull",
+        "en": "develop a magnetic pull",
+        "ru": "начать сильно притягивать",
+        "transcription": "/dɪˌveləp ə mæɡˌnetɪk ˈpʊl/"
+      },
+      {
+        "id": "lesson-4-go-completely-out-the-window",
+        "en": "go completely out the window",
+        "ru": "полностью перестать соблюдаться; пойти насмарку",
+        "transcription": "/ɡəʊ kəmˌpliːtli aʊt ðə ˈwɪndəʊ/"
+      }
+    ]
   }
 ];
