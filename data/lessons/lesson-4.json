@@ -95,8 +95,6 @@
       "type": "exercise",
       "id": "packing-1b",
       "title": "1b. Complete the crossword.",
-      "image": "images/lesson-4/packing-crossword.png",
-      "imageAlt": "Packing crossword with numbered pictures",
       "items": [
         {
           "id": "1",
@@ -204,6 +202,18 @@
             "washbag",
             "wash bag"
           ]
+        }
+      ],
+      "images": [
+        {
+          "src": "images/lesson-4/ChatGPT Image 29 июл. 2026 г., 20_04_18.png",
+          "alt": "Colour picture clues for the packing crossword",
+          "label": "Picture clues"
+        },
+        {
+          "src": "images/lesson-4/packing-crossword-grid-clean.svg",
+          "alt": "Packing crossword grid",
+          "label": "Crossword"
         }
       ]
     },

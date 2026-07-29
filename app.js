@@ -885,7 +885,20 @@
         ? `<div class="word-bank-groups">${block.wordBanks.map((group) => `<div class="word-bank" aria-label="${escapeHtml(group.label || 'Word bank')}"><strong class="word-bank-label">${escapeHtml(group.label || 'Word bank')}</strong>${(group.words || []).map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`).join('')}</div>`
         : '';
       const player = block.audio ? `<audio class="audio-player" controls preload="none" src="${escapeHtml(block.audio)}"></audio>` : '';
-      const image = block.image ? `<a class="exercise-image-link" href="${escapeHtml(block.image)}" target="_blank" rel="noopener"><img class="exercise-image" src="${escapeHtml(block.image)}" alt="${escapeHtml(block.imageAlt || '')}" loading="lazy"></a>` : '';
+      const imageEntries = Array.isArray(block.images) && block.images.length
+        ? block.images
+        : block.image
+          ? [{ src: block.image, alt: block.imageAlt || '', label: '' }]
+          : [];
+      const image = imageEntries.length
+        ? `<div class="exercise-images${imageEntries.length > 1 ? ' exercise-images-multiple' : ''}">${imageEntries.map((entry) => {
+            const src = typeof entry === 'string' ? entry : entry?.src;
+            const alt = typeof entry === 'string' ? '' : entry?.alt || '';
+            const label = typeof entry === 'string' ? '' : entry?.label || '';
+            if (!src) return '';
+            return `<figure class="exercise-image-figure"><a class="exercise-image-link" href="${escapeHtml(src)}" target="_blank" rel="noopener"><img class="exercise-image" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy"></a>${label ? `<figcaption>${escapeHtml(label)}</figcaption>` : ''}</figure>`;
+          }).join('')}</div>`
+        : '';
       const intro = block.introTitle || block.introText ? `<div class="exercise-source"><h4>${escapeHtml(block.introTitle || '')}</h4>${block.introText ? `<p>${escapeHtml(block.introText)}</p>` : ''}</div>` : '';
       return `<article class="card lesson-block exercise-card" data-task="${escapeHtml(id)}" data-type="exercise">
         <div class="exercise-heading"><span class="eyebrow">Exercise</span><h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
