@@ -907,6 +907,113 @@ body[data-view="lesson"] #lesson-root {
   font-size: .82rem;
 }
 
+
+/* Continuous A/B conversation layout for dialogue exercises */
+.dialogue-exercise {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  background: #f6f8fb;
+}
+
+.dialogue-line {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  align-items: flex-start;
+  padding: 13px 15px;
+  border: 1px solid #dce4ee;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, .025);
+}
+
+.dialogue-speaker {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #eef2ff;
+  color: var(--indigo);
+  font-size: .82rem;
+  font-weight: 900;
+}
+
+.dialogue-utterance {
+  min-width: 0;
+  padding-top: 1px;
+  color: var(--dark);
+  font-size: .98rem;
+  font-weight: 650;
+  line-height: 2.8;
+  text-wrap: pretty;
+}
+
+.dialogue-item,
+.dialogue-plain-text {
+  display: inline;
+}
+
+.dialogue-gap-number {
+  margin: 0 2px 0 4px;
+  color: var(--indigo);
+  font-size: .7rem;
+  font-weight: 900;
+  line-height: 1;
+  vertical-align: super;
+}
+
+.dialogue-gap-input {
+  width: clamp(102px, 18vw, 158px);
+  min-height: 38px;
+  margin: 0 3px;
+  padding: 5px 8px;
+  vertical-align: middle;
+}
+
+.dialogue-example-answer {
+  display: inline-block;
+  margin: 0 3px;
+  padding: 0 3px;
+  border-bottom: 2px solid #94a3b8;
+  color: #334155;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.dialogue-item.is-correct .dialogue-gap-input {
+  border-bottom-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.dialogue-item.is-wrong .dialogue-gap-input {
+  border-bottom-color: #e11d48;
+  background: #fff1f2;
+}
+
+.dialogue-item > .feedback {
+  display: none;
+  margin: 0 5px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 900;
+  line-height: 1.3;
+  vertical-align: middle;
+}
+
+.dialogue-item > .feedback.show {
+  display: inline-flex;
+}
+
+.dialogue-text-input {
+  display: inline-block;
+  width: min(100%, 240px);
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
 @media (max-width: 720px) {
   .lesson-roadmap-heading {
     display: block;
@@ -1021,6 +1128,32 @@ body[data-view="lesson"] #lesson-root {
 
   .gap-input {
     width: min(100%, 145px);
+  }
+
+  .dialogue-exercise {
+    padding: 11px;
+  }
+
+  .dialogue-line {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 9px;
+    padding: 12px 11px;
+  }
+
+  .dialogue-speaker {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+  }
+
+  .dialogue-utterance {
+    font-size: .94rem;
+    line-height: 2.65;
+  }
+
+  .dialogue-gap-input {
+    width: min(100%, 132px);
+    min-height: 36px;
   }
 }
 

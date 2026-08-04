@@ -52,22 +52,14 @@ const siteBaseUrl = requiredEnv('SITE_BASE_URL').replace(/\/+$/, '')
 const studentId = requiredEnv('STUDENT_ID')
 const projectId = requiredEnv('SUPABASE_PROJECT_ID')
 const notifySecret = requiredEnv('NOTIFY_WEBHOOK_SECRET')
-const selectedLessonId = process.env.LESSON_ID?.trim() || ''
+const selectedLessonId = requiredEnv('LESSON_ID')
 
 const vocabularyData = loadWindowArray('data/vocabulary-data.js', 'VOCABULARY_DATA')
 const grammarData = loadWindowArray('data/grammar-data.js', 'GRAMMAR_DATA')
-const lessons = loadLessons().filter((lesson) => {
-  if (selectedLessonId && lesson.id !== selectedLessonId) return false
-  return isPublished(lesson)
-})
-
-if (selectedLessonId && lessons.length === 0) {
-  throw new Error(`Lesson ${selectedLessonId} was not found or notification.enabled is not true`)
-}
+const lessons = loadLessons().filter((lesson) => lesson.id === selectedLessonId && isPublished(lesson))
 
 if (lessons.length === 0) {
-  console.log('No eligible lessons. Nothing to notify.')
-  process.exit(0)
+  throw new Error(`Lesson ${selectedLessonId} was not found, is not available yet, or notification.enabled is not true`)
 }
 
 const endpoint = process.env.NOTIFY_ENDPOINT?.trim() || `https://${projectId}.supabase.co/functions/v1/notify-telegram`

@@ -148,16 +148,20 @@
         {
           "id": "1",
           "number": 1,
-          "prompt": "A What are you doing (do) next weekend?",
+          "input": "gaps",
           "example": true,
-          "exampleTextOnly": true
+          "segments": [
+            "What ",
+            " (do) next weekend?"
+          ],
+          "exampleAnswer": "are you doing"
         },
         {
           "id": "2",
           "number": 2,
           "input": "gaps",
           "segments": [
-            "B I ",
+            "I ",
             " (go) to a concert on Friday evening."
           ],
           "answers": [
@@ -207,7 +211,7 @@
           "number": 5,
           "input": "gaps",
           "segments": [
-            "A I ",
+            "I ",
             " (not mind) him, but I wouldn’t go all the way to Glasgow to see him."
           ],
           "answers": [
@@ -240,7 +244,7 @@
           "number": 7,
           "input": "gaps",
           "segments": [
-            "B I ",
+            "I ",
             " (fly) on Friday morning."
           ],
           "answers": [
@@ -270,7 +274,7 @@
           "number": 9,
           "input": "gaps",
           "segments": [
-            "A What time ",
+            "What time ",
             " the plane ",
             " (arrive) in Glasgow?"
           ],
@@ -288,7 +292,7 @@
           "number": 10,
           "input": "gaps",
           "segments": [
-            "B We ",
+            "We ",
             " (land) at 15.15."
           ],
           "answers": [
@@ -318,7 +322,7 @@
           "number": 12,
           "input": "gaps",
           "segments": [
-            "A What time is the concert? B It ",
+            "It ",
             " (start) at 8.30."
           ],
           "answers": [
@@ -363,7 +367,7 @@
           "number": 15,
           "input": "gaps",
           "segments": [
-            "A Well, I hope you have a great time. B Thanks. I ",
+            "Thanks. I ",
             " really ",
             " (look forward) to it!"
           ],
@@ -376,6 +380,72 @@
             [
               "looking forward"
             ]
+          ]
+        }
+      ],
+      "layout": "dialogue",
+      "dialogueLines": [
+        {
+          "speaker": "A",
+          "itemIds": [
+            "1"
+          ]
+        },
+        {
+          "speaker": "B",
+          "itemIds": [
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "speaker": "A",
+          "itemIds": [
+            "5",
+            "6"
+          ]
+        },
+        {
+          "speaker": "B",
+          "itemIds": [
+            "7",
+            "8"
+          ]
+        },
+        {
+          "speaker": "A",
+          "itemIds": [
+            "9"
+          ]
+        },
+        {
+          "speaker": "B",
+          "itemIds": [
+            "10",
+            "11"
+          ]
+        },
+        {
+          "speaker": "A",
+          "text": "What time is the concert?"
+        },
+        {
+          "speaker": "B",
+          "itemIds": [
+            "12",
+            "13",
+            "14"
+          ]
+        },
+        {
+          "speaker": "A",
+          "text": "Well, I hope you have a great time."
+        },
+        {
+          "speaker": "B",
+          "itemIds": [
+            "15"
           ]
         }
       ]

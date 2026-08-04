@@ -863,6 +863,58 @@
     </div>`;
   }
 
+
+  function renderDialogueItem(item, blockId, index) {
+    const itemId = safeText(item.id, `${index + 1}`);
+    const number = item.number === undefined ? index + 1 : item.number;
+    const segments = Array.isArray(item.segments) ? item.segments : [];
+    const inputId = `dialogue-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+    const gapNumber = number === '' || number === null
+      ? ''
+      : `<sup class="dialogue-gap-number">${escapeHtml(number)}</sup>`;
+
+    if (item.example) {
+      if (segments.length >= 2) {
+        return `<span class="dialogue-item dialogue-example" data-exercise-item="${escapeHtml(itemId)}"><span>${escapeHtml(segments[0])}</span>${gapNumber}<span class="dialogue-example-answer">${escapeHtml(item.exampleAnswer || '')}</span><span>${escapeHtml(segments[1])}</span></span>`;
+      }
+      return `<span class="dialogue-item dialogue-example" data-exercise-item="${escapeHtml(itemId)}">${gapNumber}<span>${escapeHtml(item.prompt || '')}</span></span>`;
+    }
+
+    if (item.input !== 'gaps') {
+      return `<span class="dialogue-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="${escapeHtml(item.input || 'text')}">${gapNumber}<input class="text-field dialogue-text-input" id="${escapeHtml(inputId)}" autocomplete="off" placeholder="${escapeHtml(item.placeholder || '')}"><span class="feedback" aria-live="polite"></span></span>`;
+    }
+
+    const answers = Array.isArray(item.answers) ? item.answers : [];
+    const content = answers.map((answer, gapIndex) => {
+      const before = gapIndex < segments.length ? `<span>${escapeHtml(segments[gapIndex])}</span>` : '';
+      const numberBeforeFirstGap = gapIndex === 0 ? gapNumber : '';
+      return `${before}${numberBeforeFirstGap}<input class="gap-input dialogue-gap-input" data-gap-index="${gapIndex}" aria-label="Gap ${escapeHtml(number || gapIndex + 1)}${answers.length > 1 ? `, part ${gapIndex + 1}` : ''}" autocomplete="off">`;
+    }).join('');
+    const tail = segments.length > answers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : '';
+
+    return `<span class="dialogue-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="gaps">${content}${tail}<span class="feedback" aria-live="polite"></span></span>`;
+  }
+
+  function renderDialogueExercise(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    const itemMap = new Map(items.map((item, index) => [safeText(item.id, `${index + 1}`), { item, index }]));
+    const lines = Array.isArray(block.dialogueLines) ? block.dialogueLines : [];
+
+    if (!lines.length) {
+      return `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, blockId, itemIndex)).join('')}</div>`;
+    }
+
+    return `<div class="dialogue-exercise" role="group" aria-label="Conversation exercise">${lines.map((line) => {
+      const speaker = escapeHtml(line.speaker || '');
+      const text = line.text ? `<span class="dialogue-plain-text">${escapeHtml(line.text)}</span>` : '';
+      const lineItems = (Array.isArray(line.itemIds) ? line.itemIds : []).map((itemId) => {
+        const entry = itemMap.get(safeText(itemId));
+        return entry ? renderDialogueItem(entry.item, blockId, entry.index) : '';
+      }).filter(Boolean).join(' ');
+      return `<div class="dialogue-line"><span class="dialogue-speaker" aria-label="Speaker ${speaker}">${speaker}</span><div class="dialogue-utterance">${text}${text && lineItems ? ' ' : ''}${lineItems}</div></div>`;
+    }).join('')}</div>`;
+  }
+
   function renderLessonBlock(block, index) {
     const id = safeText(block.id, `task-${index}`);
     const title = escapeHtml(block.title || block.prompt || `Task ${index + 1}`);
@@ -901,10 +953,13 @@
           }).join('')}</div>`
         : '';
       const intro = block.introTitle || block.introText ? `<div class="exercise-source"><h4>${escapeHtml(block.introTitle || '')}</h4>${block.introText ? `<p>${escapeHtml(block.introText)}</p>` : ''}</div>` : '';
-      return `<article class="card lesson-block exercise-card" data-task="${escapeHtml(id)}" data-type="exercise">
+      const exerciseContent = block.layout === 'dialogue'
+        ? renderDialogueExercise(block, id)
+        : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex)).join('')}</div>`;
+      return `<article class="card lesson-block exercise-card${block.layout === 'dialogue' ? ' dialogue-card' : ''}" data-task="${escapeHtml(id)}" data-type="exercise">
         <div class="exercise-heading"><span class="eyebrow">Exercise</span><h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
         ${image}${intro}
-        <div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex)).join('')}</div>
+        ${exerciseContent}
       </article>`;
     }
     if (block.type === 'text' || block.type === 'translate') return `<article class="card lesson-block" data-task="${escapeHtml(id)}" data-type="${escapeHtml(block.type)}"><label class="field-label" for="${escapeHtml(id)}">${title}</label>${block.source ? `<p class="muted">${escapeHtml(block.source)}</p>` : ''}<input class="text-field" id="${escapeHtml(id)}" name="${escapeHtml(id)}" autocomplete="off"><div class="feedback"></div></article>`;
