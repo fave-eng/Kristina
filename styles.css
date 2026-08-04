@@ -1713,3 +1713,21 @@ label.odd-option {
   padding-left: 0;
 }
 
+
+/* Completed grammar topics keep their correct answers visible but locked. */
+.grammar-practice-locked .grammar-exercise-card {
+  border-color: #bbf7d0;
+}
+
+.grammar-practice-locked input:disabled,
+.grammar-practice-locked textarea:disabled,
+.grammar-practice-locked select:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+  background: #f8fafc;
+  color: #334155;
+}
+
+.grammar-practice-locked .option:has(input:disabled) {
+  cursor: not-allowed;
+}

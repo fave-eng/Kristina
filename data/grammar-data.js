@@ -1060,5 +1060,415 @@ window.GRAMMAR_DATA = [
       }
     ],
     "linkedLessonId": "lesson-2"
-  }
+  },
+{
+  "id": "grammar-present-tenses",
+  "order": 3,
+  "title": "Present simple and present continuous",
+  "level": "B1",
+  "status": "available",
+  "page": "grammar-topic.html?id=grammar-present-tenses",
+  "passed": false,
+  "attempts": 0,
+  "explanation": "Present simple показывает обычный порядок вещей: привычки, повторяющиеся действия, постоянные факты, мнения и состояния. Present continuous показывает действие в процессе сейчас или временную ситуацию, а также личную договорённость на будущее. Удобная проверка: спросите себя «это обычно / вообще?» — тогда чаще нужен present simple; «это происходит сейчас / временно / уже договорено?» — тогда чаще нужен present continuous. Некоторые глаголы состояния обычно не употребляются в continuous: believe, belong, depend, know, like, matter, need, recognize, understand, want. Но отдельные глаголы меняют значение: I think = я считаю, I’m thinking = я обдумываю; I have = у меня есть, I’m having dinner = я ужинаю; I see = я вижу/понимаю, I’m seeing a friend = я встречаюсь с другом.",
+  "formula": "Present simple: I/you/we/they + verb; he/she/it + verb-s · do/does + subject + verb? · Present continuous: am/is/are + verb-ing",
+  "glanceCards": [
+    {
+      "icon": "🔁",
+      "label": "Present simple",
+      "hint": "обычно, регулярно, всегда",
+      "pattern": "subject + verb / verb-s",
+      "example": "Sam and Richard go hiking every weekend."
+    },
+    {
+      "icon": "▶️",
+      "label": "Present continuous",
+      "hint": "сейчас или временно",
+      "pattern": "am / is / are + verb-ing",
+      "example": "Be quiet! I’m trying to read."
+    },
+    {
+      "icon": "📅",
+      "label": "Future arrangements",
+      "hint": "личный план уже договорён",
+      "pattern": "am / is / are + verb-ing + future time",
+      "example": "We’re meeting some friends at 7.00."
+    },
+    {
+      "icon": "🚌",
+      "label": "Timetables",
+      "hint": "расписание и программа",
+      "pattern": "present simple + future time",
+      "example": "My flight leaves at 14.25."
+    }
+  ],
+  "anchorLinks": [
+    {
+      "id": "grammar-at-a-glance",
+      "title": "Quick overview"
+    },
+    {
+      "id": "grammar-tables",
+      "title": "Tables"
+    },
+    {
+      "id": "grammar-examples",
+      "title": "Examples"
+    },
+    {
+      "id": "grammar-mistakes",
+      "title": "Common mistakes"
+    },
+    {
+      "id": "grammar-practice-section",
+      "title": "Practice"
+    }
+  ],
+  "miniRules": [
+    {
+      "title": "1. Найдите смысл",
+      "text": "Привычка, факт, мнение или состояние → present simple. Процесс сейчас, временная ситуация или договорённость → present continuous.",
+      "example": "She works from home. / She’s working from a café today."
+    },
+    {
+      "title": "2. Проверьте форму",
+      "text": "В present simple у he / she / it добавляется -s. В вопросах и отрицаниях используйте do / does. В continuous обязательно нужны am / is / are и форма -ing.",
+      "example": "Does he work? / Is he working?"
+    },
+    {
+      "title": "3. Будущее: план или расписание",
+      "text": "Личная договорённость обычно выражается present continuous. Официальное расписание — present simple.",
+      "example": "I’m flying on Friday. / The plane leaves at 14.25."
+    },
+    {
+      "title": "4. Проверьте глагол состояния",
+      "text": "Want, believe, belong, matter, depend, recognize и многие другие глаголы состояния обычно ставятся в present simple, даже когда речь идёт о настоящем моменте.",
+      "example": "I don’t want to buy anything."
+    }
+  ],
+  "tables": [
+    {
+      "title": "Основные случаи",
+      "headers": [
+        "Форма",
+        "Когда употребляем",
+        "Маркеры",
+        "Пример"
+      ],
+      "rows": [
+        [
+          "Present simple",
+          "привычка, повторение, факт, состояние",
+          "always, usually, often, every…",
+          "He speaks good French."
+        ],
+        [
+          "Present continuous",
+          "процесс сейчас, временная ситуация",
+          "now, at the moment, today",
+          "We’re having dinner."
+        ],
+        [
+          "Present continuous for future",
+          "личная договорённость",
+          "tonight, tomorrow, next…",
+          "She’s seeing a friend after work."
+        ],
+        [
+          "Present simple for future",
+          "расписание, программа",
+          "время рейса/урока/мероприятия",
+          "The concert starts at 8.30."
+        ]
+      ]
+    },
+    {
+      "title": "Глаголы, которые обычно не ставятся в continuous",
+      "headers": [
+        "Группа",
+        "Глаголы",
+        "Пример"
+      ],
+      "rows": [
+        [
+          "мнение и знание",
+          "believe, know, recognize, understand",
+          "I recognize that man."
+        ],
+        [
+          "желание и отношение",
+          "want, need, like, love, prefer",
+          "I don’t want to buy anything."
+        ],
+        [
+          "состояние и принадлежность",
+          "belong, matter, depend, seem",
+          "It depends on the weather."
+        ],
+        [
+          "меняющееся значение",
+          "think, have, see",
+          "I think it’s right. / I’m thinking about it."
+        ]
+      ]
+    }
+  ],
+  "exampleGroups": [
+    {
+      "title": "Usually vs now",
+      "items": [
+        "Ben uses sunscreen all year round.",
+        "Pay attention! You aren’t listening to me.",
+        "Elizabeth doesn’t usually wear make-up on the beach."
+      ]
+    },
+    {
+      "title": "Plans vs timetables",
+      "items": [
+        "I’m going to a concert on Friday evening.",
+        "My flight leaves at 14.25.",
+        "We’re meeting some friends at 7.00."
+      ]
+    },
+    {
+      "title": "State verbs and changing meanings",
+      "items": [
+        "I don’t believe in ghosts.",
+        "He’s thinking about doing voluntary work.",
+        "We’re having dinner."
+      ]
+    }
+  ],
+  "commonMistakes": [
+    "He go every weekend ✗ → He goes every weekend ✓. В утверждении с he / she / it нужен -s.",
+    "Does he goes? ✗ → Does he go? ✓. После does используется начальная форма глагола.",
+    "I am want ✗ → I want ✓. Want — глагол состояния и обычно не употребляется в continuous.",
+    "The plane is leaving at 14.25 — возможно, но для официального расписания в учебном контексте выбираем The plane leaves at 14.25.",
+    "always is late ✗ → is always late ✓. Наречие частоты ставится после be, но перед обычным смысловым глаголом."
+  ],
+  "exercises": [
+    {
+      "type": "exercise",
+      "title": "Choose the correct form",
+      "difficulty": "Easy",
+      "instructions": "Choose the correct form.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "input": "single",
+          "prompt": "My sister usually ___ to work by bus.",
+          "options": [
+            "goes",
+            "is going"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "2",
+          "input": "single",
+          "prompt": "Be quiet! The baby ___.",
+          "options": [
+            "sleeps",
+            "is sleeping"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "3",
+          "input": "single",
+          "prompt": "I ___ this bag belongs to Sam.",
+          "options": [
+            "think",
+            "am thinking"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4",
+          "input": "single",
+          "prompt": "We ___ dinner at the moment.",
+          "options": [
+            "have",
+            "are having"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "title": "Complete the sentences",
+      "difficulty": "Medium",
+      "instructions": "Complete the sentences with the present simple or present continuous form of the verbs in brackets.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "input": "gaps",
+          "segments": [
+            "Ella usually ",
+            " (work) from home, but today she ",
+            " (work) at the office."
+          ],
+          "answers": [
+            [
+              "works"
+            ],
+            [
+              "is working",
+              "'s working",
+              "’s working"
+            ]
+          ]
+        },
+        {
+          "id": "2",
+          "input": "gaps",
+          "segments": [
+            "What time ",
+            " the train ",
+            " (leave) tomorrow?"
+          ],
+          "answers": [
+            [
+              "does"
+            ],
+            [
+              "leave"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " (not understand) this question."
+          ],
+          "answers": [
+            [
+              "don't understand",
+              "do not understand"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "input": "gaps",
+          "segments": [
+            "They ",
+            " (meet) us outside the cinema tonight."
+          ],
+          "answers": [
+            [
+              "are meeting",
+              "'re meeting",
+              "’re meeting"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "title": "Choose the meaning",
+      "difficulty": "Medium → Hard",
+      "instructions": "Choose the sentence that matches the meaning.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "input": "single",
+          "prompt": "This is my opinion.",
+          "options": [
+            "I think the plan is good.",
+            "I’m thinking about the plan."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "2",
+          "input": "single",
+          "prompt": "The activity is happening now.",
+          "options": [
+            "She sees her dentist every six months.",
+            "She’s seeing her dentist now."
+          ],
+          "answer": 1
+        },
+        {
+          "id": "3",
+          "input": "single",
+          "prompt": "This is an official timetable.",
+          "options": [
+            "The lesson starts at 9.00 tomorrow.",
+            "We’re starting a new course tomorrow."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4",
+          "input": "single",
+          "prompt": "This is a personal arrangement.",
+          "options": [
+            "The shop closes at 8.00.",
+            "I’m meeting Anna after work."
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "title": "Correct the mistakes",
+      "difficulty": "Hard",
+      "instructions": "Rewrite each sentence correctly.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "input": "text",
+          "prompt": "Correct the sentence: My brother is knowing the answer.",
+          "acceptedAnswers": [
+            "My brother knows the answer.",
+            "My brother knows the answer"
+          ]
+        },
+        {
+          "id": "2",
+          "input": "text",
+          "prompt": "Correct the sentence: Does your flight leaves at six?",
+          "acceptedAnswers": [
+            "Does your flight leave at six?",
+            "Does your flight leave at six"
+          ]
+        },
+        {
+          "id": "3",
+          "input": "text",
+          "prompt": "Correct the sentence: I meet my manager tomorrow at 10.00.",
+          "acceptedAnswers": [
+            "I'm meeting my manager tomorrow at 10.00.",
+            "I’m meeting my manager tomorrow at 10.00.",
+            "I'm meeting my manager tomorrow at 10.00",
+            "I’m meeting my manager tomorrow at 10.00"
+          ]
+        },
+        {
+          "id": "4",
+          "input": "text",
+          "prompt": "Correct the sentence: She always is arriving late, but today she comes early.",
+          "acceptedAnswers": [
+            "She always arrives late, but today she is coming early.",
+            "She always arrives late, but today she is coming early",
+            "She always arrives late, but today she's coming early.",
+            "She always arrives late, but today she's coming early"
+          ]
+        }
+      ]
+    }
+  ],
+  "linkedLessonId": "lesson-5"
+}
 ];

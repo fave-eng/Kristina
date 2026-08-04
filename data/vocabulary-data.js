@@ -680,5 +680,96 @@ window.VOCABULARY_DATA = [
         "transcription": "/ɡəʊ kəmˌpliːtli aʊt ðə ˈwɪndəʊ/"
       }
     ]
-  }
+  },
+{
+  "id": "vocab-lesson-5",
+  "title": "Present tenses & travel plans",
+  "label": "Lesson 5 · Present tenses",
+  "icon": "🗓️",
+  "type": "lesson",
+  "linkedLessonId": "lesson-5",
+  "page": "vocabulary.html?id=vocab-lesson-5",
+  "words": [
+    {
+      "id": "lesson-5-all-year-round",
+      "en": "all year round",
+      "ru": "круглый год",
+      "transcription": "/ˌɔːl jɪə ˈraʊnd/",
+      "exampleEn": "Ben uses sunscreen all year round.",
+      "exampleRu": "Бен пользуется солнцезащитным кремом круглый год."
+    },
+    {
+      "id": "lesson-5-recognize",
+      "en": "recognize",
+      "ru": "узнавать; распознавать",
+      "transcription": "/ˈrekəɡnaɪz/",
+      "exampleEn": "I recognize that man.",
+      "exampleRu": "Я узнаю этого мужчину."
+    },
+    {
+      "id": "lesson-5-voluntary-work",
+      "en": "voluntary work",
+      "ru": "волонтёрская работа",
+      "transcription": "/ˈvɒləntri wɜːk/",
+      "exampleEn": "He is thinking about doing voluntary work.",
+      "exampleRu": "Он думает заняться волонтёрской работой."
+    },
+    {
+      "id": "lesson-5-belong-to",
+      "en": "belong to",
+      "ru": "принадлежать кому-либо",
+      "transcription": "/bɪˈlɒŋ tuː/",
+      "exampleEn": "Does this bag belong to you?",
+      "exampleRu": "Эта сумка принадлежит тебе?"
+    },
+    {
+      "id": "lesson-5-depend-on",
+      "en": "depend on",
+      "ru": "зависеть от",
+      "transcription": "/dɪˈpend ɒn/",
+      "exampleEn": "It depends on the weather.",
+      "exampleRu": "Это зависит от погоды."
+    },
+    {
+      "id": "lesson-5-matter",
+      "en": "matter",
+      "ru": "иметь значение",
+      "transcription": "/ˈmætə/",
+      "exampleEn": "It doesn’t matter what other people say.",
+      "exampleRu": "Неважно, что говорят другие."
+    },
+    {
+      "id": "lesson-5-agree-with",
+      "en": "agree with",
+      "ru": "соглашаться с",
+      "transcription": "/əˈɡriː wɪð/",
+      "exampleEn": "I don’t agree with you.",
+      "exampleRu": "Я с тобой не согласен."
+    },
+    {
+      "id": "lesson-5-believe-in",
+      "en": "believe in",
+      "ru": "верить в существование; верить в",
+      "transcription": "/bɪˈliːv ɪn/",
+      "exampleEn": "I don’t believe in ghosts.",
+      "exampleRu": "Я не верю в привидений."
+    },
+    {
+      "id": "lesson-5-look-forward-to",
+      "en": "look forward to",
+      "ru": "с нетерпением ждать",
+      "transcription": "/lʊk ˈfɔːwəd tuː/",
+      "exampleEn": "I’m really looking forward to it.",
+      "exampleRu": "Я очень этого жду."
+    },
+    {
+      "id": "lesson-5-pick-someone-up",
+      "en": "pick someone up",
+      "ru": "забрать кого-либо; встретить на машине",
+      "transcription": "/pɪk ˌsʌmwʌn ˈʌp/",
+      "exampleEn": "My sister is picking me up at the airport.",
+      "exampleRu": "Сестра встретит меня в аэропорту."
+    }
+  ]
+}
 ];

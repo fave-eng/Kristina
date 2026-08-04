@@ -426,6 +426,7 @@
             passed: Boolean(local.passed || row.passed),
             attempts: Math.max(Number(local.attempts || 0), Number(row.attempts || 0)),
             bestScore: Math.max(Number(local.bestScore || 0), Number(row.best_score || 0)),
+            answers: local.answers && typeof local.answers === 'object' ? local.answers : {},
             updatedAt: dateMs(row.updated_at) >= dateMs(local.updatedAt) ? row.updated_at : local.updatedAt
           };
         });
@@ -992,7 +993,7 @@
     return { actual, correct };
   }
 
-  function checkExerciseBlock(block, node) {
+  function checkExerciseBlock(block, node, options = {}) {
     const actual = {};
     let correctCount = 0;
     let total = 0;
@@ -1023,7 +1024,12 @@
       itemNode.classList.remove('is-saved');
       if (feedback) {
         feedback.className = `feedback show ${result.correct ? 'good' : 'bad'}`;
-        feedback.textContent = result.correct ? 'Correct!' : safeText(item.explanation, 'Check the answer and try again.');
+        const hideAnswerOnError = options.hideAnswersOnError === true || block.hideAnswersOnError === true || item.hideAnswersOnError === true;
+        feedback.textContent = result.correct
+          ? 'Correct!'
+          : hideAnswerOnError
+            ? 'Incorrect. Check your answer and try again.'
+            : safeText(item.explanation, 'Check the answer and try again.');
       }
     });
 
@@ -1313,6 +1319,13 @@
     </article>`;
   }
 
+  function setGrammarPracticeLocked(root, locked) {
+    root.classList.toggle('grammar-practice-locked', locked);
+    root.querySelectorAll('[data-grammar-exercise] input, [data-grammar-exercise] textarea, [data-grammar-exercise] select').forEach((control) => {
+      control.disabled = locked;
+    });
+  }
+
   function renderGrammarPractice(topic, root) {
     const exercises = Array.isArray(topic.exercises) ? topic.exercises : [];
     if (!exercises.length) {
@@ -1321,36 +1334,67 @@
     }
 
     const renderPractice = () => {
+      const progress = window.ProgressService.loadGrammarProgress();
+      const savedTopic = progress.topics[topic.id] || {};
       root.innerHTML = `${exercises.map((block, index) => renderGrammarExercise(block, index)).join('')}
         <div class="card grammar-practice-actions">
           <div id="grammar-result"><h3>Practise step by step</h3><p class="muted">Start with the easier tasks and move on to the more challenging ones.</p></div>
           <div class="button-row"><button class="btn btn-primary" type="button" id="check-grammar">Check exercises</button><button class="btn btn-secondary" type="button" id="retry-grammar">Start again</button></div>
         </div>`;
 
-      byId('check-grammar').addEventListener('click', () => {
+      exercises.forEach((block, index) => {
+        const blockId = safeText(block.id, `grammar-exercise-${index + 1}`);
+        const node = root.querySelector(`[data-grammar-exercise="${index}"]`);
+        if (node) restoreExerciseAnswers(block, node, savedTopic.answers?.[blockId]);
+      });
+
+      const checkButton = byId('check-grammar');
+      const retryButton = byId('retry-grammar');
+      const lockPassedTopic = Boolean(savedTopic.passed && topic.lockOnPass === true);
+      if (lockPassedTopic) {
+        setGrammarPracticeLocked(root, true);
+        checkButton.disabled = true;
+        retryButton.disabled = true;
+        retryButton.hidden = true;
+        byId('grammar-result').innerHTML = '<h3>Topic completed</h3><p class="grammar-success-note">All answers are correct. The topic is marked as learned, and the answer fields are locked.</p>';
+        return;
+      }
+
+      checkButton.addEventListener('click', () => {
         let correct = 0;
         let total = 0;
+        const answers = {};
         exercises.forEach((block, index) => {
           const node = root.querySelector(`[data-grammar-exercise="${index}"]`);
           if (!node) return;
-          const result = checkExerciseBlock(block, node);
+          const blockId = safeText(block.id, `grammar-exercise-${index + 1}`);
+          const result = checkExerciseBlock(block, node, { hideAnswersOnError: topic.revealAnswersOnError === false });
+          answers[blockId] = result.actual;
           correct += Number(result.correctCount || 0);
           total += Number(result.total || 0);
         });
         const percent = safePercent(correct, total);
-        byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct</p>${percent === 100 ? '<p class="grammar-success-note">Excellent! You have mastered the topic and can move on.</p>' : '<p class="grammar-success-note">Review the tables and the Common mistakes section above, then try again.</p>'}`;
-        const progress = window.ProgressService.loadGrammarProgress();
-        const previous = progress.topics[topic.id] || {};
-        progress.topics[topic.id] = {
-          passed: percent === 100,
+        byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct</p>${percent === 100 ? '<p class="grammar-success-note">Excellent! All answers are correct. The topic is marked as learned.</p>' : '<p class="grammar-success-note">There are errors. Correct them and check the exercises again.</p>'}`;
+        const latestProgress = window.ProgressService.loadGrammarProgress();
+        const previous = latestProgress.topics[topic.id] || {};
+        latestProgress.topics[topic.id] = {
+          passed: Boolean(previous.passed || percent === 100),
           attempts: Number(previous.attempts || 0) + 1,
           bestScore: Math.max(Number(previous.bestScore || 0), percent),
+          answers,
           updatedAt: new Date().toISOString()
         };
-        window.ProgressService.saveGrammarProgress(progress);
+        window.ProgressService.saveGrammarProgress(latestProgress);
+
+        if (percent === 100 && topic.lockOnPass === true) {
+          setGrammarPracticeLocked(root, true);
+          checkButton.disabled = true;
+          retryButton.disabled = true;
+          retryButton.hidden = true;
+        }
       });
 
-      byId('retry-grammar').addEventListener('click', renderPractice);
+      retryButton.addEventListener('click', renderPractice);
     };
 
     renderPractice();

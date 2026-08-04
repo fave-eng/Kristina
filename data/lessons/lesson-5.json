@@ -1,0 +1,681 @@
+{
+  "id": "lesson-5",
+  "number": 5,
+  "title": "Present tenses",
+  "subtitle": "Grammar: present simple and present continuous",
+  "status": "available",
+  "publishedAt": "2026-08-04",
+  "totalPoints": 38,
+  "vocabularyId": "vocab-lesson-5",
+  "grammarIds": [
+    "grammar-present-tenses"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "3",
+      "title": "GRAMMAR",
+      "text": "present tenses"
+    },
+    {
+      "type": "exercise",
+      "id": "present-tenses-a",
+      "title": "a. Circle the correct form.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "single",
+          "prompt": "Be quiet! I try / I’m trying to read.",
+          "options": [
+            "I try",
+            "I’m trying"
+          ],
+          "answer": 1,
+          "example": true,
+          "exampleAnswer": "I’m trying"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "single",
+          "prompt": "Ben uses / is using sunscreen all year round, not just in the summer.",
+          "options": [
+            "uses",
+            "is using"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "single",
+          "prompt": "Paul’s wife always packs / packs always his suitcase for him.",
+          "options": [
+            "always packs",
+            "packs always"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "single",
+          "prompt": "Pay attention! You don’t listen / aren’t listening to me.",
+          "options": [
+            "don’t listen",
+            "aren’t listening"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "single",
+          "prompt": "Elizabeth doesn’t usually wear / don’t usually wear make-up on the beach.",
+          "options": [
+            "doesn’t usually wear",
+            "don’t usually wear"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "single",
+          "prompt": "My boyfriend always is / is always late.",
+          "options": [
+            "always is",
+            "is always"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "single",
+          "prompt": "Sam and Richard go / are going hiking every weekend.",
+          "options": [
+            "go",
+            "are going"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "single",
+          "prompt": "Who your girlfriend is / is your girlfriend talking to?",
+          "options": [
+            "your girlfriend is",
+            "is your girlfriend"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "single",
+          "prompt": "My brother speaks / is speaking good French because he has lived in France.",
+          "options": [
+            "speaks",
+            "is speaking"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "single",
+          "prompt": "You go / Do you go to the same place on holiday every year?",
+          "options": [
+            "You go",
+            "Do you go"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "present-tenses-b",
+      "title": "b. Complete the conversation with the present simple or present continuous form of the verbs in brackets.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "A What are you doing (do) next weekend?",
+          "example": true,
+          "exampleTextOnly": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "B I ",
+            " (go) to a concert on Friday evening."
+          ],
+          "answers": [
+            [
+              "am going",
+              "'m going",
+              "’m going"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "Ed Sheeran ",
+            " (play) in Glasgow."
+          ],
+          "answers": [
+            [
+              "is playing",
+              "'s playing",
+              "’s playing"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "I’m a real fan of his. ",
+            " you ",
+            " (like) Ed Sheeran?"
+          ],
+          "answers": [
+            [
+              "Do"
+            ],
+            [
+              "like"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "A I ",
+            " (not mind) him, but I wouldn’t go all the way to Glasgow to see him."
+          ],
+          "answers": [
+            [
+              "don't mind",
+              "do not mind"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "How ",
+            " you ",
+            " (get) there?"
+          ],
+          "answers": [
+            [
+              "are"
+            ],
+            [
+              "getting"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "B I ",
+            " (fly) on Friday morning."
+          ],
+          "answers": [
+            [
+              "am flying",
+              "'m flying",
+              "’m flying"
+            ]
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "My flight ",
+            " (leave) at 14.25."
+          ],
+          "answers": [
+            [
+              "leaves"
+            ]
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": [
+            "A What time ",
+            " the plane ",
+            " (arrive) in Glasgow?"
+          ],
+          "answers": [
+            [
+              "does"
+            ],
+            [
+              "arrive"
+            ]
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "gaps",
+          "segments": [
+            "B We ",
+            " (land) at 15.15."
+          ],
+          "answers": [
+            [
+              "land"
+            ]
+          ]
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "input": "gaps",
+          "segments": [
+            "My sister ",
+            " (pick me up) at the airport."
+          ],
+          "answers": [
+            [
+              "is picking me up",
+              "'s picking me up",
+              "’s picking me up"
+            ]
+          ]
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "input": "gaps",
+          "segments": [
+            "A What time is the concert? B It ",
+            " (start) at 8.30."
+          ],
+          "answers": [
+            [
+              "starts"
+            ]
+          ]
+        },
+        {
+          "id": "13",
+          "number": 13,
+          "input": "gaps",
+          "segments": [
+            "We ",
+            " (meet) some friends at 7.00"
+          ],
+          "answers": [
+            [
+              "are meeting",
+              "'re meeting",
+              "’re meeting"
+            ]
+          ]
+        },
+        {
+          "id": "14",
+          "number": 14,
+          "input": "gaps",
+          "segments": [
+            "because we ",
+            " (not want) to be late."
+          ],
+          "answers": [
+            [
+              "don't want",
+              "do not want"
+            ]
+          ]
+        },
+        {
+          "id": "15",
+          "number": 15,
+          "input": "gaps",
+          "segments": [
+            "A Well, I hope you have a great time. B Thanks. I ",
+            " really ",
+            " (look forward) to it!"
+          ],
+          "answers": [
+            [
+              "am",
+              "'m",
+              "’m"
+            ],
+            [
+              "looking forward"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "present-tenses-c",
+      "title": "c. Complete the sentences with the present simple or present continuous form of a verb from the list.",
+      "wordBank": [
+        "not agree",
+        "not believe",
+        "belong",
+        "depend",
+        "have",
+        "not matter",
+        "recognize",
+        "see",
+        "think",
+        "not want"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "Susie’s going to be late tonight. She’s seeing a friend after work.",
+          "example": true,
+          "exampleTextOnly": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " that man. I’ve seen him before somewhere."
+          ],
+          "answers": [
+            [
+              "recognize",
+              "recognise"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "Josh isn’t sure what to do this summer. He ",
+            " about doing voluntary work."
+          ],
+          "answers": [
+            [
+              "is thinking",
+              "'s thinking",
+              "’s thinking"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "Whose bag is this? ",
+            " it ",
+            " to you?"
+          ],
+          "answers": [
+            [
+              "Does"
+            ],
+            [
+              "belong"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " to buy anything. I’m just looking."
+          ],
+          "answers": [
+            [
+              "don't want",
+              "do not want"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "Can you call back later? We ",
+            " dinner."
+          ],
+          "answers": [
+            [
+              "are having",
+              "'re having",
+              "’re having"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "That isn’t right. I ",
+            " with you at all."
+          ],
+          "answers": [
+            [
+              "don't agree",
+              "do not agree"
+            ]
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "Sorry, I ",
+            " in ghosts. I’m sure there’s an explanation for what happened."
+          ],
+          "answers": [
+            [
+              "don't believe",
+              "do not believe"
+            ]
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": [
+            "Don’t worry about her comments. It ",
+            " what other people say."
+          ],
+          "answers": [
+            [
+              "doesn't matter",
+              "does not matter"
+            ]
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "gaps",
+          "segments": [
+            "We might go camping, but it ",
+            " on the weather."
+          ],
+          "answers": [
+            [
+              "depends"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "present-tenses-d",
+      "title": "d. Use the words to write questions to ask someone about their next trip. Use the present simple or present continuous form of the verbs.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "where / go — Where are you going?",
+          "example": true,
+          "exampleTextOnly": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "who / go with",
+          "acceptedAnswers": [
+            "Who are you going with?",
+            "Who are you going with"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "where / stay",
+          "acceptedAnswers": [
+            "Where are you staying?",
+            "Where are you staying"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "how / get there",
+          "acceptedAnswers": [
+            "How are you getting there?",
+            "How are you getting there"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "what / want to do while you’re there",
+          "acceptedAnswers": [
+            "What do you want to do while you're there?",
+            "What do you want to do while you’re there?",
+            "What do you want to do while you're there",
+            "What do you want to do while you’re there"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "what / need to pack",
+          "acceptedAnswers": [
+            "What do you need to pack?",
+            "What do you need to pack"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "prompt": "why / you / look forward to it",
+          "acceptedAnswers": [
+            "Why are you looking forward to it?",
+            "Why are you looking forward to it"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "present-tenses-e",
+      "title": "e. Answer the questions in d about your next trip.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "",
+          "input": "textarea",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "",
+          "input": "textarea",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "",
+          "input": "textarea",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "",
+          "input": "textarea",
+          "scored": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "",
+          "input": "textarea",
+          "scored": false
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "prompt": "",
+          "input": "textarea",
+          "scored": false
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "prompt": "",
+          "input": "textarea",
+          "scored": false
+        }
+      ]
+    }
+  ]
+}
