@@ -574,6 +574,27 @@
     return `<div class="card empty-state"><div class="empty-state-icon">${icon}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></div>`;
   }
 
+  function materialGroupMarkup(title, description, items, options = {}) {
+    const list = Array.isArray(items) ? items.filter(Boolean) : [];
+    const tone = options.tone === 'completed' ? 'completed' : 'new';
+    const emptyText = safeText(options.emptyText).trim();
+    const body = list.length
+      ? `<div class="list material-group-list">${list.join('')}</div>`
+      : `<div class="material-group-empty">${escapeHtml(emptyText || 'Nothing here yet.')}</div>`;
+    return `<section class="material-group material-group-${tone}" aria-label="${escapeHtml(title)}">
+      <div class="material-group-heading">
+        <div><h2>${escapeHtml(title)}</h2><p>${escapeHtml(description)}</p></div>
+        <span class="material-group-count">${list.length}</span>
+      </div>
+      ${body}
+    </section>`;
+  }
+
+  function numericSuffix(value) {
+    const match = safeText(value).match(/(\d+)(?!.*\d)/);
+    return match ? Number(match[1]) || 0 : 0;
+  }
+
   function renderHome() {
     const t = totals();
     if (byId('home-stat-completed')) byId('home-stat-completed').textContent = t.homeworkCompleted;
@@ -697,7 +718,8 @@
       root.innerHTML = emptyState('📝', 'No homework assignments yet', 'The teacher will add an interactive assignment here after the first lesson.');
       return;
     }
-    root.innerHTML = [...published].sort((a,b) => (a.number || 0) - (b.number || 0)).map((item) => {
+
+    const homeworkCard = (item) => {
       const locked = item.status === 'locked';
       const complete = progress.completedIds.includes(item.id) || item.status === 'completed';
       const title = locked ? '🔒 Coming soon' : safeText(item.title, 'Assignment');
@@ -716,7 +738,27 @@
         </a>
         ${lessonMaterialLinks(item, 'hub')}
       </article>`;
-    }).join('');
+    };
+
+    const newestFirst = [...published].sort((a, b) => {
+      const aLocked = a.status === 'locked' ? 1 : 0;
+      const bLocked = b.status === 'locked' ? 1 : 0;
+      return aLocked - bLocked
+        || dateMs(b.publishedAt) - dateMs(a.publishedAt)
+        || Number(b.number || 0) - Number(a.number || 0);
+    });
+    const newHomework = newestFirst.filter((item) => !progress.completedIds.includes(item.id) && item.status !== 'completed');
+    const finishedHomework = newestFirst.filter((item) => progress.completedIds.includes(item.id) || item.status === 'completed');
+
+    root.innerHTML = [
+      materialGroupMarkup('New', 'Start with the latest homework assignment.', newHomework.map(homeworkCard), {
+        emptyText: 'No new homework assignments. Everything published has been completed.'
+      }),
+      materialGroupMarkup('Completed', 'Finished homework is kept below for review.', finishedHomework.map(homeworkCard), {
+        tone: 'completed',
+        emptyText: 'Completed homework will appear here.'
+      })
+    ].join('');
   }
 
   function renderGrammar() {
@@ -731,7 +773,8 @@
       root.innerHTML = emptyState('📐', 'No grammar topics have been published yet', `Materials will be added in line with the lessons and the coursebook “${safeText(student.textbook)}”.`);
       return;
     }
-    root.innerHTML = [...published].sort((a,b) => (a.order || 0) - (b.order || 0)).map((topic) => {
+
+    const grammarCard = (topic) => {
       const locked = topic.status === 'locked';
       const isPassed = progress.topics[topic.id]?.passed || topic.passed;
       const title = locked ? '🔒 Coming soon' : safeText(topic.title, 'Grammar topic');
@@ -742,7 +785,27 @@
         <div class="item-main"><h3>${escapeHtml(title)}</h3><p>${locked ? 'The material has not been published yet.' : `${escapeHtml(topic.level || student.level)} · ${Number(progress.topics[topic.id]?.attempts || topic.attempts || 0)} attempts`}</p></div>
         <span class="status-badge status-${isPassed ? 'completed' : locked ? 'locked' : 'available'}">${isPassed ? 'Completed' : locked ? 'Locked' : 'Open'}</span>
       </${tag}>`;
-    }).join('');
+    };
+
+    const newestFirst = [...published].sort((a, b) => {
+      const aLocked = a.status === 'locked' ? 1 : 0;
+      const bLocked = b.status === 'locked' ? 1 : 0;
+      return aLocked - bLocked
+        || dateMs(b.publishedAt) - dateMs(a.publishedAt)
+        || Number(b.order || numericSuffix(b.linkedLessonId || b.id)) - Number(a.order || numericSuffix(a.linkedLessonId || a.id));
+    });
+    const newTopics = newestFirst.filter((topic) => !(progress.topics[topic.id]?.passed || topic.passed));
+    const completedTopics = newestFirst.filter((topic) => progress.topics[topic.id]?.passed || topic.passed);
+
+    root.innerHTML = [
+      materialGroupMarkup('New', 'Open grammar topics, newest first.', newTopics.map(grammarCard), {
+        emptyText: 'No new grammar topics. All published topics are completed.'
+      }),
+      materialGroupMarkup('Completed', 'Completed grammar topics are kept below for review.', completedTopics.map(grammarCard), {
+        tone: 'completed',
+        emptyText: 'Completed grammar topics will appear here.'
+      })
+    ].join('');
   }
 
   function renderVocabularyHub() {
@@ -756,11 +819,27 @@
     byId('vocab-overall-progress').innerHTML = progressMarkup('Overall progress', knownCount, totalWords, 'rose');
     const root = byId('vocabulary-list');
     const filters = byId('vocab-filters');
+    const sourceOrder = new Map(VOCABULARY_DATA.map((topic, index) => [topic.id, index]));
+
+    const topicIsComplete = (topic) => {
+      const topicKnown = topic.words.filter((word) => progress.words[word.__wordKey]?.status === 'known').length;
+      return topic.words.length > 0 && topicKnown >= topic.words.length;
+    };
+
+    const vocabularyCard = (topic) => {
+      const wordCount = topic.words.length;
+      const topicKnown = topic.words.filter((word) => progress.words[word.__wordKey]?.status === 'known').length;
+      const complete = wordCount > 0 && topicKnown >= wordCount;
+      return `<a class="card item-card interactive" href="${escapeHtml(topic.page || `vocabulary.html?id=${encodeURIComponent(topic.id)}`)}">
+        <div class="item-icon">${escapeHtml(topic.icon || '💬')}</div>
+        <div class="item-main"><h3>${escapeHtml(topic.title || 'Vocabulary topic')}</h3><p>${escapeHtml(topic.label || '')} · ${topicKnown} of ${wordCount} words</p></div>
+        <span class="status-badge status-${complete ? 'completed' : 'available'}">${complete ? 'Completed' : 'Open'}</span>
+      </a>`;
+    };
 
     const draw = (filter = 'all') => {
       const filtered = VOCABULARY_DATA.filter((topic) => {
-        const topicKnown = topic.words.filter((word) => progress.words[word.__wordKey]?.status === 'known').length;
-        const complete = topic.words.length > 0 && topicKnown >= topic.words.length;
+        const complete = topicIsComplete(topic);
         if (filter === 'completed') return complete;
         if (filter === 'lesson') return topic.type === 'lesson';
         if (filter === 'extra') return topic.type === 'extra';
@@ -770,16 +849,32 @@
         root.innerHTML = emptyState('💥', 'No vocabulary practice topics yet', 'New topics will appear after lessons. Duplicate words are excluded automatically.');
         return;
       }
-      root.innerHTML = filtered.map((topic) => {
-        const wordCount = topic.words.length;
-        const topicKnown = topic.words.filter((word) => progress.words[word.__wordKey]?.status === 'known').length;
-        const complete = wordCount > 0 && topicKnown >= wordCount;
-        return `<a class="card item-card interactive" href="${escapeHtml(topic.page || `vocabulary.html?id=${encodeURIComponent(topic.id)}`)}">
-          <div class="item-icon">${escapeHtml(topic.icon || '💬')}</div>
-          <div class="item-main"><h3>${escapeHtml(topic.title || 'Vocabulary topic')}</h3><p>${escapeHtml(topic.label || '')} · ${topicKnown} of ${wordCount} words</p></div>
-          <span class="status-badge status-${complete ? 'completed' : 'available'}">${complete ? 'Completed' : 'Open'}</span>
-        </a>`;
-      }).join('');
+
+      const newestFirst = [...filtered].sort((a, b) => {
+        return dateMs(b.publishedAt) - dateMs(a.publishedAt)
+          || Number(b.order || numericSuffix(b.linkedLessonId || b.id)) - Number(a.order || numericSuffix(a.linkedLessonId || a.id))
+          || Number(sourceOrder.get(b.id) || 0) - Number(sourceOrder.get(a.id) || 0);
+      });
+      const newTopics = newestFirst.filter((topic) => !topicIsComplete(topic));
+      const completedTopics = newestFirst.filter(topicIsComplete);
+
+      if (filter === 'completed') {
+        root.innerHTML = materialGroupMarkup('Completed', 'Vocabulary topics where all words are learned.', completedTopics.map(vocabularyCard), {
+          tone: 'completed',
+          emptyText: 'Completed vocabulary topics will appear here.'
+        });
+        return;
+      }
+
+      root.innerHTML = [
+        materialGroupMarkup('New', 'Vocabulary topics still in progress, newest first.', newTopics.map(vocabularyCard), {
+          emptyText: 'No new vocabulary topics. All visible topics are completed.'
+        }),
+        materialGroupMarkup('Completed', 'Topics where all words are learned are kept below.', completedTopics.map(vocabularyCard), {
+          tone: 'completed',
+          emptyText: 'Completed vocabulary topics will appear here.'
+        })
+      ].join('');
     };
     if (filters) {
       filters.onclick = (event) => {
