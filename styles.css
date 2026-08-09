@@ -2126,29 +2126,44 @@ label.odd-option {
   }
 }
 
+/* Workbook section headings can keep the bold category and lighter topic on one baseline. */
+.lesson-section-title-composite {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: .28em;
+  row-gap: .08em;
+}
+
+.lesson-section-title-tail {
+  font-size: .62em;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
 /* Lesson 7: interactive pronunciation and crossword tasks. */
 .pronunciation-r-line {
   color: var(--dark);
   font-size: 1rem;
   font-weight: 700;
-  line-height: 2;
-  letter-spacing: .005em;
-}
-
-.r-choice,
-.r-letter {
-  position: relative;
-  display: inline-grid;
-  place-items: center;
-  min-width: 1.15em;
-  height: 1.5em;
-  margin: 0 .02em;
-  vertical-align: -.22em;
-  border-radius: 999px;
+  line-height: 1.65;
+  letter-spacing: 0;
+  word-spacing: 0;
 }
 
 .r-choice {
+  position: relative;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
   cursor: pointer;
+}
+
+.r-letter {
+  position: relative;
+  display: inline;
+  vertical-align: baseline;
 }
 
 .r-choice input {
@@ -2161,7 +2176,13 @@ label.odd-option {
 
 .r-choice span,
 .r-letter {
+  display: inline;
+  margin-inline: -2px;
+  padding: 0 2px;
   border: 2px solid transparent;
+  border-radius: 999px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
   transition: border-color .15s ease, background .15s ease, color .15s ease;
 }
 

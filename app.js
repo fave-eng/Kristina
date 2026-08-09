@@ -1234,7 +1234,17 @@
       const sectionEyebrow = Object.prototype.hasOwnProperty.call(block, 'eyebrow')
         ? safeText(block.eyebrow)
         : 'Material';
-      return `<header id="lesson-section-${index}" class="lesson-section-title lesson-block" data-lesson-section><span class="lesson-section-step">${escapeHtml(block.__sectionNumber || index + 1)}</span><div>${sectionEyebrow ? `<span class="eyebrow">${escapeHtml(sectionEyebrow)}</span>` : ''}<h2>${title}</h2>${text ? `<p class="muted">${text}</p>` : ''}</div></header>`;
+      const explicitSectionNumber = block.sectionNumber === undefined || block.sectionNumber === null || block.sectionNumber === ''
+        ? null
+        : block.sectionNumber;
+      const sectionNumber = explicitSectionNumber ?? block.__sectionNumber ?? index + 1;
+      const titleLead = safeText(block.titleLead);
+      const titleTail = safeText(block.titleTail);
+      const sectionTitle = titleLead
+        ? `<span class="lesson-section-title-main">${escapeHtml(titleLead)}</span>${titleTail ? `<span class="lesson-section-title-tail">${escapeHtml(titleTail)}</span>` : ''}`
+        : title;
+      const sectionTitleClass = titleLead ? ' class="lesson-section-title-composite"' : '';
+      return `<header id="lesson-section-${index}" class="lesson-section-title lesson-block" data-lesson-section><span class="lesson-section-step">${escapeHtml(sectionNumber)}</span><div>${sectionEyebrow ? `<span class="eyebrow">${escapeHtml(sectionEyebrow)}</span>` : ''}<h2${sectionTitleClass}>${sectionTitle}</h2>${text ? `<p class="muted">${text}</p>` : ''}</div></header>`;
     }
     if (block.type === 'info') return `<article class="card info-card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;
     if (block.type === 'tip') return `<article class="card tip-card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;

@@ -16,7 +16,10 @@
     {
       "type": "section",
       "eyebrow": "",
-      "title": "PRONUNCIATION r and final -r"
+      "title": "PRONUNCIATION r and final -r",
+      "sectionNumber": 2,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "r and final -r"
     },
     {
       "type": "exercise",
@@ -162,7 +165,10 @@
     {
       "type": "section",
       "eyebrow": "",
-      "title": "VOCABULARY shops and services"
+      "title": "VOCABULARY shops and services",
+      "sectionNumber": 3,
+      "titleLead": "VOCABULARY",
+      "titleTail": "shops and services"
     },
     {
       "type": "exercise",
@@ -565,7 +571,8 @@
           ],
           "inputSize": "wide"
         }
-      ]
+      ],
+      "stickyImage": true
     }
   ]
 }
