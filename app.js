@@ -910,7 +910,7 @@
     return `<div class="exercise-source-line">${content}</div>`;
   }
 
-  function renderExerciseItem(item, blockId, index) {
+  function renderExerciseItem(item, blockId, index, inlineNumberedItems = false) {
     const itemId = safeText(item.id, `${index + 1}`);
     const number = item.number === undefined ? index + 1 : item.number;
     const prompt = escapeHtml(item.prompt || '');
@@ -928,6 +928,11 @@
       const segments = Array.isArray(item.segments) ? item.segments : [];
       const options = Array.isArray(item.options) ? item.options : [];
       const sentence = `<div class="circle-or-tick-sentence"><span>${escapeHtml(segments[0] || '')}</span>${options.map((option, optionIndex) => `<span class="circle-choice ${selected === String(optionIndex) ? 'selected' : ''}">${escapeHtml(option)}</span>${optionIndex === 0 ? '<span class="choice-slash"> / </span>' : ''}`).join('')}<span>${escapeHtml(segments[1] || '')}</span>${selected === 'both' ? '<span class="circle-tick example-tick" aria-label="Both are correct">✓</span>' : ''}</div>`;
+      if (inlineNumberedItems && !prompt) {
+        return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+          <div class="exercise-item-inline-row">${numberMarkup}<div class="exercise-item-inline-content">${sentence}</div></div>
+        </div>`;
+      }
       return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
         <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
         <div class="exercise-control">${sentence}</div>
@@ -935,6 +940,11 @@
     }
 
     if (item.example && item.exampleTarget) {
+      if (inlineNumberedItems && !prompt) {
+        return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+          <div class="exercise-item-inline-row">${numberMarkup}<div class="exercise-item-inline-content">${context}<div class="exercise-example-target">${escapeHtml(item.exampleTarget)}</div></div></div>
+        </div>`;
+      }
       return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
         <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
         <div class="exercise-control">${context}<div class="exercise-example-target">${escapeHtml(item.exampleTarget)}</div></div>
@@ -981,6 +991,13 @@
       control = `<div class="sentence-gaps" aria-label="${prompt}">${answers.map((answer, gapIndex) => `${gapIndex < segments.length ? `<span>${escapeHtml(segments[gapIndex])}</span>` : ''}<input class="${gapClass}" data-gap-index="${gapIndex}" aria-label="Gap ${gapIndex + 1}" autocomplete="off">`).join('')}${segments.length > answers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : ''}</div>`;
     } else {
       control = `<input class="text-field" id="${escapeHtml(inputId)}" autocomplete="off" placeholder="${escapeHtml(item.placeholder || '')}">`;
+    }
+
+    if (inlineNumberedItems && numberMarkup && !prompt && (item.input === 'gaps' || item.input === 'circle-or-tick')) {
+      return `<div class="exercise-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="${escapeHtml(item.input || 'text')}">
+        <div class="exercise-item-inline-row">${numberMarkup}<div class="exercise-item-inline-content">${context}${control}</div></div>
+        <div class="feedback" aria-live="polite"></div>
+      </div>`;
     }
 
     const itemHeader = numberMarkup || prompt
@@ -1051,7 +1068,10 @@
     const text = escapeHtml(block.text || '').replaceAll('\n', '<br>');
 
     if (block.type === 'section') {
-      return `<header id="lesson-section-${index}" class="lesson-section-title lesson-block" data-lesson-section><span class="lesson-section-step">${escapeHtml(block.__sectionNumber || index + 1)}</span><div><span class="eyebrow">${escapeHtml(block.eyebrow || 'Material')}</span><h2>${title}</h2>${text ? `<p class="muted">${text}</p>` : ''}</div></header>`;
+      const sectionEyebrow = Object.prototype.hasOwnProperty.call(block, 'eyebrow')
+        ? safeText(block.eyebrow)
+        : 'Material';
+      return `<header id="lesson-section-${index}" class="lesson-section-title lesson-block" data-lesson-section><span class="lesson-section-step">${escapeHtml(block.__sectionNumber || index + 1)}</span><div>${sectionEyebrow ? `<span class="eyebrow">${escapeHtml(sectionEyebrow)}</span>` : ''}<h2>${title}</h2>${text ? `<p class="muted">${text}</p>` : ''}</div></header>`;
     }
     if (block.type === 'info') return `<article class="card info-card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;
     if (block.type === 'tip') return `<article class="card tip-card lesson-block"><h3>${title}</h3><p>${text}</p></article>`;
@@ -1085,11 +1105,14 @@
       const intro = block.introTitle || block.introText ? `<div class="exercise-source"><h4>${escapeHtml(block.introTitle || '')}</h4>${block.introText ? `<p>${escapeHtml(block.introText)}</p>` : ''}</div>` : '';
       const exerciseContent = block.layout === 'dialogue'
         ? renderDialogueExercise(block, id)
-        : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex)).join('')}</div>`;
-      return `<article class="card lesson-block exercise-card${block.layout === 'dialogue' ? ' dialogue-card' : ''}" data-task="${escapeHtml(id)}" data-type="exercise">
+        : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
+      const hasStickyImage = block.stickyImage === true && imageEntries.length === 1;
+      const exerciseBody = hasStickyImage
+        ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`
+        : `${image}${intro}${exerciseContent}`;
+      return `<article class="card lesson-block exercise-card${block.layout === 'dialogue' ? ' dialogue-card' : ''}${hasStickyImage ? ' has-sticky-image' : ''}" data-task="${escapeHtml(id)}" data-type="exercise">
         <div class="exercise-heading"><span class="eyebrow">Exercise</span><h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
-        ${image}${intro}
-        ${exerciseContent}
+        ${exerciseBody}
       </article>`;
     }
     if (block.type === 'text' || block.type === 'translate') return `<article class="card lesson-block" data-task="${escapeHtml(id)}" data-type="${escapeHtml(block.type)}"><label class="field-label" for="${escapeHtml(id)}">${title}</label>${block.source ? `<p class="muted">${escapeHtml(block.source)}</p>` : ''}<input class="text-field" id="${escapeHtml(id)}" name="${escapeHtml(id)}" autocomplete="off"><div class="feedback"></div></article>`;

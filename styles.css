@@ -2036,3 +2036,92 @@ label.odd-option {
     width: min(100%, 300px);
   }
 }
+
+/* Lesson 6: keep workbook-style numbering aligned with sentence-based tasks. */
+.exercise-item-inline-row {
+  display: grid;
+  grid-template-columns: 31px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.exercise-item-inline-content {
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.exercise-item-inline-content .exercise-source-line {
+  margin-top: 0;
+}
+
+.exercise-item-inline-content .circle-or-tick-sentence,
+.exercise-item-inline-content .sentence-gaps,
+.exercise-item-inline-content .exercise-example-target {
+  margin-top: 0;
+}
+
+/* A long image-based exercise keeps its source picture visible only while that exercise is in view. */
+.exercise-card.has-sticky-image {
+  overflow: visible;
+}
+
+.exercise-sticky-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, .78fr) minmax(0, 1.42fr);
+  gap: 18px;
+  align-items: start;
+  padding: 16px;
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: #f6f8fb;
+}
+
+.exercise-sticky-media {
+  min-width: 0;
+  align-self: stretch;
+}
+
+.exercise-sticky-media .exercise-images {
+  position: sticky;
+  top: 24px;
+  margin: 0;
+}
+
+.exercise-sticky-media .exercise-image-link {
+  margin: 0;
+}
+
+.exercise-sticky-content {
+  min-width: 0;
+}
+
+.exercise-sticky-content .exercise-items {
+  padding: 0;
+  background: transparent;
+}
+
+.exercise-sticky-content .exercise-source {
+  margin-top: 0;
+}
+
+@media (max-width: 760px) {
+  .exercise-card.has-sticky-image {
+    overflow: hidden;
+  }
+
+  .exercise-sticky-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .exercise-sticky-media .exercise-images {
+    position: static;
+  }
+}
+
+@media (max-width: 420px) {
+  .exercise-item-inline-row {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 9px;
+  }
+}
