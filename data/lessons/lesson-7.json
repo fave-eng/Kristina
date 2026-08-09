@@ -1,0 +1,394 @@
+{
+  "id": "lesson-7",
+  "number": 7,
+  "title": "Go to checkout",
+  "subtitle": "Pronunciation: r and final -r · Vocabulary: shops and services",
+  "status": "available",
+  "publishedAt": "2026-08-10",
+  "totalPoints": 32,
+  "vocabularyId": "vocab-lesson-7",
+  "grammarIds": [],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "",
+      "title": "PRONUNCIATION r and final -r"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2a",
+      "title": "2a. Circle where -r is pronounced /r/.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "r-circle",
+          "text": "car showroom",
+          "answer": [1],
+          "example": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "r-circle",
+          "text": "dry cleaner’s",
+          "answer": [0]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "r-circle",
+          "text": "greengrocer’s",
+          "answer": [0, 1]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "r-circle",
+          "text": "hairdresser’s",
+          "answer": [1]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "r-circle",
+          "text": "garden centre",
+          "answer": []
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "r-circle",
+          "text": "charity shop",
+          "answer": [0]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2b",
+      "title": "2b. 2.3 Listen and check. Then listen again and repeat the words.",
+      "items": []
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2c",
+      "title": "2c. 2.4 Listen and write the sentences. Circle -r when it is pronounced /r/.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "pronunciation-sentence",
+          "example": true,
+          "exampleAnswer": "We’re out of sugar.",
+          "rAnswer": [0]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "pronunciation-sentence",
+          "acceptedAnswers": [
+            "She makes her own clothes."
+          ],
+          "rAnswer": [0]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "pronunciation-sentence",
+          "acceptedAnswers": [
+            "That’s my father-in-law."
+          ],
+          "rAnswer": [0]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "pronunciation-sentence",
+          "acceptedAnswers": [
+            "Is this your adaptor?"
+          ],
+          "rAnswer": [0]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "pronunciation-sentence",
+          "acceptedAnswers": [
+            "We grow our own vegetables."
+          ],
+          "rAnswer": [0]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2d",
+      "title": "2d. 2.4 Listen again and repeat the sentences.",
+      "items": []
+    },
+    {
+      "type": "section",
+      "eyebrow": "",
+      "title": "VOCABULARY shops and services"
+    },
+    {
+      "type": "exercise",
+      "id": "shops-crossword-3a",
+      "title": "3a. Read the clues. Complete the puzzle to find the hidden kind of shop. What does it sell?",
+      "layout": "crossword",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "crossword-word",
+          "clue": "A shop that sells medicine and toiletries.",
+          "answer": "chemists",
+          "hiddenLetterIndex": 2,
+          "separators": [{ "after": 7, "text": "’" }],
+          "example": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "crossword-word",
+          "clue": "A type of shop where you pay to wash and dry your clothes in machines.",
+          "answer": "launderette",
+          "hiddenLetterIndex": 6
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "crossword-word",
+          "clue": "A shop that sells bread.",
+          "answer": "bakers",
+          "hiddenLetterIndex": 2,
+          "separators": [{ "after": 5, "text": "’" }]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "crossword-word",
+          "clue": "A shop where jewellery and watches are sold and repaired.",
+          "answer": "jewellers",
+          "hiddenLetterIndex": 5,
+          "separators": [{ "after": 8, "text": "’" }]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "crossword-word",
+          "clue": "A shop that sells paper, pens, and pencils.",
+          "answer": "stationers",
+          "hiddenLetterIndex": 4,
+          "separators": [{ "after": 9, "text": "’" }]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "crossword-word",
+          "clue": "A shop that sells meat.",
+          "answer": "butchers",
+          "hiddenLetterIndex": 5,
+          "separators": [{ "after": 7, "text": "’" }]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "crossword-word",
+          "clue": "A shop that sells alcoholic drinks.",
+          "answer": "offlicence",
+          "hiddenLetterIndex": 3,
+          "separators": [{ "after": 3, "text": "-" }]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "crossword-word",
+          "clue": "A shop that sells fruit and vegetables.",
+          "answer": "greengrocers",
+          "hiddenLetterIndex": 8,
+          "separators": [{ "after": 11, "text": "’" }]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "crossword-word",
+          "clue": "A shop that sells fish.",
+          "answer": "fishmongers",
+          "hiddenLetterIndex": 6,
+          "separators": [{ "after": 10, "text": "’" }]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "crossword-word",
+          "clue": "A shop where you can get your hair cut, washed, and styled.",
+          "answer": "hairdressers",
+          "hiddenLetterIndex": 5,
+          "separators": [{ "after": 11, "text": "’" }]
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "input": "crossword-word",
+          "clue": "A shop that sells newspapers and magazines.",
+          "answer": "newsagents",
+          "hiddenLetterIndex": 4,
+          "separators": [{ "after": 9, "text": "’" }]
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "input": "crossword-word",
+          "clue": "A company that helps people buy, sell, or rent houses.",
+          "answer": "estateagents",
+          "hiddenLetterIndex": 5,
+          "wordBreaks": [6],
+          "separators": [{ "after": 11, "text": "’" }]
+        },
+        {
+          "id": "13",
+          "number": 13,
+          "input": "crossword-word",
+          "clue": "A shop that sells flowers.",
+          "answer": "florists",
+          "hiddenLetterIndex": 3,
+          "separators": [{ "after": 7, "text": "’" }]
+        },
+        {
+          "id": "14",
+          "number": 14,
+          "input": "crossword-word",
+          "clue": "A shop where men can have their hair cut.",
+          "answer": "barbers",
+          "hiddenLetterIndex": 3,
+          "separators": [{ "after": 6, "text": "’" }]
+        },
+        {
+          "id": "15",
+          "number": 15,
+          "input": "crossword-word",
+          "clue": "A shop that sells cooked meats and cheeses.",
+          "answer": "deli",
+          "hiddenLetterIndex": 2
+        },
+        {
+          "id": "what-does-it-sell",
+          "number": "",
+          "prompt": "What does it sell?",
+          "input": "text",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "shops-3b",
+      "title": "3b. Join a word from A with a word from B to make places on the high street. Then complete the sentences.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "image": "images/lesson-7/exercise-3b-market-stall.png",
+      "imageAlt": "Bags hanging at a market stall",
+      "wordBanks": [
+        {
+          "label": "A",
+          "words": ["car", "chain", "charity", "craft", "DIY", "dry", "garden", "market", "pound", "travel"]
+        },
+        {
+          "label": "B",
+          "words": ["agent’s", "centre", "cleaner’s", "fair", "shop (x2)", "showroom", "stall", "store (x2)"]
+        }
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleTarget": "My cousin has a market stall selling leather bags in Covent Garden."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": ["Can you pick up my suit from the ", ", please?"],
+          "answers": [["dry cleaner’s", "dry cleaner's"]],
+          "inputSize": "wide"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": ["Tanya went to the ", " to buy some plants."],
+          "answers": [["garden centre"]],
+          "inputSize": "wide"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": ["Did you book your flights online or at the ", "?"],
+          "answers": [["travel agent’s", "travel agent's"]],
+          "inputSize": "wide"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": ["We bought a beautiful hand-made wooden bowl at the ", "."],
+          "answers": [["craft fair"]],
+          "inputSize": "wide"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": ["Zara is a ", " that you find in many shopping centres all over the world."],
+          "answers": [["chain store"]],
+          "inputSize": "wide"
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": ["We went to the ", " to have a look at the new models."],
+          "answers": [["car showroom"]],
+          "inputSize": "wide"
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": ["Our local ", " has a very good selection of gardening and carpentry tools."],
+          "answers": [["DIY store", "diy store"]],
+          "inputSize": "wide"
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": ["The new ", " has some lovely second-hand clothes."],
+          "answers": [["charity shop"]],
+          "inputSize": "wide"
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "gaps",
+          "segments": ["Most things only cost 99p or less in the ", "."],
+          "answers": [["pound shop"]],
+          "inputSize": "wide"
+        }
+      ]
+    }
+  ]
+}

@@ -910,6 +910,147 @@
     return `<div class="exercise-source-line">${content}</div>`;
   }
 
+  function renderRSelection(text, inputName, selectedIndexes = [], interactive = true) {
+    let occurrence = 0;
+    const selected = new Set((Array.isArray(selectedIndexes) ? selectedIndexes : []).map(Number));
+    return [...safeText(text)].map((char) => {
+      if (char.toLocaleLowerCase('en') !== 'r') return escapeHtml(char);
+      const current = occurrence;
+      occurrence += 1;
+      if (!interactive) {
+        return `<span class="r-letter${selected.has(current) ? ' is-pronounced' : ''}">${escapeHtml(char)}</span>`;
+      }
+      return `<label class="r-choice${selected.has(current) ? ' is-restored' : ''}"><input type="checkbox" name="${escapeHtml(inputName)}" value="${current}" data-r-index="${current}"${selected.has(current) ? ' checked' : ''}><span>${escapeHtml(char)}</span></label>`;
+    }).join('');
+  }
+
+  function updatePronunciationPreview(itemNode, selectedIndexes = null) {
+    if (!itemNode) return;
+    const input = itemNode.querySelector('[data-pronunciation-input]');
+    const preview = itemNode.querySelector('[data-pronunciation-preview]');
+    if (!input || !preview) return;
+    const selected = selectedIndexes === null
+      ? [...preview.querySelectorAll('[data-r-index]:checked')].map((control) => Number(control.value))
+      : (Array.isArray(selectedIndexes) ? selectedIndexes.map(Number) : []);
+    const inputName = safeText(preview.dataset.rInputName, `pronunciation-r-${Date.now()}`);
+    preview.innerHTML = renderRSelection(input.value, inputName, selected, true);
+  }
+
+  function crosswordLetters(value) {
+    return [...safeText(value).normalize('NFKC')].filter((char) => /[a-z]/i.test(char));
+  }
+
+  function renderCrosswordRow(item, blockId, index) {
+    const itemId = safeText(item.id, `${index + 1}`);
+    const number = item.number === undefined ? index + 1 : item.number;
+    const letters = crosswordLetters(item.answer);
+    const hiddenIndex = Math.max(1, Number(item.hiddenLetterIndex) || 1);
+    const hiddenColumn = 8;
+    const startColumn = hiddenColumn - (hiddenIndex - 1);
+    const separators = new Map((Array.isArray(item.separators) ? item.separators : []).map((entry) => [Number(entry.after), safeText(entry.text)]));
+    const wordBreaks = new Set((Array.isArray(item.wordBreaks) ? item.wordBreaks : []).map(Number));
+    const rowCells = letters.map((letter, letterIndex) => {
+      const letterNumber = letterIndex + 1;
+      const isHidden = letterNumber === hiddenIndex;
+      const separator = separators.get(letterNumber) || '';
+      const separatorClass = separator === '-' ? ' has-hyphen-after' : separator ? ' has-apostrophe-after' : '';
+      const breakClass = wordBreaks.has(letterNumber) ? ' has-word-break-after' : '';
+      const value = item.example ? letter.toUpperCase() : '';
+      const disabled = item.example ? ' disabled' : '';
+      const numberMarkup = letterIndex === 0 ? `<span class="crossword-cell-number">${escapeHtml(number)}</span>` : '';
+      return `<span class="crossword-cell-wrap${isHidden ? ' is-hidden-letter' : ''}${separatorClass}${breakClass}" style="grid-column:${startColumn + letterIndex};grid-row:${index + 1}">${numberMarkup}<input class="crossword-cell" data-crossword-letter data-letter-index="${letterIndex}"${isHidden ? ' data-crossword-hidden' : ''} maxlength="1" inputmode="text" autocomplete="off" autocapitalize="characters" aria-label="${escapeHtml(`Clue ${number}, letter ${letterNumber}`)}" value="${escapeHtml(value)}"${disabled}></span>`;
+    }).join('');
+    return `<div class="crossword-row${item.example ? ' exercise-example' : ''}" data-exercise-item="${escapeHtml(itemId)}" data-input-type="crossword-word" data-crossword-row="${escapeHtml(itemId)}">${rowCells}</div>`;
+  }
+
+  function renderCrosswordExercise(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    const crosswordItems = items.filter((item) => item.input === 'crossword-word');
+    const followUpItems = items.filter((item) => item.input !== 'crossword-word');
+    const rows = crosswordItems.map((item, itemIndex) => renderCrosswordRow(item, blockId, itemIndex)).join('');
+    const clues = crosswordItems.map((item) => `<button class="crossword-clue${item.example ? ' is-example' : ''}" type="button" data-crossword-clue-for="${escapeHtml(safeText(item.id))}"><span class="crossword-clue-number">${escapeHtml(item.number)}</span><span>${escapeHtml(item.clue || '')}</span></button>`).join('');
+    const followUp = followUpItems.length
+      ? `<div class="crossword-follow-up exercise-items">${followUpItems.map((item, itemIndex) => renderExerciseItem(item, blockId, crosswordItems.length + itemIndex, true)).join('')}</div>`
+      : '';
+    return `<div class="crossword-workspace" data-crossword-workspace>
+      <div class="crossword-grid-panel"><div class="crossword-grid" role="group" aria-label="Interactive crossword">${rows}</div><div class="crossword-hidden-answer"><span class="eyebrow">Hidden kind of shop</span><strong data-crossword-hidden-preview aria-live="polite"></strong></div></div>
+      <div class="crossword-clues" aria-label="Crossword clues">${clues}</div>
+    </div>${followUp}`;
+  }
+
+  function updateCrosswordHiddenAnswer(workspace) {
+    if (!workspace) return;
+    const preview = workspace.querySelector('[data-crossword-hidden-preview]');
+    if (!preview) return;
+    const letters = [...workspace.querySelectorAll('[data-crossword-hidden]')].map((input) => safeText(input.value).trim().toUpperCase() || '_');
+    const chunks = [letters.slice(0, 6), letters.slice(6, 10), letters.slice(10, 15)].filter((chunk) => chunk.length);
+    preview.textContent = chunks.map((chunk) => chunk.join('')).join(' ');
+  }
+
+  function wireLessonInteractiveInputs(root) {
+    root.querySelectorAll('[data-pronunciation-input]').forEach((input) => {
+      const itemNode = input.closest('[data-exercise-item]');
+      updatePronunciationPreview(itemNode);
+      input.addEventListener('input', () => updatePronunciationPreview(itemNode));
+    });
+
+    root.querySelectorAll('[data-crossword-workspace]').forEach((workspace) => {
+      const rows = [...workspace.querySelectorAll('[data-crossword-row]')];
+      const rowInputs = (row) => [...row.querySelectorAll('[data-crossword-letter]:not(:disabled)')];
+      const focusRelative = (row, input, delta) => {
+        const inputs = rowInputs(row);
+        const index = inputs.indexOf(input);
+        const target = inputs[index + delta];
+        if (target) target.focus();
+      };
+
+      rows.forEach((row) => {
+        row.addEventListener('input', (event) => {
+          const input = event.target.closest('[data-crossword-letter]');
+          if (!input) return;
+          const letters = crosswordLetters(input.value);
+          input.value = safeText(letters[0]).toUpperCase();
+          if (input.value) focusRelative(row, input, 1);
+          updateCrosswordHiddenAnswer(workspace);
+        });
+        row.addEventListener('keydown', (event) => {
+          const input = event.target.closest('[data-crossword-letter]');
+          if (!input) return;
+          if (event.key === 'ArrowRight') { event.preventDefault(); focusRelative(row, input, 1); }
+          if (event.key === 'ArrowLeft') { event.preventDefault(); focusRelative(row, input, -1); }
+          if (event.key === 'Backspace' && !input.value) { event.preventDefault(); focusRelative(row, input, -1); }
+        });
+        row.addEventListener('paste', (event) => {
+          const input = event.target.closest('[data-crossword-letter]');
+          if (!input) return;
+          const pasted = crosswordLetters(event.clipboardData?.getData('text') || '');
+          if (pasted.length <= 1) return;
+          event.preventDefault();
+          const inputs = rowInputs(row);
+          const start = inputs.indexOf(input);
+          pasted.forEach((letter, offset) => {
+            const target = inputs[start + offset];
+            if (target) target.value = letter.toUpperCase();
+          });
+          const finalTarget = inputs[Math.min(start + pasted.length, inputs.length - 1)];
+          if (finalTarget) finalTarget.focus();
+          updateCrosswordHiddenAnswer(workspace);
+        });
+      });
+
+      workspace.querySelectorAll('[data-crossword-clue-for]').forEach((clue) => {
+        clue.addEventListener('click', () => {
+          const row = workspace.querySelector(`[data-crossword-row="${CSS.escape(safeText(clue.dataset.crosswordClueFor))}"]`);
+          if (!row) return;
+          const inputs = rowInputs(row);
+          const target = inputs.find((input) => !input.value) || inputs[0];
+          if (target) target.focus();
+        });
+      });
+      updateCrosswordHiddenAnswer(workspace);
+    });
+  }
+
   function renderExerciseItem(item, blockId, index, inlineNumberedItems = false) {
     const itemId = safeText(item.id, `${index + 1}`);
     const number = item.number === undefined ? index + 1 : item.number;
@@ -921,6 +1062,28 @@
     if (item.displayOnly) {
       const className = item.displayStyle === 'heading' ? 'exercise-display-heading' : 'exercise-display-copy';
       return `<div class="${className}" data-exercise-item="${escapeHtml(itemId)}">${prompt}</div>`;
+    }
+
+    if (item.input === 'r-circle') {
+      const textValue = safeText(item.text || item.prompt);
+      const content = `<div class="pronunciation-r-line">${renderRSelection(textValue, inputId, item.example ? item.answer : [], !item.example)}</div>`;
+      return `<div class="exercise-item${item.example ? ' exercise-example' : ''}" data-exercise-item="${escapeHtml(itemId)}" data-input-type="r-circle">
+        <div class="exercise-item-inline-row">${numberMarkup}<div class="exercise-item-inline-content">${content}</div></div>
+        ${item.example ? '' : '<div class="feedback" aria-live="polite"></div>'}
+      </div>`;
+    }
+
+    if (item.input === 'pronunciation-sentence') {
+      if (item.example) {
+        const sentence = safeText(item.exampleAnswer || item.answer);
+        const content = `<div class="pronunciation-r-line">${renderRSelection(sentence, inputId, item.rAnswer || [], false)}</div>`;
+        return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}" data-input-type="pronunciation-sentence"><div class="exercise-item-inline-row">${numberMarkup}<div class="exercise-item-inline-content">${content}</div></div></div>`;
+      }
+      const rInputName = `${inputId}-r`;
+      return `<div class="exercise-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="pronunciation-sentence">
+        <div class="exercise-item-inline-row">${numberMarkup}<div class="exercise-item-inline-content pronunciation-sentence-control"><input class="text-field" data-pronunciation-input autocomplete="off" aria-label="Sentence ${escapeHtml(number)}"><div class="pronunciation-r-preview" data-pronunciation-preview data-r-input-name="${escapeHtml(rInputName)}" aria-label="Circle r where it is pronounced"></div></div></div>
+        <div class="feedback" aria-live="polite"></div>
+      </div>`;
     }
 
     if (item.example && item.input === 'circle-or-tick') {
@@ -1105,7 +1268,9 @@
       const intro = block.introTitle || block.introText ? `<div class="exercise-source"><h4>${escapeHtml(block.introTitle || '')}</h4>${block.introText ? `<p>${escapeHtml(block.introText)}</p>` : ''}</div>` : '';
       const exerciseContent = block.layout === 'dialogue'
         ? renderDialogueExercise(block, id)
-        : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
+        : block.layout === 'crossword'
+          ? renderCrosswordExercise(block, id)
+          : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
       const hasStickyImage = block.stickyImage === true && imageEntries.length === 1;
       const exerciseBody = hasStickyImage
         ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`
@@ -1168,6 +1333,19 @@
 
     if (inputType === 'example-gap') {
       actual = itemNode.querySelector('[data-example-gap]')?.value ?? '';
+      correct = textAnswerMatches(item, actual);
+    } else if (inputType === 'r-circle') {
+      actual = [...itemNode.querySelectorAll('[data-r-index]:checked')].map((input) => Number(input.value)).sort((a, b) => a - b);
+      const expected = [...(Array.isArray(item.answer) ? item.answer : [])].map(Number).sort((a, b) => a - b);
+      correct = JSON.stringify(actual) === JSON.stringify(expected);
+    } else if (inputType === 'pronunciation-sentence') {
+      const text = itemNode.querySelector('[data-pronunciation-input]')?.value ?? '';
+      const r = [...itemNode.querySelectorAll('[data-r-index]:checked')].map((input) => Number(input.value)).sort((a, b) => a - b);
+      const expectedR = [...(Array.isArray(item.rAnswer) ? item.rAnswer : [])].map(Number).sort((a, b) => a - b);
+      actual = { text, r };
+      correct = textAnswerMatches(item, text) && JSON.stringify(r) === JSON.stringify(expectedR);
+    } else if (inputType === 'crossword-word') {
+      actual = [...itemNode.querySelectorAll('[data-crossword-letter]')].map((input) => safeText(input.value)).join('');
       correct = textAnswerMatches(item, actual);
     } else if (inputType === 'odd-one-out') {
       const selected = itemNode.querySelector('input[type="radio"]:checked')?.value ?? '';
@@ -1285,6 +1463,16 @@
       if (inputType === 'example-gap') {
         const input = itemNode.querySelector('[data-example-gap]');
         if (input) input.value = safeText(value);
+      } else if (inputType === 'r-circle') {
+        const selected = new Set(Array.isArray(value) ? value.map(Number) : []);
+        itemNode.querySelectorAll('[data-r-index]').forEach((input) => { input.checked = selected.has(Number(input.value)); });
+      } else if (inputType === 'pronunciation-sentence') {
+        const input = itemNode.querySelector('[data-pronunciation-input]');
+        if (input) input.value = safeText(value?.text);
+        updatePronunciationPreview(itemNode, Array.isArray(value?.r) ? value.r : []);
+      } else if (inputType === 'crossword-word') {
+        const letters = crosswordLetters(value);
+        itemNode.querySelectorAll('[data-crossword-letter]').forEach((input, letterIndex) => { input.value = safeText(letters[letterIndex]).toUpperCase(); });
       } else if (inputType === 'odd-one-out') {
         const selected = safeText(value?.selected);
         const input = itemNode.querySelector(`input[type="radio"][value="${CSS.escape(selected)}"]`);
@@ -1393,6 +1581,7 @@
       <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Check answers</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Submit to teacher</button></div><p class="muted save-note">After checking, your answers are saved on this device and synced with Supabase.</p></div>`;
 
     restoreLessonAnswers(root, blocks, savedResult?.answers);
+    wireLessonInteractiveInputs(root);
 
     root.querySelectorAll('[data-reorder-source]').forEach((source) => {
       source.addEventListener('click', (event) => {

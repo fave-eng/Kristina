@@ -894,5 +894,208 @@ window.VOCABULARY_DATA = [
         "exampleRu": "К чьим советам ты обычно прислушиваешься?"
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-7",
+    "title": "Shops & services",
+    "label": "Lesson 7 · Go to checkout",
+    "icon": "🏪",
+    "type": "lesson",
+    "linkedLessonId": "lesson-7",
+    "page": "vocabulary.html?id=vocab-lesson-7",
+    "words": [
+      {
+        "id": "lesson-7-launderette",
+        "en": "launderette",
+        "ru": "прачечная самообслуживания",
+        "transcription": "/ˌlɔːndəˈret/",
+        "exampleEn": "There’s a launderette near the station.",
+        "exampleRu": "Рядом со станцией есть прачечная самообслуживания."
+      },
+      {
+        "id": "lesson-7-bakers",
+        "en": "baker’s",
+        "ru": "булочная; пекарня",
+        "transcription": "/ˈbeɪkəz/",
+        "exampleEn": "I bought some bread at the baker’s.",
+        "exampleRu": "Я купила хлеб в булочной."
+      },
+      {
+        "id": "lesson-7-jewellers",
+        "en": "jeweller’s",
+        "ru": "ювелирный магазин",
+        "transcription": "/ˈdʒuːələz/",
+        "exampleEn": "The watch was repaired at the jeweller’s.",
+        "exampleRu": "Часы отремонтировали в ювелирном магазине."
+      },
+      {
+        "id": "lesson-7-stationers",
+        "en": "stationer’s",
+        "ru": "магазин канцтоваров",
+        "transcription": "/ˈsteɪʃənəz/",
+        "exampleEn": "You can buy pens at the stationer’s.",
+        "exampleRu": "Ручки можно купить в магазине канцтоваров."
+      },
+      {
+        "id": "lesson-7-butchers",
+        "en": "butcher’s",
+        "ru": "мясная лавка; мясной магазин",
+        "transcription": "/ˈbʊtʃəz/",
+        "exampleEn": "She bought the meat at the butcher’s.",
+        "exampleRu": "Она купила мясо в мясной лавке."
+      },
+      {
+        "id": "lesson-7-off-licence",
+        "en": "off licence",
+        "ru": "магазин алкогольных напитков на вынос",
+        "transcription": "/ˌɒf ˈlaɪsəns/",
+        "exampleEn": "There’s an off licence on the corner.",
+        "exampleRu": "На углу есть магазин алкогольных напитков."
+      },
+      {
+        "id": "lesson-7-greengrocers",
+        "en": "greengrocer’s",
+        "ru": "овощной и фруктовый магазин",
+        "transcription": "/ˈɡriːnɡrəʊsəz/",
+        "exampleEn": "The greengrocer’s sells fresh fruit and vegetables.",
+        "exampleRu": "В овощном магазине продают свежие фрукты и овощи."
+      },
+      {
+        "id": "lesson-7-fishmongers",
+        "en": "fishmonger’s",
+        "ru": "рыбный магазин",
+        "transcription": "/ˈfɪʃmʌŋɡəz/",
+        "exampleEn": "We got fresh fish from the fishmonger’s.",
+        "exampleRu": "Мы купили свежую рыбу в рыбном магазине."
+      },
+      {
+        "id": "lesson-7-newsagents",
+        "en": "newsagent’s",
+        "ru": "газетный киоск; магазин прессы",
+        "transcription": "/ˈnjuːzeɪdʒənts/",
+        "exampleEn": "I stopped at the newsagent’s for a magazine.",
+        "exampleRu": "Я зашла в магазин прессы за журналом."
+      },
+      {
+        "id": "lesson-7-estate-agents",
+        "en": "estate agent’s",
+        "ru": "агентство недвижимости",
+        "transcription": "/ɪˈsteɪt ˌeɪdʒənts/",
+        "exampleEn": "The flat is advertised by an estate agent’s.",
+        "exampleRu": "Квартиру рекламирует агентство недвижимости."
+      },
+      {
+        "id": "lesson-7-florists",
+        "en": "florist’s",
+        "ru": "цветочный магазин",
+        "transcription": "/ˈflɒrɪsts/",
+        "exampleEn": "I bought these flowers at the florist’s.",
+        "exampleRu": "Я купила эти цветы в цветочном магазине."
+      },
+      {
+        "id": "lesson-7-barbers",
+        "en": "barber’s",
+        "ru": "мужская парикмахерская; барбершоп",
+        "transcription": "/ˈbɑːbəz/",
+        "exampleEn": "He gets his hair cut at the barber’s.",
+        "exampleRu": "Он стрижётся в мужской парикмахерской."
+      },
+      {
+        "id": "lesson-7-deli",
+        "en": "deli",
+        "ru": "магазин деликатесов; отдел готовых мясных продуктов и сыров",
+        "transcription": "/ˈdeli/",
+        "exampleEn": "The deli sells cooked meats and cheeses.",
+        "exampleRu": "В магазине деликатесов продают готовые мясные продукты и сыры."
+      },
+      {
+        "id": "lesson-7-health-food-store",
+        "en": "health food store",
+        "ru": "магазин здорового питания",
+        "transcription": "/ˈhelθ fuːd stɔː/",
+        "exampleEn": "She buys nuts at the health food store.",
+        "exampleRu": "Она покупает орехи в магазине здорового питания."
+      },
+      {
+        "id": "lesson-7-dry-cleaners",
+        "en": "dry cleaner’s",
+        "ru": "химчистка",
+        "transcription": "/ˌdraɪ ˈkliːnəz/",
+        "exampleEn": "Can you pick up my suit from the dry cleaner’s?",
+        "exampleRu": "Можешь забрать мой костюм из химчистки?"
+      },
+      {
+        "id": "lesson-7-garden-centre",
+        "en": "garden centre",
+        "ru": "садовый центр",
+        "transcription": "/ˈɡɑːdn ˌsentə/",
+        "exampleEn": "Tanya went to the garden centre to buy some plants.",
+        "exampleRu": "Таня пошла в садовый центр купить растения."
+      },
+      {
+        "id": "lesson-7-travel-agents",
+        "en": "travel agent’s",
+        "ru": "турагентство",
+        "transcription": "/ˈtrævəl ˌeɪdʒənts/",
+        "exampleEn": "Did you book your flights at the travel agent’s?",
+        "exampleRu": "Ты бронировала билеты в турагентстве?"
+      },
+      {
+        "id": "lesson-7-craft-fair",
+        "en": "craft fair",
+        "ru": "ярмарка изделий ручной работы",
+        "transcription": "/ˈkrɑːft feə/",
+        "exampleEn": "We bought a wooden bowl at the craft fair.",
+        "exampleRu": "Мы купили деревянную миску на ярмарке изделий ручной работы."
+      },
+      {
+        "id": "lesson-7-chain-store",
+        "en": "chain store",
+        "ru": "сетевой магазин",
+        "transcription": "/ˈtʃeɪn stɔː/",
+        "exampleEn": "Zara is a chain store.",
+        "exampleRu": "Zara — сетевой магазин."
+      },
+      {
+        "id": "lesson-7-car-showroom",
+        "en": "car showroom",
+        "ru": "автосалон",
+        "transcription": "/ˈkɑː ˌʃəʊruːm/",
+        "exampleEn": "We went to the car showroom to look at the new models.",
+        "exampleRu": "Мы пошли в автосалон посмотреть новые модели."
+      },
+      {
+        "id": "lesson-7-diy-store",
+        "en": "DIY store",
+        "ru": "магазин товаров для ремонта и дома",
+        "transcription": "/ˌdiː aɪ ˈwaɪ stɔː/",
+        "exampleEn": "Our local DIY store sells carpentry tools.",
+        "exampleRu": "В нашем местном магазине товаров для ремонта продаются столярные инструменты."
+      },
+      {
+        "id": "lesson-7-pound-shop",
+        "en": "pound shop",
+        "ru": "магазин дешёвых товаров с фиксированной низкой ценой",
+        "transcription": "/ˈpaʊnd ʃɒp/",
+        "exampleEn": "Most things cost 99p or less in the pound shop.",
+        "exampleRu": "В магазине дешёвых товаров большинство вещей стоит 99 пенсов или меньше."
+      },
+      {
+        "id": "lesson-7-market-stall",
+        "en": "market stall",
+        "ru": "рыночный прилавок; торговая палатка",
+        "transcription": "/ˈmɑːkɪt stɔːl/",
+        "exampleEn": "My cousin has a market stall in Covent Garden.",
+        "exampleRu": "У моего двоюродного брата есть торговая палатка в Ковент-Гардене."
+      },
+      {
+        "id": "lesson-7-second-hand-clothes",
+        "en": "second-hand clothes",
+        "ru": "одежда секонд-хенд; подержанная одежда",
+        "transcription": "/ˌsekənd hænd ˈkləʊðz/",
+        "exampleEn": "The charity shop has some lovely second-hand clothes.",
+        "exampleRu": "В благотворительном магазине есть хорошая одежда секонд-хенд."
+      }
+    ]
   }
 ];
