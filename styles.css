@@ -1927,3 +1927,112 @@ label.odd-option {
 .material-group-list {
   gap: 14px;
 }
+
+/* Lesson exercise details: highlighted source phrases and circle/tick choices */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.exercise-source-line {
+  margin: 0 0 11px;
+  color: var(--dark);
+  font-size: .98rem;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.exercise-source-highlight {
+  padding: 1px 3px;
+  background: #e5e7eb;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.exercise-example-target {
+  padding-bottom: 2px;
+  color: var(--dark);
+  font-size: .98rem;
+  line-height: 1.65;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.circle-or-tick-sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  color: var(--dark);
+  font-size: .98rem;
+  line-height: 1.7;
+}
+
+.circle-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 4px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.circle-choice input,
+.circle-tick input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+.circle-choice:has(input:checked),
+.circle-choice.selected {
+  outline: 2px solid var(--indigo);
+  outline-offset: 1px;
+  background: #eef2ff;
+}
+
+.choice-slash {
+  color: var(--muted);
+}
+
+.circle-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 42px;
+  min-height: 34px;
+  margin-left: 8px;
+  padding: 3px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.circle-tick:has(input:checked),
+.circle-tick.example-tick {
+  border-color: var(--indigo);
+  background: #eef2ff;
+  color: var(--indigo);
+}
+
+.gap-input-wide {
+  width: clamp(180px, 42vw, 330px);
+}
+
+@media (max-width: 620px) {
+  .circle-tick {
+    margin-left: 0;
+  }
+
+  .gap-input-wide {
+    width: min(100%, 300px);
+  }
+}

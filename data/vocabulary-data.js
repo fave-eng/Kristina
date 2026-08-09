@@ -771,5 +771,128 @@ window.VOCABULARY_DATA = [
       "exampleRu": "Сестра встретит меня в аэропорту."
     }
   ]
-}
+},
+  {
+    "id": "vocab-lesson-6",
+    "title": "Possessives & everyday places",
+    "label": "Lesson 6 · Go to checkout",
+    "icon": "🛍️",
+    "type": "lesson",
+    "linkedLessonId": "lesson-6",
+    "page": "vocabulary.html?id=vocab-lesson-6",
+    "words": [
+      {
+        "id": "lesson-6-checkout",
+        "en": "checkout",
+        "ru": "касса; зона оплаты",
+        "transcription": "/ˈtʃekaʊt/",
+        "exampleEn": "I’ll meet you at the checkout.",
+        "exampleRu": "Я встречу тебя у кассы."
+      },
+      {
+        "id": "lesson-6-wedding",
+        "en": "wedding",
+        "ru": "свадьба",
+        "transcription": "/ˈwedɪŋ/",
+        "exampleEn": "We’re going to a wedding on Saturday.",
+        "exampleRu": "В субботу мы идём на свадьбу."
+      },
+      {
+        "id": "lesson-6-get-on-with",
+        "en": "get on with",
+        "ru": "ладить с кем-либо",
+        "transcription": "/ɡet ˈɒn wɪð/",
+        "exampleEn": "Do you get on with your neighbours?",
+        "exampleRu": "Ты ладишь со своими соседями?"
+      },
+      {
+        "id": "lesson-6-need-cleaning",
+        "en": "need cleaning",
+        "ru": "нуждаться в чистке; нужно почистить",
+        "transcription": "/ˌniːd ˈkliːnɪŋ/",
+        "exampleEn": "These shoes need cleaning.",
+        "exampleRu": "Эти туфли нужно почистить."
+      },
+      {
+        "id": "lesson-6-put-away",
+        "en": "put away",
+        "ru": "убрать на место",
+        "transcription": "/ˌpʊt əˈweɪ/",
+        "exampleEn": "Please put your clothes away.",
+        "exampleRu": "Пожалуйста, убери одежду на место."
+      },
+      {
+        "id": "lesson-6-charity-shop",
+        "en": "charity shop",
+        "ru": "благотворительный магазин",
+        "transcription": "/ˈtʃærəti ʃɒp/",
+        "exampleEn": "She bought the jacket in a charity shop.",
+        "exampleRu": "Она купила куртку в благотворительном магазине."
+      },
+      {
+        "id": "lesson-6-barbecue",
+        "en": "barbecue",
+        "ru": "барбекю; вечеринка с грилем",
+        "transcription": "/ˈbɑːbɪkjuː/",
+        "exampleEn": "There’s a barbecue on Saturday.",
+        "exampleRu": "В субботу будет барбекю."
+      },
+      {
+        "id": "lesson-6-hairdresser",
+        "en": "hairdresser",
+        "ru": "парикмахер; парикмахерская",
+        "transcription": "/ˈheədresə/",
+        "exampleEn": "I’m going to the hairdresser after lunch.",
+        "exampleRu": "После обеда я иду к парикмахеру."
+      },
+      {
+        "id": "lesson-6-bad-habit",
+        "en": "bad habit",
+        "ru": "вредная привычка",
+        "transcription": "/ˌbæd ˈhæbɪt/",
+        "exampleEn": "Eating too fast is a bad habit.",
+        "exampleRu": "Есть слишком быстро — вредная привычка."
+      },
+      {
+        "id": "lesson-6-swimming-pool",
+        "en": "swimming pool",
+        "ru": "бассейн",
+        "transcription": "/ˈswɪmɪŋ puːl/",
+        "exampleEn": "Does the house have a swimming pool?",
+        "exampleRu": "В доме есть бассейн?"
+      },
+      {
+        "id": "lesson-6-go-camping",
+        "en": "go camping",
+        "ru": "ехать с палаткой; ходить в поход с ночёвкой",
+        "transcription": "/ˌɡəʊ ˈkæmpɪŋ/",
+        "exampleEn": "We go camping in summer.",
+        "exampleRu": "Летом мы ездим отдыхать с палаткой."
+      },
+      {
+        "id": "lesson-6-leave-home",
+        "en": "leave home",
+        "ru": "уехать из родительского дома; покинуть дом",
+        "transcription": "/ˌliːv ˈhəʊm/",
+        "exampleEn": "Her sister has just left home.",
+        "exampleRu": "Её сестра только что уехала из родительского дома."
+      },
+      {
+        "id": "lesson-6-move-into",
+        "en": "move into",
+        "ru": "переехать в новое жильё",
+        "transcription": "/ˌmuːv ˈɪntuː/",
+        "exampleEn": "They moved into a new flat last month.",
+        "exampleRu": "В прошлом месяце они переехали в новую квартиру."
+      },
+      {
+        "id": "lesson-6-take-advice",
+        "en": "take advice",
+        "ru": "прислушиваться к совету; следовать совету",
+        "transcription": "/ˌteɪk ədˈvaɪs/",
+        "exampleEn": "Whose advice do you usually take?",
+        "exampleRu": "К чьим советам ты обычно прислушиваешься?"
+      }
+    ]
+  }
 ];

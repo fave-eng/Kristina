@@ -899,16 +899,46 @@
     </section>`).join('')}</div>`;
   }
 
+  function renderExerciseContext(item) {
+    const parts = Array.isArray(item.contextParts) ? item.contextParts : [];
+    if (!parts.length) return '';
+    const content = parts.map((part) => {
+      if (typeof part === 'string') return escapeHtml(part);
+      const className = part?.highlight ? ' class="exercise-source-highlight"' : '';
+      return `<span${className}>${escapeHtml(part?.text || '')}</span>`;
+    }).join('');
+    return `<div class="exercise-source-line">${content}</div>`;
+  }
+
   function renderExerciseItem(item, blockId, index) {
     const itemId = safeText(item.id, `${index + 1}`);
     const number = item.number === undefined ? index + 1 : item.number;
     const prompt = escapeHtml(item.prompt || '');
     const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
     const numberMarkup = number === '' || number === null ? '' : `<span class="exercise-number">${escapeHtml(number)}</span>`;
+    const context = renderExerciseContext(item);
 
     if (item.displayOnly) {
       const className = item.displayStyle === 'heading' ? 'exercise-display-heading' : 'exercise-display-copy';
       return `<div class="${className}" data-exercise-item="${escapeHtml(itemId)}">${prompt}</div>`;
+    }
+
+    if (item.example && item.input === 'circle-or-tick') {
+      const selected = safeText(item.answer);
+      const segments = Array.isArray(item.segments) ? item.segments : [];
+      const options = Array.isArray(item.options) ? item.options : [];
+      const sentence = `<div class="circle-or-tick-sentence"><span>${escapeHtml(segments[0] || '')}</span>${options.map((option, optionIndex) => `<span class="circle-choice ${selected === String(optionIndex) ? 'selected' : ''}">${escapeHtml(option)}</span>${optionIndex === 0 ? '<span class="choice-slash"> / </span>' : ''}`).join('')}<span>${escapeHtml(segments[1] || '')}</span>${selected === 'both' ? '<span class="circle-tick example-tick" aria-label="Both are correct">✓</span>' : ''}</div>`;
+      return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+        <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
+        <div class="exercise-control">${sentence}</div>
+      </div>`;
+    }
+
+    if (item.example && item.exampleTarget) {
+      return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+        <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
+        <div class="exercise-control">${context}<div class="exercise-example-target">${escapeHtml(item.exampleTarget)}</div></div>
+      </div>`;
     }
 
     if (item.example && item.input === 'odd-one-out') {
@@ -933,6 +963,10 @@
       control = `<div class="sentence-gaps numbered-example-gap"><span>${escapeHtml(segments[0] || '')}</span><span class="inline-example-answer"><b>${escapeHtml(item.exampleNumber || 1)}</b> ${escapeHtml(item.exampleAnswer || '')}</span><span>${escapeHtml(segments[1] || '')}</span><span class="inline-gap-number">${escapeHtml(item.gapNumber || 2)}</span><input class="gap-input" data-example-gap autocomplete="off"><span>${escapeHtml(segments[2] || '')}</span></div>`;
     } else if (item.input === 'odd-one-out') {
       control = `<div class="odd-one-out-control"><div class="odd-options">${(item.options || []).map((option, optionIndex) => `<label class="odd-option"><input type="radio" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('')}</div><label class="odd-reason" for="${escapeHtml(inputId)}-reason">The others are all <input class="gap-input odd-reason-input" id="${escapeHtml(inputId)}-reason" data-odd-reason autocomplete="off">.</label></div>`;
+    } else if (item.input === 'circle-or-tick') {
+      const segments = Array.isArray(item.segments) ? item.segments : [];
+      const options = Array.isArray(item.options) ? item.options : [];
+      control = `<div class="circle-or-tick-sentence"><span>${escapeHtml(segments[0] || '')}</span>${options.map((option, optionIndex) => `<label class="circle-choice"><input type="radio" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>${optionIndex === 0 ? '<span class="choice-slash"> / </span>' : ''}`).join('')}<span>${escapeHtml(segments[1] || '')}</span><label class="circle-tick" title="Both are correct"><input type="radio" name="${escapeHtml(inputId)}" value="both"><span aria-hidden="true">✓</span><span class="sr-only">Both are correct</span></label></div>`;
     } else if (item.input === 'multiple' || item.input === 'single') {
       const inputType = item.input === 'multiple' ? 'checkbox' : 'radio';
       control = `<div class="option-list compact-options">${(item.options || []).map((option, optionIndex) => `<label class="option"><input type="${inputType}" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('')}</div>`;
@@ -943,7 +977,8 @@
     } else if (item.input === 'gaps') {
       const answers = Array.isArray(item.answers) ? item.answers : [];
       const segments = Array.isArray(item.segments) ? item.segments : [];
-      control = `<div class="sentence-gaps" aria-label="${prompt}">${answers.map((answer, gapIndex) => `${gapIndex < segments.length ? `<span>${escapeHtml(segments[gapIndex])}</span>` : ''}<input class="gap-input" data-gap-index="${gapIndex}" aria-label="Gap ${gapIndex + 1}" autocomplete="off">`).join('')}${segments.length > answers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : ''}</div>`;
+      const gapClass = item.inputSize === 'wide' ? 'gap-input gap-input-wide' : 'gap-input';
+      control = `<div class="sentence-gaps" aria-label="${prompt}">${answers.map((answer, gapIndex) => `${gapIndex < segments.length ? `<span>${escapeHtml(segments[gapIndex])}</span>` : ''}<input class="${gapClass}" data-gap-index="${gapIndex}" aria-label="Gap ${gapIndex + 1}" autocomplete="off">`).join('')}${segments.length > answers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : ''}</div>`;
     } else {
       control = `<input class="text-field" id="${escapeHtml(inputId)}" autocomplete="off" placeholder="${escapeHtml(item.placeholder || '')}">`;
     }
@@ -953,7 +988,7 @@
       : '';
     return `<div class="exercise-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="${escapeHtml(item.input || 'text')}">
       ${itemHeader}
-      <div class="exercise-control">${control}</div>
+      <div class="exercise-control">${context}${control}</div>
       <div class="feedback" aria-live="polite"></div>
     </div>`;
   }
@@ -1118,6 +1153,9 @@
       correct = selected !== ''
         && Number(selected) === Number(item.answer)
         && normalizeAnswer(reason) === normalizeAnswer(item.reasonAnswer);
+    } else if (inputType === 'circle-or-tick') {
+      actual = itemNode.querySelector('input:checked')?.value ?? '';
+      correct = safeText(actual) === safeText(item.answer);
     } else if (inputType === 'multiple') {
       actual = [...itemNode.querySelectorAll('input:checked')].map((input) => Number(input.value)).sort((a, b) => a - b);
       const expected = [...(item.answer || [])].map(Number).sort((a, b) => a - b);
@@ -1230,6 +1268,9 @@
         if (input) input.checked = true;
         const reason = itemNode.querySelector('[data-odd-reason]');
         if (reason) reason.value = safeText(value?.reason);
+      } else if (inputType === 'circle-or-tick') {
+        const input = itemNode.querySelector(`input[value="${CSS.escape(safeText(value))}"]`);
+        if (input) input.checked = true;
       } else if (inputType === 'multiple') {
         const selected = new Set(Array.isArray(value) ? value.map(Number) : []);
         itemNode.querySelectorAll('input[type="checkbox"]').forEach((input) => { input.checked = selected.has(Number(input.value)); });

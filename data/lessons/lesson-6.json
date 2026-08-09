@@ -1,0 +1,483 @@
+{
+  "id": "lesson-6",
+  "number": 6,
+  "title": "Go to checkout",
+  "subtitle": "Grammar: possessives",
+  "status": "available",
+  "publishedAt": "2026-08-10",
+  "totalPoints": 20,
+  "vocabularyId": "vocab-lesson-6",
+  "grammarIds": [
+    "grammar-possessives"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "1",
+      "title": "GRAMMAR possessives"
+    },
+    {
+      "type": "exercise",
+      "id": "possessives-a",
+      "title": "a. Re-order the words to make sentences.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "contextParts": [
+            "my / house / we / day / the / at / spent / sister’s"
+          ],
+          "exampleTarget": "We spent the day at my sister’s house."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "go / Kate’s / to / wedding / we / didn’t",
+          "acceptedAnswers": [
+            "We didn’t go to Kate’s wedding."
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "boyfriend’s / with / doesn’t / her / on / Beth / get / parents",
+          "acceptedAnswers": [
+            "Beth doesn’t get on with her boyfriend’s parents."
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "house / of / the / is / door / locked / the / back",
+          "acceptedAnswers": [
+            "The back door of the house is locked."
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "the / class / I / of / sit / always / the / front / at",
+          "acceptedAnswers": [
+            "I always sit at the front of the class."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "possessives-b",
+      "title": "b. Circle the correct answer. Tick (✓) if both are correct.",
+      "hideAnswersOnError": true,
+      "image": "images/lesson-6/exercise-1b-shop.png",
+      "imageAlt": "Shop display with footwear, as shown in the workbook exercise.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "circle-or-tick",
+          "example": true,
+          "segments": [
+            "",
+            " need cleaning before they put them away."
+          ],
+          "options": [
+            "The boy’s bikes",
+            "The boys’ bikes"
+          ],
+          "answer": "1"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "circle-or-tick",
+          "example": true,
+          "segments": [
+            "That girl is ",
+            "."
+          ],
+          "options": [
+            "James’ new girlfriend",
+            "James’s new girlfriend"
+          ],
+          "answer": "both"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "circle-or-tick",
+          "segments": [
+            "It’s ",
+            " today."
+          ],
+          "options": [
+            "my mum’s birthday",
+            "my mums’ birthday"
+          ],
+          "answer": "0"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "circle-or-tick",
+          "segments": [
+            "There are a lot of ",
+            " in the charity shop."
+          ],
+          "options": [
+            "women’s clothes",
+            "womens’ clothes"
+          ],
+          "answer": "0"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "circle-or-tick",
+          "segments": [
+            "She doesn’t mind looking after ",
+            " children."
+          ],
+          "options": [
+            "other people’s",
+            "other peoples’"
+          ],
+          "answer": "0"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "circle-or-tick",
+          "segments": [
+            "There’s a barbecue on Saturday ",
+            "."
+          ],
+          "options": [
+            "at John’s",
+            "at John’s house"
+          ],
+          "answer": "both"
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "circle-or-tick",
+          "segments": [
+            "I’m going to ",
+            " after lunch."
+          ],
+          "options": [
+            "the hairdresser’s",
+            "the hairdresser"
+          ],
+          "answer": "both"
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "circle-or-tick",
+          "segments": [
+            "That’s ",
+            "."
+          ],
+          "options": [
+            "Poppy’s and Mikey’s school",
+            "Poppy and Mikey’s school"
+          ],
+          "answer": "1"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "possessives-c",
+      "title": "c. Rewrite the highlighted phrase using of to show possession.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "contextParts": [
+            {
+              "text": "Alice is "
+            },
+            {
+              "text": "one of my friends",
+              "highlight": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "exampleTarget": "Alice is a friend of mine."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "Eating too fast is "
+            },
+            {
+              "text": "one of his bad habits",
+              "highlight": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "segments": [
+            "Eating too fast is a ",
+            "."
+          ],
+          "answers": [
+            [
+              "bad habit of his"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "How’s "
+            },
+            {
+              "text": "your brother",
+              "highlight": true
+            },
+            {
+              "text": "?"
+            }
+          ],
+          "segments": [
+            "How’s that ",
+            "?"
+          ],
+          "answers": [
+            [
+              "brother of yours"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "That woman is "
+            },
+            {
+              "text": "one of Lucy’s teachers",
+              "highlight": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "segments": [
+            "That woman is a ",
+            "."
+          ],
+          "answers": [
+            [
+              "teacher of Lucy’s"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "What’s "
+            },
+            {
+              "text": "their idea",
+              "highlight": true
+            },
+            {
+              "text": "?"
+            }
+          ],
+          "segments": [
+            "What’s this ",
+            "?"
+          ],
+          "answers": [
+            [
+              "idea of theirs"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "possessives-d",
+      "title": "d. Complete the sentences. Use own with a possessive adjective (my, your, her, etc.).",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleTextOnly": true,
+          "prompt": "My parents make their own bread."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "I’d love to have a room of ",
+            "."
+          ],
+          "answers": [
+            [
+              "my own"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "Does the house have ",
+            " swimming pool?"
+          ],
+          "answers": [
+            [
+              "its own"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "That’s my pen. Why don’t you use ",
+            "?"
+          ],
+          "answers": [
+            [
+              "your own"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "We’re taking ",
+            " tent when we go camping."
+          ],
+          "answers": [
+            [
+              "our own"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "My sister has just left home and moved into a place of ",
+            "."
+          ],
+          "answers": [
+            [
+              "her own"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "My grandfather is 91 and he still has all ",
+            " teeth."
+          ],
+          "answers": [
+            [
+              "his own"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "possessives-e",
+      "title": "e. Answer the questions about you. Use ’s, of, or own.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "text",
+          "scored": false,
+          "prompt": "Whose house do you live in?"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "scored": false,
+          "prompt": "Whose bedroom is the biggest in your house or flat?"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "scored": false,
+          "prompt": "Whose was the last car you drove?"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "scored": false,
+          "prompt": "Where do you usually sit on a bus?"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "scored": false,
+          "prompt": "Whose was the last house you went to, and when?"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "scored": false,
+          "prompt": "Whose advice do you often take?"
+        }
+      ]
+    }
+  ]
+}

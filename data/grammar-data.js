@@ -1470,5 +1470,460 @@ window.GRAMMAR_DATA = [
     }
   ],
   "linkedLessonId": "lesson-5"
-}
+},
+  {
+    "id": "grammar-possessives",
+    "order": 4,
+    "title": "Possessives: ’s, of, possessive pronouns and own",
+    "level": "B1",
+    "status": "available",
+    "page": "grammar-topic.html?id=grammar-possessives",
+    "passed": false,
+    "attempts": 0,
+    "lockOnPass": true,
+    "revealAnswersOnError": false,
+    "explanation": "Притяжательные конструкции показывают принадлежность или связь: чей это предмет, часть чего-либо или отношение между людьми. С людьми и живыми существами обычно удобно использовать ’s: Anna’s bag. С предметами, частями и более длинными словосочетаниями часто используется of: the door of the building. Притяжательные местоимения mine, yours, his, hers, ours, theirs заменяют сочетание с существительным, а own подчёркивает «свой собственный». Отдельной утвердительной, отрицательной или вопросительной формы у ’s и of нет: это части именной группы, поэтому они могут стоять в утверждениях, отрицаниях и вопросах с обычным глаголом предложения.",
+    "formula": "person + ’s + noun · regular plural + ’ + noun · noun + of + thing · a/an + noun + of + possessive pronoun · possessive adjective + own + noun · noun + of + possessive adjective + own",
+    "glanceCards": [
+      {
+        "icon": "👤",
+        "label": "’s with people",
+        "hint": "принадлежность человеку",
+        "pattern": "Anna’s coat · the children’s room",
+        "example": "That is my neighbour’s car."
+      },
+      {
+        "icon": "👥",
+        "label": "Plural possessive",
+        "hint": "после обычного множественного числа на -s",
+        "pattern": "parents’ house · students’ books",
+        "example": "The teachers’ room is downstairs."
+      },
+      {
+        "icon": "🔗",
+        "label": "of",
+        "hint": "части, предметы и конструкции a friend of…",
+        "pattern": "the roof of the house · a friend of mine",
+        "example": "The colour of the wall is very dark."
+      },
+      {
+        "icon": "🏠",
+        "label": "own",
+        "hint": "«свой собственный»",
+        "pattern": "my own room · a room of my own",
+        "example": "She wants her own office."
+      }
+    ],
+    "anchorLinks": [
+      {
+        "id": "grammar-at-a-glance",
+        "title": "Quick overview"
+      },
+      {
+        "id": "grammar-rule-map",
+        "title": "Rules"
+      },
+      {
+        "id": "grammar-tables",
+        "title": "Tables"
+      },
+      {
+        "id": "grammar-examples",
+        "title": "Examples"
+      },
+      {
+        "id": "grammar-mistakes",
+        "title": "Common mistakes"
+      },
+      {
+        "id": "grammar-practice-section",
+        "title": "Practice"
+      }
+    ],
+    "miniRules": [
+      {
+        "title": "1. Singular person: add ’s",
+        "text": "После имени или существительного в единственном числе обычно добавляем ’s.",
+        "example": "my brother’s phone · the doctor’s office"
+      },
+      {
+        "title": "2. Regular plural ending in -s: add only ’",
+        "text": "Если множественное число уже оканчивается на -s, после него ставится только апостроф.",
+        "example": "my parents’ house · the boys’ bikes"
+      },
+      {
+        "title": "3. Irregular plural: add ’s",
+        "text": "Если множественное число не оканчивается на -s, действует обычное правило ’s.",
+        "example": "children’s clothes · women’s shoes · people’s opinions"
+      },
+      {
+        "title": "4. Names ending in -s",
+        "text": "С именами на -s возможны обе формы: James’s и James’. В современном употреблении James’s очень распространено; важно быть последовательным.",
+        "example": "James’s car / James’ car"
+      },
+      {
+        "title": "5. Shared possession",
+        "text": "Если один предмет принадлежит двум людям вместе, ’s ставится только у второго имени. Если у каждого свой предмет, ’s ставится у обоих.",
+        "example": "Mia and Leo’s flat · Mia’s and Leo’s passports"
+      },
+      {
+        "title": "6. of, possessive pronouns and own",
+        "text": "Для частей и предметов часто используем of. В конструкции a friend of mine после of нужен possessive pronoun. Own ставится после possessive adjective: my own, your own, its own; также возможно a place of my own.",
+        "example": "the end of the street · a colleague of hers · their own business"
+      }
+    ],
+    "tables": [
+      {
+        "title": "Main possessive patterns",
+        "headers": [
+          "Pattern",
+          "Use",
+          "Example"
+        ],
+        "rows": [
+          [
+            "person + ’s + noun",
+            "one person / singular noun",
+            "my sister’s laptop"
+          ],
+          [
+            "regular plural + ’ + noun",
+            "plural already ending in -s",
+            "the students’ books"
+          ],
+          [
+            "irregular plural + ’s + noun",
+            "plural not ending in -s",
+            "the children’s room"
+          ],
+          [
+            "noun + of + noun",
+            "parts, things, longer phrases",
+            "the back of the building"
+          ],
+          [
+            "a/an + noun + of + possessive pronoun",
+            "one person/thing from a group connected to someone",
+            "a neighbour of ours"
+          ],
+          [
+            "possessive adjective + own + noun",
+            "emphasise separate/personal possession",
+            "her own desk"
+          ]
+        ]
+      },
+      {
+        "title": "Possessive adjective vs possessive pronoun",
+        "headers": [
+          "Person",
+          "Before a noun",
+          "Without a noun"
+        ],
+        "rows": [
+          [
+            "I",
+            "my",
+            "mine"
+          ],
+          [
+            "you",
+            "your",
+            "yours"
+          ],
+          [
+            "he",
+            "his",
+            "his"
+          ],
+          [
+            "she",
+            "her",
+            "hers"
+          ],
+          [
+            "we",
+            "our",
+            "ours"
+          ],
+          [
+            "they",
+            "their",
+            "theirs"
+          ]
+        ]
+      },
+      {
+        "title": "Statements, negatives and questions",
+        "headers": [
+          "Type",
+          "Example",
+          "What changes"
+        ],
+        "rows": [
+          [
+            "Statement",
+            "This is Daniel’s coat.",
+            "Possessive phrase stays inside the sentence."
+          ],
+          [
+            "Negative",
+            "This isn’t Daniel’s coat.",
+            "Negation is made with the verb, not with ’s."
+          ],
+          [
+            "Question",
+            "Is this Daniel’s coat? / Whose coat is this?",
+            "Question order comes from the verb; whose asks about possession."
+          ],
+          [
+            "Short answer",
+            "Is this yours? — Yes, it is. / No, it isn’t.",
+            "Use the auxiliary or be from the question."
+          ]
+        ]
+      }
+    ],
+    "exampleGroups": [
+      {
+        "title": "People and groups",
+        "items": [
+          "My colleague’s desk is by the window.",
+          "The players’ bags are in the changing room.",
+          "The children’s coats are in the hall."
+        ]
+      },
+      {
+        "title": "of and double possessives",
+        "items": [
+          "The entrance of the building is on the left.",
+          "She’s a friend of ours.",
+          "That idea of his might work."
+        ]
+      },
+      {
+        "title": "own",
+        "items": [
+          "They have their own business.",
+          "I’d like a desk of my own.",
+          "Does the dog have its own bed?"
+        ]
+      }
+    ],
+    "commonMistakes": [
+      "my parents’s house ✗ → my parents’ house ✓. После обычного множественного числа на -s нужен только апостроф.",
+      "childrens’ toys ✗ → children’s toys ✓. Children — неправильное множественное число, поэтому добавляем ’s.",
+      "a friend of me ✗ → a friend of mine ✓. После of в такой конструкции используется possessive pronoun.",
+      "an own room ✗ → my own room / a room of my own ✓. Own обычно требует possessive adjective или конструкции of my own.",
+      "Mia’s and Leo’s flat обычно означает два отдельных владения; для общей квартиры: Mia and Leo’s flat.",
+      "its = притяжательная форма; it’s = сокращение от it is или it has."
+    ],
+    "exercises": [
+      {
+        "type": "exercise",
+        "title": "Choose the correct possessive form",
+        "difficulty": "Easy",
+        "instructions": "Choose the correct form.",
+        "hideAnswersOnError": true,
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "This is ___ coat.",
+            "options": [
+              "Maria’s",
+              "Marias’"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "The ___ room is upstairs.",
+            "options": [
+              "children’s",
+              "childrens’"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "My ___ house is near the park.",
+            "options": [
+              "parents’",
+              "parents’s"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "Is this ___ idea?",
+            "options": [
+              "their",
+              "theirs"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Complete the sentences",
+        "difficulty": "Medium",
+        "instructions": "Complete each sentence with the correct possessive form.",
+        "hideAnswersOnError": true,
+        "items": [
+          {
+            "id": "1",
+            "input": "gaps",
+            "segments": [
+              "We stayed at ",
+              " house last weekend. (my aunt)"
+            ],
+            "answers": [
+              [
+                "my aunt’s"
+              ]
+            ]
+          },
+          {
+            "id": "2",
+            "input": "gaps",
+            "segments": [
+              "The roof ",
+              " is red. (the house)"
+            ],
+            "answers": [
+              [
+                "of the house"
+              ]
+            ]
+          },
+          {
+            "id": "3",
+            "input": "gaps",
+            "segments": [
+              "This notebook isn’t mine. Is it ",
+              "? (you)"
+            ],
+            "answers": [
+              [
+                "yours"
+              ]
+            ]
+          },
+          {
+            "id": "4",
+            "input": "gaps",
+            "segments": [
+              "They finally bought ",
+              " car. (they)"
+            ],
+            "answers": [
+              [
+                "their own"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Choose the equivalent sentence",
+        "difficulty": "Medium → Hard",
+        "instructions": "Choose the sentence with the same meaning.",
+        "hideAnswersOnError": true,
+        "items": [
+          {
+            "id": "1",
+            "input": "select",
+            "prompt": "She is one of my colleagues.",
+            "options": [
+              "She is a colleague of mine.",
+              "She is a colleague of me.",
+              "She is my colleague’s."
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "select",
+            "prompt": "That is one of Tom’s cousins.",
+            "options": [
+              "That is a cousin of Tom.",
+              "That is a cousin of Tom’s.",
+              "That is Tom cousin."
+            ],
+            "answer": 1
+          },
+          {
+            "id": "3",
+            "input": "select",
+            "prompt": "I want a desk that belongs only to me.",
+            "options": [
+              "I want a desk of my own.",
+              "I want an own desk.",
+              "I want a desk of mine own."
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "select",
+            "prompt": "The dog has a bed that belongs to it alone.",
+            "options": [
+              "The dog has it own bed.",
+              "The dog has its own bed.",
+              "The dog has its bed own."
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Build the possessive phrase or question",
+        "difficulty": "Hard",
+        "instructions": "Write the requested form in full.",
+        "hideAnswersOnError": true,
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "Rewrite with ’s: the bag belonging to my sister",
+            "acceptedAnswers": [
+              "my sister’s bag"
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "Rewrite with of: the end belonging to the film",
+            "acceptedAnswers": [
+              "the end of the film"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "Write a question with Whose: this coat / belong to",
+            "acceptedAnswers": [
+              "Whose coat is this?"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "Rewrite to show shared possession: the apartment belongs to Mia and Leo",
+            "acceptedAnswers": [
+              "Mia and Leo’s apartment"
+            ]
+          }
+        ]
+      }
+    ],
+    "linkedLessonId": "lesson-6"
+  }
 ];
