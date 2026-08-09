@@ -40,12 +40,8 @@ function pageUrl(baseUrl, page, fallback) {
   return new URL(target, `${baseUrl}/`).toString()
 }
 
-function isPublished(lesson) {
-  if (lesson.status !== 'available') return false
-  if (!lesson.notification?.enabled) return false
-  if (!lesson.publishedAt) return true
-  const published = new Date(`${lesson.publishedAt}T00:00:00Z`)
-  return Number.isFinite(published.getTime()) && published.getTime() <= Date.now()
+function isNotifiable(lesson) {
+  return lesson.status === 'available' && lesson.notification?.enabled === true
 }
 
 const siteBaseUrl = requiredEnv('SITE_BASE_URL').replace(/\/+$/, '')
@@ -56,10 +52,10 @@ const selectedLessonId = requiredEnv('LESSON_ID')
 
 const vocabularyData = loadWindowArray('data/vocabulary-data.js', 'VOCABULARY_DATA')
 const grammarData = loadWindowArray('data/grammar-data.js', 'GRAMMAR_DATA')
-const lessons = loadLessons().filter((lesson) => lesson.id === selectedLessonId && isPublished(lesson))
+const lessons = loadLessons().filter((lesson) => lesson.id === selectedLessonId && isNotifiable(lesson))
 
 if (lessons.length === 0) {
-  throw new Error(`Lesson ${selectedLessonId} was not found, is not available yet, or notification.enabled is not true`)
+  throw new Error(`Lesson ${selectedLessonId} was not found, status is not available, or notification.enabled is not true`)
 }
 
 const endpoint = process.env.NOTIFY_ENDPOINT?.trim() || `https://${projectId}.supabase.co/functions/v1/notify-telegram`
