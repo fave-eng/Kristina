@@ -1,0 +1,335 @@
+{
+  "id": "lesson-8",
+  "number": 8,
+  "title": "Phrasal verbs and vocabulary from reading",
+  "subtitle": "Vocabulary: phrasal verbs · Vocabulary from reading",
+  "status": "available",
+  "publishedAt": "2026-08-12",
+  "totalPoints": 9,
+  "vocabularyId": "vocab-lesson-8",
+  "grammarIds": [],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "exercise",
+      "id": "shops-3c",
+      "title": "c Replace the bold words in the sentences with the correct form of a phrasal verb from the list.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "wordBank": [
+        "be out of",
+        "close down",
+        "look for",
+        "look round",
+        "sell out",
+        "try on"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "contextParts": [
+            {
+              "text": "Hannah was "
+            },
+            {
+              "text": "trying to find",
+              "highlight": true
+            },
+            {
+              "text": " a bikini, but in the end she bought a swimsuit."
+            }
+          ],
+          "exampleTarget": "Hannah was looking for a bikini, but in the end she bought a swimsuit."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "I’ve "
+            },
+            {
+              "text": "walked round to see what there is",
+              "highlight": true
+            },
+            {
+              "text": ", but I haven’t seen anything I want to buy."
+            }
+          ],
+          "segments": [
+            "I’ve ",
+            ", but I haven’t seen anything I want to buy."
+          ],
+          "answers": [
+            [
+              "looked round"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "We’ll have to go to the supermarket to get milk – the local shop "
+            },
+            {
+              "text": "doesn’t have any more to sell",
+              "highlight": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "segments": [
+            "We’ll have to go to the supermarket to get milk – the local shop has ",
+            "."
+          ],
+          "answers": [
+            [
+              "sold out"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "Excuse me, where can I "
+            },
+            {
+              "text": "put on",
+              "highlight": true
+            },
+            {
+              "text": " these jeans to see if they fit?"
+            }
+          ],
+          "segments": [
+            "Excuse me, where can I ",
+            " these jeans?"
+          ],
+          "answers": [
+            [
+              "try on"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "I didn’t buy any black trousers because they "
+            },
+            {
+              "text": "didn’t have my size in stock",
+              "highlight": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "segments": [
+            "I didn’t buy any black trousers because they ",
+            " my size."
+          ],
+          "answers": [
+            [
+              "were out of"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "inputSize": "wide",
+          "contextParts": [
+            {
+              "text": "The restaurant "
+            },
+            {
+              "text": "stopped trading",
+              "highlight": true
+            },
+            {
+              "text": " after the health inspector’s visit."
+            }
+          ],
+          "segments": [
+            "The restaurant ",
+            " after the health inspector’s visit."
+          ],
+          "answers": [
+            [
+              "closed down"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "shops-3d",
+      "title": "d Look at the photos. Where do you usually buy the items? Why?",
+      "hideAnswersOnError": true,
+      "image": "images/lesson-8/exercise-d-photos.png",
+      "imageAlt": "Eight numbered workbook photos: flowers, a watch, a notepad, sunscreen, shoes, a car, theatre tickets, and cupcakes.",
+      "stickyImage": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleAnswer": "I usually buy flowers online because it’s quicker."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "text",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "vocabulary-from-reading",
+      "title": "VOCABULARY FROM READING",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleTextOnly": true,
+          "prompt": "Our local supermarket stocks a wide range of organic products."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "The fashion chain Zara has over a thousand br",
+            " across Europe."
+          ],
+          "answers": [
+            [
+              "anches"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "Chain stores try to encourage l",
+            " c",
+            " by giving shoppers a store card."
+          ],
+          "answers": [
+            [
+              "oyal"
+            ],
+            [
+              "ustomers"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "My uncle’s business is b",
+            " i",
+            " pr",
+            " after making a loss last year."
+          ],
+          "answers": [
+            [
+              "ack"
+            ],
+            [
+              "n"
+            ],
+            [
+              "ofit"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "The company is making employees redundant in an attempt to c",
+            " c",
+            "."
+          ],
+          "answers": [
+            [
+              "ut"
+            ],
+            [
+              "osts"
+            ]
+          ]
+        }
+      ],
+      "instructions": "Complete the sentences."
+    }
+  ]
+}

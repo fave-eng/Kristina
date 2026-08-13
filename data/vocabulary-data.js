@@ -1097,5 +1097,128 @@ window.VOCABULARY_DATA = [
         "exampleRu": "В благотворительном магазине есть хорошая одежда секонд-хенд."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-8",
+    "title": "Shopping phrasal verbs & business vocabulary",
+    "label": "Lesson 8 · Phrasal verbs and vocabulary from reading",
+    "icon": "🛍️",
+    "type": "lesson",
+    "linkedLessonId": "lesson-8",
+    "page": "vocabulary.html?id=vocab-lesson-8",
+    "words": [
+      {
+        "id": "lesson-8-be-out-of",
+        "en": "be out of",
+        "ru": "не иметь в наличии; закончиться",
+        "transcription": "/bi ˈaʊt əv/",
+        "exampleEn": "The shop is out of my size.",
+        "exampleRu": "В магазине нет моего размера."
+      },
+      {
+        "id": "lesson-8-close-down",
+        "en": "close down",
+        "ru": "закрыться; прекратить работу",
+        "transcription": "/ˌkləʊz ˈdaʊn/",
+        "exampleEn": "Several small shops closed down last year.",
+        "exampleRu": "В прошлом году несколько небольших магазинов закрылись."
+      },
+      {
+        "id": "lesson-8-look-for",
+        "en": "look for",
+        "ru": "искать",
+        "transcription": "/ˈlʊk fɔː/",
+        "exampleEn": "I’m looking for a new pair of jeans.",
+        "exampleRu": "Я ищу новую пару джинсов."
+      },
+      {
+        "id": "lesson-8-look-round",
+        "en": "look round",
+        "ru": "осмотреться; походить и посмотреть",
+        "transcription": "/ˌlʊk ˈraʊnd/",
+        "exampleEn": "We looked round the shop before buying anything.",
+        "exampleRu": "Мы осмотрелись в магазине, прежде чем что-то купить."
+      },
+      {
+        "id": "lesson-8-sell-out",
+        "en": "sell out",
+        "ru": "распродать; полностью закончиться в продаже",
+        "transcription": "/ˌsel ˈaʊt/",
+        "exampleEn": "The tickets sold out very quickly.",
+        "exampleRu": "Билеты очень быстро распродали."
+      },
+      {
+        "id": "lesson-8-try-on",
+        "en": "try on",
+        "ru": "примерять",
+        "transcription": "/ˌtraɪ ˈɒn/",
+        "exampleEn": "Can I try on this jacket?",
+        "exampleRu": "Можно примерить эту куртку?"
+      },
+      {
+        "id": "lesson-8-in-stock",
+        "en": "in stock",
+        "ru": "в наличии",
+        "transcription": "/ɪn ˈstɒk/",
+        "exampleEn": "Do you have this model in stock?",
+        "exampleRu": "Эта модель есть у вас в наличии?"
+      },
+      {
+        "id": "lesson-8-wide-range",
+        "en": "wide range",
+        "ru": "широкий ассортимент; широкий выбор",
+        "transcription": "/ˌwaɪd ˈreɪndʒ/",
+        "exampleEn": "The shop has a wide range of products.",
+        "exampleRu": "В магазине широкий ассортимент товаров."
+      },
+      {
+        "id": "lesson-8-organic-products",
+        "en": "organic products",
+        "ru": "органические продукты",
+        "transcription": "/ɔːˌɡænɪk ˈprɒdʌkts/",
+        "exampleEn": "This supermarket sells organic products.",
+        "exampleRu": "В этом супермаркете продаются органические продукты."
+      },
+      {
+        "id": "lesson-8-fashion-chain",
+        "en": "fashion chain",
+        "ru": "сеть магазинов одежды; модная торговая сеть",
+        "transcription": "/ˈfæʃn tʃeɪn/",
+        "exampleEn": "It is a well-known fashion chain.",
+        "exampleRu": "Это известная сеть магазинов одежды."
+      },
+      {
+        "id": "lesson-8-store-card",
+        "en": "store card",
+        "ru": "карта магазина; магазинная кредитная или бонусная карта",
+        "transcription": "/ˈstɔː kɑːd/",
+        "exampleEn": "Customers can apply for a store card.",
+        "exampleRu": "Покупатели могут оформить карту магазина."
+      },
+      {
+        "id": "lesson-8-make-a-loss",
+        "en": "make a loss",
+        "ru": "нести убыток; работать в убыток",
+        "transcription": "/ˌmeɪk ə ˈlɒs/",
+        "exampleEn": "The business made a loss last year.",
+        "exampleRu": "В прошлом году бизнес понёс убыток."
+      },
+      {
+        "id": "lesson-8-make-employees-redundant",
+        "en": "make employees redundant",
+        "ru": "сокращать сотрудников",
+        "transcription": "/ˌmeɪk ɪmˈplɔɪiːz rɪˈdʌndənt/",
+        "exampleEn": "The company may have to make some employees redundant.",
+        "exampleRu": "Компании, возможно, придётся сократить некоторых сотрудников."
+      },
+      {
+        "id": "lesson-8-health-inspector",
+        "en": "health inspector",
+        "ru": "санитарный инспектор; инспектор по гигиене",
+        "transcription": "/ˈhelθ ɪnˌspektə/",
+        "exampleEn": "A health inspector visited the restaurant.",
+        "exampleRu": "Ресторан посетил санитарный инспектор."
+      }
+    ]
   }
 ];
