@@ -98,6 +98,8 @@ for (const lesson of lessons) {
     homework: {
       id: lesson.id,
       title: lesson.title || 'Homework',
+      subtitle: lesson.subtitle || '',
+      topic: [lesson.title || 'Homework', lesson.subtitle || ''].filter(Boolean).join(' — '),
       url: pageUrl(
         siteBaseUrl,
         lesson.page,

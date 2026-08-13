@@ -456,7 +456,7 @@
             student_id: studentId,
             student_name: safeText(student.nameEn || student.nameRu),
             lesson_id: lessonId,
-            lesson_title: safeText(lesson.title, lessonId),
+            lesson_title: [safeText(lesson.title, lessonId), safeText(lesson.subtitle)].filter(Boolean).join(' — '),
             status: submission ? 'submitted' : 'checked',
             answers: result.answers && typeof result.answers === 'object' ? result.answers : {},
             score_correct: total > 0 ? correct : null,

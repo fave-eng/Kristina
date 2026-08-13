@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Служебная страница проверки Telegram-отчётов">
-  <title>Проверка Telegram-отчёта v2</title>
+  <meta name="description" content="Service page for testing Telegram homework reports">
+  <title>Telegram report test v3</title>
   <link rel="stylesheet" href="styles.css?v=5">
   <style>
     .test-grid { display: grid; gap: 14px; }
@@ -35,71 +35,70 @@
   <header class="hero hero-compact">
     <span class="star one">✦</span><span class="star two">✦</span>
     <div class="container hero-content">
-      <span class="hero-badge">Служебная проверка · v2</span>
-      <h1>Telegram-отчёт по домашней работе</h1>
-      <p>Страница проверяет всю цепочку: запись в Supabase → чтение результата → вызов Edge Function → отправка сообщения в Telegram.</p>
+      <span class="hero-badge">Service test · v3</span>
+      <h1>Telegram homework report</h1>
+      <p>This page tests the full flow: write to Supabase → read the result → call the Edge Function → send the message to Telegram.</p>
     </div>
     <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path fill="#f8fafc" d="M0,66 C220,102 410,10 696,52 C963,91 1115,99 1440,35 L1440,100 L0,100 Z"></path></svg>
   </header>
 
   <main class="main-content container">
     <section class="card test-warning">
-      <h2>Перед проверкой</h2>
-      <p class="muted" style="margin-top:8px">В Telegram придёт настоящее тестовое сообщение. Реальные ответы Кристины не изменяются: страница создаёт отдельную служебную запись <strong>telegram-report-test</strong>.</p>
+      <h2>Before testing</h2>
+      <p class="muted" style="margin-top:8px">A real test message will be sent to Telegram. The student’s real answers are not changed: this page creates a separate service record called <strong>telegram-report-test</strong>.</p>
       <label class="test-check">
         <input id="confirm-send" type="checkbox">
-        <span>Я понимаю, что после нажатия в Telegram будет отправлен тестовый отчёт.</span>
+        <span>I understand that clicking the button will send a test report to Telegram.</span>
       </label>
     </section>
 
-    <section class="section test-grid" aria-label="Статусы проверки">
+    <section class="section test-grid" aria-label="Test statuses">
       <article class="card test-status" id="status-config" data-state="idle">
         <div class="test-status-icon">1</div>
-        <div><h3>Настройки сайта</h3><p>Ожидание проверки.</p></div>
+        <div><h3>Site settings</h3><p>Waiting for the test.</p></div>
       </article>
       <article class="card test-status" id="status-db" data-state="idle">
         <div class="test-status-icon">2</div>
-        <div><h3>Supabase и тестовая запись</h3><p>Ожидание проверки.</p></div>
+        <div><h3>Supabase and test record</h3><p>Waiting for the test.</p></div>
       </article>
       <article class="card test-status" id="status-function" data-state="idle">
         <div class="test-status-icon">3</div>
-        <div><h3>Edge Function notify-telegram</h3><p>Ожидание проверки.</p></div>
+        <div><h3>Edge Function notify-telegram</h3><p>Waiting for the test.</p></div>
       </article>
       <article class="card test-status" id="status-telegram" data-state="idle">
         <div class="test-status-icon">4</div>
-        <div><h3>Telegram</h3><p>Ожидание проверки.</p></div>
+        <div><h3>Telegram</h3><p>Waiting for the test.</p></div>
       </article>
     </section>
 
     <section class="card section">
-      <h2>Параметры теста</h2>
+      <h2>Test parameters</h2>
       <div class="test-meta">
-        <div><strong>Ученица</strong><span id="student-label">—</span></div>
-        <div><strong>Тестовая работа</strong><span>Проверка Telegram-отчёта</span></div>
-        <div><strong>Результат</strong><span>4 из 5 — 80%</span></div>
-        <div><strong>Таблица</strong><span id="table-label">—</span></div>
+        <div><strong>Homework topic</strong><span>TEST: Telegram homework report</span></div>
+        <div><strong>Score</strong><span>4 / 5 — 80%</span></div>
+        <div><strong>Table</strong><span id="table-label">—</span></div>
       </div>
       <div class="button-row">
-        <button class="btn btn-secondary" id="check-connection" type="button">Проверить подключение</button>
-        <button class="btn btn-primary" id="send-test" type="button" disabled>Отправить тестовый отчёт</button>
+        <button class="btn btn-secondary" id="check-connection" type="button">Check connection</button>
+        <button class="btn btn-primary" id="send-test" type="button" disabled>Send test report</button>
       </div>
-      <p class="muted" style="margin-top:12px">Каждое нажатие создаёт новое время отправки, поэтому тест можно повторить.</p>
+      <p class="muted" style="margin-top:12px">Each click creates a new submission time, so the test can be repeated.</p>
     </section>
 
     <section class="card section" id="final-card" hidden>
-      <h2 id="final-title">Результат</h2>
+      <h2 id="final-title">Score</h2>
       <p id="final-message" style="margin-top:8px"></p>
     </section>
 
     <section class="section">
-      <div class="section-heading"><div><span class="eyebrow">Диагностика</span><h2>Технический журнал</h2></div></div>
-      <pre class="test-log" id="test-log">Страница загружена. Нажмите «Проверить подключение».</pre>
+      <div class="section-heading"><div><span class="eyebrow">Diagnostics</span><h2>Technical log</h2></div></div>
+      <pre class="test-log" id="test-log">Page loaded. Click “Check connection”.</pre>
     </section>
 
     <section class="card section">
-      <h2>Как понять результат</h2>
-      <p class="muted" style="margin-top:8px">Успешная проверка заканчивается сообщением «Telegram принял отчёт» и показывает ID сообщения. Если появится ошибка, журнал укажет, что именно не настроено: таблица, получатель, токен бота, Edge Function или доступ к Supabase.</p>
-      <div class="button-row"><a class="btn btn-secondary" href="index.html">Вернуться на сайт</a></div>
+      <h2>How to read the result</h2>
+      <p class="muted" style="margin-top:8px">A successful test ends with “Telegram accepted the report” and displays the message ID. If an error occurs, the log will show what is missing: the table, recipient, bot token, Edge Function, or Supabase access.</p>
+      <div class="button-row"><a class="btn btn-secondary" href="index.html">Back to the site</a></div>
     </section>
   </main>
 
@@ -115,7 +114,7 @@
       let isConnectionReady = false;
 
       function nowLabel() {
-        return new Date().toLocaleTimeString('ru-RU');
+        return new Date().toLocaleTimeString('en-GB');
       }
 
       function log(message, details) {
@@ -149,15 +148,15 @@
       }
 
       function explainError(error, status) {
-        const text = String(error?.message || error || 'Неизвестная ошибка');
-        if (/homework_reports/i.test(text) && /does not exist|schema cache|relation/i.test(text)) return 'Не создана таблица homework_reports. Выполните supabase/homework-reports.sql в SQL Editor.';
-        if (/TELEGRAM_BOT_TOKEN/i.test(text)) return 'В Supabase Edge Functions не задан секрет TELEGRAM_BOT_TOKEN.';
-        if (/recipient|disabled|not connected/i.test(text)) return 'Для kristina нет активной записи в telegram_recipients или получатель отключён.';
-        if (/submitted homework row/i.test(text)) return 'Edge Function не нашла отправленную тестовую работу. Проверьте новую версию функции и таблицу homework_progress.';
-        if (/Unauthorized/i.test(text) || status === 401) return 'Edge Function отклонила запрос. Проверьте режим авторизации функции и её последнюю версию.';
-        if (/Failed to fetch|NetworkError|Load failed/i.test(text)) return 'Браузер не смог вызвать Edge Function. Возможны ошибка публикации функции или CORS.';
-        if (/Telegram|chat not found|bot was blocked|Forbidden/i.test(text) || status === 502) return `Telegram отклонил сообщение: ${text}`;
-        if (status === 404) return 'Edge Function notify-telegram не найдена. Её нужно повторно развернуть.';
+        const text = String(error?.message || error || 'Unknown error');
+        if (/homework_reports/i.test(text) && /does not exist|schema cache|relation/i.test(text)) return 'The homework_reports table does not exist. Run supabase/homework-reports.sql in the SQL Editor.';
+        if (/TELEGRAM_BOT_TOKEN/i.test(text)) return 'The TELEGRAM_BOT_TOKEN secret is not configured in Supabase Edge Functions.';
+        if (/recipient|disabled|not connected/i.test(text)) return 'There is no active telegram_recipients record for kristina, or the recipient is disabled.';
+        if (/submitted homework row/i.test(text)) return 'The Edge Function could not find the submitted test homework. Check the latest function version and the homework_progress table.';
+        if (/Unauthorized/i.test(text) || status === 401) return 'The Edge Function rejected the request. Check its authentication mode and latest deployed version.';
+        if (/Failed to fetch|NetworkError|Load failed/i.test(text)) return 'The browser could not call the Edge Function. The deployment or CORS configuration may be incorrect.';
+        if (/Telegram|chat not found|bot was blocked|Forbidden/i.test(text) || status === 502) return `Telegram rejected the message: ${text}`;
+        if (status === 404) return 'The notify-telegram Edge Function was not found. Deploy it again.';
         return text;
       }
 
@@ -165,25 +164,24 @@
         finalCard.hidden = true;
         isConnectionReady = false;
         updateSendButton();
-        setStatus('status-config', 'working', 'Проверяем config.js…');
-        setStatus('status-db', 'working', 'Проверяем доступ к Supabase…');
-        setStatus('status-function', 'idle', 'Будет проверена при отправке.');
-        setStatus('status-telegram', 'idle', 'Будет проверен при отправке.');
-        log('Начата проверка подключения.');
+        setStatus('status-config', 'working', 'Checking config.js…');
+        setStatus('status-db', 'working', 'Checking Supabase access…');
+        setStatus('status-function', 'idle', 'It will be checked when the report is sent.');
+        setStatus('status-telegram', 'idle', 'It will be checked when the report is sent.');
+        log('Connection test started.');
 
         try {
           const config = window.APP_CONFIG;
-          if (!config?.supabase?.url || !config?.supabase?.anonKey) throw new Error('В config.js отсутствуют Supabase URL или anon key.');
-          if (!window.supabase?.createClient) throw new Error('Не загрузилась библиотека Supabase JS.');
-          if (!config?.features?.telegramNotifications) throw new Error('В config.js параметр telegramNotifications выключен.');
+          if (!config?.supabase?.url || !config?.supabase?.anonKey) throw new Error('Supabase URL or anon key is missing from config.js.');
+          if (!window.supabase?.createClient) throw new Error('The Supabase JS library did not load.');
+          if (!config?.features?.telegramNotifications) throw new Error('telegramNotifications is disabled in config.js.');
 
           const studentId = String(config.student?.id || '').trim();
-          if (!studentId) throw new Error('В config.js отсутствует student.id.');
+          if (!studentId) throw new Error('student.id is missing from config.js.');
           const table = config.supabase?.tables?.homework || 'homework_progress';
-          $('student-label').textContent = `${config.student?.nameRu || config.student?.nameEn || studentId} (${studentId})`;
           $('table-label').textContent = table;
-          setStatus('status-config', 'success', 'Настройки найдены, Telegram-уведомления включены.');
-          log('Настройки загружены.', { studentId, table, function: 'notify-telegram' });
+          setStatus('status-config', 'success', 'Settings found; Telegram notifications are enabled.');
+          log('Settings loaded.', { studentId, table, function: 'notify-telegram' });
 
           client = window.supabase.createClient(config.supabase.url, config.supabase.anonKey, {
             auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
@@ -192,16 +190,16 @@
           const { error } = await client.from(table).select('lesson_id').eq('student_id', studentId).limit(1);
           if (error) throw error;
 
-          setStatus('status-db', 'success', 'Соединение с Supabase работает, таблица доступна.');
+          setStatus('status-db', 'success', 'Supabase connection works and the table is available.');
           isConnectionReady = true;
           updateSendButton();
-          log('Supabase отвечает. Можно отправлять тестовый отчёт.');
+          log('Supabase is responding. The test report can be sent.');
         } catch (error) {
           const message = explainError(error);
           setStatus('status-config', 'error', message);
-          setStatus('status-db', 'error', 'Подключение не подтверждено.');
-          showFinal(false, 'Проверка не пройдена', message);
-          log('Ошибка подключения.', { error: String(error?.message || error) });
+          setStatus('status-db', 'error', 'Connection was not confirmed.');
+          showFinal(false, 'Test failed', message);
+          log('Connection error.', { error: String(error?.message || error) });
         }
       }
 
@@ -215,9 +213,9 @@
           student_id: studentId,
           student_name: String(config.student?.nameEn || config.student?.nameRu || studentId),
           lesson_id: TEST_LESSON_ID,
-          lesson_title: 'ТЕСТ: проверка Telegram-отчёта',
+          lesson_title: 'TEST: Telegram homework report',
           status: 'submitted',
-          answers: { test: true, note: 'Служебная проверка отправки Telegram-отчёта' },
+          answers: { test: true, note: 'Service test for Telegram homework report delivery' },
           score_correct: 4,
           score_total: 5,
           score_percent: 80,
@@ -226,12 +224,12 @@
         };
 
         sendButton.disabled = true;
-        sendButton.textContent = 'Отправляем…';
+        sendButton.textContent = 'Sending…';
         finalCard.hidden = true;
-        setStatus('status-db', 'working', 'Записываем тестовую работу…');
-        setStatus('status-function', 'working', 'Ожидает вызова после сохранения.');
-        setStatus('status-telegram', 'working', 'Ожидает ответа функции.');
-        log('Создаём тестовую запись.', { lessonId: TEST_LESSON_ID, submittedAt });
+        setStatus('status-db', 'working', 'Writing the test homework record…');
+        setStatus('status-function', 'working', 'Waiting to be called after saving.');
+        setStatus('status-telegram', 'working', 'Waiting for the function response.');
+        log('Creating the test record.', { lessonId: TEST_LESSON_ID, submittedAt });
 
         try {
           const { error: upsertError } = await client.from(table).upsert(testRow, { onConflict: 'student_id,lesson_id' });
@@ -247,7 +245,7 @@
 
           // PostgreSQL may return the same UTC moment as +00:00 instead of Z.
           // Compare timestamps as dates, not as literal strings.
-          log('Тестовая запись прочитана из Supabase.', savedRow);
+          log('The test record was read from Supabase.', savedRow);
           const savedStatus = String(savedRow?.status || '').toLowerCase();
           const expectedTime = Date.parse(submittedAt);
           const savedTime = Date.parse(savedRow?.submitted_at || '');
@@ -255,17 +253,17 @@
             && Math.abs(savedTime - expectedTime) < 1000;
 
           if (savedStatus !== 'submitted') {
-            throw new Error(`Статус тестовой записи: ${savedRow?.status || 'не указан'}, ожидался submitted.`);
+            throw new Error(`Test record status: ${savedRow?.status || 'not available'}, expected submitted.`);
           }
           if (!sameSubmissionTime) {
-            throw new Error(`Время отправки не совпало. Записано: ${savedRow?.submitted_at || 'не указано'}. Ожидалось: ${submittedAt}.`);
+            throw new Error(`Submission time does not match. Saved: ${savedRow?.submitted_at || 'not available'}. Expected: ${submittedAt}.`);
           }
 
-          setStatus('status-db', 'success', 'Тестовая работа записана и прочитана обратно.');
-          log('Тестовая запись подтверждена. Формат времени Supabase корректно распознан.');
+          setStatus('status-db', 'success', 'The test homework was written and read back successfully.');
+          log('The test record was confirmed. The Supabase timestamp format was parsed correctly.');
 
           const endpoint = `${String(config.supabase.url).replace(/\/+$/, '')}/functions/v1/notify-telegram`;
-          setStatus('status-function', 'working', 'Вызываем notify-telegram…');
+          setStatus('status-function', 'working', 'Calling notify-telegram…');
           const response = await fetch(endpoint, {
             method: 'POST',
             headers: {
@@ -281,7 +279,7 @@
             })
           });
           const result = await response.json().catch(() => null);
-          log(`Edge Function ответила: HTTP ${response.status}.`, result);
+          log(`Edge Function responded: HTTP ${response.status}.`, result);
 
           if (!response.ok || !result?.ok) {
             const error = new Error(result?.error || `HTTP ${response.status}`);
@@ -289,23 +287,23 @@
             throw error;
           }
 
-          setStatus('status-function', 'success', result.skipped ? 'Функция ответила успешно, но отчёт уже был отправлен.' : 'Функция обработала отчёт без ошибки.');
+          setStatus('status-function', 'success', result.skipped ? 'The function responded successfully, but this report had already been sent.' : 'The function processed the report without errors.');
           if (result.skipped) {
-            setStatus('status-telegram', 'success', `Отчёт уже был отправлен ранее. ID сообщения: ${result.telegramMessageId || 'не указан'}.`);
-            showFinal(true, 'Проверка завершена', 'Функция работает. Этот экземпляр отчёта уже был зарегистрирован как отправленный.');
+            setStatus('status-telegram', 'success', `The report had already been sent. Message ID: ${result.telegramMessageId || 'not available'}.`);
+            showFinal(true, 'Test complete', 'The function works. This report instance had already been recorded as sent.');
           } else {
-            setStatus('status-telegram', 'success', `Telegram принял отчёт. ID сообщения: ${result.telegramMessageId || 'не указан'}.`);
-            showFinal(true, 'Отчёт отправлен', 'Проверьте Telegram: должно прийти сообщение «Получен отчёт по домашней работе» с результатом 4 из 5.');
+            setStatus('status-telegram', 'success', `Telegram accepted the report. Message ID: ${result.telegramMessageId || 'not available'}.`);
+            showFinal(true, 'Report sent', 'Check Telegram: the group topic should receive a “Homework submitted” message with the test homework topic and a score of 4 / 5.');
           }
         } catch (error) {
           const status = Number(error?.httpStatus || 0);
           const message = explainError(error, status);
           setStatus('status-function', 'error', message);
-          setStatus('status-telegram', 'error', 'Telegram-отчёт не подтверждён.');
-          showFinal(false, 'Отчёт не отправлен', message);
-          log('Ошибка тестовой отправки.', { status: status || null, error: String(error?.message || error) });
+          setStatus('status-telegram', 'error', 'The Telegram report was not confirmed.');
+          showFinal(false, 'Report not sent', message);
+          log('Test send error.', { status: status || null, error: String(error?.message || error) });
         } finally {
-          sendButton.textContent = 'Отправить тестовый отчёт';
+          sendButton.textContent = 'Send test report';
           updateSendButton();
         }
       }
@@ -316,7 +314,6 @@
 
       const config = window.APP_CONFIG;
       if (config?.student) {
-        $('student-label').textContent = `${config.student.nameRu || config.student.nameEn || config.student.id} (${config.student.id})`;
         $('table-label').textContent = config.supabase?.tables?.homework || 'homework_progress';
       }
     });
