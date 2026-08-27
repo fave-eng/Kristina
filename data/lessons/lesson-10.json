@@ -29,9 +29,6 @@
       "title": "c Complete the text with the correct form of the verbs in brackets. Use the past simple, past continuous, or used to. More than one answer may be possible.",
       "layout": "continuous-gaps",
       "hideAnswersOnError": true,
-      "image": "images/lesson-10/exercise-2c-grandmother-granddaughter.svg",
-      "imageAlt": "A clean digital illustration of an elderly grandmother sitting closely with her young granddaughter at home.",
-      "stickyImage": true,
       "paragraphs": [
         [
           "I only ever ",
@@ -348,7 +345,8 @@
           "column": "present",
           "answer": "love"
         }
-      ]
+      ],
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.2.mp3"
     },
     {
       "type": "exercise",
@@ -451,7 +449,8 @@
             ]
           ]
         }
-      ]
+      ],
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.3.mp3"
     },
     {
       "type": "exercise",
@@ -463,7 +462,7 @@
           "number": null,
           "input": "multiple",
           "options": [
-            "Done"
+            "I listened again and repeated the sentences."
           ],
           "scored": false
         }
