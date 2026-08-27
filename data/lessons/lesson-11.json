@@ -29,8 +29,8 @@
       "title": "a Complete the description of the photo.",
       "layout": "continuous-gaps",
       "hideAnswersOnError": true,
-      "image": "images/lesson-11/photography-garden.svg",
-      "imageAlt": "A garden scene with a woman in the foreground, a cut tree trunk in the bottom right corner, an older man in the centre in the distance, a flower wall, trees, and a white house.",
+      "image": "images/lesson-11/photography-garden-scan-enhanced.png",
+      "imageAlt": "Enhanced scan of the original garden photo with a woman in the foreground and a man in the distance.",
       "stickyImage": true,
       "paragraphs": [
         [
@@ -417,7 +417,8 @@
         "settings",
         "zoomed in"
       ],
-      "wordBankLabel": ""
+      "wordBankLabel": "",
+      "instructions": "Optional: attach one of the photos you are describing when you submit your homework."
     },
     {
       "type": "exercise",
