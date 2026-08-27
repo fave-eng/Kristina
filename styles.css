@@ -703,6 +703,22 @@ body[data-view="lesson"] #lesson-root {
   font-weight: 900;
 }
 
+.exercise-example-label {
+  min-width: 78px;
+  height: 31px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: 0 10px;
+  border-radius: 10px;
+  background: #eef2ff;
+  color: var(--indigo);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
 .exercise-prompt {
   display: block;
   max-width: 680px;
@@ -821,6 +837,43 @@ body[data-view="lesson"] #lesson-root {
 
 .example-answer strong {
   color: var(--dark);
+}
+
+.exercise-example-prompt {
+  max-width: none;
+}
+
+.example-choice-selected {
+  display: inline-block;
+  margin: -2px 1px;
+  padding: 1px 7px 2px;
+  border: 2px solid var(--indigo);
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #312e81;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.example-sentence-gaps {
+  line-height: 2.1;
+}
+
+.example-gap-answer {
+  display: inline-block;
+  padding: 0 4px 1px;
+  border-bottom: 2px solid var(--indigo);
+  color: #312e81;
+  font-weight: 900;
+  line-height: 1.55;
+}
+
+.exercise-example-copy {
+  color: var(--dark);
+  font-size: .98rem;
+  font-weight: 700;
+  line-height: 1.62;
+  text-wrap: pretty;
 }
 
 .sentence-gaps {
@@ -2060,6 +2113,10 @@ label.odd-option {
   margin-top: 0;
 }
 
+.exercise-item-inline-row.is-example-labeled {
+  grid-template-columns: 78px minmax(0, 1fr);
+}
+
 /* A long image-based exercise keeps its source picture visible only while that exercise is in view. */
 .exercise-card.has-sticky-image {
   overflow: visible;
@@ -2123,6 +2180,16 @@ label.odd-option {
   .exercise-item-inline-row {
     grid-template-columns: 28px minmax(0, 1fr);
     gap: 9px;
+  }
+
+  .exercise-item-inline-row.is-example-labeled {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .exercise-example-label {
+    min-width: 72px;
+    padding: 0 8px;
+    font-size: .62rem;
   }
 }
 

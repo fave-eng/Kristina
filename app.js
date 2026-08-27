@@ -1056,7 +1056,10 @@
     const number = item.number === undefined ? index + 1 : item.number;
     const prompt = escapeHtml(item.prompt || '');
     const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
-    const numberMarkup = number === '' || number === null ? '' : `<span class="exercise-number">${escapeHtml(number)}</span>`;
+    const exampleLabel = item.example && item.exampleLabel ? safeText(item.exampleLabel) : '';
+    const numberMarkup = exampleLabel
+      ? `<span class="exercise-example-label">${escapeHtml(exampleLabel)}</span>`
+      : (number === '' || number === null ? '' : `<span class="exercise-number">${escapeHtml(number)}</span>`);
     const context = renderExerciseContext(item);
 
     if (item.displayOnly) {
@@ -1123,7 +1126,49 @@
       </div>`;
     }
 
+    if (item.example && item.exampleMode === 'choice') {
+      const rawPrompt = safeText(item.prompt);
+      const answerText = safeText(item.exampleAnswer);
+      const answerIndex = answerText ? rawPrompt.indexOf(answerText) : -1;
+      const completedPrompt = answerIndex >= 0
+        ? `${escapeHtml(rawPrompt.slice(0, answerIndex))}<span class="example-choice-selected">${escapeHtml(answerText)}</span>${escapeHtml(rawPrompt.slice(answerIndex + answerText.length))}`
+        : escapeHtml(rawPrompt);
+      return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+        <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt exercise-example-prompt">${completedPrompt}</div></div>
+      </div>`;
+    }
+
+    if (item.example && item.exampleMode === 'gaps') {
+      const segments = Array.isArray(item.segments) ? item.segments : [];
+      const exampleAnswers = Array.isArray(item.exampleAnswers) ? item.exampleAnswers : [];
+      const sentence = `<div class="sentence-gaps example-sentence-gaps">${exampleAnswers.map((answer, gapIndex) => `${gapIndex < segments.length ? `<span>${escapeHtml(segments[gapIndex])}</span>` : ''}<span class="example-gap-answer">${escapeHtml(answer)}</span>`).join('')}${segments.length > exampleAnswers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : ''}</div>`;
+      if (inlineNumberedItems && numberMarkup) {
+        return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+          <div class="exercise-item-inline-row${exampleLabel ? ' is-example-labeled' : ''}">${numberMarkup}<div class="exercise-item-inline-content">${sentence}</div></div>
+        </div>`;
+      }
+      return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+        <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt exercise-example-prompt">${sentence}</div></div>
+      </div>`;
+    }
+
     if (item.example) {
+      if (inlineNumberedItems && numberMarkup && item.exampleTextOnly) {
+        return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+          <div class="exercise-item-inline-row${exampleLabel ? ' is-example-labeled' : ''}">${numberMarkup}<div class="exercise-item-inline-content exercise-example-copy">${prompt}</div></div>
+        </div>`;
+      }
+      if (exampleLabel && !item.exampleTextOnly) {
+        const exampleContent = `<div class="exercise-example-copy"><strong>${escapeHtml(item.exampleAnswer || '')}</strong></div>`;
+        if (inlineNumberedItems && numberMarkup) {
+          return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+            <div class="exercise-item-inline-row is-example-labeled">${numberMarkup}<div class="exercise-item-inline-content">${exampleContent}</div></div>
+          </div>`;
+        }
+        return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+          <div class="exercise-item-header">${numberMarkup}${exampleContent}</div>
+        </div>`;
+      }
       return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
         <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
         ${item.exampleTextOnly ? '' : `<div class="example-answer"><span>Example</span><strong>${escapeHtml(item.exampleAnswer || '')}</strong></div>`}
