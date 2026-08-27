@@ -1469,5 +1469,184 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Проект хорошо продвигается."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-11",
+    "title": "Photography",
+    "label": "Lesson 11 · Photo albums",
+    "icon": "📷",
+    "type": "lesson",
+    "linkedLessonId": "lesson-11",
+    "page": "vocabulary.html?id=vocab-lesson-11",
+    "words": [
+      {
+        "id": "lesson-11-foreground",
+        "en": "foreground",
+        "ru": "передний план",
+        "transcription": "/ˈfɔːɡraʊnd/",
+        "exampleEn": "The woman is in the foreground of the photo.",
+        "exampleRu": "Женщина находится на переднем плане фотографии."
+      },
+      {
+        "id": "lesson-11-background",
+        "en": "background",
+        "ru": "задний план, фон",
+        "transcription": "/ˈbækɡraʊnd/",
+        "exampleEn": "There are a lot of trees in the background.",
+        "exampleRu": "На заднем плане много деревьев."
+      },
+      {
+        "id": "lesson-11-in-the-distance",
+        "en": "in the distance",
+        "ru": "вдалеке",
+        "transcription": "/ɪn ðə ˈdɪstəns/",
+        "exampleEn": "You can see a man in the distance.",
+        "exampleRu": "Вдалеке можно увидеть мужчину."
+      },
+      {
+        "id": "lesson-11-opposite",
+        "en": "opposite",
+        "ru": "напротив",
+        "transcription": "/ˈɒpəzɪt/",
+        "exampleEn": "There is a flower wall opposite the woman.",
+        "exampleRu": "Напротив женщины находится стена с цветами."
+      },
+      {
+        "id": "lesson-11-close-up",
+        "en": "close-up",
+        "ru": "крупный план",
+        "transcription": "/ˈkləʊs ʌp/",
+        "exampleEn": "This photo is a close-up, so you can see all the details.",
+        "exampleRu": "Это крупный план, поэтому видны все детали."
+      },
+      {
+        "id": "lesson-11-flash",
+        "en": "flash",
+        "ru": "вспышка",
+        "transcription": "/flæʃ/",
+        "exampleEn": "The photo was too dark because I forgot to use the flash.",
+        "exampleRu": "Фотография получилась слишком тёмной, потому что я забыл использовать вспышку."
+      },
+      {
+        "id": "lesson-11-landscape",
+        "en": "landscape",
+        "ru": "пейзаж",
+        "transcription": "/ˈlændskeɪp/",
+        "exampleEn": "It can be difficult to get all of a landscape in one photo.",
+        "exampleRu": "Иногда сложно вместить весь пейзаж в одну фотографию."
+      },
+      {
+        "id": "lesson-11-lens",
+        "en": "lens",
+        "ru": "объектив",
+        "transcription": "/lenz/",
+        "exampleEn": "A professional photographer uses different lenses.",
+        "exampleRu": "Профессиональный фотограф использует разные объективы."
+      },
+      {
+        "id": "lesson-11-out-of-focus",
+        "en": "out of focus",
+        "ru": "не в фокусе, размытый",
+        "transcription": "/ˌaʊt əv ˈfəʊkəs/",
+        "exampleEn": "The people are out of focus in this photo.",
+        "exampleRu": "Люди на этой фотографии не в фокусе."
+      },
+      {
+        "id": "lesson-11-overexposed",
+        "en": "overexposed",
+        "ru": "переэкспонированный, пересвеченный",
+        "transcription": "/ˌəʊvərɪkˈspəʊzd/",
+        "exampleEn": "The photo is overexposed because of the direct sunlight.",
+        "exampleRu": "Фотография пересвечена из-за прямого солнечного света."
+      },
+      {
+        "id": "lesson-11-portrait-setting",
+        "en": "portrait setting",
+        "ru": "режим портрета",
+        "transcription": "/ˈpɔːtrət ˌsetɪŋ/",
+        "exampleEn": "I used the portrait setting to photograph my boyfriend.",
+        "exampleRu": "Я использовал режим портрета, чтобы сфотографировать своего парня."
+      },
+      {
+        "id": "lesson-11-settings",
+        "en": "settings",
+        "ru": "настройки",
+        "transcription": "/ˈsetɪŋz/",
+        "exampleEn": "My camera is automatic, so I rarely change the settings.",
+        "exampleRu": "Моя камера автоматическая, поэтому я редко меняю настройки."
+      },
+      {
+        "id": "lesson-11-zoom-in",
+        "en": "zoom in",
+        "ru": "приблизить, увеличить изображение",
+        "transcription": "/ˌzuːm ˈɪn/",
+        "exampleEn": "I zoomed in because the people were far away.",
+        "exampleRu": "Я приблизил изображение, потому что люди были далеко."
+      },
+      {
+        "id": "lesson-11-edit",
+        "en": "edit",
+        "ru": "редактировать",
+        "transcription": "/ˈedɪt/",
+        "exampleEn": "I sometimes edit my photos before I share them.",
+        "exampleRu": "Иногда я редактирую фотографии перед публикацией."
+      },
+      {
+        "id": "lesson-11-back-up",
+        "en": "back up",
+        "ru": "создавать резервную копию",
+        "transcription": "/ˌbæk ˈʌp/",
+        "exampleEn": "I back up my holiday photos so I don't lose them.",
+        "exampleRu": "Я делаю резервную копию фотографий из отпуска, чтобы их не потерять."
+      },
+      {
+        "id": "lesson-11-go-offline",
+        "en": "go offline",
+        "ru": "отключиться от сети",
+        "transcription": "/ˌɡəʊ ɒfˈlaɪn/",
+        "exampleEn": "The streaming service sometimes goes offline.",
+        "exampleRu": "Стриминговый сервис иногда отключается от сети."
+      },
+      {
+        "id": "lesson-11-store",
+        "en": "store",
+        "ru": "хранить",
+        "transcription": "/stɔː/",
+        "exampleEn": "I store my photos in separate albums on my laptop.",
+        "exampleRu": "Я храню фотографии в отдельных альбомах на ноутбуке."
+      },
+      {
+        "id": "lesson-11-upload",
+        "en": "upload",
+        "ru": "загружать в интернет",
+        "transcription": "/ˌʌpˈləʊd/",
+        "exampleEn": "Please don't upload this photo to social media.",
+        "exampleRu": "Пожалуйста, не загружай эту фотографию в соцсети."
+      },
+      {
+        "id": "lesson-11-scenic-shot",
+        "en": "scenic shot",
+        "ru": "пейзажный снимок",
+        "transcription": "/ˈsiːnɪk ʃɒt/",
+        "exampleEn": "This lens is useful for scenic shots.",
+        "exampleRu": "Этот объектив полезен для пейзажных снимков."
+      },
+      {
+        "id": "lesson-11-wide-angle-lens",
+        "en": "wide-angle lens",
+        "ru": "широкоугольный объектив",
+        "transcription": "/ˌwaɪd ˈæŋɡəl lenz/",
+        "exampleEn": "A wide-angle lens can fit more of a landscape into the photo.",
+        "exampleRu": "Широкоугольный объектив позволяет вместить в кадр большую часть пейзажа."
+      },
+      {
+        "id": "lesson-11-cancel",
+        "en": "cancel",
+        "ru": "отменять; закрывать (аккаунт/подписку)",
+        "transcription": "/ˈkænsəl/",
+        "exampleEn": "You can cancel your account if you no longer use the service.",
+        "exampleRu": "Можно закрыть аккаунт, если вы больше не пользуетесь сервисом."
+      }
+    ]
   }
 ];

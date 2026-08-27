@@ -902,6 +902,23 @@ body[data-view="lesson"] #lesson-root {
   outline: none;
 }
 
+.sentence-select-gap select {
+  width: clamp(145px, 28vw, 230px);
+  min-height: 43px;
+  flex: 0 1 auto;
+  padding: 7px 34px 7px 10px;
+  border: 0;
+  border-bottom: 2px solid #94a3b8;
+  border-radius: 8px 8px 2px 2px;
+  background-color: #f8fafc;
+}
+
+.sentence-select-gap select:focus {
+  border-bottom-color: var(--indigo);
+  background-color: #eef2ff;
+  outline: none;
+}
+
 .audio-card {
   display: flex;
   gap: 17px;
@@ -2823,4 +2840,39 @@ label.odd-option {
   .exercise-item-inline-row.is-example-labeled:has(.exercise-number + .exercise-example-label) .exercise-item-inline-content {
     grid-column: 1 / -1;
   }
+}
+
+
+/* Homework 11: examples mirror the control the student will actually use. */
+.continuous-example-input {
+  display: inline-block;
+  min-width: 120px;
+  margin-inline: 4px;
+  padding: 2px 8px 3px;
+  border-bottom: 2px solid var(--indigo);
+  border-radius: 7px 7px 2px 2px;
+  background: #fff;
+  color: #312e81;
+  font-weight: 900;
+  text-align: center;
+}
+
+.example-select-gap select:disabled,
+.example-text-field:disabled {
+  opacity: 1;
+  -webkit-text-fill-color: #312e81;
+  color: #312e81;
+  font-weight: 900;
+  cursor: default;
+}
+
+.example-select-gap select:disabled {
+  border-bottom-color: var(--indigo);
+  background-color: #eef2ff;
+}
+
+.example-text-field:disabled {
+  width: min(100%, 680px);
+  border-color: #c7d2fe;
+  background: #eef2ff;
 }

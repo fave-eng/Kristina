@@ -2307,5 +2307,392 @@ window.GRAMMAR_DATA = [
       }
     ],
     "linkedLessonId": "lesson-9"
+  },
+  {
+    "id": "grammar-prepositions-place",
+    "order": 6,
+    "title": "Prepositions of place and position",
+    "level": "B1",
+    "status": "available",
+    "page": "grammar-topic.html?id=grammar-prepositions-place",
+    "passed": false,
+    "attempts": 0,
+    "lockOnPass": true,
+    "revealAnswersOnError": false,
+    "explanation": "Предлоги места показывают, где находится человек или предмет относительно фотографии, комнаты или другого объекта. В этом уроке особенно важны in, on, behind, in front of и opposite, а также устойчивые фразы in the foreground, in the background, in the centre, in the distance и in the ... corner. Сам предлог не меняет форму: утверждение, отрицание и вопрос строятся с обычным глаголом предложения, чаще всего be.",
+    "formula": "Statement: subject + be + place phrase · Negative: subject + be not + place phrase · Question: Be + subject + place phrase? · Wh-question: Where + be + subject? · Short answer: Yes, subject + be. / No, subject + be not.",
+    "glanceCards": [
+      {
+        "icon": "📍",
+        "label": "in",
+        "hint": "внутри области / части изображения",
+        "pattern": "in the foreground · in the centre · in the corner",
+        "example": "The woman is in the foreground."
+      },
+      {
+        "icon": "⬆️",
+        "label": "on / on top of",
+        "hint": "на поверхности / сверху",
+        "pattern": "on the trunk · on top of it",
+        "example": "Her hand is on top of the tree trunk."
+      },
+      {
+        "icon": "↔️",
+        "label": "behind / in front of",
+        "hint": "позади / перед",
+        "pattern": "behind + object · in front of + object",
+        "example": "The woman is behind the tree trunk."
+      },
+      {
+        "icon": "👀",
+        "label": "opposite",
+        "hint": "напротив",
+        "pattern": "opposite + object",
+        "example": "The wall is opposite the woman."
+      }
+    ],
+    "anchorLinks": [
+      {
+        "id": "grammar-at-a-glance",
+        "title": "Quick overview"
+      },
+      {
+        "id": "grammar-tables",
+        "title": "Tables"
+      },
+      {
+        "id": "grammar-examples",
+        "title": "Examples"
+      },
+      {
+        "id": "grammar-mistakes",
+        "title": "Common mistakes"
+      },
+      {
+        "id": "grammar-practice-section",
+        "title": "Practice"
+      }
+    ],
+    "miniRules": [
+      {
+        "title": "1. Use in for areas of a photo",
+        "text": "С частями изображения обычно используем in: in the foreground, in the background, in the centre, in the top left-hand corner.",
+        "example": "There are trees in the background."
+      },
+      {
+        "title": "2. Use on for a surface",
+        "text": "On показывает контакт с поверхностью. On top of подчёркивает положение сверху.",
+        "example": "Her left hand is on top of the tree trunk."
+      },
+      {
+        "title": "3. Use behind / in front of for position",
+        "text": "Behind означает «позади», а in front of — «перед». После них ставим объект без дополнительного предлога.",
+        "example": "There is a bush in front of the man."
+      },
+      {
+        "title": "4. Use opposite for “across from”",
+        "text": "Opposite означает «напротив». Не добавляй of: opposite the woman, не opposite of the woman.",
+        "example": "There is a wall opposite the woman."
+      }
+    ],
+    "tables": [
+      {
+        "title": "Core place phrases",
+        "headers": [
+          "Phrase",
+          "Meaning",
+          "Example"
+        ],
+        "rows": [
+          [
+            "in the foreground / background",
+            "на переднем / заднем плане",
+            "The woman is in the foreground."
+          ],
+          [
+            "in the centre / corner",
+            "в центре / углу",
+            "The man is in the centre of the photo."
+          ],
+          [
+            "in the distance",
+            "вдалеке",
+            "The man looks smaller because he is in the distance."
+          ],
+          [
+            "behind / in front of",
+            "позади / перед",
+            "A bush is in front of the man."
+          ],
+          [
+            "opposite",
+            "напротив",
+            "The wall is opposite the woman."
+          ],
+          [
+            "on top of",
+            "сверху на",
+            "Her hand is on top of the trunk."
+          ]
+        ]
+      },
+      {
+        "title": "Statements, negatives and questions",
+        "headers": [
+          "Type",
+          "Pattern",
+          "Example"
+        ],
+        "rows": [
+          [
+            "Affirmative",
+            "subject + be + place phrase",
+            "The house is in the top left-hand corner."
+          ],
+          [
+            "Negative",
+            "subject + be not + place phrase",
+            "The house isn’t in the foreground."
+          ],
+          [
+            "Yes/No question",
+            "Be + subject + place phrase?",
+            "Is the man in the distance?"
+          ],
+          [
+            "Wh-question",
+            "Where + be + subject?",
+            "Where is the older man?"
+          ],
+          [
+            "Short answer",
+            "Yes, ... is. / No, ... isn’t.",
+            "Yes, he is."
+          ]
+        ]
+      }
+    ],
+    "exampleGroups": [
+      {
+        "title": "Photo position",
+        "items": [
+          "The woman is in the foreground.",
+          "The older man is in the centre of the photo.",
+          "There are trees in the background."
+        ]
+      },
+      {
+        "title": "Relative position",
+        "items": [
+          "The woman is standing behind the tree trunk.",
+          "There is a bush in front of the man.",
+          "There is a wall opposite the woman."
+        ]
+      },
+      {
+        "title": "Surface and corner",
+        "items": [
+          "Her left hand is on top of the tree trunk.",
+          "The trunk is in the bottom right-hand corner.",
+          "The house is in the top left-hand corner."
+        ]
+      }
+    ],
+    "commonMistakes": [
+      "in foreground ✗ → in the foreground ✓. В устойчивых названиях частей изображения нужен the.",
+      "on the foreground ✗ → in the foreground ✓. Для области фотографии используем in.",
+      "opposite of the woman ✗ → opposite the woman ✓. В этом значении of не нужен.",
+      "in front the man ✗ → in front of the man ✓. Фраза in front of всегда содержит of.",
+      "in the top of the trunk ✗ → on top of the trunk ✓, если речь о поверхности сверху."
+    ],
+    "exercises": [
+      {
+        "type": "exercise",
+        "title": "Choose the correct preposition",
+        "difficulty": "Easy",
+        "instructions": "Choose the option that completes the sentence correctly.",
+        "hideAnswersOnError": true,
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "The woman is ___ the foreground.",
+            "options": [
+              "in",
+              "on"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "The trunk is ___ the bottom right-hand corner.",
+            "options": [
+              "in",
+              "at"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "The woman is standing ___ the tree trunk.",
+            "options": [
+              "behind",
+              "opposite"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "The wall is ___ the woman.",
+            "options": [
+              "opposite",
+              "in front of"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Complete the place phrase",
+        "difficulty": "Medium",
+        "instructions": "Write the missing preposition or preposition phrase.",
+        "hideAnswersOnError": true,
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "The older man is ___ the distance.",
+            "acceptedAnswers": [
+              "in"
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "Her left hand is ___ the tree trunk.",
+            "acceptedAnswers": [
+              "on top of"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "There is a bush ___ the man.",
+            "acceptedAnswers": [
+              "in front of"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "The house is ___ the top left-hand corner.",
+            "acceptedAnswers": [
+              "in"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Choose the best phrase in context",
+        "difficulty": "Medium → Hard",
+        "instructions": "Choose the phrase that matches the position described.",
+        "hideAnswersOnError": true,
+        "items": [
+          {
+            "id": "1",
+            "input": "select",
+            "prompt": "The trees are ___ of the photo.",
+            "options": [
+              "in the background",
+              "on the background",
+              "opposite the background"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "select",
+            "prompt": "The older man looks smaller because he is ___.",
+            "options": [
+              "in the distance",
+              "on top of",
+              "behind the distance"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "select",
+            "prompt": "The bush is ___ the older man, so it is closer to the camera.",
+            "options": [
+              "in front of",
+              "opposite",
+              "behind"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "select",
+            "prompt": "The woman has her left hand ___ the cut tree trunk.",
+            "options": [
+              "on top of",
+              "in front of",
+              "in the background"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Build the sentence or question",
+        "difficulty": "Hard",
+        "instructions": "Write the complete sentence or question using the words given.",
+        "hideAnswersOnError": true,
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "woman / be / in the foreground",
+            "acceptedAnswers": [
+              "The woman is in the foreground."
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "Make a negative sentence: house / be / in the foreground",
+            "acceptedAnswers": [
+              "The house isn't in the foreground.",
+              "The house is not in the foreground."
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "Make a question: older man / be / in the distance",
+            "acceptedAnswers": [
+              "Is the older man in the distance?"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "bush / be / in front of / man",
+            "acceptedAnswers": [
+              "The bush is in front of the man.",
+              "There is a bush in front of the man."
+            ]
+          }
+        ]
+      }
+    ],
+    "linkedLessonId": "lesson-11"
   }
 ];

@@ -989,10 +989,11 @@
         const gapId = safeText(part.id);
         const verb = part.verb ? `<span class="continuous-verb-hint">(${escapeHtml(part.verb)})</span>` : '';
         if (part.example) {
-          return `<span class="continuous-gap continuous-gap-example" data-continuous-gap-example="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup><span class="continuous-example-label">EXAMPLE</span><span class="continuous-example-answer">${escapeHtml(part.answer || '')}</span>${verb}</span>`;
+          return `<span class="continuous-gap continuous-gap-example" data-continuous-gap-example="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup><span class="continuous-example-label">EXAMPLE</span><span class="continuous-example-input" aria-label="Example answer for gap ${escapeHtml(gapId)}">${escapeHtml(part.answer || '')}</span>${verb}</span>`;
         }
         const widthClass = safeText(part.width) === 'wide' ? ' is-wide' : safeText(part.width) === 'medium' ? ' is-medium' : '';
-        return `<span class="continuous-gap${widthClass}" data-continuous-gap-wrap="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup><input class="continuous-gap-input" data-continuous-gap="${escapeHtml(gapId)}" autocomplete="off" aria-label="Gap ${escapeHtml(gapId)}">${verb}</span>`;
+        const placeholder = part.placeholder ? ` placeholder="${escapeHtml(part.placeholder)}"` : '';
+        return `<span class="continuous-gap${widthClass}" data-continuous-gap-wrap="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup><input class="continuous-gap-input" data-continuous-gap="${escapeHtml(gapId)}" autocomplete="off" aria-label="Gap ${escapeHtml(gapId)}"${placeholder}>${verb}</span>`;
       }).join('')}</p>`;
     }).join('');
     return `<div class="continuous-gaps" data-continuous-gaps>${content}</div>`;
@@ -1288,6 +1289,33 @@
       </div>`;
     }
 
+    if (item.example && item.exampleMode === 'select') {
+      const segments = Array.isArray(item.segments) ? item.segments : [];
+      const options = Array.isArray(item.options) ? item.options : [];
+      const answerIndex = Number(item.answer);
+      const selected = Number.isInteger(answerIndex) && answerIndex >= 0 && answerIndex < options.length ? options[answerIndex] : '';
+      const sentence = `<div class="sentence-gaps example-sentence-gaps"><span>${escapeHtml(segments[0] || '')}</span><span class="sentence-select-gap example-select-gap"><select disabled aria-label="Example selection"><option selected>${escapeHtml(selected)}</option></select></span><span>${escapeHtml(segments[1] || '')}</span></div>`;
+      if (inlineNumberedItems && numberMarkup) {
+        return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+          <div class="exercise-item-inline-row${exampleLabel ? ' is-example-labeled' : ''}">${numberMarkup}<div class="exercise-item-inline-content">${sentence}</div></div>
+        </div>`;
+      }
+      return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+        <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt exercise-example-prompt">${sentence}</div></div>
+      </div>`;
+    }
+
+    if (item.example && item.exampleMode === 'text') {
+      const value = safeText(item.exampleAnswer || item.answer || item.prompt);
+      const field = `<input class="text-field example-text-field" value="${escapeHtml(value)}" disabled aria-label="Example answer">`;
+      if (inlineNumberedItems) {
+        return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
+          <div class="exercise-item-inline-row${exampleLabel ? ' is-example-labeled' : ''}">${numberMarkup}<div class="exercise-item-inline-content">${field}</div></div>
+        </div>`;
+      }
+      return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}"><div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt exercise-example-prompt">${field}</div></div></div>`;
+    }
+
     if (item.example && item.exampleMode === 'gaps') {
       const segments = Array.isArray(item.segments) ? item.segments : [];
       const exampleAnswers = Array.isArray(item.exampleAnswers) ? item.exampleAnswers : [];
@@ -1339,7 +1367,11 @@
       const inputType = item.input === 'multiple' ? 'checkbox' : 'radio';
       control = `<div class="option-list compact-options">${(item.options || []).map((option, optionIndex) => `<label class="option"><input type="${inputType}" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('')}</div>`;
     } else if (item.input === 'select') {
-      control = `<select id="${escapeHtml(inputId)}"><option value="">Choose an answer</option>${(item.options || []).map((option, optionIndex) => `<option value="${optionIndex}">${escapeHtml(option)}</option>`).join('')}</select>`;
+      const selectControl = `<select id="${escapeHtml(inputId)}"><option value="">Choose an answer</option>${(item.options || []).map((option, optionIndex) => `<option value="${optionIndex}">${escapeHtml(option)}</option>`).join('')}</select>`;
+      const segments = Array.isArray(item.segments) ? item.segments : [];
+      control = segments.length >= 2
+        ? `<div class="sentence-gaps sentence-select-gap" aria-label="${prompt}"><span>${escapeHtml(segments[0] || '')}</span>${selectControl}<span>${escapeHtml(segments[1] || '')}</span></div>`
+        : selectControl;
     } else if (item.input === 'textarea') {
       control = `<textarea id="${escapeHtml(inputId)}" placeholder="${escapeHtml(item.placeholder || '')}"></textarea>`;
     } else if (item.input === 'gaps') {
@@ -1351,7 +1383,7 @@
       control = `<input class="text-field" id="${escapeHtml(inputId)}" autocomplete="off" placeholder="${escapeHtml(item.placeholder || '')}">`;
     }
 
-    if (inlineNumberedItems && numberMarkup && !prompt && (item.input === 'gaps' || item.input === 'circle-or-tick')) {
+    if (inlineNumberedItems && numberMarkup && !prompt && (item.input === 'gaps' || item.input === 'circle-or-tick' || (item.input === 'select' && Array.isArray(item.segments)))) {
       return `<div class="exercise-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="${escapeHtml(item.input || 'text')}">
         <div class="exercise-item-inline-row">${numberMarkup}<div class="exercise-item-inline-content">${context}${control}</div></div>
         <div class="feedback" aria-live="polite"></div>
@@ -1449,8 +1481,9 @@
     }
     if (block.type === 'exercise') {
       const items = Array.isArray(block.items) ? block.items : [];
+      const wordBankLabel = Object.prototype.hasOwnProperty.call(block, 'wordBankLabel') ? safeText(block.wordBankLabel) : 'Word bank';
       const wordBank = Array.isArray(block.wordBank) && block.wordBank.length
-        ? `<div class="word-bank" aria-label="Word bank"><strong class="word-bank-label">Word bank</strong>${block.wordBank.map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`
+        ? `<div class="word-bank" aria-label="${escapeHtml(wordBankLabel || 'Word list')}">${wordBankLabel ? `<strong class="word-bank-label">${escapeHtml(wordBankLabel)}</strong>` : ''}${block.wordBank.map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`
         : '';
       const wordBanks = Array.isArray(block.wordBanks) && block.wordBanks.length
         ? `<div class="word-bank-groups">${block.wordBanks.map((group) => `<div class="word-bank" aria-label="${escapeHtml(group.label || 'Word bank')}"><strong class="word-bank-label">${escapeHtml(group.label || 'Word bank')}</strong>${(group.words || []).map((word) => `<span>${escapeHtml(word)}</span>`).join('')}</div>`).join('')}</div>`
@@ -1487,7 +1520,7 @@
         ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`
         : `${image}${intro}${exerciseContent}`;
       return `<article class="card lesson-block exercise-card${block.layout === 'dialogue' ? ' dialogue-card' : ''}${hasStickyImage ? ' has-sticky-image' : ''}" data-task="${escapeHtml(id)}" data-type="exercise">
-        <div class="exercise-heading"><span class="eyebrow">Exercise</span><h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
+        <div class="exercise-heading">${Object.prototype.hasOwnProperty.call(block, 'eyebrow') ? (safeText(block.eyebrow) ? `<span class="eyebrow">${escapeHtml(safeText(block.eyebrow))}</span>` : '') : '<span class="eyebrow">Exercise</span>'}<h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
         ${exerciseBody}
       </article>`;
     }
