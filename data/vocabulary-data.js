@@ -681,97 +681,97 @@ window.VOCABULARY_DATA = [
       }
     ]
   },
-{
-  "id": "vocab-lesson-5",
-  "title": "Present tenses & travel plans",
-  "label": "Lesson 5 · Present tenses",
-  "icon": "🗓️",
-  "type": "lesson",
-  "linkedLessonId": "lesson-5",
-  "page": "vocabulary.html?id=vocab-lesson-5",
-  "words": [
-    {
-      "id": "lesson-5-all-year-round",
-      "en": "all year round",
-      "ru": "круглый год",
-      "transcription": "/ˌɔːl jɪə ˈraʊnd/",
-      "exampleEn": "Ben uses sunscreen all year round.",
-      "exampleRu": "Бен пользуется солнцезащитным кремом круглый год."
-    },
-    {
-      "id": "lesson-5-recognize",
-      "en": "recognize",
-      "ru": "узнавать; распознавать",
-      "transcription": "/ˈrekəɡnaɪz/",
-      "exampleEn": "I recognize that man.",
-      "exampleRu": "Я узнаю этого мужчину."
-    },
-    {
-      "id": "lesson-5-voluntary-work",
-      "en": "voluntary work",
-      "ru": "волонтёрская работа",
-      "transcription": "/ˈvɒləntri wɜːk/",
-      "exampleEn": "He is thinking about doing voluntary work.",
-      "exampleRu": "Он думает заняться волонтёрской работой."
-    },
-    {
-      "id": "lesson-5-belong-to",
-      "en": "belong to",
-      "ru": "принадлежать кому-либо",
-      "transcription": "/bɪˈlɒŋ tuː/",
-      "exampleEn": "Does this bag belong to you?",
-      "exampleRu": "Эта сумка принадлежит тебе?"
-    },
-    {
-      "id": "lesson-5-depend-on",
-      "en": "depend on",
-      "ru": "зависеть от",
-      "transcription": "/dɪˈpend ɒn/",
-      "exampleEn": "It depends on the weather.",
-      "exampleRu": "Это зависит от погоды."
-    },
-    {
-      "id": "lesson-5-matter",
-      "en": "matter",
-      "ru": "иметь значение",
-      "transcription": "/ˈmætə/",
-      "exampleEn": "It doesn’t matter what other people say.",
-      "exampleRu": "Неважно, что говорят другие."
-    },
-    {
-      "id": "lesson-5-agree-with",
-      "en": "agree with",
-      "ru": "соглашаться с",
-      "transcription": "/əˈɡriː wɪð/",
-      "exampleEn": "I don’t agree with you.",
-      "exampleRu": "Я с тобой не согласен."
-    },
-    {
-      "id": "lesson-5-believe-in",
-      "en": "believe in",
-      "ru": "верить в существование; верить в",
-      "transcription": "/bɪˈliːv ɪn/",
-      "exampleEn": "I don’t believe in ghosts.",
-      "exampleRu": "Я не верю в привидений."
-    },
-    {
-      "id": "lesson-5-look-forward-to",
-      "en": "look forward to",
-      "ru": "с нетерпением ждать",
-      "transcription": "/lʊk ˈfɔːwəd tuː/",
-      "exampleEn": "I’m really looking forward to it.",
-      "exampleRu": "Я очень этого жду."
-    },
-    {
-      "id": "lesson-5-pick-someone-up",
-      "en": "pick someone up",
-      "ru": "забрать кого-либо; встретить на машине",
-      "transcription": "/pɪk ˌsʌmwʌn ˈʌp/",
-      "exampleEn": "My sister is picking me up at the airport.",
-      "exampleRu": "Сестра встретит меня в аэропорту."
-    }
-  ]
-},
+  {
+    "id": "vocab-lesson-5",
+    "title": "Present tenses & travel plans",
+    "label": "Lesson 5 · Present tenses",
+    "icon": "🗓️",
+    "type": "lesson",
+    "linkedLessonId": "lesson-5",
+    "page": "vocabulary.html?id=vocab-lesson-5",
+    "words": [
+      {
+        "id": "lesson-5-all-year-round",
+        "en": "all year round",
+        "ru": "круглый год",
+        "transcription": "/ˌɔːl jɪə ˈraʊnd/",
+        "exampleEn": "Ben uses sunscreen all year round.",
+        "exampleRu": "Бен пользуется солнцезащитным кремом круглый год."
+      },
+      {
+        "id": "lesson-5-recognize",
+        "en": "recognize",
+        "ru": "узнавать; распознавать",
+        "transcription": "/ˈrekəɡnaɪz/",
+        "exampleEn": "I recognize that man.",
+        "exampleRu": "Я узнаю этого мужчину."
+      },
+      {
+        "id": "lesson-5-voluntary-work",
+        "en": "voluntary work",
+        "ru": "волонтёрская работа",
+        "transcription": "/ˈvɒləntri wɜːk/",
+        "exampleEn": "He is thinking about doing voluntary work.",
+        "exampleRu": "Он думает заняться волонтёрской работой."
+      },
+      {
+        "id": "lesson-5-belong-to",
+        "en": "belong to",
+        "ru": "принадлежать кому-либо",
+        "transcription": "/bɪˈlɒŋ tuː/",
+        "exampleEn": "Does this bag belong to you?",
+        "exampleRu": "Эта сумка принадлежит тебе?"
+      },
+      {
+        "id": "lesson-5-depend-on",
+        "en": "depend on",
+        "ru": "зависеть от",
+        "transcription": "/dɪˈpend ɒn/",
+        "exampleEn": "It depends on the weather.",
+        "exampleRu": "Это зависит от погоды."
+      },
+      {
+        "id": "lesson-5-matter",
+        "en": "matter",
+        "ru": "иметь значение",
+        "transcription": "/ˈmætə/",
+        "exampleEn": "It doesn’t matter what other people say.",
+        "exampleRu": "Неважно, что говорят другие."
+      },
+      {
+        "id": "lesson-5-agree-with",
+        "en": "agree with",
+        "ru": "соглашаться с",
+        "transcription": "/əˈɡriː wɪð/",
+        "exampleEn": "I don’t agree with you.",
+        "exampleRu": "Я с тобой не согласен."
+      },
+      {
+        "id": "lesson-5-believe-in",
+        "en": "believe in",
+        "ru": "верить в существование; верить в",
+        "transcription": "/bɪˈliːv ɪn/",
+        "exampleEn": "I don’t believe in ghosts.",
+        "exampleRu": "Я не верю в привидений."
+      },
+      {
+        "id": "lesson-5-look-forward-to",
+        "en": "look forward to",
+        "ru": "с нетерпением ждать",
+        "transcription": "/lʊk ˈfɔːwəd tuː/",
+        "exampleEn": "I’m really looking forward to it.",
+        "exampleRu": "Я очень этого жду."
+      },
+      {
+        "id": "lesson-5-pick-someone-up",
+        "en": "pick someone up",
+        "ru": "забрать кого-либо; встретить на машине",
+        "transcription": "/pɪk ˌsʌmwʌn ˈʌp/",
+        "exampleEn": "My sister is picking me up at the airport.",
+        "exampleRu": "Сестра встретит меня в аэропорту."
+      }
+    ]
+  },
   {
     "id": "vocab-lesson-6",
     "title": "Possessives & everyday places",
@@ -1218,6 +1218,185 @@ window.VOCABULARY_DATA = [
         "transcription": "/ˈhelθ ɪnˌspektə/",
         "exampleEn": "A health inspector visited the restaurant.",
         "exampleRu": "Ресторан посетил санитарный инспектор."
+      }
+    ]
+  },
+  {
+    "id": "vocab-lesson-9",
+    "title": "Stages of life & growing up",
+    "label": "Lesson 9 · Grow up!",
+    "icon": "🌱",
+    "type": "lesson",
+    "linkedLessonId": "lesson-9",
+    "page": "vocabulary.html?id=vocab-lesson-9",
+    "words": [
+      {
+        "id": "lesson-9-baby",
+        "en": "baby",
+        "ru": "младенец",
+        "transcription": "/ˈbeɪbi/",
+        "exampleEn": "Their baby is only two weeks old.",
+        "exampleRu": "Их младенцу всего две недели."
+      },
+      {
+        "id": "lesson-9-toddler",
+        "en": "toddler",
+        "ru": "малыш, который уже начал ходить",
+        "transcription": "/ˈtɒdlə/",
+        "exampleEn": "Toddlers often have tantrums.",
+        "exampleRu": "У малышей часто бывают истерики."
+      },
+      {
+        "id": "lesson-9-child",
+        "en": "child",
+        "ru": "ребёнок",
+        "transcription": "/tʃaɪld/",
+        "exampleEn": "I didn’t use to eat many vegetables when I was a child.",
+        "exampleRu": "В детстве я обычно не ел много овощей."
+      },
+      {
+        "id": "lesson-9-pre-teen",
+        "en": "pre-teen",
+        "ru": "ребёнок предподросткового возраста",
+        "transcription": "/ˌpriː ˈtiːn/",
+        "exampleEn": "Starting secondary school is an important event for a pre-teen.",
+        "exampleRu": "Начало средней школы — важное событие для ребёнка предподросткового возраста."
+      },
+      {
+        "id": "lesson-9-teenager",
+        "en": "teenager",
+        "ru": "подросток",
+        "transcription": "/ˈtiːneɪdʒə/",
+        "exampleEn": "I didn’t go out much when I was a teenager.",
+        "exampleRu": "Когда я был подростком, я редко куда-то ходил."
+      },
+      {
+        "id": "lesson-9-in-your-early-twenties",
+        "en": "in your early twenties",
+        "ru": "в возрасте чуть за двадцать",
+        "transcription": "/ɪn jɔː ˌɜːli ˈtwentiz/",
+        "exampleEn": "She is in her early twenties.",
+        "exampleRu": "Ей немного за двадцать."
+      },
+      {
+        "id": "lesson-9-in-your-mid-thirties",
+        "en": "in your mid-thirties",
+        "ru": "примерно в середине тридцатилетнего возраста",
+        "transcription": "/ɪn jɔː ˌmɪd ˈθɜːtiz/",
+        "exampleEn": "Paul is in his mid-thirties.",
+        "exampleRu": "Полу около тридцати пяти."
+      },
+      {
+        "id": "lesson-9-in-your-late-forties",
+        "en": "in your late forties",
+        "ru": "в возрасте ближе к пятидесяти",
+        "transcription": "/ɪn jɔː ˌleɪt ˈfɔːtiz/",
+        "exampleEn": "Anna is in her late forties.",
+        "exampleRu": "Анне около пятидесяти."
+      },
+      {
+        "id": "lesson-9-retired",
+        "en": "retired",
+        "ru": "на пенсии",
+        "transcription": "/rɪˈtaɪəd/",
+        "exampleEn": "My grandparents are both retired.",
+        "exampleRu": "Мои бабушка и дедушка оба на пенсии."
+      },
+      {
+        "id": "lesson-9-stage-of-life",
+        "en": "stage of life",
+        "ru": "этап жизни",
+        "transcription": "/ˌsteɪdʒ əv ˈlaɪf/",
+        "exampleEn": "People change at every stage of life.",
+        "exampleRu": "Люди меняются на каждом этапе жизни."
+      },
+      {
+        "id": "lesson-9-secondary-school",
+        "en": "secondary school",
+        "ru": "средняя школа",
+        "transcription": "/ˈsekəndri skuːl/",
+        "exampleEn": "She is starting secondary school this year.",
+        "exampleRu": "В этом году она начинает учиться в средней школе."
+      },
+      {
+        "id": "lesson-9-cheeky",
+        "en": "cheeky",
+        "ru": "дерзкий; нахальный",
+        "transcription": "/ˈtʃiːki/",
+        "exampleEn": "Teenagers can sometimes be cheeky.",
+        "exampleRu": "Подростки иногда могут быть дерзкими."
+      },
+      {
+        "id": "lesson-9-take-little-notice-of",
+        "en": "take little notice of",
+        "ru": "почти не обращать внимания на",
+        "transcription": "/teɪk ˌlɪtl ˈnəʊtɪs əv/",
+        "exampleEn": "They take little notice of their parents.",
+        "exampleRu": "Они почти не обращают внимания на своих родителей."
+      },
+      {
+        "id": "lesson-9-settle-down",
+        "en": "settle down",
+        "ru": "остепениться; начать более стабильную жизнь",
+        "transcription": "/ˌsetl ˈdaʊn/",
+        "exampleEn": "He’d like to settle down before he’s 40.",
+        "exampleRu": "Он хотел бы остепениться до сорока лет."
+      },
+      {
+        "id": "lesson-9-tantrum",
+        "en": "tantrum",
+        "ru": "истерика, вспышка капризов",
+        "transcription": "/ˈtæntrəm/",
+        "exampleEn": "The toddler had a tantrum in the shop.",
+        "exampleRu": "У малыша случилась истерика в магазине."
+      },
+      {
+        "id": "lesson-9-grow-up",
+        "en": "grow up",
+        "ru": "вырасти; взрослеть",
+        "transcription": "/ˌɡrəʊ ˈʌp/",
+        "exampleEn": "Where did you grow up?",
+        "exampleRu": "Где ты вырос?"
+      },
+      {
+        "id": "lesson-9-doorbell",
+        "en": "doorbell",
+        "ru": "дверной звонок",
+        "transcription": "/ˈdɔːbel/",
+        "exampleEn": "Ben didn’t hear the doorbell.",
+        "exampleRu": "Бен не услышал дверной звонок."
+      },
+      {
+        "id": "lesson-9-get-married",
+        "en": "get married",
+        "ru": "жениться; выйти замуж",
+        "transcription": "/ˌɡet ˈmærid/",
+        "exampleEn": "My parents didn’t have a car until they got married.",
+        "exampleRu": "У моих родителей не было машины, пока они не поженились."
+      },
+      {
+        "id": "lesson-9-lamp-post",
+        "en": "lamp post",
+        "ru": "уличный фонарный столб",
+        "transcription": "/ˈlæmp pəʊst/",
+        "exampleEn": "They hit the lamp post.",
+        "exampleRu": "Они врезались в фонарный столб."
+      },
+      {
+        "id": "lesson-9-boarding-pass",
+        "en": "boarding pass",
+        "ru": "посадочный талон",
+        "transcription": "/ˈbɔːdɪŋ pɑːs/",
+        "exampleEn": "My son lost his boarding pass at the airport.",
+        "exampleRu": "Мой сын потерял посадочный талон в аэропорту."
+      },
+      {
+        "id": "lesson-9-hypermarket",
+        "en": "hypermarket",
+        "ru": "гипермаркет",
+        "transcription": "/ˈhaɪpəmɑːkɪt/",
+        "exampleEn": "They built a new hypermarket near our house.",
+        "exampleRu": "Рядом с нашим домом построили новый гипермаркет."
       }
     ]
   }
