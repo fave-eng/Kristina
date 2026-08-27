@@ -203,9 +203,16 @@
           "id": "1",
           "number": null,
           "example": true,
-          "exampleTextOnly": true,
           "prompt": "Their baby is only two weeks old, so he spends most of his time sleeping.",
-          "exampleLabel": "EXAMPLE"
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "gaps",
+          "segments": [
+            "Their ",
+            " is only two weeks old, so he spends most of his time sleeping."
+          ],
+          "exampleAnswers": [
+            "baby"
+          ]
         },
         {
           "id": "2",
