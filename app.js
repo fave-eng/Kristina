@@ -978,6 +978,155 @@
     </div>${followUp}`;
   }
 
+
+  function renderContinuousGapsExercise(block, blockId) {
+    const paragraphs = Array.isArray(block.paragraphs) ? block.paragraphs : [];
+    const content = paragraphs.map((paragraph) => {
+      const parts = Array.isArray(paragraph) ? paragraph : [];
+      return `<p class="continuous-gaps-paragraph">${parts.map((part) => {
+        if (typeof part === 'string') return escapeHtml(part);
+        if (!part || part.type !== 'gap') return '';
+        const gapId = safeText(part.id);
+        const verb = part.verb ? `<span class="continuous-verb-hint">(${escapeHtml(part.verb)})</span>` : '';
+        if (part.example) {
+          return `<span class="continuous-gap continuous-gap-example" data-continuous-gap-example="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup><span class="continuous-example-label">EXAMPLE</span><span class="continuous-example-answer">${escapeHtml(part.answer || '')}</span>${verb}</span>`;
+        }
+        const widthClass = safeText(part.width) === 'wide' ? ' is-wide' : safeText(part.width) === 'medium' ? ' is-medium' : '';
+        return `<span class="continuous-gap${widthClass}" data-continuous-gap-wrap="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup><input class="continuous-gap-input" data-continuous-gap="${escapeHtml(gapId)}" autocomplete="off" aria-label="Gap ${escapeHtml(gapId)}">${verb}</span>`;
+      }).join('')}</p>`;
+    }).join('');
+    return `<div class="continuous-gaps" data-continuous-gaps>${content}</div>`;
+  }
+
+  function renderEdPronunciationExercise(block, blockId) {
+    const verbs = Array.isArray(block.verbs) ? block.verbs : [];
+    const columns = Array.isArray(block.columns) ? block.columns : [];
+    const verbList = `<div class="ed-verb-list" aria-label="Regular verbs">${verbs.map((verb) => `<span>${escapeHtml(verb)}</span>`).join('')}</div>`;
+    const table = `<div class="ed-pronunciation-table" data-ed-pronunciation>${columns.map((column) => {
+      const key = safeText(column.key);
+      const answers = Array.isArray(column.answers) ? column.answers : [];
+      const example = column.example ? `<div class="ed-example-cell"><span class="continuous-example-label">EXAMPLE</span><strong>${escapeHtml(column.example)}</strong></div>` : '';
+      const slots = answers.map((_, index) => `<div class="ed-answer-cell"><input class="text-field ed-answer-input" data-ed-column="${escapeHtml(key)}" data-ed-slot="${index}" autocomplete="off" aria-label="${escapeHtml(column.label || key)} answer ${index + 1}"></div>`).join('');
+      return `<section class="ed-column" data-ed-column-wrap="${escapeHtml(key)}"><header><strong>${escapeHtml(column.label || key)}</strong>${column.cue ? `<span>${escapeHtml(column.cue)}</span>` : ''}</header>${example}${slots}</section>`;
+    }).join('')}</div>`;
+    return `${verbList}${table}`;
+  }
+
+  function renderPresentPastTable(block, blockId) {
+    const rows = Array.isArray(block.rows) ? block.rows : [];
+    return `<div class="present-past-table" data-present-past-table>
+      <div class="present-past-head"><span></span><strong>Present</strong><strong>Past</strong></div>
+      ${rows.map((row, index) => {
+        const id = safeText(row.id, `${index + 1}`);
+        const number = row.number === undefined ? id : row.number;
+        if (row.example) {
+          return `<div class="present-past-row is-example" data-present-past-row="${escapeHtml(id)}"><span class="present-past-number">${escapeHtml(number)}</span><span>${escapeHtml(row.present || '')}</span><span>${escapeHtml(row.past || '')}${row.past ? '<span class="continuous-example-label">EXAMPLE</span>' : ''}</span></div>`;
+        }
+        return `<div class="present-past-row" data-present-past-row="${escapeHtml(id)}"><span class="present-past-number">${escapeHtml(number)}</span><input class="text-field" data-present-past="present" autocomplete="off" aria-label="Sentence ${escapeHtml(number)} present verb"><input class="text-field" data-present-past="past" autocomplete="off" aria-label="Sentence ${escapeHtml(number)} past verb"></div>`;
+      }).join('')}
+    </div>`;
+  }
+
+  function checkContinuousGapsBlock(block, node) {
+    const actual = {};
+    let correctCount = 0;
+    let total = 0;
+    const gapDefs = (Array.isArray(block.paragraphs) ? block.paragraphs : []).flat().filter((part) => part && typeof part === 'object' && part.type === 'gap' && !part.example);
+    gapDefs.forEach((gap) => {
+      const id = safeText(gap.id);
+      const input = node.querySelector(`[data-continuous-gap="${CSS.escape(id)}"]`);
+      if (!input) return;
+      const value = input.value;
+      actual[id] = value;
+      const accepted = Array.isArray(gap.acceptedAnswers) && gap.acceptedAnswers.length ? gap.acceptedAnswers : [gap.answer];
+      const correct = accepted.some((answer) => normalizeAnswer(answer) !== '' && normalizeAnswer(answer) === normalizeAnswer(value));
+      total += 1;
+      if (correct) correctCount += 1;
+      input.classList.toggle('is-correct', correct);
+      input.classList.toggle('is-wrong', !correct);
+    });
+    return { actual, correctCount, total };
+  }
+
+  function checkEdPronunciationBlock(block, node) {
+    const actual = {};
+    let correctCount = 0;
+    let total = 0;
+    (Array.isArray(block.columns) ? block.columns : []).forEach((column) => {
+      const key = safeText(column.key);
+      const expected = new Set((Array.isArray(column.answers) ? column.answers : []).map((answer) => normalizeAnswer(answer)));
+      const used = new Set();
+      const inputs = [...node.querySelectorAll(`[data-ed-column="${CSS.escape(key)}"]`)];
+      const values = inputs.map((input) => input.value);
+      actual[key] = values;
+      inputs.forEach((input) => {
+        total += 1;
+        const normalized = normalizeAnswer(input.value);
+        const correct = normalized !== '' && expected.has(normalized) && !used.has(normalized);
+        if (correct) {
+          used.add(normalized);
+          correctCount += 1;
+        }
+        input.classList.toggle('is-correct', correct);
+        input.classList.toggle('is-wrong', !correct);
+      });
+    });
+    return { actual, correctCount, total };
+  }
+
+  function checkPresentPastTableBlock(block, node) {
+    const actual = {};
+    let correctCount = 0;
+    let total = 0;
+    (Array.isArray(block.rows) ? block.rows : []).forEach((row, index) => {
+      if (row.example) return;
+      const id = safeText(row.id, `${index + 1}`);
+      const rowNode = node.querySelector(`[data-present-past-row="${CSS.escape(id)}"]`);
+      if (!rowNode) return;
+      const present = rowNode.querySelector('[data-present-past="present"]')?.value || '';
+      const past = rowNode.querySelector('[data-present-past="past"]')?.value || '';
+      actual[id] = { present, past };
+      const expectedColumn = safeText(row.column);
+      const expectedVerb = normalizeAnswer(row.answer);
+      const expectedValue = expectedColumn === 'present' ? present : past;
+      const otherValue = expectedColumn === 'present' ? past : present;
+      const correct = normalizeAnswer(expectedValue) === expectedVerb && normalizeAnswer(otherValue) === '';
+      total += 1;
+      if (correct) correctCount += 1;
+      rowNode.classList.toggle('is-correct', correct);
+      rowNode.classList.toggle('is-wrong', !correct);
+    });
+    return { actual, correctCount, total };
+  }
+
+  function restoreContinuousGapsAnswers(block, node, saved) {
+    if (!saved || typeof saved !== 'object') return;
+    Object.entries(saved).forEach(([id, value]) => {
+      const input = node.querySelector(`[data-continuous-gap="${CSS.escape(id)}"]`);
+      if (input) input.value = safeText(value);
+    });
+  }
+
+  function restoreEdPronunciationAnswers(block, node, saved) {
+    if (!saved || typeof saved !== 'object') return;
+    Object.entries(saved).forEach(([key, values]) => {
+      const list = Array.isArray(values) ? values : [];
+      node.querySelectorAll(`[data-ed-column="${CSS.escape(key)}"]`).forEach((input, index) => { input.value = safeText(list[index]); });
+    });
+  }
+
+  function restorePresentPastTableAnswers(block, node, saved) {
+    if (!saved || typeof saved !== 'object') return;
+    Object.entries(saved).forEach(([id, value]) => {
+      const row = node.querySelector(`[data-present-past-row="${CSS.escape(id)}"]`);
+      if (!row) return;
+      const present = row.querySelector('[data-present-past="present"]');
+      const past = row.querySelector('[data-present-past="past"]');
+      if (present) present.value = safeText(value?.present);
+      if (past) past.value = safeText(value?.past);
+    });
+  }
+
   function updateCrosswordHiddenAnswer(workspace) {
     if (!workspace) return;
     const preview = workspace.querySelector('[data-crossword-hidden-preview]');
@@ -1057,9 +1206,10 @@
     const prompt = escapeHtml(item.prompt || '');
     const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
     const exampleLabel = item.example && item.exampleLabel ? safeText(item.exampleLabel) : '';
+    const baseNumberMarkup = number === '' || number === null ? '' : `<span class="exercise-number">${escapeHtml(number)}</span>`;
     const numberMarkup = exampleLabel
-      ? `<span class="exercise-example-label">${escapeHtml(exampleLabel)}</span>`
-      : (number === '' || number === null ? '' : `<span class="exercise-number">${escapeHtml(number)}</span>`);
+      ? `${item.showExampleNumber === true ? baseNumberMarkup : ''}<span class="exercise-example-label">${escapeHtml(exampleLabel)}</span>`
+      : baseNumberMarkup;
     const context = renderExerciseContext(item);
 
     if (item.displayOnly) {
@@ -1325,7 +1475,13 @@
         ? renderDialogueExercise(block, id)
         : block.layout === 'crossword'
           ? renderCrosswordExercise(block, id)
-          : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
+          : block.layout === 'continuous-gaps'
+            ? renderContinuousGapsExercise(block, id)
+            : block.layout === 'ed-pronunciation'
+              ? renderEdPronunciationExercise(block, id)
+              : block.layout === 'present-past-table'
+                ? renderPresentPastTable(block, id)
+                : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
       const hasStickyImage = block.stickyImage === true && imageEntries.length === 1;
       const exerciseBody = hasStickyImage
         ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`
@@ -1438,6 +1594,9 @@
   }
 
   function checkExerciseBlock(block, node, options = {}) {
+    if (block.layout === 'continuous-gaps') return checkContinuousGapsBlock(block, node);
+    if (block.layout === 'ed-pronunciation') return checkEdPronunciationBlock(block, node);
+    if (block.layout === 'present-past-table') return checkPresentPastTableBlock(block, node);
     const actual = {};
     let correctCount = 0;
     let total = 0;
@@ -1507,6 +1666,9 @@
 
   function restoreExerciseAnswers(block, node, saved) {
     if (!saved || typeof saved !== 'object') return;
+    if (block.layout === 'continuous-gaps') { restoreContinuousGapsAnswers(block, node, saved); return; }
+    if (block.layout === 'ed-pronunciation') { restoreEdPronunciationAnswers(block, node, saved); return; }
+    if (block.layout === 'present-past-table') { restorePresentPastTableAnswers(block, node, saved); return; }
     (Array.isArray(block.items) ? block.items : []).forEach((item, index) => {
       if (item.example || item.displayOnly) return;
       const itemId = safeText(item.id, `${index + 1}`);

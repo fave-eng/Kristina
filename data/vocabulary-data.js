@@ -1,8 +1,3 @@
-/**
- * Kristina’s vocabulary topics.
- * Add each new topic as a separate object in VOCABULARY_DATA.
- * Duplicate English words and phrases are removed automatically by the site engine.
- */
 window.VOCABULARY_DATA = [
   {
     "id": "vocab-lesson-1",
@@ -1397,6 +1392,81 @@ window.VOCABULARY_DATA = [
         "transcription": "/ˈhaɪpəmɑːkɪt/",
         "exampleEn": "They built a new hypermarket near our house.",
         "exampleRu": "Рядом с нашим домом построили новый гипермаркет."
+      }
+    ]
+  },
+  {
+    "id": "vocab-lesson-10",
+    "title": "Family memories",
+    "label": "Lesson 10 · Grow up!",
+    "icon": "👵",
+    "type": "lesson",
+    "linkedLessonId": "lesson-10",
+    "page": "vocabulary.html?id=vocab-lesson-10",
+    "words": [
+      {
+        "id": "lesson-10-granny",
+        "en": "granny",
+        "ru": "бабушка (разговорное)",
+        "transcription": "/ˈɡræni/",
+        "exampleEn": "Her granny used to tell wonderful stories.",
+        "exampleRu": "Её бабушка раньше рассказывала замечательные истории."
+      },
+      {
+        "id": "lesson-10-little-finger",
+        "en": "little finger",
+        "ru": "мизинец",
+        "transcription": "/ˌlɪtl ˈfɪŋɡə/",
+        "exampleEn": "He hurt his little finger while cooking.",
+        "exampleRu": "Он повредил мизинец во время готовки."
+      },
+      {
+        "id": "lesson-10-catch-your-finger-in-the-door",
+        "en": "catch your finger in the door",
+        "ru": "защемить палец дверью",
+        "transcription": "/ˌkætʃ jə ˈfɪŋɡər ɪn ðə ˈdɔː/",
+        "exampleEn": "Be careful not to catch your finger in the door.",
+        "exampleRu": "Будь осторожен, не защеми палец дверью."
+      },
+      {
+        "id": "lesson-10-pull-off",
+        "en": "pull off",
+        "ru": "оторвать; сорвать",
+        "transcription": "/ˌpʊl ˈɒf/",
+        "exampleEn": "The label was difficult to pull off.",
+        "exampleRu": "Этикетку было трудно оторвать."
+      },
+      {
+        "id": "lesson-10-nail",
+        "en": "nail",
+        "ru": "ноготь",
+        "transcription": "/neɪl/",
+        "exampleEn": "Her nail grew back slowly.",
+        "exampleRu": "Её ноготь медленно отрос."
+      },
+      {
+        "id": "lesson-10-upset",
+        "en": "upset",
+        "ru": "расстроенный",
+        "transcription": "/ʌpˈset/",
+        "exampleEn": "She was upset after the accident.",
+        "exampleRu": "Она была расстроена после происшествия."
+      },
+      {
+        "id": "lesson-10-patiently",
+        "en": "patiently",
+        "ru": "терпеливо",
+        "transcription": "/ˈpeɪʃəntli/",
+        "exampleEn": "He patiently explained what had happened.",
+        "exampleRu": "Он терпеливо объяснил, что произошло."
+      },
+      {
+        "id": "lesson-10-progress",
+        "en": "progress",
+        "ru": "развиваться; продвигаться",
+        "transcription": "/prəˈɡres/",
+        "exampleEn": "The project is progressing well.",
+        "exampleRu": "Проект хорошо продвигается."
       }
     ]
   }
