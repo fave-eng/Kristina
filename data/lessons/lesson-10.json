@@ -303,6 +303,13 @@
     },
     {
       "type": "exercise",
+      "id": "pronunciation-3b",
+      "title": "b 3.1 Listen and check. Then listen again and repeat the past simple forms.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.1.mp3",
+      "items": []
+    },
+    {
+      "type": "exercise",
       "id": "pronunciation-3c",
       "title": "c 3.2 Listen to six sentences. Write the verbs in the correct column. Use the context to help you.",
       "layout": "present-past-table",
