@@ -1,6 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 
-const FUNCTION_VERSION = 'homework-reports-v7-topic-39-english-motivation-diagnostics-auth-fix'
+const FUNCTION_VERSION = 'homework-reports-v8-topic-39-diagnostics-key-validation'
 const DIAGNOSTIC_VERSION = 'kristina-diagnostics-v1'
 const DIAGNOSTIC_COOLDOWN_MS = 30_000
 const STUDENT_ID = 'kristina'
@@ -62,7 +62,7 @@ function requestApiKey(request: Request): string {
   return match ? match[1].trim() : ''
 }
 
-function publicClientAuthorized(request: Request): boolean {
+async function publicClientAuthorized(request: Request): Promise<boolean> {
   const apiKey = requestApiKey(request)
   if (!apiKey) return false
 
@@ -75,7 +75,26 @@ function publicClientAuthorized(request: Request): boolean {
     ...parseKeyDictionary(Deno.env.get('SUPABASE_PUBLISHABLE_KEYS')),
   ].map((key) => key.trim()).filter(Boolean)
 
-  return allowedKeys.some((key) => secureEqual(apiKey, key))
+  if (allowedKeys.some((key) => secureEqual(apiKey, key))) return true
+
+  // Some hosted projects do not expose their public key to the Edge Runtime
+  // through SUPABASE_ANON_KEY / SUPABASE_PUBLISHABLE_KEYS. In that case,
+  // validate the supplied key against this project's own Auth gateway. A key
+  // issued by another Supabase project is rejected by that gateway.
+  const supabaseUrl = (Deno.env.get('SUPABASE_URL') || '').replace(/\/+$/, '')
+  if (!supabaseUrl) return false
+
+  try {
+    const response = await fetch(`${supabaseUrl}/auth/v1/settings`, {
+      method: 'GET',
+      headers: { apikey: apiKey },
+      signal: AbortSignal.timeout(5_000),
+    })
+    await response.body?.cancel().catch(() => undefined)
+    return response.ok
+  } catch {
+    return false
+  }
 }
 
 function normalizeStudentId(value: unknown): string | null {
@@ -110,7 +129,7 @@ async function handleDiagnostics(
   admin: ReturnType<typeof createClient>,
   botToken: string,
 ) {
-  if (!publicClientAuthorized(request)) {
+  if (!await publicClientAuthorized(request)) {
     return json({ ok: false, error: 'Unauthorized diagnostics request', diagnosticVersion: DIAGNOSTIC_VERSION }, 401)
   }
 
@@ -691,4 +710,3 @@ Deno.serve(async (request: Request) => {
   if (action === 'material_published') return handleMaterialPublished(payload, request, admin, botToken)
   return json({ ok: false, error: 'Неизвестное действие' }, 400)
 })
-
