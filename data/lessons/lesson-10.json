@@ -1,0 +1,479 @@
+{
+  "id": "lesson-10",
+  "number": 10,
+  "title": "Grow up!",
+  "subtitle": "Grammar: past simple, past continuous, or used to? · Pronunciation: -ed endings, sentence rhythm",
+  "status": "available",
+  "publishedAt": "2026-08-27",
+  "totalPoints": 36,
+  "vocabularyId": "vocab-lesson-10",
+  "grammarIds": [
+    "grammar-past-simple-continuous-used-to"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "",
+      "title": "GRAMMAR past simple, past continuous, or used to?",
+      "sectionNumber": 2,
+      "titleLead": "GRAMMAR",
+      "titleTail": "past simple, past continuous, or used to?"
+    },
+    {
+      "type": "exercise",
+      "id": "grammar-2c",
+      "title": "c Complete the text with the correct form of the verbs in brackets. Use the past simple, past continuous, or used to. More than one answer may be possible.",
+      "layout": "continuous-gaps",
+      "hideAnswersOnError": true,
+      "paragraphs": [
+        [
+          "I only ever ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "met",
+            "verb": "meet"
+          },
+          " one of my grandparents and that was my dad’s mother. We ",
+          {
+            "type": "gap",
+            "id": "2",
+            "acceptedAnswers": [
+              "used to see",
+              "saw"
+            ],
+            "verb": "see",
+            "width": "medium"
+          },
+          " her every Sunday afternoon when I was little. One day, my granny ",
+          {
+            "type": "gap",
+            "id": "3",
+            "acceptedAnswers": [
+              "was looking after"
+            ],
+            "verb": "look after",
+            "width": "wide"
+          },
+          " me while my parents ",
+          {
+            "type": "gap",
+            "id": "4",
+            "acceptedAnswers": [
+              "were visiting"
+            ],
+            "verb": "visit",
+            "width": "medium"
+          },
+          " a friend in hospital."
+        ],
+        [
+          "In the morning, I ",
+          {
+            "type": "gap",
+            "id": "5",
+            "acceptedAnswers": [
+              "played"
+            ],
+            "verb": "play"
+          },
+          " in the garden, while my granny ",
+          {
+            "type": "gap",
+            "id": "6",
+            "acceptedAnswers": [
+              "was cooking"
+            ],
+            "verb": "cook",
+            "width": "medium"
+          },
+          " lunch. She ",
+          {
+            "type": "gap",
+            "id": "7",
+            "acceptedAnswers": [
+              "called"
+            ],
+            "verb": "call"
+          },
+          " me when the meal was ready. Unfortunately, as I ",
+          {
+            "type": "gap",
+            "id": "8",
+            "acceptedAnswers": [
+              "was running"
+            ],
+            "verb": "run",
+            "width": "medium"
+          },
+          " into the kitchen I ",
+          {
+            "type": "gap",
+            "id": "9",
+            "acceptedAnswers": [
+              "caught"
+            ],
+            "verb": "catch"
+          },
+          " my little finger in the door and pulled off the nail. It ",
+          {
+            "type": "gap",
+            "id": "10",
+            "acceptedAnswers": [
+              "hurt"
+            ],
+            "verb": "hurt"
+          },
+          " a lot, but I was more upset because I ",
+          {
+            "type": "gap",
+            "id": "11",
+            "acceptedAnswers": [
+              "didn’t think",
+              "didn't think",
+              "did not think"
+            ],
+            "verb": "not think",
+            "width": "medium"
+          },
+          " the nail would grow again. However, my granny patiently ",
+          {
+            "type": "gap",
+            "id": "12",
+            "acceptedAnswers": [
+              "explained"
+            ],
+            "verb": "explain"
+          },
+          " that I would soon have a new fingernail. After that, I ",
+          {
+            "type": "gap",
+            "id": "13",
+            "acceptedAnswers": [
+              "used to look forward to",
+              "looked forward to"
+            ],
+            "verb": "look forward to",
+            "width": "wide"
+          },
+          " seeing her every Sunday, so that I ",
+          {
+            "type": "gap",
+            "id": "14",
+            "acceptedAnswers": [
+              "could"
+            ],
+            "verb": "can"
+          },
+          " show her how my nail ",
+          {
+            "type": "gap",
+            "id": "15",
+            "acceptedAnswers": [
+              "was progressing"
+            ],
+            "verb": "progress",
+            "width": "medium"
+          },
+          "."
+        ]
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "grammar-2d",
+      "title": "d Write true sentences about you at different stages of your life.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleTextOnly": true,
+          "prompt": "When I was a baby, I used to cry a lot.",
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "",
+      "title": "PRONUNCIATION -ed endings, sentence rhythm",
+      "sectionNumber": 3,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "-ed endings, sentence rhythm"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-3a",
+      "title": "a Write the past simple forms of these regular verbs in the chart according to the pronunciation of the -ed ending.",
+      "layout": "ed-pronunciation",
+      "hideAnswersOnError": true,
+      "verbs": [
+        "ask",
+        "change",
+        "decide",
+        "end",
+        "hate",
+        "hope",
+        "live",
+        "miss",
+        "play",
+        "start",
+        "study",
+        "travel",
+        "want",
+        "wash",
+        "watch"
+      ],
+      "columns": [
+        {
+          "key": "t",
+          "label": "/t/",
+          "example": "asked",
+          "answers": [
+            "hoped",
+            "missed",
+            "washed",
+            "watched"
+          ],
+          "cue": "👔 tie"
+        },
+        {
+          "key": "d",
+          "label": "/d/",
+          "answers": [
+            "changed",
+            "lived",
+            "played",
+            "studied",
+            "travelled"
+          ],
+          "cue": "🐶 dog"
+        },
+        {
+          "key": "id",
+          "label": "/ɪd/",
+          "answers": [
+            "decided",
+            "ended",
+            "hated",
+            "started",
+            "wanted"
+          ],
+          "cue": "👶 baby"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-3b",
+      "title": "b 3.1 Listen and check. Then listen again and repeat the past simple forms.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.1.mp3",
+      "items": []
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-3c",
+      "title": "c 3.2 Listen to six sentences. Write the verbs in the correct column. Use the context to help you.",
+      "layout": "present-past-table",
+      "hideAnswersOnError": true,
+      "rows": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "present": "",
+          "past": "walked"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "column": "present",
+          "answer": "watch"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "column": "past",
+          "answer": "played"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "column": "past",
+          "answer": "cooked"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "column": "present",
+          "answer": "practise"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "column": "present",
+          "answer": "love"
+        }
+      ],
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.2.mp3"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-3d",
+      "title": "d 3.3 Listen and complete the sentences.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "gaps",
+          "segments": [
+            "",
+            " did you ",
+            " when you were a ",
+            "?"
+          ],
+          "exampleAnswers": [
+            "Where",
+            "play",
+            "child"
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " in the ",
+            " near my ",
+            "."
+          ],
+          "answers": [
+            [
+              "played"
+            ],
+            [
+              "park"
+            ],
+            [
+              "house"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "inputSize": "wide",
+          "segments": [
+            "I ",
+            " to ",
+            " when I was at ",
+            "."
+          ],
+          "answers": [
+            [
+              "used"
+            ],
+            [
+              "love watching cartoons"
+            ],
+            [
+              "home"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "This ",
+            " when I was ",
+            ". I was with my ",
+            ", and we were ",
+            " on the ",
+            "."
+          ],
+          "answers": [
+            [
+              "happened"
+            ],
+            [
+              "six"
+            ],
+            [
+              "family"
+            ],
+            [
+              "walking"
+            ],
+            [
+              "beach"
+            ]
+          ]
+        }
+      ],
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.3.mp3"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-3e",
+      "title": "e 3.3 Listen again and repeat the sentences. Copy the rhythm.",
+      "items": [
+        {
+          "id": "done",
+          "number": null,
+          "input": "multiple",
+          "options": [
+            "I listened again and repeated the sentences."
+          ],
+          "scored": false
+        }
+      ]
+    }
+  ]
+}

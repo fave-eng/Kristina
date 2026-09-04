@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Grandmother and granddaughter</title>
+  <desc id="desc">A clean digital illustration of an elderly grandmother sitting closely with her young granddaughter in a bright home.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7f5ef"/>
+      <stop offset="1" stop-color="#e9eef5"/>
+    </linearGradient>
+    <linearGradient id="sofa" x1="0" x2="1">
+      <stop offset="0" stop-color="#cfd7e2"/>
+      <stop offset="1" stop-color="#b8c5d6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#6b7280" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="960" height="720" rx="34" fill="url(#bg)"/>
+  <g opacity=".7">
+    <rect x="72" y="74" width="250" height="280" rx="16" fill="#dfe6ee"/>
+    <rect x="92" y="96" width="210" height="28" rx="6" fill="#c2ccd9"/>
+    <rect x="92" y="144" width="210" height="10" rx="5" fill="#c8d1dd"/>
+    <rect x="92" y="204" width="210" height="10" rx="5" fill="#c8d1dd"/>
+    <rect x="92" y="264" width="210" height="10" rx="5" fill="#c8d1dd"/>
+    <rect x="112" y="165" width="32" height="39" rx="4" fill="#9fb0c4"/>
+    <rect x="154" y="158" width="26" height="46" rx="4" fill="#b4bfcd"/>
+    <rect x="191" y="171" width="44" height="33" rx="4" fill="#a9b6c5"/>
+    <rect x="248" y="151" width="28" height="53" rx="4" fill="#c0c8d2"/>
+  </g>
+  <ellipse cx="522" cy="622" rx="340" ry="52" fill="#d8dee7" opacity=".6"/>
+  <g filter="url(#shadow)">
+    <rect x="210" y="440" width="590" height="190" rx="62" fill="url(#sofa)"/>
+    <rect x="248" y="390" width="224" height="118" rx="38" fill="#dbe2eb"/>
+    <rect x="520" y="390" width="224" height="118" rx="38" fill="#dbe2eb"/>
+  </g>
+  <!-- grandmother -->
+  <g transform="translate(280 154)">
+    <ellipse cx="174" cy="120" rx="83" ry="95" fill="#f0c7ac"/>
+    <path d="M94 109c6-71 40-108 88-108 58 0 97 46 90 116-18-22-31-36-57-46-47 22-72 25-121 38z" fill="#d6d8dc"/>
+    <path d="M100 86c20-32 43-47 79-50 40-2 73 17 91 50-16-62-56-88-99-85-42 3-71 28-81 71z" fill="#c7cbd1"/>
+    <path d="M151 115c8 6 18 6 27 0" stroke="#916b5d" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <circle cx="142" cy="96" r="5" fill="#3f4855"/><circle cx="203" cy="96" r="5" fill="#3f4855"/>
+    <path d="M147 142c16 13 37 13 53 0" stroke="#9a5f61" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M78 270c18-83 58-122 111-122 54 0 100 37 118 122l31 173H36z" fill="#f4f5f7"/>
+    <path d="M82 255c-8 53-15 108-18 164" stroke="#c8ced8" stroke-width="5" fill="none"/>
+    <path d="M267 255c12 50 22 103 27 163" stroke="#c8ced8" stroke-width="5" fill="none"/>
+    <path d="M190 160c5 52 4 107 0 169" stroke="#d5d9e0" stroke-width="4"/>
+    <ellipse cx="306" cy="350" rx="36" ry="22" transform="rotate(20 306 350)" fill="#f0c7ac"/>
+  </g>
+  <!-- granddaughter -->
+  <g transform="translate(520 225)">
+    <ellipse cx="138" cy="96" rx="70" ry="80" fill="#f2c7a9"/>
+    <path d="M68 89c1-55 27-88 68-91 46-4 78 30 77 91-17-19-33-32-58-39-31 22-53 29-87 39z" fill="#5a463d"/>
+    <path d="M72 82c15-35 36-51 68-54 35-2 59 14 76 45-5-52-38-78-79-74-42 4-65 34-65 83z" fill="#49372f"/>
+    <circle cx="113" cy="89" r="5" fill="#3f4855"/><circle cx="164" cy="89" r="5" fill="#3f4855"/>
+    <path d="M112 126c16 17 40 18 57 0" stroke="#a85f62" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M44 235c11-70 44-104 94-104 51 0 90 33 102 104l34 176H12z" fill="#d7e4ee"/>
+    <path d="M73 172c39 18 84 18 126 0" stroke="#b8cbd9" stroke-width="6" fill="none"/>
+    <path d="M102 150l36 44 37-44" stroke="#f0f4f7" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <ellipse cx="-1" cy="319" rx="31" ry="20" transform="rotate(-20 -1 319)" fill="#f2c7a9"/>
+  </g>
+  <!-- affectionate arms -->
+  <path d="M498 405c52-22 95-29 145-13" stroke="#f0c7ac" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <path d="M700 480c-55 9-99 7-145-8" stroke="#f2c7a9" stroke-width="25" stroke-linecap="round" fill="none"/>
+  <circle cx="651" cy="394" r="16" fill="#f0c7ac"/>
+  <circle cx="554" cy="471" r="15" fill="#f2c7a9"/>
+</svg>

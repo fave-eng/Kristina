@@ -703,6 +703,22 @@ body[data-view="lesson"] #lesson-root {
   font-weight: 900;
 }
 
+.exercise-example-label {
+  min-width: 78px;
+  height: 31px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: 0 10px;
+  border-radius: 10px;
+  background: #eef2ff;
+  color: var(--indigo);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
 .exercise-prompt {
   display: block;
   max-width: 680px;
@@ -823,6 +839,43 @@ body[data-view="lesson"] #lesson-root {
   color: var(--dark);
 }
 
+.exercise-example-prompt {
+  max-width: none;
+}
+
+.example-choice-selected {
+  display: inline-block;
+  margin: -2px 1px;
+  padding: 1px 7px 2px;
+  border: 2px solid var(--indigo);
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #312e81;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.example-sentence-gaps {
+  line-height: 2.1;
+}
+
+.example-gap-answer {
+  display: inline-block;
+  padding: 0 4px 1px;
+  border-bottom: 2px solid var(--indigo);
+  color: #312e81;
+  font-weight: 900;
+  line-height: 1.55;
+}
+
+.exercise-example-copy {
+  color: var(--dark);
+  font-size: .98rem;
+  font-weight: 700;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
 .sentence-gaps {
   display: flex;
   flex-wrap: wrap;
@@ -846,6 +899,23 @@ body[data-view="lesson"] #lesson-root {
 .gap-input:focus {
   border-bottom-color: var(--indigo);
   background: #eef2ff;
+  outline: none;
+}
+
+.sentence-select-gap select {
+  width: clamp(145px, 28vw, 230px);
+  min-height: 43px;
+  flex: 0 1 auto;
+  padding: 7px 34px 7px 10px;
+  border: 0;
+  border-bottom: 2px solid #94a3b8;
+  border-radius: 8px 8px 2px 2px;
+  background-color: #f8fafc;
+}
+
+.sentence-select-gap select:focus {
+  border-bottom-color: var(--indigo);
+  background-color: #eef2ff;
   outline: none;
 }
 
@@ -2060,6 +2130,10 @@ label.odd-option {
   margin-top: 0;
 }
 
+.exercise-item-inline-row.is-example-labeled {
+  grid-template-columns: 78px minmax(0, 1fr);
+}
+
 /* A long image-based exercise keeps its source picture visible only while that exercise is in view. */
 .exercise-card.has-sticky-image {
   overflow: visible;
@@ -2123,6 +2197,16 @@ label.odd-option {
   .exercise-item-inline-row {
     grid-template-columns: 28px minmax(0, 1fr);
     gap: 9px;
+  }
+
+  .exercise-item-inline-row.is-example-labeled {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .exercise-example-label {
+    min-width: 72px;
+    padding: 0 8px;
+    font-size: .62rem;
   }
 }
 
@@ -2455,4 +2539,340 @@ label.odd-option {
     grid-template-columns: 22px minmax(0, 1fr);
     padding-inline: 4px;
   }
+}
+
+/* Homework 10: continuous grammar text + pronunciation tables */
+.continuous-gaps {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255,255,255,.76);
+}
+
+.continuous-gaps-paragraph {
+  margin: 0;
+  color: var(--dark);
+  font-size: 1rem;
+  line-height: 2.15;
+}
+
+.continuous-gap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  white-space: nowrap;
+  margin-inline: 3px;
+}
+
+.continuous-gap sup {
+  color: var(--indigo);
+  font-size: .68rem;
+  font-weight: 900;
+  top: -.45em;
+}
+
+.continuous-gap-input {
+  width: 126px;
+  min-width: 96px;
+  padding: 5px 7px 4px;
+  border: 0;
+  border-bottom: 2px solid #9aa9bd;
+  border-radius: 8px 8px 2px 2px;
+  background: #f8fafc;
+  color: var(--dark);
+  font: inherit;
+  font-weight: 700;
+  outline: none;
+}
+
+.continuous-gap.is-medium .continuous-gap-input { width: 170px; }
+.continuous-gap.is-wide .continuous-gap-input { width: 225px; }
+
+.continuous-gap-input:focus {
+  border-bottom-color: var(--indigo);
+  box-shadow: 0 0 0 3px rgba(79,70,229,.10);
+}
+
+.continuous-gap-input.is-correct {
+  border-bottom-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.continuous-gap-input.is-wrong {
+  border-bottom-color: #fb7185;
+  background: #fff7f7;
+}
+
+.continuous-verb-hint {
+  color: var(--muted);
+  font-size: .9em;
+}
+
+.continuous-gap-example {
+  padding: 2px 7px;
+  border-radius: 9px;
+  background: #eef2ff;
+}
+
+.continuous-example-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: var(--indigo);
+  font-size: .66rem;
+  font-weight: 900;
+  letter-spacing: .06em;
+  vertical-align: middle;
+}
+
+.continuous-example-answer {
+  color: var(--dark);
+  font-weight: 900;
+  border-bottom: 2px solid #9aa9bd;
+}
+
+.ed-verb-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0 0 18px;
+  padding: 15px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.ed-verb-list span {
+  font-weight: 700;
+}
+
+.ed-pronunciation-table {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ed-column {
+  min-width: 0;
+  padding-bottom: 12px;
+}
+
+.ed-column + .ed-column { border-left: 1px solid var(--border); }
+
+.ed-column > header {
+  display: grid;
+  gap: 3px;
+  place-items: center;
+  min-height: 72px;
+  padding: 12px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+}
+
+.ed-column > header strong {
+  color: var(--dark);
+  font-size: 1.35rem;
+}
+
+.ed-column > header span {
+  color: var(--muted);
+  font-size: .84rem;
+}
+
+.ed-example-cell,
+.ed-answer-cell {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.ed-example-cell strong { font-size: 1rem; }
+
+.ed-answer-input {
+  width: 100%;
+  min-width: 0;
+  padding-block: 9px;
+  text-align: center;
+}
+
+.ed-answer-input.is-correct {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.ed-answer-input.is-wrong {
+  border-color: #fb7185;
+  background: #fff7f7;
+}
+
+.present-past-table {
+  display: grid;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.present-past-head,
+.present-past-row {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+}
+
+.present-past-head {
+  min-height: 46px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+}
+
+.present-past-head strong {
+  padding: 10px 14px;
+  text-align: center;
+}
+
+.present-past-head strong + strong { border-left: 1px solid var(--border); }
+
+.present-past-row {
+  min-height: 64px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.present-past-row:last-child { border-bottom: 0; }
+
+.present-past-number {
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  color: var(--indigo);
+  font-weight: 900;
+  background: #f8fafc;
+  border-right: 1px solid var(--border);
+}
+
+.present-past-row > span:not(.present-past-number),
+.present-past-row > input {
+  margin: 9px 12px;
+}
+
+.present-past-row > *:nth-child(3) { border-left-color: var(--border); }
+
+.present-past-row.is-example > span:not(.present-past-number) {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 800;
+}
+
+.present-past-row.is-correct input {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.present-past-row.is-wrong input {
+  border-color: #fb7185;
+  background: #fff7f7;
+}
+
+@media (max-width: 760px) {
+  .continuous-gaps { padding: 15px; }
+  .continuous-gaps-paragraph { line-height: 2.35; }
+  .continuous-gap { white-space: normal; }
+  .continuous-gap-input { width: min(42vw, 150px); }
+  .continuous-gap.is-medium .continuous-gap-input,
+  .continuous-gap.is-wide .continuous-gap-input { width: min(58vw, 220px); }
+
+  .ed-pronunciation-table {
+    grid-template-columns: 1fr;
+  }
+  .ed-column + .ed-column {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .present-past-head,
+  .present-past-row {
+    grid-template-columns: 38px minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .present-past-row > span:not(.present-past-number),
+  .present-past-row > input {
+    margin: 7px;
+  }
+}
+
+
+/* Keep original example numbering when the workbook numbers the model answer. */
+.exercise-item-inline-row.is-example-labeled:has(.exercise-number + .exercise-example-label) {
+  grid-template-columns: 42px 78px minmax(0, 1fr);
+}
+
+.exercise-item-inline-row.is-example-labeled:has(.exercise-number + .exercise-example-label) .exercise-item-inline-content {
+  grid-column: 3;
+}
+
+@media (max-width: 760px) {
+  .exercise-item-inline-row.is-example-labeled:has(.exercise-number + .exercise-example-label) {
+    grid-template-columns: 34px 72px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .exercise-item-inline-row.is-example-labeled:has(.exercise-number + .exercise-example-label) {
+    grid-template-columns: 30px 1fr;
+  }
+  .exercise-item-inline-row.is-example-labeled:has(.exercise-number + .exercise-example-label) .exercise-example-label {
+    grid-column: 2;
+  }
+  .exercise-item-inline-row.is-example-labeled:has(.exercise-number + .exercise-example-label) .exercise-item-inline-content {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* Homework 11: examples mirror the control the student will actually use. */
+.continuous-example-input {
+  display: inline-block;
+  min-width: 120px;
+  margin-inline: 4px;
+  padding: 2px 8px 3px;
+  border-bottom: 2px solid var(--indigo);
+  border-radius: 7px 7px 2px 2px;
+  background: #fff;
+  color: #312e81;
+  font-weight: 900;
+  text-align: center;
+}
+
+.example-select-gap select:disabled,
+.example-text-field:disabled {
+  opacity: 1;
+  -webkit-text-fill-color: #312e81;
+  color: #312e81;
+  font-weight: 900;
+  cursor: default;
+}
+
+.example-select-gap select:disabled {
+  border-bottom-color: var(--indigo);
+  background-color: #eef2ff;
+}
+
+.example-text-field:disabled {
+  width: min(100%, 680px);
+  border-color: #c7d2fe;
+  background: #eef2ff;
 }

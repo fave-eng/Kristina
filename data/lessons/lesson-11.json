@@ -1,0 +1,531 @@
+{
+  "id": "lesson-11",
+  "number": 11,
+  "title": "Photo albums",
+  "subtitle": "Grammar: prepositions · Vocabulary: photography",
+  "status": "available",
+  "publishedAt": "2026-08-28",
+  "totalPoints": 22,
+  "vocabularyId": "vocab-lesson-11",
+  "grammarIds": [
+    "grammar-prepositions-place"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "",
+      "title": "VOCABULARY photography",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "photography"
+    },
+    {
+      "type": "exercise",
+      "id": "photography-1a",
+      "title": "a Complete the description of the photo.",
+      "layout": "continuous-gaps",
+      "hideAnswersOnError": true,
+      "image": "images/lesson-11/photography-garden-scan-enhanced.png",
+      "imageAlt": "Enhanced scan of the original garden photo with a woman in the foreground and a man in the distance.",
+      "stickyImage": true,
+      "paragraphs": [
+        [
+          "This photo was taken in a garden. In the ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "foreground"
+          },
+          ", there’s a woman and the trunk of a tree that has been cut down. The trunk is in the ",
+          {
+            "type": "gap",
+            "id": "2",
+            "answer": "bottom",
+            "placeholder": "b______"
+          },
+          " right-hand corner of the photo, and the woman is standing ",
+          {
+            "type": "gap",
+            "id": "3",
+            "answer": "behind",
+            "placeholder": "b______"
+          },
+          " it. She’s leaning on the tree trunk with her left hand on ",
+          {
+            "type": "gap",
+            "id": "4",
+            "answer": "top",
+            "placeholder": "t______"
+          },
+          " of it. She’s holding out her other hand. In the ",
+          {
+            "type": "gap",
+            "id": "5",
+            "answer": "centre",
+            "placeholder": "c______"
+          },
+          " of the photo is an older man. He looks much smaller than the woman because he’s in the ",
+          {
+            "type": "gap",
+            "id": "6",
+            "answer": "distance",
+            "placeholder": "d______"
+          },
+          ". It looks as if he’s standing on the woman’s hand. There’s a bush in ",
+          {
+            "type": "gap",
+            "id": "7",
+            "answer": "front",
+            "placeholder": "fr______"
+          },
+          " of the man, and ",
+          {
+            "type": "gap",
+            "id": "8",
+            "answer": "opposite",
+            "placeholder": "o______"
+          },
+          " the woman there’s a wall with a lot of flowers planted in it. In the ",
+          {
+            "type": "gap",
+            "id": "9",
+            "answer": "background",
+            "placeholder": "b______"
+          },
+          ", there are a lot of trees and in the top left-hand ",
+          {
+            "type": "gap",
+            "id": "10",
+            "answer": "corner",
+            "placeholder": "c______"
+          },
+          ", there’s a large white house."
+        ]
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "photography-1b",
+      "title": "b Complete the sentences with a word from the list.",
+      "wordBank": [
+        "close-up",
+        "edit",
+        "flash",
+        "landscape",
+        "lenses",
+        "out of focus",
+        "overexposed",
+        "portrait setting",
+        "settings",
+        "zoomed in"
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "My camera is automatic, so I don’t have to change the ",
+            "."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 8,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "The photo’s too dark because I forgot to use the ",
+            "."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "I wanted to get a nice photo of my boyfriend, so I used the ",
+            "."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 7
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "I sometimes ",
+            " my photos before I share them on social media."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "I ",
+            " because the people were far away."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 9
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "A professional photographer uses different ",
+            " for scenic shots and close-ups."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 4
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "You can’t see the people clearly because the photo’s very ",
+            "."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 5
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "select",
+          "segments": [
+            "It can be difficult to get all of a ",
+            " in a photo without using a wide-angle lens."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "select",
+          "segments": [
+            "She was standing in direct sunlight, so the photo is ",
+            "."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 6
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "select",
+          "segments": [
+            "This photo is a ",
+            ", so you can see all the details."
+          ],
+          "options": [
+            "close-up",
+            "edit",
+            "flash",
+            "landscape",
+            "lenses",
+            "out of focus",
+            "overexposed",
+            "portrait setting",
+            "settings",
+            "zoomed in"
+          ],
+          "answer": 0
+        }
+      ],
+      "wordBankLabel": ""
+    },
+    {
+      "type": "exercise",
+      "id": "photography-1c",
+      "title": "c Look at some recent photos on your phone. Use the words in b to describe six of them.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "example",
+          "number": null,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "text",
+          "exampleAnswer": "There’s a close-up of my sister."
+        },
+        {
+          "id": "1",
+          "number": 1,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "scored": false
+        }
+      ],
+      "wordBank": [
+        "close-up",
+        "edit",
+        "flash",
+        "landscape",
+        "lenses",
+        "out of focus",
+        "overexposed",
+        "portrait setting",
+        "settings",
+        "zoomed in"
+      ],
+      "wordBankLabel": "",
+      "instructions": "Optional: attach one of the photos you are describing when you submit your homework."
+    },
+    {
+      "type": "exercise",
+      "id": "vocabulary-from-reading",
+      "title": "VOCABULARY FROM READING",
+      "wordBank": [
+        "back up",
+        "cancel",
+        "go offline",
+        "store",
+        "upload"
+      ],
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "I’m going to ",
+            " my holiday photos because I don’t want to lose them."
+          ],
+          "options": [
+            "back up",
+            "cancel",
+            "go offline",
+            "store",
+            "upload"
+          ],
+          "answer": 0,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "If you want to stop using social media, you have to ",
+            " your accounts."
+          ],
+          "options": [
+            "back up",
+            "cancel",
+            "go offline",
+            "store",
+            "upload"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "I ",
+            " all my photos in separate albums on my laptop."
+          ],
+          "options": [
+            "back up",
+            "cancel",
+            "go offline",
+            "store",
+            "upload"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "My husband has asked me not to ",
+            " any photos of him to social media."
+          ],
+          "options": [
+            "back up",
+            "cancel",
+            "go offline",
+            "store",
+            "upload"
+          ],
+          "answer": 4
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "I want to watch a live concert on TV tonight, so I hope the streaming service doesn’t ",
+            "."
+          ],
+          "options": [
+            "back up",
+            "cancel",
+            "go offline",
+            "store",
+            "upload"
+          ],
+          "answer": 2
+        }
+      ],
+      "instructions": "Complete the sentences with a word from the list.",
+      "eyebrow": "",
+      "wordBankLabel": ""
+    }
+  ]
+}

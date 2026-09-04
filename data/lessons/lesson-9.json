@@ -1,0 +1,718 @@
+{
+  "id": "lesson-9",
+  "number": 9,
+  "title": "Grow up!",
+  "subtitle": "Vocabulary: stages of life · Grammar: past simple, past continuous, or used to?",
+  "status": "available",
+  "publishedAt": "2026-08-27",
+  "totalPoints": 34,
+  "vocabularyId": "vocab-lesson-9",
+  "grammarIds": [
+    "grammar-past-simple-continuous-used-to"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "1",
+      "title": "VOCABULARY",
+      "text": "stages of life"
+    },
+    {
+      "type": "exercise",
+      "id": "stages-of-life-1a",
+      "title": "a Look at the photos and complete the words.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "image": "images/lesson-9/exercise-1a-stages-of-life.png",
+      "imageAlt": "Nine numbered clean digital illustrations showing people at different stages of life, corresponding to the workbook exercise.",
+      "stickyImage": true,
+      "items": [
+        {
+          "id": "1",
+          "number": null,
+          "example": true,
+          "exampleAnswer": "a baby",
+          "exampleLabel": "EXAMPLE"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "a t",
+            "d",
+            ""
+          ],
+          "answers": [
+            [
+              "o"
+            ],
+            [
+              "dler"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "a ch",
+            ""
+          ],
+          "answers": [
+            [
+              "ild"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "a pr",
+            "-t",
+            ""
+          ],
+          "answers": [
+            [
+              "e"
+            ],
+            [
+              "een"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "a t",
+            "n",
+            "g",
+            ""
+          ],
+          "answers": [
+            [
+              "ee"
+            ],
+            [
+              "a"
+            ],
+            [
+              "er"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "in her e",
+            " tw",
+            "t",
+            ""
+          ],
+          "answers": [
+            [
+              "arly"
+            ],
+            [
+              "en"
+            ],
+            [
+              "ies"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "in his m",
+            "-th",
+            "t",
+            ""
+          ],
+          "answers": [
+            [
+              "id"
+            ],
+            [
+              "ir"
+            ],
+            [
+              "ies"
+            ]
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "in her l",
+            " f",
+            "r",
+            ""
+          ],
+          "answers": [
+            [
+              "ate"
+            ],
+            [
+              "o"
+            ],
+            [
+              "ties"
+            ]
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": [
+            "r",
+            ""
+          ],
+          "answers": [
+            [
+              "etired"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "stages-of-life-1b",
+      "title": "b Complete the sentences with the singular or plural form of the words and phrases in a.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": null,
+          "example": true,
+          "prompt": "Their baby is only two weeks old, so he spends most of his time sleeping.",
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "gaps",
+          "segments": [
+            "Their ",
+            " is only two weeks old, so he spends most of his time sleeping."
+          ],
+          "exampleAnswers": [
+            "baby"
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "One of the most important events for a ",
+            " is starting secondary school."
+          ],
+          "answers": [
+            [
+              "pre-teen",
+              "preteen"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "I’m not sure how old Anna is. I’d say she’s ",
+            ", but I’m sure she isn’t 50 yet."
+          ],
+          "answers": [
+            [
+              "in her late forties"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "",
+            " can be frustrating: they’re often cheeky and they take little notice of their parents."
+          ],
+          "answers": [
+            [
+              "Teenagers",
+              "teenagers"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "Paul is ",
+            "; he’d like to settle down before he’s 40."
+          ],
+          "answers": [
+            [
+              "in his mid-thirties",
+              "in his mid thirties"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "",
+            " are exhausting: they’ve just learned to walk and they have tantrums."
+          ],
+          "answers": [
+            [
+              "Toddlers",
+              "toddlers"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "Laura has been at university for two or three years now, so she must be ",
+            "."
+          ],
+          "answers": [
+            [
+              "in her early twenties",
+              "in her early 20s"
+            ]
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "My grandparents are in their late sixties and they’re both ",
+            "."
+          ],
+          "answers": [
+            [
+              "retired"
+            ]
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": [
+            "Their son is so naughty that they’ve decided not to have any more ",
+            "."
+          ],
+          "answers": [
+            [
+              "children"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "stages-of-life-1c",
+      "title": "c Write sentences about eight people in your family and the stages of life that they’re in.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "example",
+          "example": true,
+          "exampleAnswer": "My niece is a toddler.",
+          "exampleLabel": "EXAMPLE",
+          "number": null
+        },
+        {
+          "id": "1",
+          "number": 1,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "scored": false
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "text",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "eyebrow": "2",
+      "title": "GRAMMAR",
+      "text": "past simple, past continuous, or used to?"
+    },
+    {
+      "type": "exercise",
+      "id": "past-forms-2a",
+      "title": "a Circle the correct form.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": null,
+          "example": true,
+          "exampleAnswer": "didn’t go out",
+          "prompt": "I didn’t go out / wasn’t going out much when I was a teenager.",
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "choice"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "single",
+          "prompt": "We lived / used to live in Germany for five years.",
+          "options": [
+            "lived",
+            "used to live"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "single",
+          "prompt": "My brother used to have / was having a beard, but now he’s shaved it off.",
+          "options": [
+            "used to have",
+            "was having"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "single",
+          "prompt": "We used to sit / were sitting in the garden when my grandparents arrived.",
+          "options": [
+            "used to sit",
+            "were sitting"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "single",
+          "prompt": "Where did you stay / were you staying when you went on holiday to Greece?",
+          "options": [
+            "did you stay",
+            "were you staying"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "single",
+          "prompt": "I didn’t use to eat / wasn’t eating many vegetables when I was a child.",
+          "options": [
+            "didn’t use to eat",
+            "wasn’t eating"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "single",
+          "prompt": "What did you use to do / were you doing when I saw you in town yesterday?",
+          "options": [
+            "did you use to do",
+            "were you doing"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "single",
+          "prompt": "I gave up trying to explain when I realized that you didn’t listen / weren’t listening.",
+          "options": [
+            "didn’t listen",
+            "weren’t listening"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "single",
+          "prompt": "My girlfriend became / used to become a vegetarian when she was a student.",
+          "options": [
+            "became",
+            "used to become"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "single",
+          "prompt": "Did you use to play / Were you playing in the street when you were young?",
+          "options": [
+            "Did you use to play",
+            "Were you playing"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "past-forms-2b",
+      "title": "b Complete the sentences with the correct form of the verbs in brackets. Use the past simple, past continuous, or used to. More than one answer may be possible.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": null,
+          "example": true,
+          "prompt": "Ben didn’t hear the doorbell because he was listening to music with his headphones on. (not hear, listen)",
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "gaps",
+          "segments": [
+            "Ben ",
+            " the doorbell because he ",
+            " to music with his headphones on. (not hear, listen)"
+          ],
+          "exampleAnswers": [
+            "didn’t hear",
+            "was listening"
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " late this morning, so I ",
+            " time for breakfast. (wake up, not have)"
+          ],
+          "answers": [
+            [
+              "woke up"
+            ],
+            [
+              "didn’t have",
+              "did not have"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "When the phone rang, I ",
+            " to the children and my husband ",
+            " the dinner. (read, cook)"
+          ],
+          "answers": [
+            [
+              "was reading"
+            ],
+            [
+              "was cooking"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "Emily ",
+            " glasses until she ",
+            " working at the computer all day. (not wear, start)"
+          ],
+          "answers": [
+            [
+              "didn’t wear",
+              "did not wear",
+              "didn’t use to wear",
+              "did not use to wear"
+            ],
+            [
+              "started"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "My parents ",
+            " a car until they ",
+            ". (not have, get married)"
+          ],
+          "answers": [
+            [
+              "didn’t have",
+              "did not have"
+            ],
+            [
+              "got married"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "Luckily, they ",
+            " very fast when they ",
+            " the lamp post. (not drive, hit)"
+          ],
+          "answers": [
+            [
+              "weren’t driving",
+              "were not driving"
+            ],
+            [
+              "hit"
+            ]
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " in Germany for a year when I ",
+            " a student. (live, be)"
+          ],
+          "answers": [
+            [
+              "lived"
+            ],
+            [
+              "was"
+            ]
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "We ",
+            " in the high street, but then they ",
+            " a new hypermarket near our house. (go shopping, build)"
+          ],
+          "answers": [
+            [
+              "used to go shopping"
+            ],
+            [
+              "built"
+            ]
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": [
+            "My son ",
+            " his boarding pass while we ",
+            " at the airport for our flight. (lose, wait)"
+          ],
+          "answers": [
+            [
+              "lost"
+            ],
+            [
+              "were waiting"
+            ]
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "gaps",
+          "segments": [
+            "We always ",
+            " our holidays in the same village in France when we ",
+            " children. (spend, be)"
+          ],
+          "answers": [
+            [
+              "spent",
+              "used to spend"
+            ],
+            [
+              "were"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
