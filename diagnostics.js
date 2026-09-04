@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const EXPECTED_DIAGNOSTIC_VERSION = 'kristina-diagnostics-v1';
+  const EXPECTED_DIAGNOSTIC_VERSION = 'multi-student-diagnostics-v1';
   const EXPECTED_THREAD_ID = 39;
   const config = window.APP_CONFIG || {};
   const student = config.student || {};
@@ -247,24 +247,28 @@
     const client = getClient();
     const table = config.supabase?.tables?.homework || 'homework_progress';
     const probeId = `__diagnostic_probe__${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-    const now = new Date().toISOString();
-
     try {
       const { error: insertError } = await client.from(table).insert({
         student_id: studentId,
-        student_name: student.nameEn || student.nameRu || studentId,
+        student_name: student.nameRu || student.nameEn || studentId,
         lesson_id: probeId,
         lesson_title: 'Diagnostics homework write probe',
-        status: 'checked',
-        answers: { diagnostic: true },
-        score_correct: 1,
-        score_total: 1,
-        score_percent: 100,
-        checked_at: now,
-        submitted_at: null
+        status: 'draft',
+        answers: {},
+        legacy_answers: null,
+        migrated_from_legacy: false,
+        score_correct: null,
+        score_total: null,
+        score_percent: null,
+        checked_at: null,
+        submitted_at: null,
+        locked_at: null,
+        report_status: 'not_sent',
+        report_sent_at: null,
+        report_error: null
       });
 
-      if (insertError) throw new Error(`browser_checked_insert: ${formatError(insertError)}`);
+      if (insertError) throw new Error(`browser_draft_insert: ${formatError(insertError)}`);
 
       const probe = await invokeDiagnostic({
         kind: 'diagnostics_homework_probe',
@@ -276,7 +280,7 @@
         throw new Error(probe.data?.error || explainFunctionFailure(probe));
       }
 
-      dbWriteResultEl.innerHTML = '<div class="summary ok">✓ Путь homework_progress работает: browser checked → submitted → cleanup. Реальные ДЗ не изменялись.</div>';
+      dbWriteResultEl.innerHTML = '<div class="summary ok">✓ Путь homework_progress работает: browser draft → submitted_pending_report → submitted → cleanup. Реальные ДЗ не изменялись.</div>';
       lastReport.databaseWriteProbe = { ok: true, lessonId: probeId, stages: probe.data.stages || null };
     } catch (error) {
       const detail = formatError(error);
@@ -337,3 +341,4 @@
   document.getElementById('reload-page').addEventListener('click', () => window.location.reload());
   renderConfig();
 })();
+
