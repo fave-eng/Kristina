@@ -1,11 +1,19 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 
-const FUNCTION_VERSION = 'homework-reports-v8-topic-39-diagnostics-key-validation'
-const DIAGNOSTIC_VERSION = 'kristina-diagnostics-v1'
-const DIAGNOSTIC_COOLDOWN_MS = 30_000
+const FUNCTION_VERSION = 'homework-reports-v9-topic-39-lesson-bundle'
+const DIAGNOSTIC_VERSION = 'multi-student-diagnostics-v1'
 const STUDENT_ID = 'kristina'
 const TELEGRAM_TOPIC_ID = 39
+const DIAGNOSTIC_COOLDOWN_MS = 30_000
 const encoder = new TextEncoder()
+
+type Recipient = {
+  chat_id: number | string
+  message_thread_id: number | null
+  enabled: boolean
+}
+
+type AdminClient = ReturnType<typeof createClient>
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -21,13 +29,17 @@ function secureEqual(left: string, right: string): boolean {
   const a = encoder.encode(left)
   const b = encoder.encode(right)
   if (a.length !== b.length) return false
-  let difference = 0
-  for (let index = 0; index < a.length; index += 1) difference |= a[index] ^ b[index]
-  return difference === 0
+  let diff = 0
+  for (let i = 0; i < a.length; i += 1) diff |= a[i] ^ b[i]
+  return diff === 0
+}
+
+function safeText(value: unknown, fallback = ''): string {
+  return value === undefined || value === null ? fallback : String(value)
 }
 
 function escapeHtml(value: unknown): string {
-  return String(value ?? '')
+  return safeText(value)
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
@@ -42,6 +54,20 @@ function safeError(error: unknown): string {
     .slice(0, 500)
 }
 
+function normalizeStudentId(value: unknown): string | null {
+  if (typeof value !== 'string') return null
+  const normalized = value.trim().toLowerCase()
+  return /^[a-z0-9][a-z0-9_-]{0,63}$/.test(normalized) ? normalized : null
+}
+
+function requestApiKey(request: Request): string {
+  const apiKey = (request.headers.get('apikey') || '').trim()
+  if (apiKey) return apiKey
+  const authorization = (request.headers.get('authorization') || '').trim()
+  const match = authorization.match(/^Bearer\s+(.+)$/i)
+  return match ? match[1].trim() : ''
+}
+
 function parseKeyDictionary(raw: string | undefined | null): string[] {
   if (!raw) return []
   try {
@@ -53,37 +79,18 @@ function parseKeyDictionary(raw: string | undefined | null): string[] {
   }
 }
 
-function requestApiKey(request: Request): string {
-  const apiKey = (request.headers.get('apikey') || '').trim()
-  if (apiKey) return apiKey
-
-  const authorization = (request.headers.get('authorization') || '').trim()
-  const match = authorization.match(/^Bearer\s+(.+)$/i)
-  return match ? match[1].trim() : ''
-}
-
 async function publicClientAuthorized(request: Request): Promise<boolean> {
   const apiKey = requestApiKey(request)
   if (!apiKey) return false
-
-  // Accept the legacy anon JWT and current sb_publishable_* project keys.
-  // Values still have to match this Supabase project's server environment.
   const allowedKeys = [
     Deno.env.get('SITE_PUBLIC_API_KEY') || '',
     Deno.env.get('SUPABASE_ANON_KEY') || '',
     Deno.env.get('SUPABASE_PUBLISHABLE_KEY') || '',
     ...parseKeyDictionary(Deno.env.get('SUPABASE_PUBLISHABLE_KEYS')),
   ].map((key) => key.trim()).filter(Boolean)
-
   if (allowedKeys.some((key) => secureEqual(apiKey, key))) return true
-
-  // Some hosted projects do not expose their public key to the Edge Runtime
-  // through SUPABASE_ANON_KEY / SUPABASE_PUBLISHABLE_KEYS. In that case,
-  // validate the supplied key against this project's own Auth gateway. A key
-  // issued by another Supabase project is rejected by that gateway.
   const supabaseUrl = (Deno.env.get('SUPABASE_URL') || '').replace(/\/+$/, '')
   if (!supabaseUrl) return false
-
   try {
     const response = await fetch(`${supabaseUrl}/auth/v1/settings`, {
       method: 'GET',
@@ -97,19 +104,10 @@ async function publicClientAuthorized(request: Request): Promise<boolean> {
   }
 }
 
-function normalizeStudentId(value: unknown): string | null {
-  if (typeof value !== 'string') return null
-  const normalized = value.trim().toLowerCase()
-  return /^[a-z0-9][a-z0-9_-]{0,63}$/.test(normalized) ? normalized : null
-}
-
-function homeworkStateSuspicious(row: Record<string, any>): boolean {
-  const status = String(row?.status || '')
-  const report = String(row?.report_status || '')
-  if (status === 'draft') return report !== 'not_sent'
-  if (status === 'submitted_pending_report') return !['pending', 'failed'].includes(report)
-  if (status === 'submitted') return report !== 'sent'
-  return true
+function secretAuthorized(request: Request): boolean {
+  const expected = (Deno.env.get('NOTIFY_WEBHOOK_SECRET') || '').trim()
+  const actual = (request.headers.get('x-notify-secret') || '').trim()
+  return Boolean(expected && actual && secureEqual(actual, expected))
 }
 
 async function telegramApi(token: string, method: string, body?: Record<string, unknown>) {
@@ -123,64 +121,188 @@ async function telegramApi(token: string, method: string, body?: Record<string, 
   return { ok: true, result: result.result }
 }
 
-async function handleDiagnostics(
-  request: Request,
-  payload: Record<string, any>,
-  admin: ReturnType<typeof createClient>,
-  botToken: string,
-) {
-  if (!await publicClientAuthorized(request)) {
-    return json({ ok: false, error: 'Unauthorized diagnostics request', diagnosticVersion: DIAGNOSTIC_VERSION }, 401)
-  }
+async function getRecipient(admin: AdminClient, studentId: string): Promise<Recipient> {
+  const { data, error } = await admin
+    .from('telegram_recipients')
+    .select('chat_id,message_thread_id,enabled')
+    .eq('student_id', studentId)
+    .maybeSingle()
+  if (error) throw error
+  if (!data || !data.enabled) throw new Error('Telegram recipient is not configured or disabled')
+  return { chat_id: data.chat_id, message_thread_id: TELEGRAM_TOPIC_ID, enabled: Boolean(data.enabled) }
+}
 
+async function sendTelegram(token: string, recipient: Recipient, text: string, keyboard: Array<Array<{ text: string; url: string }>> = []) {
+  const payload: Record<string, unknown> = { chat_id: recipient.chat_id, text, parse_mode: 'HTML', disable_web_page_preview: true }
+  if (recipient.message_thread_id !== null && recipient.message_thread_id !== undefined) payload.message_thread_id = recipient.message_thread_id
+  if (keyboard.length) payload.reply_markup = { inline_keyboard: keyboard }
+  const response = await telegramApi(token, 'sendMessage', payload)
+  if (!response.ok) throw new Error(response.error)
+  return response.result
+}
+
+function lessonTitle(lessonId: string): string {
+  const match = lessonId.match(/^lesson-(\d+)$/)
+  return match ? `Homework ${match[1]}` : lessonId
+}
+
+function homeworkStateSuspicious(row: Record<string, any>): boolean {
+  const status = String(row?.status || '')
+  const report = String(row?.report_status || '')
+  if (status === 'draft') return report !== 'not_sent'
+  if (status === 'submitted_pending_report') return !['pending', 'failed'].includes(report)
+  if (status === 'submitted') return report !== 'sent'
+  return true
+}
+
+function normalizeScore(row: Record<string, any>) {
+  const correct = Number(row?.score_correct || 0)
+  const total = Number(row?.score_total || 0)
+  const percent = Number.isFinite(Number(row?.score_percent)) ? Number(row.score_percent) : (total > 0 ? Math.round((correct / total) * 100) : 0)
+  return { correct, total, percent }
+}
+
+function buildHomeworkReportText(row: Record<string, any>, lessonUrl: string | null): string {
+  const title = safeText(row.lesson_title, lessonTitle(safeText(row.lesson_id)))
+  const { correct, total, percent } = normalizeScore(row)
+  const lines = [
+    '📝 <b>Homework report</b>',
+    '',
+    `<b>${escapeHtml(title)}</b>`,
+    total > 0 ? `Score: <b>${correct}/${total}</b> (${percent}%)` : null,
+    lessonUrl ? '' : null,
+    lessonUrl ? `<a href="${escapeHtml(lessonUrl)}">Open homework</a>` : null,
+    '',
+    'Keep going — small steps still count. ✨',
+  ]
+  return lines.filter((line) => line !== null).join('\n')
+}
+
+function buildLessonBundleText(payload: Record<string, any>): string {
+  const homework = payload.homework && typeof payload.homework === 'object' ? payload.homework : {}
+  const vocabulary = payload.vocabulary && typeof payload.vocabulary === 'object' ? payload.vocabulary : null
+  const grammar = Array.isArray(payload.grammar) ? payload.grammar : []
+  const title = safeText(homework.title || payload.materialId || 'New homework')
+  const subtitle = safeText(homework.subtitle || '')
+  const parts = [
+    '🚀 <b>New materials are ready</b>',
+    '',
+    `<b>${escapeHtml(title)}</b>`,
+    subtitle ? escapeHtml(subtitle) : null,
+  ]
+  if (vocabulary) {
+    parts.push('', `Vocabulary: <b>${escapeHtml(vocabulary.title || 'Lesson vocabulary')}</b>`)
+    if (vocabulary.wordCount) parts.push(`Words: ${escapeHtml(vocabulary.wordCount)}`)
+  }
+  if (grammar.length) {
+    parts.push('', 'Grammar:')
+    for (const topic of grammar) parts.push(`• ${escapeHtml(topic?.title || 'Grammar topic')}`)
+  }
+  parts.push('', 'You can start when you are ready. ✨')
+  return parts.filter((line) => line !== null).join('\n')
+}
+
+function buildLessonBundleKeyboard(payload: Record<string, any>) {
+  const keyboard: Array<Array<{ text: string; url: string }>> = []
+  const homework = payload.homework && typeof payload.homework === 'object' ? payload.homework : {}
+  const vocabulary = payload.vocabulary && typeof payload.vocabulary === 'object' ? payload.vocabulary : null
+  const grammar = Array.isArray(payload.grammar) ? payload.grammar : []
+  if (typeof homework.url === 'string' && homework.url) keyboard.push([{ text: 'Open homework', url: homework.url }])
+  if (vocabulary?.url) keyboard.push([{ text: 'Open vocabulary', url: vocabulary.url }])
+  for (const topic of grammar.slice(0, 3)) {
+    if (topic?.url) keyboard.push([{ text: `Grammar: ${safeText(topic.title, 'topic').slice(0, 45)}`, url: topic.url }])
+  }
+  return keyboard
+}
+
+async function handleHomeworkReport(request: Request, payload: Record<string, any>, admin: AdminClient, botToken: string) {
+  if (!await publicClientAuthorized(request)) return json({ ok: false, error: 'Unauthorized homework report request' }, 401)
   const studentId = normalizeStudentId(payload.studentId)
-  if (!studentId || studentId !== STUDENT_ID) {
-    return json({ ok: false, error: 'Invalid diagnostics student_id', diagnosticVersion: DIAGNOSTIC_VERSION }, 400)
-  }
-
-  const kind = String(payload.kind || '')
+  if (!studentId || studentId !== STUDENT_ID) return json({ ok: false, error: 'Invalid studentId' }, 403)
+  const lessonId = safeText(payload.lessonId).trim()
+  if (!/^lesson-\d+$/.test(lessonId) && !lessonId.startsWith('telegram-report-test')) return json({ ok: false, error: 'Invalid lessonId' }, 400)
+  const recipient = await getRecipient(admin, studentId)
   const homeworkTable = 'homework_progress'
-
-  if (kind === 'diagnostics_cleanup_probe') {
-    const lessonId = String(payload.lessonId || '')
-    if (!lessonId.startsWith('__diagnostic_probe__')) return json({ ok: false, error: 'Invalid diagnostics lesson id' }, 400)
-    const { error } = await admin.from(homeworkTable).delete().eq('student_id', studentId).eq('lesson_id', lessonId)
-    return error ? json({ ok: false, error: safeError(error) }, 500) : json({ ok: true, cleaned: true, diagnosticVersion: DIAGNOSTIC_VERSION })
+  const { data: row, error: readError } = await admin.from(homeworkTable).select('*').eq('student_id', studentId).eq('lesson_id', lessonId).maybeSingle()
+  if (readError) return json({ ok: false, error: safeError(readError) }, 500)
+  if (!row) return json({ ok: false, error: 'Homework progress row was not found' }, 404)
+  const now = new Date().toISOString()
+  await admin.from(homeworkTable).update({ status: 'submitted_pending_report', report_status: 'pending', report_sent_at: null, report_error: null, updated_at: now }).eq('student_id', studentId).eq('lesson_id', lessonId)
+  try {
+    const text = buildHomeworkReportText(row, typeof payload.lessonUrl === 'string' ? payload.lessonUrl : null)
+    const message = await sendTelegram(botToken, recipient, text, [])
+    const sentAt = new Date().toISOString()
+    const { error: updateError } = await admin.from(homeworkTable).update({ status: 'submitted', report_status: 'sent', report_sent_at: sentAt, report_error: null, updated_at: sentAt }).eq('student_id', studentId).eq('lesson_id', lessonId)
+    if (updateError) throw updateError
+    return json({ ok: true, telegramMessageId: message.message_id, threadId: recipient.message_thread_id })
+  } catch (error) {
+    const message = safeError(error)
+    await admin.from(homeworkTable).update({ status: 'submitted_pending_report', report_status: 'failed', report_sent_at: null, report_error: message, updated_at: new Date().toISOString() }).eq('student_id', studentId).eq('lesson_id', lessonId)
+    return json({ ok: false, error: message }, 502)
   }
+}
 
+async function handleLessonBundle(request: Request, payload: Record<string, any>, admin: AdminClient, botToken: string) {
+  if (!secretAuthorized(request)) return json({ ok: false, error: 'Unauthorized notification request' }, 401)
+  const studentId = normalizeStudentId(payload.studentId)
+  if (!studentId || studentId !== STUDENT_ID) return json({ ok: false, error: 'Invalid studentId' }, 403)
+  const materialType = safeText(payload.materialType, 'lesson_bundle')
+  const materialId = safeText(payload.materialId || payload.homework?.id).trim()
+  const notificationVersion = Math.max(1, Number(payload.notificationVersion || 1) || 1)
+  if (!materialId) return json({ ok: false, error: 'materialId is required' }, 400)
+  const recipient = await getRecipient(admin, studentId)
+  const { data: existing, error: existingError } = await admin.from('material_publications').select('id,status,telegram_message_id').eq('student_id', studentId).eq('material_type', materialType).eq('material_id', materialId).eq('notification_version', notificationVersion).in('status', ['pending', 'sent']).order('created_at', { ascending: false }).limit(1).maybeSingle()
+  if (existingError) return json({ ok: false, error: safeError(existingError) }, 500)
+  if (existing?.status === 'sent') return json({ ok: true, skipped: true, reason: 'already_sent', telegramMessageId: existing.telegram_message_id || null })
+  let publicationId = existing?.id || null
+  if (!publicationId) {
+    const { data: publication, error: insertError } = await admin.from('material_publications').insert({ student_id: studentId, material_type: materialType, material_id: materialId, notification_version: notificationVersion, status: 'pending', payload }).select('id').single()
+    if (insertError) return json({ ok: false, error: safeError(insertError) }, 500)
+    publicationId = publication.id
+  }
+  try {
+    const text = buildLessonBundleText(payload)
+    const keyboard = buildLessonBundleKeyboard(payload)
+    const message = await sendTelegram(botToken, recipient, text, keyboard)
+    await admin.from('material_publications').update({ status: 'sent', telegram_message_id: message.message_id, sent_at: new Date().toISOString(), error_message: null }).eq('id', publicationId)
+    return json({ ok: true, skipped: false, telegramMessageId: message.message_id, threadId: recipient.message_thread_id })
+  } catch (error) {
+    const message = safeError(error)
+    await admin.from('material_publications').update({ status: 'failed', error_message: message }).eq('id', publicationId)
+    return json({ ok: false, error: message }, 502)
+  }
+}
+
+async function handleDiagnostics(request: Request, payload: Record<string, any>, admin: AdminClient, botToken: string) {
+  if (!await publicClientAuthorized(request)) return json({ ok: false, error: 'Unauthorized diagnostics request', diagnosticVersion: DIAGNOSTIC_VERSION }, 401)
+  const studentId = normalizeStudentId(payload.studentId)
+  if (!studentId || studentId !== STUDENT_ID) return json({ ok: false, error: 'Invalid diagnostics student_id', diagnosticVersion: DIAGNOSTIC_VERSION }, 400)
+  const kind = safeText(payload.kind)
+  const homeworkTable = 'homework_progress'
+  if (kind === 'diagnostics_cleanup_probe') {
+    const lessonId = safeText(payload.lessonId)
+    if (!lessonId.startsWith('__diagnostic_probe__')) return json({ ok: false, error: 'Invalid diagnostics lesson id', diagnosticVersion: DIAGNOSTIC_VERSION }, 400)
+    const { error } = await admin.from(homeworkTable).delete().eq('student_id', studentId).eq('lesson_id', lessonId)
+    return error ? json({ ok: false, error: safeError(error), diagnosticVersion: DIAGNOSTIC_VERSION }, 500) : json({ ok: true, cleaned: true, diagnosticVersion: DIAGNOSTIC_VERSION })
+  }
   if (kind === 'diagnostics_homework_probe') {
-    const lessonId = String(payload.lessonId || '')
-    if (!lessonId.startsWith('__diagnostic_probe__')) return json({ ok: false, error: 'Invalid diagnostics lesson id' }, 400)
+    const lessonId = safeText(payload.lessonId)
+    if (!lessonId.startsWith('__diagnostic_probe__')) return json({ ok: false, error: 'Invalid diagnostics lesson id', diagnosticVersion: DIAGNOSTIC_VERSION }, 400)
     const stages: Record<string, unknown> = {}
     try {
-      const { data: draft, error: draftError } = await admin
-        .from(homeworkTable)
-        .select('student_id,lesson_id,status,report_status')
-        .eq('student_id', studentId)
-        .eq('lesson_id', lessonId)
-        .maybeSingle()
-      if (draftError) throw new Error(`service_read_draft: ${draftError.message}`)
+      const { data: draft, error: readError } = await admin.from(homeworkTable).select('student_id,lesson_id,status,report_status').eq('student_id', studentId).eq('lesson_id', lessonId).maybeSingle()
+      if (readError) throw new Error(`service_read_draft: ${readError.message}`)
       if (!draft) throw new Error('service_read_draft: browser draft was not found')
-      if (draft.status !== 'draft' || draft.report_status !== 'not_sent') {
-        throw new Error(`service_read_draft: unexpected state ${draft.status}/${draft.report_status}`)
-      }
+      if (draft.status !== 'draft' || draft.report_status !== 'not_sent') throw new Error(`service_read_draft: unexpected state ${draft.status}/${draft.report_status}`)
       stages.browserDraft = 'ok'
-
       const submittedAt = new Date().toISOString()
-      const { error: pendingError } = await admin.from(homeworkTable).update({
-        status: 'submitted_pending_report', submitted_at: submittedAt, locked_at: submittedAt,
-        report_status: 'pending', report_sent_at: null, report_error: null,
-      }).eq('student_id', studentId).eq('lesson_id', lessonId)
+      const { error: pendingError } = await admin.from(homeworkTable).update({ status: 'submitted_pending_report', submitted_at: submittedAt, locked_at: submittedAt, report_status: 'pending', report_sent_at: null, report_error: null, updated_at: submittedAt }).eq('student_id', studentId).eq('lesson_id', lessonId)
       if (pendingError) throw new Error(`pending_transition: ${pendingError.message}`)
       stages.pendingTransition = 'ok'
-
-      const reportSentAt = new Date().toISOString()
-      const { error: submittedError } = await admin.from(homeworkTable).update({
-        status: 'submitted', report_status: 'sent', report_sent_at: reportSentAt, report_error: null,
-      }).eq('student_id', studentId).eq('lesson_id', lessonId)
+      const sentAt = new Date().toISOString()
+      const { error: submittedError } = await admin.from(homeworkTable).update({ status: 'submitted', report_status: 'sent', report_sent_at: sentAt, report_error: null, updated_at: sentAt }).eq('student_id', studentId).eq('lesson_id', lessonId)
       if (submittedError) throw new Error(`submitted_transition: ${submittedError.message}`)
       stages.submittedTransition = 'ok'
-
       const { error: cleanupError } = await admin.from(homeworkTable).delete().eq('student_id', studentId).eq('lesson_id', lessonId)
       if (cleanupError) throw new Error(`cleanup: ${cleanupError.message}`)
       stages.cleanup = 'ok'
@@ -190,45 +312,24 @@ async function handleDiagnostics(
       return json({ ok: false, error: safeError(error), diagnosticVersion: DIAGNOSTIC_VERSION, stages }, 500)
     }
   }
-
-  let recipient: Recipient | null = null
-  let recipientError = ''
-  try {
-    recipient = await getRecipient(admin, studentId)
-  } catch (error) {
-    recipientError = safeError(error)
-  }
-
+  const recipientResult = await (async () => {
+    try { return { recipient: await getRecipient(admin, studentId), error: '' } } catch (error) { return { recipient: null, error: safeError(error) } }
+  })()
   if (kind === 'diagnostics_send_report') {
-    if (!recipient) return json({ ok: false, error: recipientError || 'Telegram recipient is not configured' }, 500)
+    const recipient = recipientResult.recipient
+    if (!recipient) return json({ ok: false, error: recipientResult.error || 'Telegram recipient is not configured', diagnosticVersion: DIAGNOSTIC_VERSION }, 500)
     const cutoff = new Date(Date.now() - DIAGNOSTIC_COOLDOWN_MS).toISOString()
-    const { data: recent, error: recentError } = await admin
-      .from('material_publications').select('created_at')
-      .eq('student_id', studentId).eq('material_type', 'diagnostic').eq('material_id', 'telegram-test')
-      .gte('created_at', cutoff).order('created_at', { ascending: false }).limit(1).maybeSingle()
-    if (recentError) return json({ ok: false, error: safeError(recentError) }, 500)
+    const { data: recent } = await admin.from('material_publications').select('created_at').eq('student_id', studentId).eq('material_type', 'diagnostic').eq('material_id', 'telegram-test').gte('created_at', cutoff).order('created_at', { ascending: false }).limit(1).maybeSingle()
     if (recent?.created_at) {
       const elapsed = Date.now() - Date.parse(recent.created_at)
-      return json({ ok: true, skipped: true, retryAfterSeconds: Math.max(1, Math.ceil((DIAGNOSTIC_COOLDOWN_MS - elapsed) / 1000)), threadId: recipient.message_thread_id })
+      return json({ ok: true, skipped: true, retryAfterSeconds: Math.max(1, Math.ceil((DIAGNOSTIC_COOLDOWN_MS - elapsed) / 1000)), threadId: recipient.message_thread_id, diagnosticVersion: DIAGNOSTIC_VERSION })
     }
-
-    const { data: publication, error: publicationError } = await admin.from('material_publications').insert({
-      student_id: studentId, material_type: 'diagnostic', material_id: 'telegram-test',
-      notification_version: Math.max(1, Math.floor(Date.now() / 1000)), status: 'pending',
-      payload: { kind, pageUrl: typeof payload.pageUrl === 'string' ? payload.pageUrl : null },
-    }).select('id').single()
-    if (publicationError) return json({ ok: false, error: safeError(publicationError) }, 500)
-
+    const { data: publication, error: publicationError } = await admin.from('material_publications').insert({ student_id: studentId, material_type: 'diagnostic', material_id: 'telegram-test', notification_version: Math.max(1, Math.floor(Date.now() / 1000)), status: 'pending', payload: { kind, pageUrl: typeof payload.pageUrl === 'string' ? payload.pageUrl : null } }).select('id').single()
+    if (publicationError) return json({ ok: false, error: safeError(publicationError), diagnosticVersion: DIAGNOSTIC_VERSION }, 500)
     try {
-      const text = [
-        '🧪 <b>Тест диагностики English Space</b>', '',
-        `<code>student_id=${escapeHtml(studentId)}</code>: браузер → Supabase → Edge Function → Telegram работает.`, '',
-        'Это служебное тестовое сообщение. Домашние работы и прогресс не изменялись.',
-      ].join('\n')
+      const text = ['🧪 <b>English Space diagnostics test</b>', '', `<code>student_id=${escapeHtml(studentId)}</code>: browser → Supabase → Edge Function → Telegram works.`, '', 'This is a service test message. Homework and progress were not changed.'].join('\n')
       const message = await sendTelegram(botToken, recipient, text, [])
-      await admin.from('material_publications').update({
-        status: 'sent', telegram_message_id: message.message_id, sent_at: new Date().toISOString(), error_message: null,
-      }).eq('id', publication.id)
+      await admin.from('material_publications').update({ status: 'sent', telegram_message_id: message.message_id, sent_at: new Date().toISOString(), error_message: null }).eq('id', publication.id)
       return json({ ok: true, skipped: false, diagnosticVersion: DIAGNOSTIC_VERSION, telegramMessageId: message.message_id, threadId: recipient.message_thread_id })
     } catch (error) {
       const message = safeError(error)
@@ -236,477 +337,49 @@ async function handleDiagnostics(
       return json({ ok: false, error: message, diagnosticVersion: DIAGNOSTIC_VERSION }, 502)
     }
   }
-
   if (kind !== 'diagnostics_health') return json({ ok: false, error: 'Unknown diagnostics request', diagnosticVersion: DIAGNOSTIC_VERSION }, 400)
-
-  const { data: rawRows, error: homeworkError } = await admin
-    .from(homeworkTable).select('lesson_id,status,report_status,migrated_from_legacy,submitted_at').eq('student_id', studentId)
-  const rowsBeforeCleanup = rawRows || []
-  const staleProbeIds = rowsBeforeCleanup.map((row) => String(row.lesson_id || '')).filter((lessonId) => lessonId.startsWith('__diagnostic_probe__'))
-  for (const lessonId of staleProbeIds) {
-    await admin.from(homeworkTable).delete().eq('student_id', studentId).eq('lesson_id', lessonId)
-  }
-  const rows = rowsBeforeCleanup.filter((row) => !String(row.lesson_id || '').startsWith('__diagnostic_probe__'))
-  const suspiciousHomework = homeworkError ? [] : rows.filter(homeworkStateSuspicious).map((row) => row.lesson_id)
-  const legacyHomework = homeworkError ? [] : rows.filter((row) => Boolean(row.migrated_from_legacy)).map((row) => row.lesson_id)
-  const pendingHomework = homeworkError ? [] : rows
-    .filter((row) => row.status === 'submitted_pending_report')
-    .map((row) => ({ lessonId: row.lesson_id, reportStatus: row.report_status, submittedAt: row.submitted_at || null }))
-
+  const { data: rowsRaw, error: homeworkError } = await admin.from(homeworkTable).select('lesson_id,status,report_status,migrated_from_legacy,submitted_at').eq('student_id', studentId)
+  const rowsBeforeCleanup = rowsRaw || []
+  const staleDiagnosticProbes = rowsBeforeCleanup.map((row: any) => safeText(row.lesson_id)).filter((lessonId: string) => lessonId.startsWith('__diagnostic_probe__'))
+  for (const lessonId of staleDiagnosticProbes) await admin.from(homeworkTable).delete().eq('student_id', studentId).eq('lesson_id', lessonId)
+  const rows = rowsBeforeCleanup.filter((row: any) => !safeText(row.lesson_id).startsWith('__diagnostic_probe__'))
+  const suspiciousHomework = homeworkError ? [] : rows.filter((row: any) => homeworkStateSuspicious(row)).map((row: any) => row.lesson_id)
+  const pendingHomework = homeworkError ? [] : rows.filter((row: any) => row.status === 'submitted_pending_report').map((row: any) => ({ lessonId: row.lesson_id, reportStatus: row.report_status, submittedAt: row.submitted_at || null }))
+  const legacyHomework = homeworkError ? [] : rows.filter((row: any) => Boolean(row.migrated_from_legacy)).map((row: any) => row.lesson_id)
+  const recipient = recipientResult.recipient
   const botResult = await telegramApi(botToken, 'getMe')
-  const chatResult = recipient ? await telegramApi(botToken, 'getChat', { chat_id: recipient.chat_id }) : { ok: false, error: recipientError || 'Recipient is not configured' }
-
+  const chatResult = recipient ? await telegramApi(botToken, 'getChat', { chat_id: recipient.chat_id }) : { ok: false, error: recipientResult.error || 'Recipient is not configured' }
+  const { data: reportLogRows, error: reportLogError } = await admin.from('material_publications').select('material_id,status,error_message,created_at').eq('student_id', studentId).order('created_at', { ascending: false }).limit(20)
   return json({
     ok: !homeworkError && Boolean(recipient) && botResult.ok && chatResult.ok,
     diagnosticVersion: DIAGNOSTIC_VERSION,
-    database: {
-      ok: !homeworkError, error: homeworkError ? safeError(homeworkError) : null, homeworkRows: rows.length,
-      staleDiagnosticProbesRemoved: staleProbeIds.length, suspiciousHomework, pendingHomework, legacyHomework,
-    },
-    recipient: {
-      ok: Boolean(recipient), enabled: Boolean(recipient?.enabled), source: 'database',
-      threadId: recipient?.message_thread_id ?? null, error: recipientError || null,
-    },
-    telegram: {
-      bot: botResult.ok ? { ok: true, username: botResult.result?.username || null } : { ok: false, error: botResult.error },
-      chat: chatResult.ok ? { ok: true, type: chatResult.result?.type || null } : { ok: false, error: chatResult.error },
-    },
+    database: { ok: !homeworkError, error: homeworkError ? safeError(homeworkError) : null, homeworkRows: rows.length, staleDiagnosticProbesRemoved: staleDiagnosticProbes.length, suspiciousHomework, pendingHomework, legacyHomework },
+    recipient: { ok: Boolean(recipient), enabled: Boolean(recipient?.enabled), source: 'database', threadId: recipient?.message_thread_id ?? null, error: recipientResult.error || null },
+    telegram: { bot: botResult.ok ? { ok: true, username: botResult.result?.username || null } : { ok: false, error: botResult.error }, chat: chatResult.ok ? { ok: true, type: chatResult.result?.type || null } : { ok: false, error: chatResult.error } },
+    reportLog: { ok: !reportLogError, error: reportLogError ? safeError(reportLogError) : null, pendingOrFailed: reportLogError ? [] : (reportLogRows || []).filter((row: any) => ['pending', 'failed'].includes(row.status)).map((row: any) => ({ lessonId: row.material_id, status: row.status, error: row.error_message || null })) },
   })
 }
 
-function lessonTitle(lessonId: string): string {
-  if (lessonId.startsWith('telegram-report-test-')) return 'ТЕСТ: проверка Telegram-отчёта'
-  const match = lessonId.match(/^lesson-(\d+)$/)
-  return match ? `Домашняя работа №${match[1]}` : lessonId
-}
-
-type Recipient = {
-  chat_id: number
-  message_thread_id: number | null
-  enabled: boolean
-}
-
-async function getRecipient(admin: ReturnType<typeof createClient>, studentId: string): Promise<Recipient> {
-  const { data, error } = await admin
-    .from('telegram_recipients')
-    .select('chat_id,message_thread_id,enabled')
-    .eq('student_id', studentId)
-    .maybeSingle()
-
-  if (error) throw error
-  if (!data || !data.enabled) throw new Error('Получатель Telegram не подключён или отключён')
-  return { ...(data as Recipient), message_thread_id: TELEGRAM_TOPIC_ID }
-}
-
-async function sendTelegram(
-  token: string,
-  recipient: Recipient,
-  text: string,
-  keyboard: Array<Array<{ text: string; url: string }>> = [],
-) {
-  const payload: Record<string, unknown> = {
-    chat_id: recipient.chat_id,
-    text,
-    parse_mode: 'HTML',
-    disable_web_page_preview: true,
-  }
-  if (recipient.message_thread_id) payload.message_thread_id = recipient.message_thread_id
-  if (keyboard.length) payload.reply_markup = { inline_keyboard: keyboard }
-
-  const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  const result = await response.json().catch(() => null)
-  if (!response.ok || !result?.ok) throw new Error(result?.description || `Telegram HTTP ${response.status}`)
-  return result.result
-}
-
-function homeworkMessage(row: Record<string, any>, displayTitle: string): string {
-  const correct = Number(row.score_correct || 0)
-  const total = Number(row.score_total || 0)
-  const scorePercent = Number(row.score_percent ?? (total > 0 ? Math.round((correct / total) * 100) : 0))
-  return [
-    '✅ <b>Homework completed</b>',
-    '',
-    `📘 <b>${escapeHtml(displayTitle)}</b>`,
-    `📊 Result: <b>${correct}/${total} (${scorePercent}%)</b>`,
-    '',
-    'Open it on the site to see the answers and mistakes.',
-    '',
-    homeworkMotivation(String(row.lesson_id || displayTitle)),
-  ].join('\n')
-}
-
-async function homeworkDisplayTitle(
-  admin: ReturnType<typeof createClient>,
-  studentId: string,
-  lessonId: string,
-  requestedTitle = '',
-  requestedSubtitle = '',
-): Promise<string> {
-  const cleanRequestedTitle = requestedTitle.trim()
-  const cleanRequestedSubtitle = requestedSubtitle.trim()
-  const fallback = cleanRequestedTitle
-    ? (cleanRequestedSubtitle ? `${cleanRequestedTitle} · ${cleanRequestedSubtitle}` : cleanRequestedTitle)
-    : lessonTitle(lessonId)
-  const { data, error } = await admin
-    .from('material_publications')
-    .select('payload')
-    .eq('student_id', studentId)
-    .eq('material_type', 'lesson_bundle')
-    .eq('material_id', lessonId)
-    .order('created_at', { ascending: false })
-    .limit(1)
-
-  if (error || !data?.length) return fallback
-  const stored = data[0]?.payload && typeof data[0].payload === 'object' ? data[0].payload as Record<string, any> : {}
-  const homework = stored.homework && typeof stored.homework === 'object' ? stored.homework as Record<string, any> : stored
-  const title = String(homework.title || '').trim()
-  const subtitle = String(homework.subtitle || '').trim()
-  if (!title) return fallback
-  return subtitle ? `${title} · ${subtitle}` : title
-}
-
-const HOMEWORK_GREETINGS = [
-  'Hi! ✨',
-  'Hello! 🌟',
-  'Hey! 👋',
-  'Hi there! ☀️',
-  'Hello there! ✨',
-]
-
-const HOMEWORK_MOTIVATIONS = [
-  'Good luck! ⭐',
-  'You can do it! 💪',
-  "You've got this! 🌟",
-  'Take your time and do your best! ✨',
-  'Enjoy the lesson! 📚',
-]
-
-function stableChoice(seed: string, variants: string[]): string {
-  let hash = 0
-  for (const char of seed) hash = ((hash * 31) + char.codePointAt(0)!) >>> 0
-  return variants[hash % variants.length]
-}
-
-function homeworkGreeting(materialId: string): string {
-  return stableChoice(`greeting:${materialId}`, HOMEWORK_GREETINGS)
-}
-
-function homeworkMotivation(materialId: string): string {
-  return stableChoice(`motivation:${materialId}`, HOMEWORK_MOTIVATIONS)
-}
-
-async function handleHomeworkReport(
-  payload: Record<string, unknown>,
-  admin: ReturnType<typeof createClient>,
-  botToken: string,
-) {
-  const studentId = typeof payload.studentId === 'string' ? payload.studentId.trim() : ''
-  const lessonId = typeof payload.lessonId === 'string' ? payload.lessonId.trim() : ''
-  const submissionId = typeof payload.submissionId === 'string' ? payload.submissionId.trim() : ''
-  const requestedTitle = typeof payload.homeworkTitle === 'string' ? payload.homeworkTitle.trim() : ''
-  const requestedSubtitle = typeof payload.homeworkSubtitle === 'string' ? payload.homeworkSubtitle.trim() : ''
-
-  if (studentId !== STUDENT_ID || !lessonId || !submissionId) {
-    return json({ ok: false, error: 'Некорректные параметры отчёта' }, 400)
-  }
-
-  const { data: row, error } = await admin
-    .from('homework_progress')
-    .select('submission_id,student_id,lesson_id,status,score_correct,score_total,score_percent,submitted_at,locked_at,report_status,report_sent_at')
-    .eq('student_id', studentId)
-    .eq('lesson_id', lessonId)
-    .eq('submission_id', submissionId)
-    .maybeSingle()
-
-  if (error) return json({ ok: false, error: safeError(error) }, 500)
-  if (!row) return json({ ok: false, error: 'Зафиксированная домашняя работа не найдена' }, 404)
-  if (!['submitted_pending_report', 'submitted'].includes(row.status) || !row.locked_at) {
-    return json({ ok: false, error: 'Домашняя работа ещё не зафиксирована' }, 409)
-  }
-  if (row.status === 'submitted' && row.report_status === 'sent') {
-    return json({ ok: true, skipped: true, reason: 'already_sent', reportSentAt: row.report_sent_at })
-  }
-
-  let recipient: Recipient
-  try {
-    recipient = await getRecipient(admin, studentId)
-  } catch (recipientError) {
-    const message = safeError(recipientError)
-    await admin.from('homework_progress').update({ report_status: 'failed', report_error: message }).eq('submission_id', submissionId)
-    return json({ ok: false, error: message }, 404)
-  }
-
-  try {
-    const siteBaseUrl = (Deno.env.get('SITE_BASE_URL') || '').replace(/\/+$/, '')
-    const lessonUrl = siteBaseUrl ? `${siteBaseUrl}/lesson.html?id=${encodeURIComponent(lessonId)}` : ''
-    const keyboard = lessonUrl ? [[{ text: '📝 Open the homework', url: lessonUrl }]] : []
-    const displayTitle = await homeworkDisplayTitle(admin, studentId, lessonId, requestedTitle, requestedSubtitle)
-    const telegramMessage = await sendTelegram(botToken, recipient, homeworkMessage(row, displayTitle), keyboard)
-    const sentAt = new Date().toISOString()
-    const { error: updateError } = await admin
-      .from('homework_progress')
-      .update({
-        status: 'submitted',
-        report_status: 'sent',
-        report_sent_at: sentAt,
-        report_error: null,
-      })
-      .eq('submission_id', submissionId)
-
-    if (updateError) throw new Error(`Telegram отправлен, но статус не обновлён: ${updateError.message}`)
-    return json({ ok: true, skipped: false, telegramMessageId: telegramMessage.message_id, reportSentAt: sentAt })
-  } catch (sendError) {
-    const message = safeError(sendError)
-    await admin.from('homework_progress').update({ report_status: 'failed', report_error: message }).eq('submission_id', submissionId)
-    return json({ ok: false, error: message }, 502)
-  }
-}
-
-function grammarButtonTitle(item: Record<string, unknown>, index: number): string {
-  const fullTitle = String(item.title || `Grammar ${index + 1}`).trim()
-  const shortTitle = fullTitle.split(':')[0].trim()
-  return shortTitle.length > 0 && shortTitle.length <= 34 ? shortTitle : `Grammar ${index + 1}`
-}
-
-function publicHttpUrl(value: unknown): string | null {
-  const raw = String(value || '').trim()
-  if (!raw) return null
-  try {
-    const url = new URL(raw)
-    return ['http:', 'https:'].includes(url.protocol) && Boolean(url.hostname) ? url.toString() : null
-  } catch {
-    return null
-  }
-}
-
-async function claimLessonPublication(
-  admin: ReturnType<typeof createClient>,
-  record: {
-    student_id: string
-    material_type: string
-    material_id: string
-    payload: Record<string, unknown>
-  },
-) {
-  // Homework, vocabulary and grammar can be uploaded in separate commits.
-  // Only one final notification is allowed for each lesson.
-  const { data: sentRows, error: sentLookupError } = await admin
-    .from('material_publications')
-    .select('*')
-    .eq('student_id', record.student_id)
-    .eq('material_type', record.material_type)
-    .eq('material_id', record.material_id)
-    .eq('status', 'sent')
-    .order('created_at', { ascending: true })
-    .limit(1)
-
-  if (sentLookupError) throw sentLookupError
-  const sent = sentRows?.[0]
-  if (sent) return { row: sent, alreadySent: true }
-
-  const { data: existingRows, error: lookupError } = await admin
-    .from('material_publications')
-    .select('*')
-    .eq('student_id', record.student_id)
-    .eq('material_type', record.material_type)
-    .eq('material_id', record.material_id)
-    .order('created_at', { ascending: true })
-    .limit(1)
-
-  if (lookupError) throw lookupError
-  const existing = existingRows?.[0]
-
-  if (existing) {
-    const { data, error } = await admin
-      .from('material_publications')
-      .update({ status: 'pending', payload: record.payload, error_message: null })
-      .eq('id', existing.id)
-      .select()
-      .single()
-    if (error) throw error
-    return { row: data, alreadySent: false }
-  }
-
-  const { data, error } = await admin
-    .from('material_publications')
-    .insert({ ...record, notification_version: 1, status: 'pending' })
-    .select()
-    .single()
-
-  if (error) {
-    if (error.code === '23505') {
-      const { data: racedRows, error: racedError } = await admin
-        .from('material_publications')
-        .select('*')
-        .eq('student_id', record.student_id)
-        .eq('material_type', record.material_type)
-        .eq('material_id', record.material_id)
-        .order('created_at', { ascending: true })
-        .limit(1)
-      if (racedError) throw racedError
-      const raced = racedRows?.[0]
-      if (!raced) throw error
-      return { row: raced, alreadySent: raced.status === 'sent' }
-    }
-    throw error
-  }
-
-  return { row: data, alreadySent: false }
-}
-
-async function handleMaterialPublished(
-  payload: Record<string, any>,
-  request: Request,
-  admin: ReturnType<typeof createClient>,
-  botToken: string,
-) {
-  const expectedSecret = Deno.env.get('NOTIFY_WEBHOOK_SECRET') || ''
-  const actualSecret = request.headers.get('x-notify-secret') || ''
-  if (!expectedSecret || !secureEqual(actualSecret, expectedSecret)) {
-    return json({ ok: false, error: 'Unauthorized' }, 401)
-  }
-
-  const studentId = String(payload.studentId || '').trim()
-  const materialType = String(payload.materialType || '').trim()
-  const materialId = String(payload.materialId || '').trim()
-  if (studentId !== STUDENT_ID || materialType !== 'lesson_bundle' || !materialId) {
-    return json({ ok: false, error: 'Некорректные параметры публикации урока' }, 400)
-  }
-
-  const legacyPayload = payload.payload && typeof payload.payload === 'object' && !Array.isArray(payload.payload)
-    ? payload.payload as Record<string, unknown>
-    : {}
-  const rawHomework = payload.homework && typeof payload.homework === 'object' && !Array.isArray(payload.homework)
-    ? payload.homework as Record<string, unknown>
-    : {
-        id: materialId,
-        title: legacyPayload.title || materialId,
-        subtitle: legacyPayload.subtitle || '',
-        url: legacyPayload.url || '',
-      }
-
-  const homeworkUrl = publicHttpUrl(rawHomework.url)
-  if (!homeworkUrl) return json({ ok: false, error: 'A valid homework URL is required' }, 400)
-
-  const rawVocabulary = payload.vocabulary && typeof payload.vocabulary === 'object' && !Array.isArray(payload.vocabulary)
-    ? payload.vocabulary as Record<string, unknown>
-    : null
-  const vocabularyUrl = rawVocabulary ? publicHttpUrl(rawVocabulary.url) : null
-  if (rawVocabulary && !vocabularyUrl) return json({ ok: false, error: 'Invalid vocabulary URL' }, 400)
-
-  const rawGrammar = Array.isArray(payload.grammar) ? payload.grammar : []
-  const grammar: Record<string, unknown>[] = []
-  for (const item of rawGrammar) {
-    if (!item || typeof item !== 'object' || Array.isArray(item)) {
-      return json({ ok: false, error: 'Invalid grammar URL' }, 400)
-    }
-    const topic = item as Record<string, unknown>
-    const url = publicHttpUrl(topic.url)
-    if (!url) return json({ ok: false, error: 'Invalid grammar URL' }, 400)
-    grammar.push({ ...topic, url })
-  }
-
-  const storedPayload = {
-    homework: { ...rawHomework, url: homeworkUrl },
-    vocabulary: rawVocabulary ? { ...rawVocabulary, url: vocabularyUrl } : null,
-    grammar,
-  }
-
-  let claim
-  try {
-    claim = await claimLessonPublication(admin, {
-      student_id: studentId,
-      material_type: materialType,
-      material_id: materialId,
-      payload: storedPayload,
-    })
-  } catch (claimError) {
-    return json({ ok: false, error: safeError(claimError) }, 500)
-  }
-
-  if (claim.alreadySent) {
-    return json({ ok: true, skipped: true, alreadySent: true, reason: 'already_sent' })
-  }
-
-  try {
-    const recipient = await getRecipient(admin, studentId)
-    const title = String(rawHomework.title || legacyPayload.title || materialId)
-    const steps: string[] = []
-    if (rawVocabulary) steps.push('First, learn the new words.')
-    if (grammar.length) steps.push(rawVocabulary ? 'Review the grammar.' : 'First, review the grammar.')
-    steps.push(steps.length ? 'Then, do the homework.' : 'Do the homework.')
-
-    const text = [
-      homeworkGreeting(materialId),
-      'Your new English homework is ready.',
-      `📘 <b>${escapeHtml(title)}</b>`,
-      steps.join('\n'),
-      homeworkMotivation(materialId),
-    ].join('\n\n')
-
-    const keyboard: Array<Array<{ text: string; url: string }>> = []
-    if (rawVocabulary && vocabularyUrl) {
-      keyboard.push([{ text: '📚 Learn new words', url: vocabularyUrl }])
-    }
-    grammar.forEach((item, index) => {
-      keyboard.push([{
-        text: grammar.length === 1 ? '📘 Grammar' : `📘 ${grammarButtonTitle(item, index)}`,
-        url: String(item.url),
-      }])
-    })
-    keyboard.push([{ text: '📝 Do the homework', url: homeworkUrl }])
-
-    const telegramMessage = await sendTelegram(botToken, recipient, text, keyboard)
-    const sentAt = new Date().toISOString()
-    const { error: updateError } = await admin
-      .from('material_publications')
-      .update({
-        status: 'sent',
-        telegram_message_id: telegramMessage.message_id || null,
-        sent_at: sentAt,
-        error_message: null,
-      })
-      .eq('id', claim.row.id)
-
-    if (updateError) throw updateError
-    return json({ ok: true, skipped: false, telegramMessageId: telegramMessage.message_id || null, sentAt })
-  } catch (sendError) {
-    const message = safeError(sendError)
-    await admin
-      .from('material_publications')
-      .update({ status: 'failed', error_message: message })
-      .eq('id', claim.row.id)
-    return json({ ok: false, error: message }, 502)
-  }
-}
-
-Deno.serve(async (request: Request) => {
+Deno.serve(async (request) => {
   if (request.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders })
   if (request.method !== 'POST') return json({ ok: false, error: 'Method not allowed' }, 405)
-
-  const supabaseUrl = Deno.env.get('SUPABASE_URL') || ''
-  const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || ''
-  const botToken = Deno.env.get('TELEGRAM_BOT_TOKEN') || ''
-  if (!supabaseUrl || !serviceKey || !botToken) {
-    return json({ ok: false, error: 'Серверные секреты Edge Function не настроены' }, 500)
-  }
-
-  let payload: Record<string, any>
   try {
-    payload = await request.json()
-  } catch {
-    return json({ ok: false, error: 'Некорректный JSON' }, 400)
+    const supabaseUrl = (Deno.env.get('SUPABASE_URL') || '').replace(/\/+$/, '')
+    const serviceRoleKey = (Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || '').trim()
+    const botToken = (Deno.env.get('TELEGRAM_BOT_TOKEN') || '').trim()
+    if (!supabaseUrl) return json({ ok: false, error: 'Missing SUPABASE_URL' }, 500)
+    if (!serviceRoleKey) return json({ ok: false, error: 'Missing SUPABASE_SERVICE_ROLE_KEY' }, 500)
+    if (!botToken) return json({ ok: false, error: 'Missing TELEGRAM_BOT_TOKEN' }, 500)
+    const admin = createClient(supabaseUrl, serviceRoleKey, { auth: { persistSession: false, autoRefreshToken: false } })
+    const payload = await request.json().catch(() => ({}))
+    const kind = safeText(payload.kind)
+    const eventType = safeText(payload.eventType)
+    const materialType = safeText(payload.materialType)
+    if (kind.startsWith('diagnostics_')) return await handleDiagnostics(request, payload, admin, botToken)
+    if (eventType === 'homework_report') return await handleHomeworkReport(request, payload, admin, botToken)
+    if (materialType === 'lesson_bundle' || eventType === 'lesson_bundle' || eventType === 'new_materials') return await handleLessonBundle(request, payload, admin, botToken)
+    return json({ ok: false, error: 'Unknown action', received: { kind: kind || null, eventType: eventType || null, materialType: materialType || null } }, 400)
+  } catch (error) {
+    return json({ ok: false, error: safeError(error) }, 500)
   }
-
-  const admin = createClient(supabaseUrl, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } })
-  const kind = String(payload.kind || '')
-  if (kind.startsWith('diagnostics_')) return handleDiagnostics(request, payload, admin, botToken)
-  const action = String(payload.action || '')
-  if (action === 'homework_report') return handleHomeworkReport(payload, admin, botToken)
-  if (action === 'material_published') return handleMaterialPublished(payload, request, admin, botToken)
-  return json({ ok: false, error: 'Неизвестное действие' }, 400)
 })
