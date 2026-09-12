@@ -25,198 +25,137 @@
       "type": "exercise",
       "id": "articles-1c",
       "title": "c Complete the text with a / an, the or — (no article).",
+      "layout": "continuous-gaps",
       "instructions": "Choose a, an, the or — in each gap.",
-      "wordBank": [
-        "a",
-        "an",
-        "the",
-        "—"
-      ],
-      "wordBankLabel": "",
       "hideAnswersOnError": true,
-      "inlineNumberedItems": true,
-      "items": [
-        {
-          "id": "intro-1",
-          "displayOnly": true,
-          "displayStyle": "copy",
-          "prompt": "DNA — the reason women see colours better than men"
-        },
-        {
-          "id": "1",
-          "number": 1,
-          "example": true,
-          "exampleLabel": "EXAMPLE",
-          "exampleMode": "select",
-          "segments": [
-            "Why are women generally able to see ",
-            " colours better than men?"
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 3,
-          "showExampleNumber": true
-        },
-        {
-          "id": "2",
-          "number": 2,
-          "input": "select",
-          "segments": [
-            "Scientists say there is ",
-            " reason for this,"
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "3",
-          "number": 3,
-          "input": "select",
-          "segments": [
-            "and ",
-            " reason is in our DNA."
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 2
-        },
-        {
-          "id": "4",
-          "number": 4,
-          "input": "select",
-          "segments": [
-            "The ability to see ",
-            " colour red is carried by the X chromosome."
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 2
-        },
-        {
-          "id": "copy-1",
-          "displayOnly": true,
-          "displayStyle": "copy",
-          "prompt": "Our chromosomes contain DNA, which controls many things about us."
-        },
-        {
-          "id": "5",
-          "number": 5,
-          "input": "select",
-          "segments": [
-            "Men have only one X chromosome, but ",
-            " women have two of them."
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 3
-        },
-        {
-          "id": "6",
-          "number": 6,
-          "input": "select",
-          "segments": [
-            "This was important in prehistoric times when women were looking for ",
-            " fruit to eat."
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 3
-        },
-        {
-          "id": "copy-2",
-          "displayOnly": true,
-          "displayStyle": "copy",
-          "prompt": "This means that it’s easier for women to see red."
-        },
-        {
-          "id": "7",
-          "number": 7,
-          "input": "select",
-          "segments": [
-            "They needed to choose ",
-            " right fruit,"
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 2
-        },
-        {
-          "id": "8",
-          "number": 8,
-          "input": "select",
-          "segments": [
-            "so they had to be able to see ",
-            " difference between different colours."
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 2
-        },
-        {
-          "id": "9",
-          "number": 9,
-          "input": "select",
-          "segments": [
-            "If they made ",
-            " mistake, they could kill their families and themselves."
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "10",
-          "number": 10,
-          "input": "select",
-          "segments": [
-            "So, it was more important for women to see different colours, while men had ",
-            " other important skills."
-          ],
-          "options": [
-            "a",
-            "an",
-            "the",
-            "—"
-          ],
-          "answer": 3
-        }
+      "paragraphs": [
+        [
+          "DNA — the reason women see colours better than men\n\nWhy are women generally able to see ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "—"
+          },
+          " colours better than men? Scientists say there is ",
+          {
+            "type": "gap",
+            "id": "2",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "a"
+          },
+          " reason for this, and ",
+          {
+            "type": "gap",
+            "id": "3",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "the"
+          },
+          " reason is in our DNA. Our chromosomes contain DNA, which controls many things about us. The ability to see ",
+          {
+            "type": "gap",
+            "id": "4",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "the"
+          },
+          " colour red is carried by the X chromosome. Men have only one X chromosome, but ",
+          {
+            "type": "gap",
+            "id": "5",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "—"
+          },
+          " women have two of them. This means that it’s easier for women to see red. This was important in prehistoric times when women were looking for ",
+          {
+            "type": "gap",
+            "id": "6",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "—"
+          },
+          " fruit to eat. They needed to choose ",
+          {
+            "type": "gap",
+            "id": "7",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "the"
+          },
+          " right fruit, so they had to be able to see ",
+          {
+            "type": "gap",
+            "id": "8",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "the"
+          },
+          " difference between different colours. If they made ",
+          {
+            "type": "gap",
+            "id": "9",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "a"
+          },
+          " mistake, they could kill their families and themselves. So, it was more important for women to see different colours, while men had ",
+          {
+            "type": "gap",
+            "id": "10",
+            "input": "select",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": "—"
+          },
+          " other important skills."
+        ]
       ]
     },
     {

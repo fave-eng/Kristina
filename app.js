@@ -992,6 +992,11 @@
           return `<span class="continuous-gap continuous-gap-example" data-continuous-gap-example="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup><span class="continuous-example-label">EXAMPLE</span><span class="continuous-example-input" aria-label="Example answer for gap ${escapeHtml(gapId)}">${escapeHtml(part.answer || '')}</span>${verb}</span>`;
         }
         const widthClass = safeText(part.width) === 'wide' ? ' is-wide' : safeText(part.width) === 'medium' ? ' is-medium' : '';
+        if (part.input === 'select') {
+          const options = Array.isArray(part.options) ? part.options : [];
+          const select = `<select class="continuous-gap-input continuous-gap-select" data-continuous-gap="${escapeHtml(gapId)}" aria-label="Gap ${escapeHtml(gapId)}"><option value="">Choose</option>${options.map((option) => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`).join('')}</select>`;
+          return `<span class="continuous-gap${widthClass}" data-continuous-gap-wrap="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup>${select}${verb}</span>`;
+        }
         const placeholder = part.placeholder ? ` placeholder="${escapeHtml(part.placeholder)}"` : '';
         return `<span class="continuous-gap${widthClass}" data-continuous-gap-wrap="${escapeHtml(gapId)}"><sup>${escapeHtml(gapId)}</sup><input class="continuous-gap-input" data-continuous-gap="${escapeHtml(gapId)}" autocomplete="off" aria-label="Gap ${escapeHtml(gapId)}"${placeholder}>${verb}</span>`;
       }).join('')}</p>`;
@@ -1379,6 +1384,8 @@
       const segments = Array.isArray(item.segments) ? item.segments : [];
       const gapClass = item.inputSize === 'wide' ? 'gap-input gap-input-wide' : 'gap-input';
       control = `<div class="sentence-gaps" aria-label="${prompt}">${answers.map((answer, gapIndex) => `${gapIndex < segments.length ? `<span>${escapeHtml(segments[gapIndex])}</span>` : ''}<input class="${gapClass}" data-gap-index="${gapIndex}" aria-label="Gap ${gapIndex + 1}" autocomplete="off">`).join('')}${segments.length > answers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : ''}</div>`;
+    } else if (item.input === 'checkbox') {
+      control = `<label class="task-checkbox"><input type="checkbox" id="${escapeHtml(inputId)}"><span>${prompt || escapeHtml(item.label || 'Done')}</span></label>`;
     } else {
       control = `<input class="text-field" id="${escapeHtml(inputId)}" autocomplete="off" placeholder="${escapeHtml(item.placeholder || '')}">`;
     }
@@ -1618,6 +1625,9 @@
         const accepted = Array.isArray(answer) ? answer : [answer];
         return accepted.some((variant) => normalizeAnswer(variant) === normalizeAnswer(actual[index]));
       });
+    } else if (inputType === 'checkbox') {
+      actual = itemNode.querySelector('input[type="checkbox"]')?.checked || false;
+      correct = Boolean(actual);
     } else {
       actual = itemNode.querySelector('input, textarea')?.value || '';
       correct = textAnswerMatches(item, actual);

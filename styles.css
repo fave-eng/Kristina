@@ -2876,3 +2876,39 @@ label.odd-option {
   border-color: #c7d2fe;
   background: #eef2ff;
 }
+
+
+/* Homework 13: article selects inside one continuous text + repeat checkboxes */
+.continuous-gap-select {
+  width: 96px;
+  min-width: 78px;
+  padding-right: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.task-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #f8fafc;
+  color: var(--dark);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.task-checkbox input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--indigo);
+  flex: 0 0 auto;
+}
+
+.task-checkbox span {
+  line-height: 1.45;
+}
