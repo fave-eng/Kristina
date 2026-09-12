@@ -2694,5 +2694,381 @@ window.GRAMMAR_DATA = [
       }
     ],
     "linkedLessonId": "lesson-11"
+  },
+  {
+    "id": "grammar-articles",
+    "order": 7,
+    "title": "Articles: a / an, the, no article",
+    "level": "B1",
+    "status": "available",
+    "page": "grammar-topic.html?id=grammar-articles",
+    "passed": false,
+    "attempts": 0,
+    "explanation": "Артикль показывает, говорим ли мы об одном неопределённом предмете, о конкретном / уже известном предмете или о понятии в общем. Перед исчисляемым существительным в единственном числе обычно нужен a / an или the. С множественным числом и неисчисляемыми существительными артикль часто не нужен, если мы говорим в общем.",
+    "formula": "a / an + singular countable noun · the + specific / known noun · no article + plural or uncountable noun in general",
+    "glanceCards": [
+      {
+        "icon": "1️⃣",
+        "label": "a / an",
+        "hint": "один из многих; впервые упоминаем",
+        "pattern": "a + consonant sound · an + vowel sound",
+        "example": "She is an engineer."
+      },
+      {
+        "icon": "🎯",
+        "label": "the",
+        "hint": "конкретный, известный или уникальный",
+        "pattern": "the + noun",
+        "example": "Did you lock the door?"
+      },
+      {
+        "icon": "∅",
+        "label": "No article",
+        "hint": "говорим о категории или веществе в общем",
+        "pattern": "plural / uncountable noun",
+        "example": "Money doesn’t make people happy."
+      },
+      {
+        "icon": "📌",
+        "label": "Fixed expressions",
+        "hint": "частые сочетания нужно запоминать целиком",
+        "pattern": "have lunch · next weekend · once a week",
+        "example": "We go to the cinema once a week."
+      }
+    ],
+    "anchorLinks": [
+      {
+        "id": "grammar-at-a-glance",
+        "title": "Quick overview"
+      },
+      {
+        "id": "grammar-tables",
+        "title": "Tables"
+      },
+      {
+        "id": "grammar-examples",
+        "title": "Examples"
+      },
+      {
+        "id": "grammar-mistakes",
+        "title": "Common mistakes"
+      },
+      {
+        "id": "grammar-practice-section",
+        "title": "Practice"
+      }
+    ],
+    "miniRules": [
+      {
+        "title": "1. a / an = one non-specific person or thing",
+        "text": "Используй a / an перед исчисляемым существительным в единственном числе, если человек или предмет упоминается впервые, либо когда говорим о профессии / категории.",
+        "example": "He is a doctor. She is an engineer."
+      },
+      {
+        "title": "2. the = specific or already known",
+        "text": "Используй the, когда понятно, о каком именно предмете идёт речь, или когда он уже определён контекстом.",
+        "example": "Did you lock the door? The salmon we had was delicious."
+      },
+      {
+        "title": "3. No article = general meaning",
+        "text": "С существительными во множественном числе и неисчисляемыми существительными артикль часто не нужен, когда говорим в целом.",
+        "example": "Women and men are different. Money doesn’t make people happy."
+      },
+      {
+        "title": "4. Learn common expressions",
+        "text": "Запоминай устойчивые сочетания: have lunch, leave school, leave work, next weekend, once a week; но go to the cinema, the world, the TV.",
+        "example": "She leaves work at five. We go to the cinema once a week."
+      }
+    ],
+    "tables": [
+      {
+        "title": "Main uses",
+        "headers": [
+          "Form",
+          "Use",
+          "Example"
+        ],
+        "rows": [
+          [
+            "a / an",
+            "one non-specific singular countable noun",
+            "a German · an engineer · a beautiful day"
+          ],
+          [
+            "the",
+            "specific / known / unique",
+            "the door · the salmon we had · the world"
+          ],
+          [
+            "no article",
+            "plural / uncountable noun in general",
+            "girls · languages · fish · money"
+          ]
+        ]
+      },
+      {
+        "title": "Useful contrasts",
+        "headers": [
+          "No article",
+          "the",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "have lunch",
+            "the lunch we had",
+            "meal in general / a specific meal"
+          ],
+          [
+            "next weekend",
+            "the last weekend",
+            "fixed time expression / a specific weekend"
+          ],
+          [
+            "fish",
+            "the fish on the plate",
+            "food in general / specific fish"
+          ],
+          [
+            "leave work",
+            "leave the workplace building",
+            "fixed expression / a specific place"
+          ]
+        ]
+      }
+    ],
+    "exampleGroups": [
+      {
+        "title": "a / an",
+        "items": [
+          "What a beautiful day!",
+          "My sister is married to a German.",
+          "Alex is studying to become a doctor."
+        ]
+      },
+      {
+        "title": "the",
+        "items": [
+          "Did you lock the door?",
+          "The salmon we had last night was delicious.",
+          "That was one of the best meals I’ve ever had."
+        ]
+      },
+      {
+        "title": "No article",
+        "items": [
+          "Money doesn’t make people happy.",
+          "I love cats.",
+          "She leaves work at half past five."
+        ]
+      }
+    ],
+    "commonMistakes": [
+      "He is engineer ✗ → He is an engineer ✓. Профессия в единственном числе требует a / an.",
+      "The money doesn’t make people happy ✗ → Money doesn’t make people happy ✓, если речь о деньгах вообще.",
+      "the next weekend ✗ → next weekend ✓. С next / last в обычных временных выражениях the обычно не нужен.",
+      "leave the work ✗ → leave work ✓.",
+      "a lunch ✗ → lunch ✓, когда речь просто о приёме пищи."
+    ],
+    "exercises": [
+      {
+        "type": "exercise",
+        "title": "Choose the article",
+        "difficulty": "Easy",
+        "instructions": "Выбери a / an, the или no article.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "My brother is ___ architect.",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": 1
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "Please close ___ door next to you.",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": 2
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "___ children usually learn languages quickly.",
+            "options": [
+              "A",
+              "An",
+              "The",
+              "—"
+            ],
+            "answer": 3
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "We had ___ lunch at one o’clock.",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "—"
+            ],
+            "answer": 3
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Complete the article",
+        "difficulty": "Medium",
+        "instructions": "Впиши a, an, the или —, если артикль не нужен.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "She wants to become ___ engineer.",
+            "acceptedAnswers": [
+              "an"
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "Could you close ___ window, please?",
+            "acceptedAnswers": [
+              "the"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "I don’t usually eat ___ meat.",
+            "acceptedAnswers": [
+              "—",
+              "-"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "What ___ amazing idea!",
+            "acceptedAnswers": [
+              "an"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Choose the correct sentence",
+        "difficulty": "Medium → Hard",
+        "instructions": "Выбери грамматически правильный вариант.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "Choose the correct sentence.",
+            "options": [
+              "I’m going there the next weekend.",
+              "I’m going there next weekend.",
+              "I’m going there a next weekend.",
+              "I’m going there next the weekend."
+            ],
+            "answer": 1
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "Choose the correct sentence.",
+            "options": [
+              "The money is important in life.",
+              "A money is important in life.",
+              "Money is important in life.",
+              "An money is important in life."
+            ],
+            "answer": 2
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "Choose the correct sentence.",
+            "options": [
+              "She is a doctor.",
+              "She is doctor.",
+              "She is the doctor by profession.",
+              "She is an doctor."
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "Choose the correct sentence.",
+            "options": [
+              "We go to cinema once the week.",
+              "We go to the cinema once a week.",
+              "We go to a cinema once the week.",
+              "We go cinema once week."
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Correct the article mistake",
+        "difficulty": "Hard",
+        "instructions": "Перепиши предложение правильно целиком.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "Correct: He is engineer.",
+            "acceptedAnswers": [
+              "He is an engineer",
+              "He is an engineer."
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "Correct: The money does not make people happy.",
+            "acceptedAnswers": [
+              "Money does not make people happy",
+              "Money does not make people happy."
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "Correct: I go to the dentist about twice the year.",
+            "acceptedAnswers": [
+              "I go to the dentist about twice a year",
+              "I go to the dentist about twice a year."
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "Correct: She always leaves the work at half past five.",
+            "acceptedAnswers": [
+              "She always leaves work at half past five",
+              "She always leaves work at half past five."
+            ]
+          }
+        ]
+      }
+    ],
+    "linkedLessonId": "lesson-12"
   }
 ];

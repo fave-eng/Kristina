@@ -1,0 +1,482 @@
+{
+  "id": "lesson-12",
+  "number": 12,
+  "title": "Men, women, and children",
+  "subtitle": "Grammar: articles — a / an, the, no article",
+  "status": "available",
+  "publishedAt": "2026-09-12",
+  "totalPoints": 30,
+  "grammarIds": [
+    "grammar-articles"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "eyebrow": "",
+      "title": "GRAMMAR articles",
+      "sectionNumber": 1,
+      "titleLead": "GRAMMAR",
+      "titleTail": "articles"
+    },
+    {
+      "type": "exercise",
+      "id": "articles-1a",
+      "title": "a Circle the correct words.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "single",
+          "prompt": "Yesterday was ___ day of the year so far.",
+          "options": [
+            "hottest",
+            "the hottest"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "single",
+          "prompt": "We went to Paris for my birthday ___.",
+          "options": [
+            "last weekend",
+            "the last weekend"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3a",
+          "number": 3,
+          "input": "single",
+          "prompt": "I think ___ are better at learning languages than boys.",
+          "options": [
+            "girls",
+            "the girls"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3b",
+          "number": 3,
+          "input": "single",
+          "prompt": "I think girls are better at learning ___ than boys.",
+          "options": [
+            "languages",
+            "the languages"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3c",
+          "number": 3,
+          "input": "single",
+          "prompt": "I think girls are better at learning languages than ___.",
+          "options": [
+            "boys",
+            "the boys"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4a",
+          "number": 4,
+          "input": "single",
+          "prompt": "Did you lock ___ when you left the house this morning?",
+          "options": [
+            "door",
+            "the door"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "4b",
+          "number": 4,
+          "input": "single",
+          "prompt": "Did you lock the door when you left ___ this morning?",
+          "options": [
+            "house",
+            "the house"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5a",
+          "number": 5,
+          "input": "single",
+          "prompt": "My sister is married to ___.",
+          "options": [
+            "German",
+            "a German"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5b",
+          "number": 5,
+          "input": "single",
+          "prompt": "He’s ___.",
+          "options": [
+            "engineer",
+            "an engineer"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "6a",
+          "number": 6,
+          "input": "single",
+          "prompt": "I don’t usually like ___.",
+          "options": [
+            "fish",
+            "the fish"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "6b",
+          "number": 6,
+          "input": "single",
+          "prompt": "___ we had last night was delicious.",
+          "options": [
+            "salmon",
+            "the salmon"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "7a",
+          "number": 7,
+          "input": "single",
+          "prompt": "We go to ___ once a week.",
+          "options": [
+            "cinema",
+            "the cinema"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "7b",
+          "number": 7,
+          "input": "single",
+          "prompt": "We go to the cinema once ___.",
+          "options": [
+            "a week",
+            "the week"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "8a",
+          "number": 8,
+          "input": "single",
+          "prompt": "Don’t worry! It’s not ___ of the world.",
+          "options": [
+            "the end",
+            "end"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "8b",
+          "number": 8,
+          "input": "single",
+          "prompt": "Don’t worry! It’s not the end of ___.",
+          "options": [
+            "the world",
+            "world"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "9a",
+          "number": 9,
+          "input": "single",
+          "prompt": "Do you think ___ are more sensitive than men?",
+          "options": [
+            "women",
+            "the women"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "9b",
+          "number": 9,
+          "input": "single",
+          "prompt": "Do you think women are more sensitive than ___?",
+          "options": [
+            "men",
+            "the men"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "10a",
+          "number": 10,
+          "input": "single",
+          "prompt": "What ___!",
+          "options": [
+            "beautiful day",
+            "a beautiful day"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "10b",
+          "number": 10,
+          "input": "single",
+          "prompt": "Let’s have ___ in the garden.",
+          "options": [
+            "lunch",
+            "a lunch"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "articles-1b",
+      "title": "b Correct any mistakes in the highlighted phrases. Tick (✓) the correct sentences.",
+      "instructions": "Type the corrected highlighted phrase. If the sentence is already correct, type ✓.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "contextParts": [
+            {
+              "text": "That’s ",
+              "highlight": false
+            },
+            {
+              "text": "lovely dress",
+              "highlight": true
+            },
+            {
+              "text": " – the colour suits you.",
+              "highlight": false
+            }
+          ],
+          "exampleTarget": "a lovely dress",
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "He’s going to visit his parents ",
+            {
+              "text": "the next weekend",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "next weekend"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            {
+              "text": "The money",
+              "highlight": true
+            },
+            " doesn’t make people happy."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "Money",
+            "money"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "My grandfather ",
+            {
+              "text": "left school",
+              "highlight": true
+            },
+            " when he was 14."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "✔️"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "I go to the dentist about ",
+            {
+              "text": "twice a year",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "✔️"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "Have you worn ",
+            {
+              "text": "jacket",
+              "highlight": true
+            },
+            " that you bought last week?"
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "the jacket"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "That was ",
+            {
+              "text": "one of the best meals",
+              "highlight": true
+            },
+            " I’ve ever had."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "✔️"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "What ",
+            {
+              "text": "noisy child",
+              "highlight": true
+            },
+            "! Where are his parents?"
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "a noisy child"
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "Alex is studying to become ",
+            {
+              "text": "doctor",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "a doctor"
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "I love ",
+            {
+              "text": "cats",
+              "highlight": true
+            },
+            ", but my boyfriend doesn’t like them."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "✔️"
+          ]
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "Her husband sits in front of ",
+            {
+              "text": "the TV",
+              "highlight": true
+            },
+            " all day."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "✔️"
+          ]
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "She always ",
+            {
+              "text": "leaves the work",
+              "highlight": true
+            },
+            " at half past five."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "leaves work"
+          ]
+        }
+      ]
+    }
+  ]
+}
