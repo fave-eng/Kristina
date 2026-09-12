@@ -2,7 +2,7 @@
   "id": "lesson-12",
   "number": 12,
   "title": "Men, women, and children",
-  "subtitle": "Grammar: articles — a / an, the, no article",
+  "subtitle": "Grammar: articles · Vocabulary: people, society, and everyday phrases",
   "status": "available",
   "publishedAt": "2026-09-12",
   "totalPoints": 30,
@@ -478,5 +478,6 @@
         }
       ]
     }
-  ]
+  ],
+  "vocabularyId": "vocabulary-men-women-children"
 }

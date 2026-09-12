@@ -1,0 +1,348 @@
+{
+  "id": "lesson-13",
+  "number": 13,
+  "title": "Men, women, and children",
+  "subtitle": "Grammar: articles · Pronunciation: /ə/ and two pronunciations of the · Vocabulary review",
+  "status": "available",
+  "publishedAt": "2026-09-12",
+  "totalPoints": 14,
+  "grammarIds": [
+    "grammar-articles"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "GRAMMAR articles",
+      "sectionNumber": 1,
+      "titleLead": "GRAMMAR",
+      "titleTail": "articles"
+    },
+    {
+      "type": "exercise",
+      "id": "articles-1c",
+      "title": "c Complete the text with a / an, the or — (no article).",
+      "instructions": "Type a, an, the or — if no article is needed.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "contextParts": [
+            "Why are women generally able to see ",
+            {
+              "text": "—",
+              "highlight": true
+            },
+            " colours better than men?"
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "Scientists say there is ",
+            {
+              "blank": true
+            },
+            " reason for this,"
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "a"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "and ",
+            {
+              "blank": true
+            },
+            " reason is in our DNA."
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "the"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "The ability to see ",
+            {
+              "blank": true
+            },
+            " colour red is carried by the X chromosome."
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "the"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "Men have only one X chromosome, but ",
+            {
+              "blank": true
+            },
+            " women have two of them."
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "—",
+            "-"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "This was important in prehistoric times when women were looking for ",
+            {
+              "blank": true
+            },
+            " fruit to eat."
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "—",
+            "-"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "They needed to choose ",
+            {
+              "blank": true
+            },
+            " right fruit,"
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "the"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "so they had to be able to see ",
+            {
+              "blank": true
+            },
+            " difference between different colours."
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "the"
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "If they made ",
+            {
+              "blank": true
+            },
+            " mistake, they could kill their families and themselves."
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "a"
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "So, it was more important for women to see different colours, while men had ",
+            {
+              "blank": true
+            },
+            " other important skills."
+          ],
+          "placeholder": "a / an / the / —",
+          "acceptedAnswers": [
+            "—",
+            "-"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "PRONUNCIATION /ə/, two pronunciations of the",
+      "sectionNumber": 2,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "/ə/, two pronunciations of the"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2a",
+      "title": "a 3.3 Listen and complete the sentences.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.3.mp3",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "contextParts": [
+            "I’d like ",
+            {
+              "text": "to",
+              "highlight": true
+            },
+            " to speak ",
+            {
+              "text": "to",
+              "highlight": true
+            },
+            " to the manager."
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "The bus is ___ train.",
+          "acceptedAnswers": [
+            "cheaper than the"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "What are we going ___?",
+          "acceptedAnswers": [
+            "to do tonight"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "Could you open ___?",
+          "acceptedAnswers": [
+            "the window for a moment"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "She needs ___ her ankle.",
+          "acceptedAnswers": [
+            "to see a doctor about"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "We want ___ tomorrow.",
+          "acceptedAnswers": [
+            "to go for a walk"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2b",
+      "title": "b 3.3 Listen again and repeat.",
+      "audioReference": "Use the audio in exercise 2a again.",
+      "items": [
+        {
+          "id": "done",
+          "number": 1,
+          "input": "checkbox",
+          "prompt": "I listened again and repeated the sentences."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2c",
+      "title": "c 3.4 Listen and repeat the phrases. Pay attention to the pronunciation of the.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.4.mp3",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleTextOnly": true,
+          "prompt": "The conversation was about the woman next door.",
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "checkbox",
+          "prompt": "The university invited a guest to speak at the meeting."
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "checkbox",
+          "prompt": "I sometimes go to the theatre in the evening."
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "checkbox",
+          "prompt": "We took the lift instead of walking up the stairs."
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "checkbox",
+          "prompt": "The office gave me all the information I needed."
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "checkbox",
+          "prompt": "The grey skirt is nice, but I prefer the black one."
+        }
+      ]
+    }
+  ],
+  "vocabularyId": "vocabulary-men-women-children"
+}

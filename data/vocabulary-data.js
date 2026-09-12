@@ -1648,5 +1648,160 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Можно закрыть аккаунт, если вы больше не пользуетесь сервисом."
       }
     ]
+  },
+  {
+    "id": "vocabulary-men-women-children",
+    "order": 12,
+    "title": "Men, women, and children — useful vocabulary",
+    "description": "Useful B1 vocabulary and phrases from Unit 3B: articles, people, DNA, colours, and everyday phrases.",
+    "level": "B1",
+    "status": "available",
+    "page": "vocabulary.html?id=vocabulary-men-women-children",
+    "linkedLessonIds": [
+      "lesson-12",
+      "lesson-13"
+    ],
+    "words": [
+      {
+        "id": "sensitive",
+        "en": "sensitive",
+        "ru": "чувствительный",
+        "example": "Do you think women are more sensitive than men?",
+        "type": "adjective"
+      },
+      {
+        "id": "suit-someone",
+        "en": "to suit someone",
+        "ru": "подходить кому-то / быть к лицу",
+        "example": "That dress suits you.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "delicious",
+        "en": "delicious",
+        "ru": "очень вкусный",
+        "example": "The salmon we had last night was delicious.",
+        "type": "adjective"
+      },
+      {
+        "id": "become-a-doctor",
+        "en": "to become a doctor",
+        "ru": "стать врачом",
+        "example": "Alex is studying to become a doctor.",
+        "type": "phrase"
+      },
+      {
+        "id": "engineer",
+        "en": "engineer",
+        "ru": "инженер",
+        "example": "He is an engineer.",
+        "type": "noun"
+      },
+      {
+        "id": "leave-school",
+        "en": "to leave school",
+        "ru": "закончить школу / уйти из школы",
+        "example": "My grandfather left school when he was 14.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "twice-a-year",
+        "en": "twice a year",
+        "ru": "два раза в год",
+        "example": "I go to the dentist about twice a year.",
+        "type": "phrase"
+      },
+      {
+        "id": "in-front-of-tv",
+        "en": "in front of the TV",
+        "ru": "перед телевизором",
+        "example": "Her husband sits in front of the TV all day.",
+        "type": "phrase"
+      },
+      {
+        "id": "leave-work",
+        "en": "to leave work",
+        "ru": "уходить с работы",
+        "example": "She always leaves work at half past five.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "one-of-the-best-meals",
+        "en": "one of the best meals",
+        "ru": "один из лучших приёмов пищи / одно из лучших блюд",
+        "example": "That was one of the best meals I’ve ever had.",
+        "type": "phrase"
+      },
+      {
+        "id": "dna",
+        "en": "DNA",
+        "ru": "ДНК",
+        "example": "The reason is in our DNA.",
+        "type": "noun"
+      },
+      {
+        "id": "reason",
+        "en": "reason",
+        "ru": "причина",
+        "example": "Scientists say there is a reason for this.",
+        "type": "noun"
+      },
+      {
+        "id": "chromosome",
+        "en": "chromosome",
+        "ru": "хромосома",
+        "example": "Our chromosomes contain DNA.",
+        "type": "noun"
+      },
+      {
+        "id": "ability",
+        "en": "ability",
+        "ru": "способность",
+        "example": "The ability to see colour is important.",
+        "type": "noun"
+      },
+      {
+        "id": "be-carried-by",
+        "en": "to be carried by",
+        "ru": "переноситься / передаваться через",
+        "example": "This ability is carried by the X chromosome.",
+        "type": "passive verb phrase"
+      },
+      {
+        "id": "prehistoric",
+        "en": "prehistoric",
+        "ru": "доисторический",
+        "example": "This was important in prehistoric times.",
+        "type": "adjective"
+      },
+      {
+        "id": "difference",
+        "en": "difference",
+        "ru": "разница / различие",
+        "example": "They had to see the difference between different colours.",
+        "type": "noun"
+      },
+      {
+        "id": "make-a-mistake",
+        "en": "to make a mistake",
+        "ru": "сделать ошибку",
+        "example": "If they made a mistake, it could be dangerous.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "skill",
+        "en": "skill",
+        "ru": "навык / умение",
+        "example": "Men had other important skills.",
+        "type": "noun"
+      },
+      {
+        "id": "ankle",
+        "en": "ankle",
+        "ru": "лодыжка / щиколотка",
+        "example": "She needs to see a doctor about her ankle.",
+        "type": "noun"
+      }
+    ]
   }
 ];
