@@ -169,7 +169,7 @@
       "type": "exercise",
       "id": "pronunciation-2a",
       "title": "a 3.3 Listen and complete the sentences.",
-      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.3.mp3",
+      "audio": "audio/English_File_4e_Intermediate_WB_3.3.mp3",
       "hideAnswersOnError": true,
       "inlineNumberedItems": true,
       "items": [
@@ -282,7 +282,7 @@
       "type": "exercise",
       "id": "pronunciation-2c",
       "title": "c 3.4 Listen and repeat the phrases. Pay attention to the pronunciation of the.",
-      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.4.mp3",
+      "audio": "audio/English_File_4e_Intermediate_WB_3.4.mp3",
       "instructions": "Listen and repeat. Tick each phrase after you repeat it.",
       "hideAnswersOnError": true,
       "inlineNumberedItems": true,
