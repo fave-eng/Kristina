@@ -25,179 +25,197 @@
       "type": "exercise",
       "id": "articles-1c",
       "title": "c Complete the text with a / an, the or — (no article).",
-      "instructions": "Type a, an, the or — if no article is needed.",
+      "instructions": "Choose a, an, the or — in each gap.",
+      "wordBank": [
+        "a",
+        "an",
+        "the",
+        "—"
+      ],
+      "wordBankLabel": "",
       "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
       "items": [
+        {
+          "id": "intro-1",
+          "displayOnly": true,
+          "displayStyle": "copy",
+          "prompt": "DNA — the reason women see colours better than men"
+        },
         {
           "id": "1",
           "number": 1,
           "example": true,
           "exampleLabel": "EXAMPLE",
-          "contextParts": [
+          "exampleMode": "select",
+          "segments": [
             "Why are women generally able to see ",
-            {
-              "text": "—",
-              "highlight": true
-            },
             " colours better than men?"
           ],
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 3,
           "showExampleNumber": true
         },
         {
           "id": "2",
           "number": 2,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "Scientists say there is ",
-            {
-              "blank": true
-            },
             " reason for this,"
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "a"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 0
         },
         {
           "id": "3",
           "number": 3,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "and ",
-            {
-              "blank": true
-            },
             " reason is in our DNA."
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "the"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 2
         },
         {
           "id": "4",
           "number": 4,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "The ability to see ",
-            {
-              "blank": true
-            },
             " colour red is carried by the X chromosome."
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "the"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "copy-1",
+          "displayOnly": true,
+          "displayStyle": "copy",
+          "prompt": "Our chromosomes contain DNA, which controls many things about us."
         },
         {
           "id": "5",
           "number": 5,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "Men have only one X chromosome, but ",
-            {
-              "blank": true
-            },
             " women have two of them."
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "—",
-            "-"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 3
         },
         {
           "id": "6",
           "number": 6,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "This was important in prehistoric times when women were looking for ",
-            {
-              "blank": true
-            },
             " fruit to eat."
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "—",
-            "-"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "copy-2",
+          "displayOnly": true,
+          "displayStyle": "copy",
+          "prompt": "This means that it’s easier for women to see red."
         },
         {
           "id": "7",
           "number": 7,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "They needed to choose ",
-            {
-              "blank": true
-            },
             " right fruit,"
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "the"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 2
         },
         {
           "id": "8",
           "number": 8,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "so they had to be able to see ",
-            {
-              "blank": true
-            },
             " difference between different colours."
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "the"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 2
         },
         {
           "id": "9",
           "number": 9,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "If they made ",
-            {
-              "blank": true
-            },
             " mistake, they could kill their families and themselves."
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "a"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 0
         },
         {
           "id": "10",
           "number": 10,
-          "input": "text",
-          "prompt": "",
-          "contextParts": [
+          "input": "select",
+          "segments": [
             "So, it was more important for women to see different colours, while men had ",
-            {
-              "blank": true
-            },
             " other important skills."
           ],
-          "placeholder": "a / an / the / —",
-          "acceptedAnswers": [
-            "—",
-            "-"
-          ]
+          "options": [
+            "a",
+            "an",
+            "the",
+            "—"
+          ],
+          "answer": 3
         }
       ]
     },
@@ -214,71 +232,94 @@
       "title": "a 3.3 Listen and complete the sentences.",
       "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.3.mp3",
       "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
       "items": [
         {
           "id": "1",
           "number": 1,
           "example": true,
           "exampleLabel": "EXAMPLE",
-          "contextParts": [
+          "exampleMode": "gaps",
+          "segments": [
             "I’d like ",
-            {
-              "text": "to",
-              "highlight": true
-            },
             " to speak ",
-            {
-              "text": "to",
-              "highlight": true
-            },
             " to the manager."
+          ],
+          "exampleAnswers": [
+            "to",
+            "to"
           ],
           "showExampleNumber": true
         },
         {
           "id": "2",
           "number": 2,
-          "input": "text",
-          "prompt": "The bus is ___ train.",
-          "acceptedAnswers": [
+          "input": "gaps",
+          "prompt": "",
+          "segments": [
+            "The bus is ",
+            " train."
+          ],
+          "answers": [
             "cheaper than the"
-          ]
+          ],
+          "inputSize": "wide"
         },
         {
           "id": "3",
           "number": 3,
-          "input": "text",
-          "prompt": "What are we going ___?",
-          "acceptedAnswers": [
+          "input": "gaps",
+          "prompt": "",
+          "segments": [
+            "What are we going ",
+            "?"
+          ],
+          "answers": [
             "to do tonight"
-          ]
+          ],
+          "inputSize": "wide"
         },
         {
           "id": "4",
           "number": 4,
-          "input": "text",
-          "prompt": "Could you open ___?",
-          "acceptedAnswers": [
+          "input": "gaps",
+          "prompt": "",
+          "segments": [
+            "Could you open ",
+            "?"
+          ],
+          "answers": [
             "the window for a moment"
-          ]
+          ],
+          "inputSize": "wide"
         },
         {
           "id": "5",
           "number": 5,
-          "input": "text",
-          "prompt": "She needs ___ her ankle.",
-          "acceptedAnswers": [
+          "input": "gaps",
+          "prompt": "",
+          "segments": [
+            "She needs ",
+            " her ankle."
+          ],
+          "answers": [
             "to see a doctor about"
-          ]
+          ],
+          "inputSize": "wide"
         },
         {
           "id": "6",
           "number": 6,
-          "input": "text",
-          "prompt": "We want ___ tomorrow.",
-          "acceptedAnswers": [
+          "input": "gaps",
+          "prompt": "",
+          "segments": [
+            "We want ",
+            " tomorrow."
+          ],
+          "answers": [
             "to go for a walk"
-          ]
+          ],
+          "inputSize": "wide"
         }
       ]
     },
@@ -286,13 +327,15 @@
       "type": "exercise",
       "id": "pronunciation-2b",
       "title": "b 3.3 Listen again and repeat.",
-      "audioReference": "Use the audio in exercise 2a again.",
+      "instructions": "Listen to the audio in exercise 2a again. Tick the box when you have repeated the sentences.",
+      "hideAnswersOnError": true,
       "items": [
         {
           "id": "done",
-          "number": 1,
+          "number": "",
           "input": "checkbox",
-          "prompt": "I listened again and repeated the sentences."
+          "prompt": "I listened again and repeated the sentences.",
+          "scored": false
         }
       ]
     },
@@ -301,6 +344,9 @@
       "id": "pronunciation-2c",
       "title": "c 3.4 Listen and repeat the phrases. Pay attention to the pronunciation of the.",
       "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.4.mp3",
+      "instructions": "Listen and repeat. Tick each phrase after you repeat it.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
       "items": [
         {
           "id": "1",
@@ -315,31 +361,36 @@
           "id": "2",
           "number": 2,
           "input": "checkbox",
-          "prompt": "The university invited a guest to speak at the meeting."
+          "prompt": "The university invited a guest to speak at the meeting.",
+          "scored": false
         },
         {
           "id": "3",
           "number": 3,
           "input": "checkbox",
-          "prompt": "I sometimes go to the theatre in the evening."
+          "prompt": "I sometimes go to the theatre in the evening.",
+          "scored": false
         },
         {
           "id": "4",
           "number": 4,
           "input": "checkbox",
-          "prompt": "We took the lift instead of walking up the stairs."
+          "prompt": "We took the lift instead of walking up the stairs.",
+          "scored": false
         },
         {
           "id": "5",
           "number": 5,
           "input": "checkbox",
-          "prompt": "The office gave me all the information I needed."
+          "prompt": "The office gave me all the information I needed.",
+          "scored": false
         },
         {
           "id": "6",
           "number": 6,
           "input": "checkbox",
-          "prompt": "The grey skirt is nice, but I prefer the black one."
+          "prompt": "The grey skirt is nice, but I prefer the black one.",
+          "scored": false
         }
       ]
     }
