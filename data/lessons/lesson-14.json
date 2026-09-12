@@ -1,0 +1,625 @@
+{
+  "id": "lesson-14",
+  "number": 14,
+  "title": "Men, women, and children",
+  "subtitle": "Vocabulary: collocation · Pronunciation: stressed prepositions",
+  "status": "available",
+  "publishedAt": "2026-09-12",
+  "totalPoints": 36,
+  "vocabularyId": "vocabulary-collocations-prepositions",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY collocation",
+      "sectionNumber": 3,
+      "titleLead": "VOCABULARY",
+      "titleTail": "collocation"
+    },
+    {
+      "type": "exercise",
+      "id": "collocation-3a",
+      "title": "a Circle the correct prepositions.",
+      "instructions": "Choose the correct preposition in each sentence.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "They’re arriving ",
+            " London on Friday."
+          ],
+          "options": [
+            "at",
+            "on",
+            "in"
+          ],
+          "answer": 2,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "That suitcase belongs ",
+            " me."
+          ],
+          "options": [
+            "for",
+            "from",
+            "to"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "Shall we ask someone ",
+            " directions?"
+          ],
+          "options": [
+            "at",
+            "for",
+            "of"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "We might go camping, but it depends ",
+            " the weather."
+          ],
+          "options": [
+            "in",
+            "of",
+            "on"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "Everybody laughed ",
+            " Zach when he fell off the chair."
+          ],
+          "options": [
+            "about",
+            "at",
+            "to"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "Who’s going to pay ",
+            " the meal?"
+          ],
+          "options": [
+            "for",
+            "of",
+            "with"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "I dreamt ",
+            " my old school friends last night."
+          ],
+          "options": [
+            "about",
+            "from",
+            "with"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "select",
+          "segments": [
+            "That girl reminds me ",
+            " my cousin."
+          ],
+          "options": [
+            "about",
+            "of",
+            "to"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "9a",
+          "number": 9,
+          "input": "select",
+          "segments": [
+            "I apologized ",
+            " the teacher "
+          ],
+          "options": [
+            "at",
+            "to",
+            "with"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "9b",
+          "number": 9,
+          "input": "select",
+          "segments": [
+            "for being late.",
+            ""
+          ],
+          "options": [
+            "about",
+            "for",
+            "of"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "select",
+          "segments": [
+            "He often argues ",
+            " his friends about politics."
+          ],
+          "options": [
+            "at",
+            "to",
+            "with"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "input": "select",
+          "segments": [
+            "We arrive ",
+            " Liverpool Street Station at 7.45."
+          ],
+          "options": [
+            "at",
+            "in",
+            "to"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "input": "select",
+          "segments": [
+            "She doesn’t believe ",
+            " ghosts."
+          ],
+          "options": [
+            "about",
+            "in",
+            "on"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "13",
+          "number": 13,
+          "input": "select",
+          "segments": [
+            "I can’t choose ",
+            " the green one or the blue one."
+          ],
+          "options": [
+            "between",
+            "of",
+            "with"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "14",
+          "number": 14,
+          "input": "select",
+          "segments": [
+            "They’re really looking forward ",
+            " their holiday."
+          ],
+          "options": [
+            "for",
+            "of",
+            "to"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "15",
+          "number": 15,
+          "input": "select",
+          "segments": [
+            "James spends a lot of money ",
+            " expensive presents for his girlfriend."
+          ],
+          "options": [
+            "for",
+            "in",
+            "on"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "collocation-3b",
+      "title": "b Complete the sentences with the correct preposition.",
+      "instructions": "Write one preposition in each gap.",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "gaps",
+          "segments": [
+            "I’m tired ",
+            " my job. I think it’s time for a change."
+          ],
+          "exampleAnswers": [
+            "of"
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "My boyfriend isn’t very keen ",
+            " vegetables."
+          ],
+          "answers": [
+            "on"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "He’s famous ",
+            " his role in Sherlock Holmes."
+          ],
+          "answers": [
+            "for"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "I’m not very interested ",
+            " abstract art."
+          ],
+          "answers": [
+            "in"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "Susie is very different ",
+            " her sister."
+          ],
+          "answers": [
+            "from"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "Adam’s very good ",
+            " maths."
+          ],
+          "answers": [
+            "at"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "I’m fed up ",
+            " this grey weather."
+          ],
+          "answers": [
+            "with"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "My brother is very worried ",
+            " his daughter at the moment."
+          ],
+          "answers": [
+            "about"
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": [
+            "A lot of people are scared ",
+            " spiders."
+          ],
+          "answers": [
+            "of"
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "gaps",
+          "segments": [
+            "They’re angry ",
+            " their son ",
+            " his terrible exam results."
+          ],
+          "answers": [
+            "with",
+            "about"
+          ]
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "input": "gaps",
+          "segments": [
+            "She’s very close ",
+            " her brother."
+          ],
+          "answers": [
+            "to"
+          ]
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "input": "gaps",
+          "segments": [
+            "My husband is very proud ",
+            " his new car."
+          ],
+          "answers": [
+            "of"
+          ]
+        },
+        {
+          "id": "13",
+          "number": 13,
+          "input": "gaps",
+          "segments": [
+            "I’m very fond ",
+            " my grandfather. He’s a wonderful person."
+          ],
+          "answers": [
+            "of"
+          ]
+        },
+        {
+          "id": "14",
+          "number": 14,
+          "input": "gaps",
+          "segments": [
+            "Experts say that walking is good ",
+            " you."
+          ],
+          "answers": [
+            "for"
+          ]
+        },
+        {
+          "id": "15",
+          "number": 15,
+          "input": "gaps",
+          "segments": [
+            "Jack’s elder brother isn’t very kind ",
+            " him."
+          ],
+          "answers": [
+            "to"
+          ]
+        },
+        {
+          "id": "16",
+          "number": 16,
+          "input": "gaps",
+          "segments": [
+            "We’re really pleased ",
+            " our new sofa."
+          ],
+          "answers": [
+            "with"
+          ]
+        },
+        {
+          "id": "17",
+          "number": 17,
+          "input": "gaps",
+          "segments": [
+            "The children are very excited ",
+            " going to the concert."
+          ],
+          "answers": [
+            "about"
+          ]
+        },
+        {
+          "id": "18",
+          "number": 18,
+          "input": "gaps",
+          "segments": [
+            "My neighbour was very rude ",
+            " me yesterday."
+          ],
+          "answers": [
+            "to"
+          ]
+        },
+        {
+          "id": "19",
+          "number": 19,
+          "input": "gaps",
+          "segments": [
+            "Tony used to be married ",
+            " Teresa."
+          ],
+          "answers": [
+            "to"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "PRONUNCIATION when are prepositions stressed?",
+      "sectionNumber": 4,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "when are prepositions stressed?"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-4a",
+      "title": "a 3.5 Listen and complete the conversations.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_3.5.mp3",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": false,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "gaps",
+          "segments": [
+            "A Who did you argue ",
+            "?\nB I ",
+            " with my ",
+            "."
+          ],
+          "exampleAnswers": [
+            "with",
+            "argued",
+            "dad"
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "prompt": "A Who are you __________? B I’m __________ at __________!",
+          "segments": [
+            "A Who are you ",
+            "?\nB I’m ",
+            " at ",
+            "!"
+          ],
+          "answers": [
+            "laughing at",
+            "laughing",
+            "you"
+          ],
+          "inputSize": "wide"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "prompt": "A What are you so __________? B I’m __________ about my __________.",
+          "segments": [
+            "A What are you so ",
+            "?\nB I’m ",
+            " about my ",
+            "."
+          ],
+          "answers": [
+            "excited about",
+            "excited",
+            "holiday"
+          ],
+          "inputSize": "wide"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "prompt": "A What are you __________? B I’m __________ to the __________.",
+          "segments": [
+            "A What are you ",
+            "?\nB I’m ",
+            " to the ",
+            "."
+          ],
+          "answers": [
+            "listening to",
+            "listening",
+            "radio"
+          ],
+          "inputSize": "wide"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-4b",
+      "title": "b 3.5 Listen again and repeat. Copy the rhythm.",
+      "instructions": "Listen to the audio in exercise 4a again. Tick the box when you have repeated the conversations.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "done",
+          "number": "",
+          "input": "checkbox",
+          "prompt": "I listened again, repeated the conversations, and copied the rhythm.",
+          "scored": false
+        }
+      ]
+    }
+  ]
+}

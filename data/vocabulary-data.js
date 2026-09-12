@@ -1803,5 +1803,159 @@ window.VOCABULARY_DATA = [
         "type": "noun"
       }
     ]
+  },
+  {
+    "id": "vocabulary-collocations-prepositions",
+    "order": 13,
+    "title": "Collocations: verbs / adjectives + prepositions",
+    "description": "Useful B1 collocations from Unit 3B with verbs, adjectives, and prepositions.",
+    "level": "B1",
+    "status": "available",
+    "page": "vocabulary.html?id=vocabulary-collocations-prepositions",
+    "linkedLessonIds": [
+      "lesson-14"
+    ],
+    "words": [
+      {
+        "id": "arrive-in",
+        "en": "arrive in",
+        "ru": "прибывать в город / страну",
+        "example": "They’re arriving in London on Friday.",
+        "type": "verb + preposition"
+      },
+      {
+        "id": "belong-to",
+        "en": "belong to",
+        "ru": "принадлежать кому-то",
+        "example": "That suitcase belongs to me.",
+        "type": "verb + preposition"
+      },
+      {
+        "id": "ask-for-directions",
+        "en": "ask for directions",
+        "ru": "спросить дорогу",
+        "example": "Shall we ask someone for directions?",
+        "type": "phrase"
+      },
+      {
+        "id": "depend-on",
+        "en": "depend on",
+        "ru": "зависеть от",
+        "example": "It depends on the weather.",
+        "type": "verb + preposition"
+      },
+      {
+        "id": "laugh-at",
+        "en": "laugh at",
+        "ru": "смеяться над",
+        "example": "Everybody laughed at Zach.",
+        "type": "verb + preposition"
+      },
+      {
+        "id": "pay-for",
+        "en": "pay for",
+        "ru": "платить за",
+        "example": "Who’s going to pay for the meal?",
+        "type": "verb + preposition"
+      },
+      {
+        "id": "dream-about",
+        "en": "dream about",
+        "ru": "мечтать о / видеть во сне",
+        "example": "I dreamt about my old school friends.",
+        "type": "verb + preposition"
+      },
+      {
+        "id": "remind-of",
+        "en": "remind someone of",
+        "ru": "напоминать кому-то о",
+        "example": "That girl reminds me of my cousin.",
+        "type": "verb + preposition"
+      },
+      {
+        "id": "apologize-to-for",
+        "en": "apologize to someone for something",
+        "ru": "извиниться перед кем-то за что-то",
+        "example": "I apologized to the teacher for being late.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "argue-with-about",
+        "en": "argue with someone about something",
+        "ru": "спорить с кем-то о чём-то",
+        "example": "He argues with his friends about politics.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "tired-of",
+        "en": "tired of",
+        "ru": "устал от / надоело",
+        "example": "I’m tired of my job.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "keen-on",
+        "en": "keen on",
+        "ru": "увлечённый чем-то / любящий что-то",
+        "example": "My boyfriend isn’t very keen on vegetables.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "interested-in",
+        "en": "interested in",
+        "ru": "интересующийся чем-то",
+        "example": "I’m not very interested in abstract art.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "different-from",
+        "en": "different from",
+        "ru": "отличающийся от",
+        "example": "Susie is very different from her sister.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "good-at",
+        "en": "good at",
+        "ru": "хорошо получается / хорош в",
+        "example": "Adam’s very good at maths.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "fed-up-with",
+        "en": "fed up with",
+        "ru": "сыт по горло / надоело",
+        "example": "I’m fed up with this grey weather.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "worried-about",
+        "en": "worried about",
+        "ru": "обеспокоенный чем-то",
+        "example": "My brother is worried about his daughter.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "scared-of",
+        "en": "scared of",
+        "ru": "бояться чего-то",
+        "example": "A lot of people are scared of spiders.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "pleased-with",
+        "en": "pleased with",
+        "ru": "довольный чем-то",
+        "example": "We’re really pleased with our new sofa.",
+        "type": "adjective + preposition"
+      },
+      {
+        "id": "excited-about",
+        "en": "excited about",
+        "ru": "радостно взволнованный из-за",
+        "example": "The children are very excited about going to the concert.",
+        "type": "adjective + preposition"
+      }
+    ]
   }
 ];
