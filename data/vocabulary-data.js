@@ -1957,5 +1957,145 @@ window.VOCABULARY_DATA = [
         "type": "adjective + preposition"
       }
     ]
+  },
+  {
+    "id": "vocabulary-practical-english-opinions",
+    "order": 14,
+    "title": "Practical English: giving opinions",
+    "description": "Useful phrases for giving opinions, agreeing, disagreeing, and everyday social English.",
+    "level": "B1",
+    "status": "available",
+    "page": "vocabulary.html?id=vocabulary-practical-english-opinions",
+    "linkedLessonIds": [
+      "lesson-15"
+    ],
+    "words": [
+      {
+        "id": "what-do-you-think-of",
+        "en": "What do you think of ...?",
+        "ru": "Что ты думаешь о ...?",
+        "example": "What do you think of Ed Sheeran?",
+        "type": "question phrase"
+      },
+      {
+        "id": "what-is-your-opinion-of",
+        "en": "What’s your opinion of ...?",
+        "ru": "Какое у тебя мнение о ...?",
+        "example": "What’s your opinion of heavy metal?",
+        "type": "question phrase"
+      },
+      {
+        "id": "in-my-opinion",
+        "en": "in my opinion",
+        "ru": "по моему мнению",
+        "example": "In my opinion, there are too many people.",
+        "type": "opinion phrase"
+      },
+      {
+        "id": "personally-i-think",
+        "en": "Personally, I think ...",
+        "ru": "лично я думаю ...",
+        "example": "Personally, I think it’s a bit loud.",
+        "type": "opinion phrase"
+      },
+      {
+        "id": "if-you-ask-me",
+        "en": "if you ask me",
+        "ru": "если хочешь знать моё мнение",
+        "example": "If you ask me, rap is more fun.",
+        "type": "opinion phrase"
+      },
+      {
+        "id": "to-be-honest",
+        "en": "to be honest",
+        "ru": "честно говоря",
+        "example": "To be honest, I haven’t asked her.",
+        "type": "opinion phrase"
+      },
+      {
+        "id": "i-agree",
+        "en": "I agree.",
+        "ru": "Я согласен / согласна.",
+        "example": "I agree. You can listen to it and talk.",
+        "type": "agreement phrase"
+      },
+      {
+        "id": "i-dont-think-thats-right",
+        "en": "I don’t think that’s right.",
+        "ru": "Я не думаю, что это правильно.",
+        "example": "I don’t think that’s right.",
+        "type": "disagreement phrase"
+      },
+      {
+        "id": "dont-you-agree",
+        "en": "Don’t you agree?",
+        "ru": "Ты не согласен / согласна?",
+        "example": "Don’t you agree?",
+        "type": "question phrase"
+      },
+      {
+        "id": "what-do-you-think",
+        "en": "What do you think?",
+        "ru": "Что ты думаешь?",
+        "example": "What do you think?",
+        "type": "question phrase"
+      },
+      {
+        "id": "oh-sure",
+        "en": "Oh sure",
+        "ru": "О да / конечно",
+        "example": "Oh sure, the 80s were good.",
+        "type": "phrase"
+      },
+      {
+        "id": "not-really",
+        "en": "Not really.",
+        "ru": "не особо / не совсем",
+        "example": "Not really. The DJs talk too much.",
+        "type": "short answer"
+      },
+      {
+        "id": "absolutely",
+        "en": "Absolutely!",
+        "ru": "абсолютно / конечно",
+        "example": "Absolutely!",
+        "type": "agreement phrase"
+      },
+      {
+        "id": "youve-come-back",
+        "en": "You’ve come back.",
+        "ru": "Ты вернулся / вернулась.",
+        "example": "You’ve come back. Yes, I forgot my phone.",
+        "type": "social phrase"
+      },
+      {
+        "id": "did-you-mean-what-you-said",
+        "en": "Did you mean what you said?",
+        "ru": "Ты правда имел(а) в виду то, что сказал(а)?",
+        "example": "Did you mean what you said about moving abroad?",
+        "type": "social phrase"
+      },
+      {
+        "id": "its-just-that",
+        "en": "It’s just that ...",
+        "ru": "просто дело в том, что ...",
+        "example": "It’s just that my boyfriend’s away and I miss him.",
+        "type": "social phrase"
+      },
+      {
+        "id": "hang-on-a-minute",
+        "en": "Hang on a minute.",
+        "ru": "Подожди минуту.",
+        "example": "Hang on a minute. I’ll get my coat.",
+        "type": "social phrase"
+      },
+      {
+        "id": "thats-so-kind-of-you",
+        "en": "That’s so kind of you.",
+        "ru": "Это так мило с твоей стороны.",
+        "example": "Thank you. That’s so kind of you.",
+        "type": "social phrase"
+      }
+    ]
   }
 ];

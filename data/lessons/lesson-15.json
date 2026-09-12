@@ -1,0 +1,562 @@
+{
+  "id": "lesson-15",
+  "number": 15,
+  "title": "Practical English: A difficult celebrity",
+  "subtitle": "Giving opinions · Social English",
+  "status": "available",
+  "publishedAt": "2026-09-12",
+  "totalPoints": 20,
+  "vocabularyId": "vocabulary-practical-english-opinions",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "GIVING OPINIONS",
+      "sectionNumber": 1,
+      "titleLead": "GIVING OPINIONS",
+      "titleTail": ""
+    },
+    {
+      "type": "exercise",
+      "id": "giving-opinions-1a",
+      "title": "a Match sentences 1–9 to responses a–i.",
+      "instructions": "Choose the correct response for each sentence.",
+      "wordBank": [
+        "a I agree. You can listen to it and talk to each other at the same time.",
+        "b To be honest, I haven’t asked her.",
+        "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+        "d No, they’re terrible. What do you think?",
+        "e I don’t think that’s right. Only a few of them earn enough to live on.",
+        "f It’s OK. But if you ask me, rap is more fun.",
+        "g I like him. But in my opinion, Bruno Mars is better.",
+        "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+        "i Personally, I think it’s a bit loud."
+      ],
+      "wordBankLabel": "Responses",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "Do you like reggae? ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 5,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "What do you think of Ed Sheeran? ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 6
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "Do you still listen to your old CDs? ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 2
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "I’ve heard that musicians make a lot of money. ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 4
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "I’d love to be famous! ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 7
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "Classical music is great for a romantic meal. ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "What’s your opinion of heavy metal? ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 8
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "select",
+          "segments": [
+            "What kind of music does your girlfriend like? ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 1
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "select",
+          "segments": [
+            "Do you like this band? ",
+            ""
+          ],
+          "options": [
+            "a I agree. You can listen to it and talk to each other at the same time.",
+            "b To be honest, I haven’t asked her.",
+            "c Sometimes. But it’s easier listening to a music streaming service. Don’t you agree?",
+            "d No, they’re terrible. What do you think?",
+            "e I don’t think that’s right. Only a few of them earn enough to live on.",
+            "f It’s OK. But if you ask me, rap is more fun.",
+            "g I like him. But in my opinion, Bruno Mars is better.",
+            "h Oh sure, it would be great to start with. But you’d soon get fed up with all the photographers.",
+            "i Personally, I think it’s a bit loud."
+          ],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "giving-opinions-1b",
+      "title": "b Complete the conversations with the highlighted phrases from a. Use each phrase once only.",
+      "instructions": "Choose one highlighted phrase for each gap.",
+      "wordBank": [
+        "I agree",
+        "To be honest",
+        "Don’t you agree",
+        "What do you think",
+        "Oh sure",
+        "Personally, I think",
+        "But if you ask me",
+        "But in my opinion",
+        "I don’t think that’s right"
+      ],
+      "wordBankLabel": "Highlighted phrases",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "A What do you think of music festivals?\nB They’re OK. ",
+            ", there are too many people.\nA Yes, you’re right."
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 5,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "A Do you think Cathy has a good voice?\nB ",
+            ", I’ve never heard her sing.\nA Well, you should!"
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "A Do you ever listen to the radio?\nB Not really. The DJs talk too much. ",
+            "?\nA Yes, they do."
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "A For me, the 80s was the best decade for music.\nB ",
+            ", the 80s were good, but there’s been some great music since then, too.\nA I suppose so."
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 4
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "A Do you like this song?\nB Not really. ",
+            "?\nA It’s awful."
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "A Do you like live music?\nB Yes, I do. ",
+            ", it’s a bit expensive.\nA Absolutely!"
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 6
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "A People shouldn’t listen to loud music on public transport.\nB ",
+            ". They should wear headphones.\nA That’s right."
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "select",
+          "segments": [
+            "A Jazz music started in the UK.\nB ",
+            ". I’m sure it began in the USA.\nA Of course it did! Sorry about that."
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 8
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "select",
+          "segments": [
+            "A What’s your opinion of Rihanna’s new song?\nB ",
+            " it’s better than the last one.\nA Me too."
+          ],
+          "options": [
+            "I agree",
+            "To be honest",
+            "Don’t you agree",
+            "What do you think",
+            "Oh sure",
+            "Personally, I think",
+            "But if you ask me",
+            "But in my opinion",
+            "I don’t think that’s right"
+          ],
+          "answer": 5
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "SOCIAL ENGLISH",
+      "sectionNumber": 2,
+      "titleLead": "SOCIAL ENGLISH",
+      "titleTail": ""
+    },
+    {
+      "type": "exercise",
+      "id": "social-english-2",
+      "title": "Complete the conversations with a phrase from the list.",
+      "instructions": "Choose the correct phrase for each conversation.",
+      "wordBank": [
+        "Hang on a minute",
+        "It’s just that my boyfriend’s away",
+        "You’ve come back",
+        "Did you mean what you said",
+        "That’s so kind of you"
+      ],
+      "wordBankLabel": "Phrases",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "A I brought you some flowers.\nB Thank you. ",
+            "."
+          ],
+          "options": [
+            "Hang on a minute",
+            "It’s just that my boyfriend’s away",
+            "You’ve come back",
+            "Did you mean what you said",
+            "That’s so kind of you"
+          ],
+          "answer": 4,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "A ",
+            ".\nB Yes, I forgot my phone."
+          ],
+          "options": [
+            "Hang on a minute",
+            "It’s just that my boyfriend’s away",
+            "You’ve come back",
+            "Did you mean what you said",
+            "That’s so kind of you"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "A ",
+            " about moving abroad?\nB No, of course I didn’t. I was only kidding."
+          ],
+          "options": [
+            "Hang on a minute",
+            "It’s just that my boyfriend’s away",
+            "You’ve come back",
+            "Did you mean what you said",
+            "That’s so kind of you"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "A You look upset. What’s the matter?\nB Nothing really. ",
+            " and I miss him."
+          ],
+          "options": [
+            "Hang on a minute",
+            "It’s just that my boyfriend’s away",
+            "You’ve come back",
+            "Did you mean what you said",
+            "That’s so kind of you"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "A I’m going out for a walk. Do you want to come?\nB ",
+            ". I’ll get my coat."
+          ],
+          "options": [
+            "Hang on a minute",
+            "It’s just that my boyfriend’s away",
+            "You’ve come back",
+            "Did you mean what you said",
+            "That’s so kind of you"
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}
