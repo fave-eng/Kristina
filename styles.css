@@ -2928,8 +2928,8 @@ label.odd-option {
 .article-mcq-copy {
   position: sticky;
   top: 92px;
-  max-height: calc(100vh - 118px);
-  overflow: auto;
+  max-height: none;
+  overflow: visible;
   padding: 24px;
   border: 1px solid var(--border);
   border-radius: 18px;

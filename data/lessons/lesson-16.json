@@ -209,7 +209,8 @@
           ],
           "answer": 3
         }
-      ]
+      ],
+      "layout": "pronunciation-choice-table"
     },
     {
       "type": "section",
