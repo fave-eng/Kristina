@@ -2426,5 +2426,124 @@ window.VOCABULARY_DATA = [
         "type": "noun phrase"
       }
     ]
+  },
+  {
+    "id": "vocabulary-rubbish-recycling-continued",
+    "order": 17,
+    "title": "Rubbish and recycling — useful phrases",
+    "description": "Useful B1 vocabulary and phrasal verbs from Unit 4A.",
+    "level": "B1",
+    "status": "available",
+    "page": "vocabulary.html?id=vocabulary-rubbish-recycling-continued",
+    "linkedLessonIds": [
+      "lesson-18"
+    ],
+    "words": [
+      {
+        "id": "reheat",
+        "en": "reheat",
+        "ru": "разогреть снова",
+        "example": "Experts say that you should reheat food only once.",
+        "type": "verb"
+      },
+      {
+        "id": "reuse",
+        "en": "reuse",
+        "ru": "использовать повторно",
+        "example": "I reuse my coffee cup when I get takeaway coffee.",
+        "type": "verb"
+      },
+      {
+        "id": "reapply",
+        "en": "reapply",
+        "ru": "нанести повторно",
+        "example": "You don’t need to reapply this lipstick during the day.",
+        "type": "verb"
+      },
+      {
+        "id": "recycle",
+        "en": "recycle",
+        "ru": "перерабатывать для повторного использования",
+        "example": "Can polystyrene trays be recycled?",
+        "type": "verb"
+      },
+      {
+        "id": "replay",
+        "en": "replay",
+        "ru": "переиграть / воспроизвести снова",
+        "example": "They’ll replay the match on Wednesday.",
+        "type": "verb"
+      },
+      {
+        "id": "rethink",
+        "en": "rethink",
+        "ru": "переосмыслить / обдумать заново",
+        "example": "Dan will have to rethink his future.",
+        "type": "verb"
+      },
+      {
+        "id": "take-out-phrasal",
+        "en": "take out",
+        "ru": "вынести наружу",
+        "example": "Who usually takes out the rubbish in your house?",
+        "type": "phrasal verb"
+      },
+      {
+        "id": "throw-away-phrasal",
+        "en": "throw away",
+        "ru": "выбрасывать / избавляться от ненужного",
+        "example": "Have you ever thrown away something by mistake?",
+        "type": "phrasal verb"
+      },
+      {
+        "id": "take-away-phrasal",
+        "en": "take away",
+        "ru": "унести / убрать и перенести в другое место",
+        "example": "Refuse collectors take away the rubbish.",
+        "type": "phrasal verb"
+      },
+      {
+        "id": "give-away-phrasal",
+        "en": "give away",
+        "ru": "отдать бесплатно",
+        "example": "Do you give away your old clothes?",
+        "type": "phrasal verb"
+      },
+      {
+        "id": "ready-meal",
+        "en": "ready-meal",
+        "ru": "готовое блюдо / готовая еда",
+        "example": "a ready-meal tray",
+        "type": "noun"
+      },
+      {
+        "id": "wrapping-paper",
+        "en": "wrapping paper",
+        "ru": "обёрточная бумага",
+        "example": "Use recyclable wrapping paper.",
+        "type": "compound noun"
+      },
+      {
+        "id": "baby-food",
+        "en": "baby food",
+        "ru": "детское питание",
+        "example": "a jar of baby food",
+        "type": "compound noun"
+      },
+      {
+        "id": "recycling-bin",
+        "en": "recycling bin",
+        "ru": "контейнер для переработки",
+        "example": "Put the bottle in the recycling bin.",
+        "type": "compound noun"
+      },
+      {
+        "id": "by-mistake",
+        "en": "by mistake",
+        "ru": "по ошибке",
+        "example": "I threw it away by mistake.",
+        "type": "phrase"
+      }
+    ]
   }
 ];

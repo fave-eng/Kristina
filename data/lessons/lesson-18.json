@@ -1,0 +1,613 @@
+{
+  "id": "lesson-18",
+  "number": 18,
+  "title": "Don’t throw it away!",
+  "subtitle": "Vocabulary: rubbish and recycling · Vocabulary from reading · Pronunciation: /aɪ/ and /eɪ/",
+  "status": "available",
+  "publishedAt": "2026-10-03",
+  "totalPoints": 27,
+  "vocabularyId": "vocabulary-rubbish-recycling-continued",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY rubbish and recycling",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "rubbish and recycling"
+    },
+    {
+      "type": "exercise",
+      "id": "rubbish-recycling-1d",
+      "title": "d How are the following products usually sold? Write a word from c. More than one answer may be possible.",
+      "wordBank": [
+        "lid",
+        "pot",
+        "tin",
+        "can",
+        "jar",
+        "tub",
+        "pouch",
+        "carton",
+        "bottle",
+        "packet",
+        "wrapper",
+        "plastic bag",
+        "cardboard box",
+        "polystyrene tray",
+        "sell-by date"
+      ],
+      "wordBankLabel": "Words from c",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "gaps",
+          "segments": [
+            "pasta sauce — in a ",
+            ""
+          ],
+          "exampleAnswers": [
+            "pouch"
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "ice cream — in a",
+          "acceptedAnswers": [
+            "pot",
+            "tub",
+            "cardboard box"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "jam — in a",
+          "acceptedAnswers": [
+            "jar"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "mineral water — in a",
+          "acceptedAnswers": [
+            "bottle"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "crisps — in a",
+          "acceptedAnswers": [
+            "packet"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "sardines — in a",
+          "acceptedAnswers": [
+            "tin"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "prompt": "soft drinks — in a",
+          "acceptedAnswers": [
+            "can",
+            "bottle"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "text",
+          "prompt": "yogurt — in a",
+          "acceptedAnswers": [
+            "pot",
+            "tub"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "rubbish-recycling-1e",
+      "title": "e Rewrite the bold phrases using a verb from the list.",
+      "wordBank": [
+        "reapply",
+        "recycle",
+        "reheat",
+        "replay",
+        "rethink",
+        "reuse"
+      ],
+      "wordBankLabel": "",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "gaps",
+          "segments": [
+            "Experts say that you should warm up food again only once. ",
+            ""
+          ],
+          "exampleAnswers": [
+            "reheat"
+          ],
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "I have my own coffee cup that I can use again when I get a takeaway coffee.",
+          "acceptedAnswers": [
+            "reuse"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "This lipstick lasts for 24 hours, so you don’t need to put it on again during the day.",
+          "acceptedAnswers": [
+            "reapply"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "Is it possible to put polystyrene trays through a process so that they can be used again?",
+          "acceptedAnswers": [
+            "recycle"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "The football match was abandoned because of bad weather, so they’ll play it again on Wednesday.",
+          "acceptedAnswers": [
+            "replay"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "Dan is going to have to consider his future again because he failed his final exams.",
+          "acceptedAnswers": [
+            "rethink"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "rubbish-recycling-1f",
+      "title": "f Match the bold phrasal verbs in questions 1–4 to definitions a–d.",
+      "wordBank": [
+        "a to let somebody have something without wanting money in return",
+        "b to remove something and take it to another place",
+        "c to put something outside that was previously inside",
+        "d to get rid of rubbish or something that you don’t want"
+      ],
+      "wordBankLabel": "Definitions",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "Who usually takes out the rubbish in your house? ",
+            ""
+          ],
+          "options": [
+            "a to let somebody have something without wanting money in return",
+            "b to remove something and take it to another place",
+            "c to put something outside that was previously inside",
+            "d to get rid of rubbish or something that you don’t want"
+          ],
+          "answer": 2,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "Have you ever thrown away something by mistake? ",
+            ""
+          ],
+          "options": [
+            "a to let somebody have something without wanting money in return",
+            "b to remove something and take it to another place",
+            "c to put something outside that was previously inside",
+            "d to get rid of rubbish or something that you don’t want"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "How often do the refuse collectors take away the rubbish in your area? ",
+            ""
+          ],
+          "options": [
+            "a to let somebody have something without wanting money in return",
+            "b to remove something and take it to another place",
+            "c to put something outside that was previously inside",
+            "d to get rid of rubbish or something that you don’t want"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "Do you give away your old clothes? Who to? ",
+            ""
+          ],
+          "options": [
+            "a to let somebody have something without wanting money in return",
+            "b to remove something and take it to another place",
+            "c to put something outside that was previously inside",
+            "d to get rid of rubbish or something that you don’t want"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "rubbish-recycling-1g",
+      "title": "g Answer the questions in f about you.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "textarea",
+          "prompt": "Who usually takes out the rubbish in your house?",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "textarea",
+          "prompt": "Have you ever thrown away something by mistake?",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "textarea",
+          "prompt": "How often do the refuse collectors take away the rubbish in your area?",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "textarea",
+          "prompt": "Do you give away your old clothes? Who to?",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "VOCABULARY FROM READING",
+      "sectionNumber": "",
+      "titleLead": "VOCABULARY FROM READING",
+      "titleTail": ""
+    },
+    {
+      "type": "exercise",
+      "id": "vocabulary-from-reading",
+      "title": "Match 1–6 to a–f to make compound nouns.",
+      "wordBank": [
+        "a bin",
+        "b tray",
+        "c food",
+        "d sauce",
+        "e paper",
+        "f bottle"
+      ],
+      "wordBankLabel": "",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "baby ",
+            ""
+          ],
+          "options": [
+            "a bin",
+            "b tray",
+            "c food",
+            "d sauce",
+            "e paper",
+            "f bottle"
+          ],
+          "answer": 2,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "pasta ",
+            ""
+          ],
+          "options": [
+            "a bin",
+            "b tray",
+            "c food",
+            "d sauce",
+            "e paper",
+            "f bottle"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "ready-meal ",
+            ""
+          ],
+          "options": [
+            "a bin",
+            "b tray",
+            "c food",
+            "d sauce",
+            "e paper",
+            "f bottle"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "recycling ",
+            ""
+          ],
+          "options": [
+            "a bin",
+            "b tray",
+            "c food",
+            "d sauce",
+            "e paper",
+            "f bottle"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "water ",
+            ""
+          ],
+          "options": [
+            "a bin",
+            "b tray",
+            "c food",
+            "d sauce",
+            "e paper",
+            "f bottle"
+          ],
+          "answer": 5
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "wrapping ",
+            ""
+          ],
+          "options": [
+            "a bin",
+            "b tray",
+            "c food",
+            "d sauce",
+            "e paper",
+            "f bottle"
+          ],
+          "answer": 4
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "PRONUNCIATION /aɪ/ and /eɪ/",
+      "sectionNumber": 2,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "/aɪ/ and /eɪ/"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2a",
+      "title": "a Circle the word with a different sound.",
+      "layout": "pronunciation-choice-table",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "reference": "bike",
+          "options": [
+            "decide",
+            "recycle",
+            "site",
+            "tray"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "reference": "train",
+          "options": [
+            "away",
+            "container",
+            "sell-by",
+            "waste"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "reference": "bike",
+          "options": [
+            "diet",
+            "date",
+            "reapply",
+            "require"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "reference": "train",
+          "options": [
+            "danger",
+            "paper",
+            "replay",
+            "supply"
+          ],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "id": "pronunciation-2b",
+      "title": "b 4.1 Listen and check. Then listen again and repeat the words.",
+      "audio": "audio/English_File_4e_Intermediate_WB_4.1.mp3",
+      "response": false
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2c",
+      "title": "c Say the pairs of words. Do the bold letters have the same or different pronunciation? Write S (same) or D (different).",
+      "layout": "pronunciation-choice-table",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "reference": "break / great",
+          "options": [
+            "S",
+            "D"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "example": true,
+          "reference": "eyes / survey",
+          "options": [
+            "S",
+            "D"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "reference": "guy / wi-fi",
+          "options": [
+            "S",
+            "D"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "reference": "height / weight",
+          "options": [
+            "S",
+            "D"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "reference": "straight / flight",
+          "options": [
+            "S",
+            "D"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "reference": "buy / lifestyle",
+          "options": [
+            "S",
+            "D"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "id": "pronunciation-2d",
+      "title": "d 4.2 Listen and check. Then listen and repeat the words.",
+      "audio": "audio/English_File_4e_Intermediate_WB_4.2.mp3",
+      "response": false
+    }
+  ]
+}

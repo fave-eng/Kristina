@@ -1508,7 +1508,7 @@
       const number = item.number === undefined ? itemIndex + 1 : item.number;
       return `<div class="image-spelling-item exercise-item${item.example ? ' exercise-example' : ''}" data-exercise-item="${escapeHtml(itemId)}" data-input-type="image-spelling">
         <div class="image-spelling-number">${escapeHtml(number)}</div>
-        <div class="image-spelling-picture-wrap"><img class="image-spelling-picture" src="${escapeHtml(item.spellingImage || '')}" alt="${escapeHtml(item.spellingImageAlt || '')}" loading="lazy"></div>
+        <div class="image-spelling-picture-wrap"><img class="image-spelling-picture" src="${escapeHtml(item.image || '')}" alt="${escapeHtml(item.imageAlt || '')}" loading="lazy"></div>
         ${renderPattern(item)}
         ${item.example ? '' : '<div class="feedback" aria-live="polite"></div>'}
       </div>`;
@@ -1523,6 +1523,14 @@
         const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
         const number = item.number === undefined ? itemIndex + 1 : item.number;
         const reference = escapeHtml(item.reference || '');
+        const answerIndex = Number(item.answer);
+        if (item.example) {
+          const choices = (item.options || []).map((option, optionIndex) => `<span class="pronunciation-example-choice${optionIndex === answerIndex ? ' is-selected' : ''}">${escapeHtml(option)}</span>`).join('');
+          return `<div class="pronunciation-choice-row exercise-item exercise-example" role="row" data-exercise-item="${escapeHtml(itemId)}">
+            <div class="pronunciation-choice-reference" role="cell"><span class="exercise-number">${escapeHtml(number)}</span><strong>${reference}</strong><span class="exercise-example-label">EXAMPLE</span></div>
+            <div class="pronunciation-choice-options" role="cell">${choices}</div>
+          </div>`;
+        }
         const choices = (item.options || []).map((option, optionIndex) => `<label class="pronunciation-table-choice"><input type="radio" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('');
         return `<div class="pronunciation-choice-row exercise-item" role="row" data-exercise-item="${escapeHtml(itemId)}" data-input-type="single">
           <div class="pronunciation-choice-reference" role="cell"><span class="exercise-number">${escapeHtml(number)}</span><strong>${reference}</strong></div>

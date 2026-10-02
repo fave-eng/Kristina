@@ -3158,3 +3158,29 @@ label.odd-option {
   .image-spelling-grid { grid-template-columns: 1fr; }
   .image-spelling-picture-wrap { min-height: 180px; }
 }
+
+
+/* Homework 18: completed examples inside pronunciation tables */
+.pronunciation-example-choice {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 7px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--dark);
+  font-weight: 700;
+}
+.pronunciation-example-choice.is-selected {
+  border-color: var(--indigo);
+  background: #eef2ff;
+  color: #312e81;
+  box-shadow: inset 0 0 0 1px var(--indigo);
+}
+.pronunciation-choice-reference .exercise-example-label {
+  min-width: auto;
+  height: 26px;
+  padding: 0 8px;
+  font-size: .6rem;
+}
