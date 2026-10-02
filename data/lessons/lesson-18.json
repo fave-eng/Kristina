@@ -528,7 +528,7 @@
       "type": "audio",
       "id": "pronunciation-2b",
       "title": "b 4.1 Listen and check. Then listen again and repeat the words.",
-      "audio": "audio/English_File_4e_Intermediate_WB_4.1.mp3",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_4.1.mp3",
       "response": false
     },
     {
@@ -606,7 +606,7 @@
       "type": "audio",
       "id": "pronunciation-2d",
       "title": "d 4.2 Listen and check. Then listen and repeat the words.",
-      "audio": "audio/English_File_4e_Intermediate_WB_4.2.mp3",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_4.2.mp3",
       "response": false
     }
   ]
