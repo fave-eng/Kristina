@@ -1,0 +1,385 @@
+{
+  "id": "lesson-17",
+  "number": 17,
+  "title": "Don’t throw it away!",
+  "subtitle": "Vocabulary: rubbish and recycling",
+  "status": "available",
+  "publishedAt": "2026-10-02",
+  "totalPoints": 24,
+  "vocabularyId": "vocabulary-rubbish-recycling",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY rubbish and recycling",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "rubbish and recycling"
+    },
+    {
+      "type": "exercise",
+      "id": "rubbish-recycling-1a",
+      "title": "a Match the words from the list to definitions 1–5.",
+      "wordBank": [
+        "food waste",
+        "go to waste",
+        "supply",
+        "supply chain",
+        "surplus"
+      ],
+      "wordBankLabel": "",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "not be used ",
+            ""
+          ],
+          "options": [
+            "food waste",
+            "go to waste",
+            "supply",
+            "supply chain",
+            "surplus"
+          ],
+          "answer": 1,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "an amount that is extra or more than you need ",
+            ""
+          ],
+          "options": [
+            "food waste",
+            "go to waste",
+            "supply",
+            "supply chain",
+            "surplus"
+          ],
+          "answer": 4
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "a system that creates products and delivers them to the customer ",
+            ""
+          ],
+          "options": [
+            "food waste",
+            "go to waste",
+            "supply",
+            "supply chain",
+            "surplus"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "things you could eat that are thrown away ",
+            ""
+          ],
+          "options": [
+            "food waste",
+            "go to waste",
+            "supply",
+            "supply chain",
+            "surplus"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "an amount of something that is available to be used ",
+            ""
+          ],
+          "options": [
+            "food waste",
+            "go to waste",
+            "supply",
+            "supply chain",
+            "surplus"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "rubbish-recycling-1b",
+      "title": "b Complete the text with the words from the list.",
+      "layout": "continuous-gaps",
+      "wordBank": [
+        "bins",
+        "bin bags",
+        "landfill site",
+        "refuse collectors",
+        "rubbish",
+        "waste",
+        "waste-paper basket"
+      ],
+      "wordBankLabel": "",
+      "introTitle": "What do you recycle?",
+      "hideAnswersOnError": true,
+      "paragraphs": [
+        [
+          "In my family, we do our best to recycle as much of our ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "rubbish"
+          },
+          " as possible. In the kitchen, we separate plastic, cans, and glass from other household ",
+          {
+            "type": "gap",
+            "id": "2",
+            "input": "select",
+            "options": [
+              "bins",
+              "bin bags",
+              "landfill site",
+              "refuse collectors",
+              "rubbish",
+              "waste",
+              "waste-paper basket"
+            ],
+            "answer": "waste"
+          },
+          ". The children each have a ",
+          {
+            "type": "gap",
+            "id": "3",
+            "input": "select",
+            "options": [
+              "bins",
+              "bin bags",
+              "landfill site",
+              "refuse collectors",
+              "rubbish",
+              "waste",
+              "waste-paper basket"
+            ],
+            "answer": "waste-paper basket"
+          },
+          " in their bedroom for used paper. When the ",
+          {
+            "type": "gap",
+            "id": "4",
+            "input": "select",
+            "options": [
+              "bins",
+              "bin bags",
+              "landfill site",
+              "refuse collectors",
+              "rubbish",
+              "waste",
+              "waste-paper basket"
+            ],
+            "answer": "bin bags"
+          },
+          " are full, we take them outside and put them in different coloured ",
+          {
+            "type": "gap",
+            "id": "5",
+            "input": "select",
+            "options": [
+              "bins",
+              "bin bags",
+              "landfill site",
+              "refuse collectors",
+              "rubbish",
+              "waste",
+              "waste-paper basket"
+            ],
+            "answer": "bins"
+          },
+          " on the street. The bin with all the material that can’t be recycled is emptied every evening by the ",
+          {
+            "type": "gap",
+            "id": "6",
+            "input": "select",
+            "options": [
+              "bins",
+              "bin bags",
+              "landfill site",
+              "refuse collectors",
+              "rubbish",
+              "waste",
+              "waste-paper basket"
+            ],
+            "answer": "refuse collectors"
+          },
+          ". The contents are taken to a ",
+          {
+            "type": "gap",
+            "id": "7",
+            "input": "select",
+            "options": [
+              "bins",
+              "bin bags",
+              "landfill site",
+              "refuse collectors",
+              "rubbish",
+              "waste",
+              "waste-paper basket"
+            ],
+            "answer": "landfill site"
+          },
+          ". The green recycling bins with plastic, cans, paper, and glass, are emptied about once a week."
+        ]
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "rubbish-recycling-1c",
+      "title": "c Complete the words.",
+      "layout": "image-spelling-grid",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "image": "images/lesson-17/01-lid.png",
+          "imageAlt": "A lid",
+          "answer": "lid",
+          "pattern": "lid"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "image": "images/lesson-17/02-pot.png",
+          "imageAlt": "A pot",
+          "answer": "pot",
+          "pattern": "p__"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "image": "images/lesson-17/03-tin.png",
+          "imageAlt": "A tin",
+          "answer": "tin",
+          "pattern": "t__"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "image": "images/lesson-17/04-can.png",
+          "imageAlt": "A can",
+          "answer": "can",
+          "pattern": "c__"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "image": "images/lesson-17/05-jar.png",
+          "imageAlt": "A jar",
+          "answer": "jar",
+          "pattern": "j__"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "image": "images/lesson-17/06-tub.png",
+          "imageAlt": "A tub",
+          "answer": "tub",
+          "pattern": "t__"
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "image": "images/lesson-17/07-pouch.png",
+          "imageAlt": "A pouch",
+          "answer": "pouch",
+          "pattern": "p__c_"
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "image": "images/lesson-17/08-carton.png",
+          "imageAlt": "A carton",
+          "answer": "carton",
+          "pattern": "c__t__"
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "image": "images/lesson-17/09-bottle.png",
+          "imageAlt": "A bottle",
+          "answer": "bottle",
+          "pattern": "b__t__"
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "image": "images/lesson-17/10-packet.png",
+          "imageAlt": "A packet",
+          "answer": "packet",
+          "pattern": "p__k__"
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "image": "images/lesson-17/11-wrapper.png",
+          "imageAlt": "A wrapper",
+          "answer": "wrapper",
+          "pattern": "wr__p__"
+        },
+        {
+          "id": "12",
+          "number": 12,
+          "image": "images/lesson-17/12-plastic-bag.png",
+          "imageAlt": "A plastic bag",
+          "answer": "plastic bag",
+          "pattern": "pl__t__ b__"
+        },
+        {
+          "id": "13",
+          "number": 13,
+          "image": "images/lesson-17/13-cardboard-box.png",
+          "imageAlt": "A cardboard box",
+          "answer": "cardboard box",
+          "pattern": "c___b_a__ b__"
+        },
+        {
+          "id": "14",
+          "number": 14,
+          "image": "images/lesson-17/14-polystyrene-tray.png",
+          "imageAlt": "A polystyrene tray",
+          "answer": "polystyrene tray",
+          "pattern": "p___s__r___ tr__"
+        },
+        {
+          "id": "15",
+          "number": 15,
+          "image": "images/lesson-17/15-sell-by-date.png",
+          "imageAlt": "A sell-by date",
+          "answer": "sell-by date",
+          "pattern": "s___-b_ d___"
+        }
+      ]
+    }
+  ]
+}

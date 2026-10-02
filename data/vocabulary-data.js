@@ -2216,5 +2216,215 @@ window.VOCABULARY_DATA = [
         "type": "verb phrase"
       }
     ]
+  },
+  {
+    "id": "vocabulary-rubbish-recycling",
+    "order": 16,
+    "title": "Rubbish and recycling",
+    "description": "Useful B1 vocabulary from Unit 4A about rubbish, recycling, packaging, and waste.",
+    "level": "B1",
+    "status": "available",
+    "page": "vocabulary.html?id=vocabulary-rubbish-recycling",
+    "linkedLessonIds": [
+      "lesson-17"
+    ],
+    "words": [
+      {
+        "id": "rubbish",
+        "en": "rubbish",
+        "ru": "мусор",
+        "example": "We recycle as much of our rubbish as possible.",
+        "type": "noun"
+      },
+      {
+        "id": "recycling",
+        "en": "recycling",
+        "ru": "переработка отходов",
+        "example": "The green recycling bins are emptied once a week.",
+        "type": "noun"
+      },
+      {
+        "id": "food-waste",
+        "en": "food waste",
+        "ru": "пищевые отходы",
+        "example": "Try to reduce food waste.",
+        "type": "noun phrase"
+      },
+      {
+        "id": "go-to-waste",
+        "en": "go to waste",
+        "ru": "пропадать зря / не использоваться",
+        "example": "A lot of food goes to waste.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "supply",
+        "en": "supply",
+        "ru": "запас / количество, доступное для использования",
+        "example": "There is a limited supply of clean water.",
+        "type": "noun"
+      },
+      {
+        "id": "supply-chain",
+        "en": "supply chain",
+        "ru": "цепочка поставок",
+        "example": "The supply chain delivers products to customers.",
+        "type": "noun phrase"
+      },
+      {
+        "id": "surplus",
+        "en": "surplus",
+        "ru": "излишек / избыток",
+        "example": "A surplus is more than you need.",
+        "type": "noun"
+      },
+      {
+        "id": "waste",
+        "en": "waste",
+        "ru": "отходы",
+        "example": "We separate recyclable material from household waste.",
+        "type": "noun"
+      },
+      {
+        "id": "bin",
+        "en": "bin",
+        "ru": "мусорный контейнер / бак",
+        "example": "Put the glass in the recycling bin.",
+        "type": "noun"
+      },
+      {
+        "id": "bin-bag",
+        "en": "bin bag",
+        "ru": "мусорный пакет",
+        "example": "The bin bags are full.",
+        "type": "noun phrase"
+      },
+      {
+        "id": "waste-paper-basket",
+        "en": "waste-paper basket",
+        "ru": "корзина для бумаги",
+        "example": "The children have a waste-paper basket in their bedroom.",
+        "type": "noun phrase"
+      },
+      {
+        "id": "refuse-collector",
+        "en": "refuse collector",
+        "ru": "работник по сбору мусора",
+        "example": "The refuse collectors empty the bins.",
+        "type": "noun"
+      },
+      {
+        "id": "landfill-site",
+        "en": "landfill site",
+        "ru": "мусорный полигон / свалка",
+        "example": "The contents are taken to a landfill site.",
+        "type": "noun phrase"
+      },
+      {
+        "id": "lid",
+        "en": "lid",
+        "ru": "крышка",
+        "example": "Put the lid back on the container.",
+        "type": "noun"
+      },
+      {
+        "id": "pot",
+        "en": "pot",
+        "ru": "баночка / горшочек",
+        "example": "a yoghurt pot",
+        "type": "noun"
+      },
+      {
+        "id": "tin",
+        "en": "tin",
+        "ru": "жестяная банка",
+        "example": "a tin of beans",
+        "type": "noun"
+      },
+      {
+        "id": "can",
+        "en": "can",
+        "ru": "банка для напитка",
+        "example": "a drinks can",
+        "type": "noun"
+      },
+      {
+        "id": "jar",
+        "en": "jar",
+        "ru": "стеклянная банка",
+        "example": "a glass jar",
+        "type": "noun"
+      },
+      {
+        "id": "tub",
+        "en": "tub",
+        "ru": "пластиковая баночка / контейнер",
+        "example": "an ice-cream tub",
+        "type": "noun"
+      },
+      {
+        "id": "pouch",
+        "en": "pouch",
+        "ru": "мягкая упаковка / пауч",
+        "example": "a food pouch",
+        "type": "noun"
+      },
+      {
+        "id": "carton",
+        "en": "carton",
+        "ru": "картонная упаковка",
+        "example": "a juice carton",
+        "type": "noun"
+      },
+      {
+        "id": "bottle",
+        "en": "bottle",
+        "ru": "бутылка",
+        "example": "a glass bottle",
+        "type": "noun"
+      },
+      {
+        "id": "packet",
+        "en": "packet",
+        "ru": "пачка / пакет",
+        "example": "a packet of crisps",
+        "type": "noun"
+      },
+      {
+        "id": "wrapper",
+        "en": "wrapper",
+        "ru": "обёртка",
+        "example": "a chocolate wrapper",
+        "type": "noun"
+      },
+      {
+        "id": "plastic-bag",
+        "en": "plastic bag",
+        "ru": "пластиковый пакет",
+        "example": "a plastic bag",
+        "type": "noun phrase"
+      },
+      {
+        "id": "cardboard-box",
+        "en": "cardboard box",
+        "ru": "картонная коробка",
+        "example": "a cardboard box",
+        "type": "noun phrase"
+      },
+      {
+        "id": "polystyrene-tray",
+        "en": "polystyrene tray",
+        "ru": "лоток из пенополистирола",
+        "example": "a polystyrene tray",
+        "type": "noun phrase"
+      },
+      {
+        "id": "sell-by-date",
+        "en": "sell-by date",
+        "ru": "срок продажи / дата, до которой товар должен быть продан",
+        "example": "Check the sell-by date.",
+        "type": "noun phrase"
+      }
+    ]
   }
 ];

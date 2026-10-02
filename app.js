@@ -1143,6 +1143,35 @@
   }
 
   function wireLessonInteractiveInputs(root) {
+    root.querySelectorAll('[data-image-spelling-grid]').forEach((grid) => {
+      grid.querySelectorAll('[data-exercise-item][data-input-type="image-spelling"]').forEach((item) => {
+        const inputs = [...item.querySelectorAll('[data-spelling-letter]')];
+        inputs.forEach((input, index) => {
+          input.addEventListener('input', () => {
+            input.value = safeText(input.value).replace(/[^a-zA-Z]/g, '').slice(-1);
+            if (input.value && inputs[index + 1]) inputs[index + 1].focus();
+          });
+          input.addEventListener('keydown', (event) => {
+            if (event.key === 'Backspace' && !input.value && inputs[index - 1]) {
+              event.preventDefault();
+              inputs[index - 1].focus();
+            }
+          });
+          input.addEventListener('paste', (event) => {
+            const pasted = safeText(event.clipboardData?.getData('text')).replace(/[^a-zA-Z]/g, '');
+            if (pasted.length <= 1) return;
+            event.preventDefault();
+            pasted.split('').forEach((letter, offset) => {
+              const target = inputs[index + offset];
+              if (target) target.value = letter;
+            });
+            const next = inputs[Math.min(index + pasted.length, inputs.length - 1)];
+            if (next) next.focus();
+          });
+        });
+      });
+    });
+
     root.querySelectorAll('[data-pronunciation-input]').forEach((input) => {
       const itemNode = input.closest('[data-exercise-item]');
       updatePronunciationPreview(itemNode);
@@ -1457,6 +1486,35 @@
     </div>`;
   }
 
+
+  function renderImageSpellingGrid(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    const renderPattern = (item) => {
+      if (item.example) {
+        return `<div class="image-spelling-word is-example-word"><span class="exercise-example-label">${escapeHtml(item.exampleLabel || 'EXAMPLE')}</span><strong>${escapeHtml(item.answer || '')}</strong></div>`;
+      }
+      let blankIndex = 0;
+      return `<div class="image-spelling-word" aria-label="Complete the word">${[...safeText(item.pattern)].map((char) => {
+        if (char === '_') {
+          const index = blankIndex++;
+          return `<input class="image-spelling-letter" data-spelling-letter="${index}" maxlength="1" autocomplete="off" aria-label="Missing letter ${index + 1}">`;
+        }
+        if (char === ' ') return '<span class="image-spelling-space" aria-hidden="true"></span>';
+        return `<span class="image-spelling-fixed">${escapeHtml(char)}</span>`;
+      }).join('')}</div>`;
+    };
+    return `<div class="image-spelling-grid" data-image-spelling-grid>${items.map((item, itemIndex) => {
+      const itemId = safeText(item.id, `${itemIndex + 1}`);
+      const number = item.number === undefined ? itemIndex + 1 : item.number;
+      return `<div class="image-spelling-item exercise-item${item.example ? ' exercise-example' : ''}" data-exercise-item="${escapeHtml(itemId)}" data-input-type="image-spelling">
+        <div class="image-spelling-number">${escapeHtml(number)}</div>
+        <div class="image-spelling-picture-wrap"><img class="image-spelling-picture" src="${escapeHtml(item.image || '')}" alt="${escapeHtml(item.imageAlt || '')}" loading="lazy"></div>
+        ${renderPattern(item)}
+        ${item.example ? '' : '<div class="feedback" aria-live="polite"></div>'}
+      </div>`;
+    }).join('')}</div>`;
+  }
+
   function renderPronunciationChoiceTable(block, blockId) {
     const items = Array.isArray(block.items) ? block.items : [];
     return `<div class="pronunciation-choice-table" role="table" aria-label="Pronunciation exercise">
@@ -1561,7 +1619,9 @@
                   ? renderArticleMcqExercise(block, id)
                   : block.layout === 'pronunciation-choice-table'
                     ? renderPronunciationChoiceTable(block, id)
-                    : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
+                    : block.layout === 'image-spelling-grid'
+                      ? renderImageSpellingGrid(block, id)
+                      : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
       const hasStickyImage = block.stickyImage === true && imageEntries.length === 1;
       const exerciseBody = hasStickyImage
         ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`
@@ -1668,6 +1728,16 @@
     } else if (inputType === 'checkbox') {
       actual = itemNode.querySelector('input[type="checkbox"]')?.checked || false;
       correct = Boolean(actual);
+    } else if (inputType === 'image-spelling') {
+      actual = [...itemNode.querySelectorAll('[data-spelling-letter]')].map((input) => input.value);
+      let blankIndex = 0;
+      const reconstructed = [...safeText(item.pattern)].map((char) => {
+        if (char !== '_') return char;
+        const value = safeText(actual[blankIndex]);
+        blankIndex += 1;
+        return value;
+      }).join('');
+      correct = normalizeAnswer(reconstructed) === normalizeAnswer(item.answer);
     } else {
       actual = itemNode.querySelector('input, textarea')?.value || '';
       correct = textAnswerMatches(item, actual);
@@ -1794,6 +1864,9 @@
       } else if (inputType === 'gaps') {
         const values = Array.isArray(value) ? value : [];
         itemNode.querySelectorAll('[data-gap-index]').forEach((input, gapIndex) => { input.value = safeText(values[gapIndex]); });
+      } else if (inputType === 'image-spelling') {
+        const values = Array.isArray(value) ? value : [];
+        itemNode.querySelectorAll('[data-spelling-letter]').forEach((input, letterIndex) => { input.value = safeText(values[letterIndex]); });
       } else {
         const input = itemNode.querySelector('input, textarea');
         if (input) input.value = safeText(value);
