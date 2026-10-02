@@ -26,9 +26,7 @@
       "type": "exercise",
       "id": "future-forms-3a",
       "title": "a Circle the correct future form. Tick (✓) if both forms are possible.",
-      "image": "images/lesson-19/airport-board.svg",
       "imageAlt": "A digital airport departures board showing delayed and cancelled flights.",
-      "stickyImage": true,
       "hideAnswersOnError": true,
       "inlineNumberedItems": true,
       "items": [
@@ -195,9 +193,7 @@
       "id": "future-forms-3b",
       "title": "b Complete the conversation with the correct forms of will / shall or be going to. More than one answer may be possible.",
       "layout": "continuous-gaps",
-      "image": "images/lesson-19/garage-moving.svg",
       "imageAlt": "A digital illustration of a cluttered garage with boxes, a ladder, chairs and bicycles.",
-      "stickyImage": true,
       "hideAnswersOnError": true,
       "paragraphs": [
         [
