@@ -304,131 +304,133 @@
       "type": "exercise",
       "id": "review-grammar-vocabulary-4",
       "title": "Read the article. Circle a, b, or c.",
-      "layout": "article-mcq",
+      "layout": "continuous-gaps",
+      "introTitle": "How to take good photos of children",
       "hideAnswersOnError": true,
-      "articleTitle": "How to take good photos of children",
-      "articleText": "In photography, one of the hardest shots to take is a 1 _____ of a child. If you’re taking photos 2 _____ a room, you’ll need a lot of light. Position the child near a window, but make sure the sun isn’t shining 3 _____ the window into the room. However, the 4 _____ place to photograph children is outside. Wait until late afternoon or early evening when the sun is low in the sky. The most difficult children to capture are 5 _____ – they’re never still as they’ve just learned to walk. The other problem is that children are usually 6 _____ more interested in playing than in posing for a photo. You have to be 7 _____ about getting their attention. You can use a noisy toy to get them to look 8 _____ the camera, but don’t show it 9 _____ beforehand, or it won’t be a surprise. Some 10 _____ ask a friend to help distract the child while they try to get a picture. It isn’t unusual to see an adult running round a room while another is taking photos of a child watching them.",
-      "items": [
-        {
-          "id": "1",
-          "number": 1,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a flash",
-            "b landscape",
-            "c close-up"
-          ],
-          "answer": 2
-        },
-        {
-          "id": "2",
-          "number": 2,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a inside",
-            "b into",
-            "c on"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "3",
-          "number": 3,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a across",
-            "b past",
-            "c through"
-          ],
-          "answer": 2
-        },
-        {
-          "id": "4",
-          "number": 4,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a best",
-            "b better",
-            "c good"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "5",
-          "number": 5,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a babies",
-            "b teenagers",
-            "c toddlers"
-          ],
-          "answer": 2
-        },
-        {
-          "id": "6",
-          "number": 6,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a bit",
-            "b much",
-            "c very"
-          ],
-          "answer": 1
-        },
-        {
-          "id": "7",
-          "number": 7,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a considerate",
-            "b creative",
-            "c thoughtless"
-          ],
-          "answer": 1
-        },
-        {
-          "id": "8",
-          "number": 8,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a after",
-            "b towards",
-            "c for"
-          ],
-          "answer": 1
-        },
-        {
-          "id": "9",
-          "number": 9,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a at them",
-            "b for them",
-            "c to them"
-          ],
-          "answer": 2
-        },
-        {
-          "id": "10",
-          "number": 10,
-          "input": "single",
-          "prompt": "",
-          "options": [
-            "a photographers",
-            "b photography",
-            "c photographs"
-          ],
-          "answer": 0
-        }
+      "paragraphs": [
+        [
+          "In photography, one of the hardest shots to take is a ",
+          {
+            "type": "gap",
+            "id": "1",
+            "input": "select",
+            "options": [
+              "flash",
+              "landscape",
+              "close-up"
+            ],
+            "answer": "close-up"
+          },
+          " of a child. If you’re taking photos ",
+          {
+            "type": "gap",
+            "id": "2",
+            "input": "select",
+            "options": [
+              "inside",
+              "into",
+              "on"
+            ],
+            "answer": "inside"
+          },
+          " a room, you’ll need a lot of light. Position the child near a window, but make sure the sun isn’t shining ",
+          {
+            "type": "gap",
+            "id": "3",
+            "input": "select",
+            "options": [
+              "across",
+              "past",
+              "through"
+            ],
+            "answer": "through"
+          },
+          " the window into the room. However, the ",
+          {
+            "type": "gap",
+            "id": "4",
+            "input": "select",
+            "options": [
+              "best",
+              "better",
+              "good"
+            ],
+            "answer": "best"
+          },
+          " place to photograph children is outside. Wait until late afternoon or early evening when the sun is low in the sky. The most difficult children to capture are ",
+          {
+            "type": "gap",
+            "id": "5",
+            "input": "select",
+            "options": [
+              "babies",
+              "teenagers",
+              "toddlers"
+            ],
+            "answer": "toddlers"
+          },
+          " – they’re never still as they’ve just learned to walk. The other problem is that children are usually ",
+          {
+            "type": "gap",
+            "id": "6",
+            "input": "select",
+            "options": [
+              "a bit",
+              "much",
+              "very"
+            ],
+            "answer": "much"
+          },
+          " more interested in playing than in posing for a photo. You have to be ",
+          {
+            "type": "gap",
+            "id": "7",
+            "input": "select",
+            "options": [
+              "considerate",
+              "creative",
+              "thoughtless"
+            ],
+            "answer": "creative"
+          },
+          " about getting their attention. You can use a noisy toy to get them to look ",
+          {
+            "type": "gap",
+            "id": "8",
+            "input": "select",
+            "options": [
+              "after",
+              "towards",
+              "for"
+            ],
+            "answer": "towards"
+          },
+          " the camera, but don’t show it ",
+          {
+            "type": "gap",
+            "id": "9",
+            "input": "select",
+            "options": [
+              "at them",
+              "for them",
+              "to them"
+            ],
+            "answer": "to them"
+          },
+          " beforehand, or it won’t be a surprise. Some ",
+          {
+            "type": "gap",
+            "id": "10",
+            "input": "select",
+            "options": [
+              "photographers",
+              "photography",
+              "photographs"
+            ],
+            "answer": "photographers"
+          },
+          " ask a friend to help distract the child while they try to get a picture. It isn’t unusual to see an adult running round a room while another is taking photos of a child watching them."
+        ]
       ]
     }
   ]
