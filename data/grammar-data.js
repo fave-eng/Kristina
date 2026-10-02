@@ -3070,5 +3070,383 @@ window.GRAMMAR_DATA = [
       }
     ],
     "linkedLessonId": "lesson-12"
+  },
+  {
+    "id": "grammar-future-forms",
+    "order": 8,
+    "title": "Future forms: will / shall, be going to & present continuous",
+    "level": "B1",
+    "status": "available",
+    "page": "grammar-topic.html?id=grammar-future-forms",
+    "passed": false,
+    "attempts": 0,
+    "explanation": "В английском будущее выражается несколькими формами. Will обычно используется для решения, принятого в момент речи, обещаний, предложений и прогнозов-мнений. Shall употребляется главным образом с I / we в вопросах-предложениях и предложениях совместного действия. Be going to показывает заранее принятое намерение или прогноз по видимым признакам. Present continuous часто используется для уже организованных договорённостей. Was / were going to описывает прошлое намерение, которое не осуществилось или изменилось.",
+    "formula": "will / shall + base verb · am/is/are going to + base verb · am/is/are + verb-ing (arrangements) · was/were going to + base verb",
+    "glanceCards": [
+      {
+        "icon": "⚡",
+        "label": "will",
+        "hint": "решение сейчас, обещание, предложение, мнение о будущем",
+        "pattern": "will + base verb",
+        "example": "I’ll help you."
+      },
+      {
+        "icon": "🤝",
+        "label": "shall",
+        "hint": "вопросы-предложения с I / we",
+        "pattern": "Shall I / we + base verb?",
+        "example": "Shall I help you?"
+      },
+      {
+        "icon": "🎯",
+        "label": "be going to",
+        "hint": "заранее принятое намерение или прогноз по признакам",
+        "pattern": "am/is/are going to + base verb",
+        "example": "I’m going to stay with my sister."
+      },
+      {
+        "icon": "📅",
+        "label": "present continuous",
+        "hint": "уже организованная договорённость",
+        "pattern": "am/is/are + verb-ing",
+        "example": "I’m moving next Saturday."
+      }
+    ],
+    "anchorLinks": [
+      {
+        "id": "grammar-at-a-glance",
+        "title": "Quick overview"
+      },
+      {
+        "id": "grammar-tables",
+        "title": "Tables"
+      },
+      {
+        "id": "grammar-examples",
+        "title": "Examples"
+      },
+      {
+        "id": "grammar-mistakes",
+        "title": "Common mistakes"
+      },
+      {
+        "id": "grammar-practice-section",
+        "title": "Practice"
+      }
+    ],
+    "miniRules": [
+      {
+        "title": "1. will = decision now / promise / offer / opinion",
+        "text": "Используй will, когда решение возникает прямо сейчас, когда обещаешь или предлагаешь помощь, а также для прогнозов, основанных на мнении, а не на очевидных признаках.",
+        "example": "I’ll go and get the boxes. · I won’t tell anyone."
+      },
+      {
+        "title": "2. Shall I / we ...? = offer or suggestion",
+        "text": "Shall чаще всего встречается в вопросах с I и we: предложить помощь или спросить, что сделать вместе.",
+        "example": "Shall I help? · What shall we do today?"
+      },
+      {
+        "title": "3. be going to = prior intention / evidence-based prediction",
+        "text": "Используй be going to для намерения, принятого до момента речи, и когда есть основания ожидать результат.",
+        "example": "I’m going to stay with my sister. · It’s going to rain."
+      },
+      {
+        "title": "4. Present continuous = arranged future",
+        "text": "Present continuous подходит для конкретной договорённости или уже организованного плана. Иногда present continuous и be going to возможны оба.",
+        "example": "We’re having a barbecue next weekend. · My sister is getting married in the spring."
+      },
+      {
+        "title": "5. was / were going to = past intention that changed",
+        "text": "Используй was / were going to, когда собирался что-то сделать, но план не осуществился или изменился.",
+        "example": "We were going to fly to Madrid, but the flight was cancelled."
+      }
+    ],
+    "tables": [
+      {
+        "title": "Main future forms",
+        "headers": [
+          "Form",
+          "Typical use",
+          "Example"
+        ],
+        "rows": [
+          [
+            "will + base verb",
+            "instant decision, promise, offer, opinion",
+            "I’ll help you."
+          ],
+          [
+            "Shall I / we + base verb?",
+            "offer / suggestion",
+            "Shall I move the car?"
+          ],
+          [
+            "be going to + base verb",
+            "prior intention / evidence-based prediction",
+            "It’s going to rain."
+          ],
+          [
+            "present continuous",
+            "fixed arrangement",
+            "I’m moving next Saturday."
+          ],
+          [
+            "was / were going to + base verb",
+            "past plan that changed",
+            "I was going to get up early."
+          ]
+        ]
+      },
+      {
+        "title": "Negative and question forms",
+        "headers": [
+          "Form",
+          "Negative",
+          "Question"
+        ],
+        "rows": [
+          [
+            "will",
+            "won’t + base",
+            "Will + subject + base?"
+          ],
+          [
+            "be going to",
+            "am/is/are not going to + base",
+            "Am/Is/Are + subject + going to + base?"
+          ],
+          [
+            "present continuous",
+            "am/is/are not + -ing",
+            "Am/Is/Are + subject + -ing?"
+          ]
+        ]
+      }
+    ],
+    "exampleGroups": [
+      {
+        "title": "Decision / promise / offer",
+        "items": [
+          "I’ll go and get the boxes.",
+          "I won’t tell anyone.",
+          "Shall I help you?"
+        ]
+      },
+      {
+        "title": "Plans and arrangements",
+        "items": [
+          "I’m going to stay with my sister.",
+          "I’m moving next Saturday.",
+          "We’re having a barbecue next weekend."
+        ]
+      },
+      {
+        "title": "Predictions and changed plans",
+        "items": [
+          "It’s going to rain.",
+          "They’ll be in bed.",
+          "I was going to get up early, but I forgot to set my alarm."
+        ]
+      }
+    ],
+    "commonMistakes": [
+      "I will to help ✗ → I will help ✓. После will / shall используется базовая форма без to.",
+      "I’m going to staying ✗ → I’m going to stay ✓.",
+      "Will I help you? ✗ в значении предложения помощи → Shall I help you? ✓.",
+      "I’m going to get up early, but I forgot my alarm ✗, если речь о несостоявшемся прошлом намерении → I was going to get up early ✓.",
+      "Present continuous и be going to иногда оба возможны для будущего плана; present continuous обычно звучит как более конкретная договорённость."
+    ],
+    "exercises": [
+      {
+        "type": "exercise",
+        "title": "Choose the future form",
+        "difficulty": "Easy",
+        "instructions": "Выбери форму, которая лучше всего подходит по смыслу.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "Look at those dark clouds! It ___ rain.",
+            "options": [
+              "will",
+              "is going to"
+            ],
+            "answer": 1
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "I think people ___ recycle more in the future.",
+            "options": [
+              "will",
+              "are going to"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "___ I carry that box for you?",
+            "options": [
+              "Shall",
+              "Will"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "We ___ dinner with Sam on Friday; the table is booked.",
+            "options": [
+              "are having",
+              "will have"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Complete the form",
+        "difficulty": "Medium",
+        "instructions": "Впиши правильную форму глагола.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "A: This box is heavy. B: I ___ you. (help)",
+            "acceptedAnswers": [
+              "'ll help",
+              "I’ll help",
+              "I'll help"
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "We ___ house next month; the date is fixed. (move)",
+            "acceptedAnswers": [
+              "are moving"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "She promised she ___ anyone. (not tell)",
+            "acceptedAnswers": [
+              "won’t tell",
+              "won't tell"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "What ___ first? (we / do)",
+            "acceptedAnswers": [
+              "shall we do"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Read the context",
+        "difficulty": "Hard",
+        "instructions": "Выбери форму, которая соответствует контексту.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "I ___ call you last night, but I fell asleep.",
+            "options": [
+              "was going to",
+              "will"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "Look at the traffic. We ___ be late.",
+            "options": [
+              "are going to",
+              "will"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "Everything is arranged. I ___ my sister at 7.",
+            "options": [
+              "am meeting",
+              "will meet"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "Don’t worry. I ___ drop it.",
+            "options": [
+              "won’t",
+              "am not going to"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Build the sentence",
+        "difficulty": "Challenge",
+        "instructions": "Составь полное предложение или вопрос по подсказке.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "offer / I / carry / these bags",
+            "acceptedAnswers": [
+              "Shall I carry these bags?",
+              "Shall I carry these bags"
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "fixed arrangement / we / have / a barbecue / Saturday",
+            "acceptedAnswers": [
+              "We’re having a barbecue on Saturday.",
+              "We're having a barbecue on Saturday.",
+              "We’re having a barbecue on Saturday",
+              "We're having a barbecue on Saturday"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "prior intention / she / give away / old clothes",
+            "acceptedAnswers": [
+              "She’s going to give away her old clothes.",
+              "She's going to give away her old clothes.",
+              "She’s going to give away her old clothes",
+              "She's going to give away her old clothes"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "past intention / I / get up early / but / forget / set alarm",
+            "acceptedAnswers": [
+              "I was going to get up early, but I forgot to set my alarm.",
+              "I was going to get up early but I forgot to set my alarm.",
+              "I was going to get up early, but I forgot to set my alarm",
+              "I was going to get up early but I forgot to set my alarm"
+            ]
+          }
+        ]
+      }
+    ],
+    "linkedLessonId": "lesson-19"
   }
 ];

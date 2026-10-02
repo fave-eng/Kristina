@@ -1,0 +1,389 @@
+{
+  "id": "lesson-19",
+  "number": 19,
+  "title": "Don’t throw it away!",
+  "subtitle": "Grammar: future forms — will / shall and be going to",
+  "status": "available",
+  "publishedAt": "2026-10-03",
+  "totalPoints": 19,
+  "grammarIds": [
+    "grammar-future-forms"
+  ],
+  "vocabularyId": "vocabulary-future-plans",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "GRAMMAR future forms: will / shall and be going to",
+      "sectionNumber": 3,
+      "titleLead": "GRAMMAR",
+      "titleTail": "future forms: will / shall and be going to"
+    },
+    {
+      "type": "exercise",
+      "id": "future-forms-3a",
+      "title": "a Circle the correct future form. Tick (✓) if both forms are possible.",
+      "image": "images/lesson-19/airport-board.svg",
+      "imageAlt": "A digital airport departures board showing delayed and cancelled flights.",
+      "stickyImage": true,
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "I’m so disappointed. ",
+            " fly to Madrid tonight, but our flight has been cancelled."
+          ],
+          "options": [
+            "We’re going to",
+            "We were going to",
+            "✓"
+          ],
+          "answer": 1,
+          "showExampleNumber": true
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleMode": "select",
+          "segments": [
+            "",
+            " a barbecue next weekend. Do you want to come?"
+          ],
+          "options": [
+            "We’re having",
+            "We’re going to have",
+            "✓"
+          ],
+          "answer": 2,
+          "showExampleNumber": true
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "It’s too late to call them now. ",
+            " in bed."
+          ],
+          "options": [
+            "They’ll be",
+            "They’re going to be",
+            "✓"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "",
+            " you move the sofa?"
+          ],
+          "options": [
+            "Shall I help",
+            "Will I help",
+            "✓"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "Why don’t you give away your riding boots? ",
+            " them again."
+          ],
+          "options": [
+            "You’re never going to wear",
+            "You’ll never wear",
+            "✓"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "Trust me. ",
+            " anyone."
+          ],
+          "options": [
+            "I won’t tell",
+            "I’m not telling",
+            "✓"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "",
+            " get up early, but I forgot to set my alarm."
+          ],
+          "options": [
+            "I’m going to",
+            "I was going to",
+            "✓"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "select",
+          "segments": [
+            "My sister ",
+            " in the spring."
+          ],
+          "options": [
+            "is getting married",
+            "is going to get married",
+            "✓"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "select",
+          "segments": [
+            "I’ll be in London next weekend. ",
+            " with my sister. We have all sorts of things planned."
+          ],
+          "options": [
+            "I’ll stay",
+            "I’m going to stay",
+            "✓"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "select",
+          "segments": [
+            "Let’s go for a walk now. I think ",
+            " later."
+          ],
+          "options": [
+            "it’s raining",
+            "it’s going to rain",
+            "✓"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "future-forms-3b",
+      "title": "b Complete the conversation with the correct forms of will / shall or be going to. More than one answer may be possible.",
+      "layout": "continuous-gaps",
+      "image": "images/lesson-19/garage-moving.svg",
+      "imageAlt": "A digital illustration of a cluttered garage with boxes, a ladder, chairs and bicycles.",
+      "stickyImage": true,
+      "hideAnswersOnError": true,
+      "paragraphs": [
+        [
+          "A Hi, Clare. Thanks for coming round to help."
+        ],
+        [
+          "B No problem. ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "Are we going to pack",
+            "verb": "we pack"
+          },
+          " everything up today?"
+        ],
+        [
+          "A No, I’m moving next Saturday, so I have a whole week to sort things out."
+        ],
+        [
+          "B Right. So, what ",
+          {
+            "type": "gap",
+            "id": "2",
+            "acceptedAnswers": [
+              "shall we do",
+              "are we going to do"
+            ],
+            "verb": "we do",
+            "width": "wide"
+          },
+          " today?"
+        ],
+        [
+          "A I thought we could start with the garage. Wait there and ",
+          {
+            "type": "gap",
+            "id": "3",
+            "answer": "I’ll move",
+            "verb": "I move",
+            "width": "medium"
+          },
+          " the car."
+        ],
+        [
+          "B Do you have any boxes?"
+        ],
+        [
+          "A Yes, they’re in the kitchen."
+        ],
+        [
+          "B OK, ",
+          {
+            "type": "gap",
+            "id": "4",
+            "answer": "I’ll go",
+            "verb": "I go",
+            "width": "medium"
+          },
+          " and get them for you."
+        ],
+        [
+          "B Right. Let’s start. ",
+          {
+            "type": "gap",
+            "id": "5",
+            "answer": "Are you going to take",
+            "verb": "you take",
+            "width": "wide"
+          },
+          " that ladder with you?"
+        ],
+        [
+          "A No, I’m moving to a flat, so ",
+          {
+            "type": "gap",
+            "id": "6",
+            "answer": "I won’t have",
+            "verb": "I not have",
+            "width": "medium"
+          },
+          " room for it. ",
+          {
+            "type": "gap",
+            "id": "7",
+            "answer": "I’m going to give",
+            "verb": "I give",
+            "width": "wide"
+          },
+          " it to one of my neighbours. ",
+          {
+            "type": "gap",
+            "id": "8",
+            "answer": "He’s going to come round",
+            "verb": "he come round",
+            "width": "wide"
+          },
+          " on Tuesday or Wednesday to pick it up."
+        ],
+        [
+          "B What about those old chairs? ",
+          {
+            "type": "gap",
+            "id": "9",
+            "answer": "You won’t have",
+            "verb": "you not have",
+            "width": "medium"
+          },
+          " room for those, either."
+        ],
+        [
+          "A Good point. What ",
+          {
+            "type": "gap",
+            "id": "10",
+            "answer": "shall I do",
+            "verb": "I do",
+            "width": "medium"
+          },
+          " with them?"
+        ],
+        [
+          "B Why don’t you take them to the charity shop? Come on. ",
+          {
+            "type": "gap",
+            "id": "11",
+            "answer": "I’ll help",
+            "verb": "I help",
+            "width": "medium"
+          },
+          " you put them in the car."
+        ],
+        [
+          "A Be careful. They’re heavy."
+        ],
+        [
+          "B Don’t worry. ",
+          {
+            "type": "gap",
+            "id": "12",
+            "acceptedAnswers": [
+              "I won’t drop",
+              "I’m not going to drop"
+            ],
+            "verb": "I not drop",
+            "width": "wide"
+          },
+          " them!"
+        ]
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "future-forms-3c",
+      "title": "c Answer the questions about you. Use the correct future forms.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "textarea",
+          "prompt": "What are you going to do when you get home?",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "textarea",
+          "prompt": "What do you think the weather will be like tomorrow?",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "textarea",
+          "prompt": "What are you doing this weekend?",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "textarea",
+          "prompt": "What are your plans for next summer?",
+          "scored": false
+        }
+      ]
+    }
+  ]
+}

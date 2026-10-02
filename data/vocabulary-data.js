@@ -2545,5 +2545,89 @@ window.VOCABULARY_DATA = [
         "type": "phrase"
       }
     ]
+  },
+  {
+    "id": "vocabulary-future-plans",
+    "order": 18,
+    "title": "Future plans and arrangements",
+    "description": "Useful B1 vocabulary from Unit 4A Grammar: plans, arrangements and moving house.",
+    "level": "B1",
+    "status": "available",
+    "page": "vocabulary.html?id=vocabulary-future-plans",
+    "linkedLessonIds": [
+      "lesson-19"
+    ],
+    "words": [
+      {
+        "id": "be-cancelled",
+        "en": "be cancelled",
+        "ru": "быть отменённым",
+        "example": "Our flight has been cancelled.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "sort-things-out",
+        "en": "sort things out",
+        "ru": "разобраться с делами / привести всё в порядок",
+        "example": "I have a whole week to sort things out.",
+        "type": "phrasal verb"
+      },
+      {
+        "id": "come-round",
+        "en": "come round",
+        "ru": "зайти / прийти в гости",
+        "example": "Thanks for coming round to help.",
+        "type": "phrasal verb"
+      },
+      {
+        "id": "set-an-alarm",
+        "en": "set an alarm",
+        "ru": "поставить будильник",
+        "example": "I forgot to set my alarm.",
+        "type": "phrase"
+      },
+      {
+        "id": "all-sorts-of",
+        "en": "all sorts of",
+        "ru": "всевозможные / самые разные",
+        "example": "We have all sorts of things planned.",
+        "type": "phrase"
+      },
+      {
+        "id": "riding-boots",
+        "en": "riding boots",
+        "ru": "сапоги для верховой езды",
+        "example": "Why don’t you give away your riding boots?",
+        "type": "noun phrase"
+      },
+      {
+        "id": "ladder",
+        "en": "ladder",
+        "ru": "лестница / стремянка",
+        "example": "Are you going to take that ladder with you?",
+        "type": "noun"
+      },
+      {
+        "id": "garage",
+        "en": "garage",
+        "ru": "гараж",
+        "example": "We could start with the garage.",
+        "type": "noun"
+      },
+      {
+        "id": "move-to-a-flat",
+        "en": "move to a flat",
+        "ru": "переехать в квартиру",
+        "example": "I’m moving to a flat.",
+        "type": "phrase"
+      },
+      {
+        "id": "pick-something-up",
+        "en": "pick something up",
+        "ru": "забрать что-то",
+        "example": "He’s going to come round to pick it up.",
+        "type": "phrasal verb"
+      }
+    ]
   }
 ];
