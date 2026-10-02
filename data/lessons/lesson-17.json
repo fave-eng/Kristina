@@ -262,122 +262,122 @@
           "number": 1,
           "example": true,
           "exampleLabel": "EXAMPLE",
-          "image": "images/lesson-17/01-lid.png",
-          "imageAlt": "A lid",
           "answer": "lid",
-          "pattern": "lid"
+          "pattern": "lid",
+          "spellingImage": "images/lesson-17/01-lid.png",
+          "spellingImageAlt": "A lid"
         },
         {
           "id": "2",
           "number": 2,
-          "image": "images/lesson-17/02-pot.png",
-          "imageAlt": "A pot",
           "answer": "pot",
-          "pattern": "p__"
+          "pattern": "p__",
+          "spellingImage": "images/lesson-17/02-pot.png",
+          "spellingImageAlt": "A pot"
         },
         {
           "id": "3",
           "number": 3,
-          "image": "images/lesson-17/03-tin.png",
-          "imageAlt": "A tin",
           "answer": "tin",
-          "pattern": "t__"
+          "pattern": "t__",
+          "spellingImage": "images/lesson-17/03-tin.png",
+          "spellingImageAlt": "A tin"
         },
         {
           "id": "4",
           "number": 4,
-          "image": "images/lesson-17/04-can.png",
-          "imageAlt": "A can",
           "answer": "can",
-          "pattern": "c__"
+          "pattern": "c__",
+          "spellingImage": "images/lesson-17/04-can.png",
+          "spellingImageAlt": "A can"
         },
         {
           "id": "5",
           "number": 5,
-          "image": "images/lesson-17/05-jar.png",
-          "imageAlt": "A jar",
           "answer": "jar",
-          "pattern": "j__"
+          "pattern": "j__",
+          "spellingImage": "images/lesson-17/05-jar.png",
+          "spellingImageAlt": "A jar"
         },
         {
           "id": "6",
           "number": 6,
-          "image": "images/lesson-17/06-tub.png",
-          "imageAlt": "A tub",
           "answer": "tub",
-          "pattern": "t__"
+          "pattern": "t__",
+          "spellingImage": "images/lesson-17/06-tub.png",
+          "spellingImageAlt": "A tub"
         },
         {
           "id": "7",
           "number": 7,
-          "image": "images/lesson-17/07-pouch.png",
-          "imageAlt": "A pouch",
           "answer": "pouch",
-          "pattern": "p__c_"
+          "pattern": "p__c_",
+          "spellingImage": "images/lesson-17/07-pouch.png",
+          "spellingImageAlt": "A pouch"
         },
         {
           "id": "8",
           "number": 8,
-          "image": "images/lesson-17/08-carton.png",
-          "imageAlt": "A carton",
           "answer": "carton",
-          "pattern": "c__t__"
+          "pattern": "c__t__",
+          "spellingImage": "images/lesson-17/08-carton.png",
+          "spellingImageAlt": "A carton"
         },
         {
           "id": "9",
           "number": 9,
-          "image": "images/lesson-17/09-bottle.png",
-          "imageAlt": "A bottle",
           "answer": "bottle",
-          "pattern": "b__t__"
+          "pattern": "b__t__",
+          "spellingImage": "images/lesson-17/09-bottle.png",
+          "spellingImageAlt": "A bottle"
         },
         {
           "id": "10",
           "number": 10,
-          "image": "images/lesson-17/10-packet.png",
-          "imageAlt": "A packet",
           "answer": "packet",
-          "pattern": "p__k__"
+          "pattern": "p__k__",
+          "spellingImage": "images/lesson-17/10-packet.png",
+          "spellingImageAlt": "A packet"
         },
         {
           "id": "11",
           "number": 11,
-          "image": "images/lesson-17/11-wrapper.png",
-          "imageAlt": "A wrapper",
           "answer": "wrapper",
-          "pattern": "wr__p__"
+          "pattern": "wr__p__",
+          "spellingImage": "images/lesson-17/11-wrapper.png",
+          "spellingImageAlt": "A wrapper"
         },
         {
           "id": "12",
           "number": 12,
-          "image": "images/lesson-17/12-plastic-bag.png",
-          "imageAlt": "A plastic bag",
           "answer": "plastic bag",
-          "pattern": "pl__t__ b__"
+          "pattern": "pl__t__ b__",
+          "spellingImage": "images/lesson-17/12-plastic-bag.png",
+          "spellingImageAlt": "A plastic bag"
         },
         {
           "id": "13",
           "number": 13,
-          "image": "images/lesson-17/13-cardboard-box.png",
-          "imageAlt": "A cardboard box",
           "answer": "cardboard box",
-          "pattern": "c___b_a__ b__"
+          "pattern": "c___b_a__ b__",
+          "spellingImage": "images/lesson-17/13-cardboard-box.png",
+          "spellingImageAlt": "A cardboard box"
         },
         {
           "id": "14",
           "number": 14,
-          "image": "images/lesson-17/14-polystyrene-tray.png",
-          "imageAlt": "A polystyrene tray",
           "answer": "polystyrene tray",
-          "pattern": "p___s__r___ tr__"
+          "pattern": "p___s__r___ tr__",
+          "spellingImage": "images/lesson-17/14-polystyrene-tray.png",
+          "spellingImageAlt": "A polystyrene tray"
         },
         {
           "id": "15",
           "number": 15,
-          "image": "images/lesson-17/15-sell-by-date.png",
-          "imageAlt": "A sell-by date",
           "answer": "sell-by date",
-          "pattern": "s___-b_ d___"
+          "pattern": "s___-b_ d___",
+          "spellingImage": "images/lesson-17/15-sell-by-date.png",
+          "spellingImageAlt": "A sell-by date"
         }
       ]
     }
