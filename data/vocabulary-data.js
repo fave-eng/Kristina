@@ -2097,5 +2097,124 @@ window.VOCABULARY_DATA = [
         "type": "social phrase"
       }
     ]
+  },
+  {
+    "id": "vocabulary-can-you-remember-1-3",
+    "order": 15,
+    "title": "Can you remember…? 1–3 — useful review vocabulary",
+    "description": "Useful B1 vocabulary from the review page that is not already in the student’s vocabulary topics.",
+    "level": "B1",
+    "status": "available",
+    "page": "vocabulary.html?id=vocabulary-can-you-remember-1-3",
+    "linkedLessonIds": [
+      "lesson-16"
+    ],
+    "words": [
+      {
+        "id": "queue-for",
+        "en": "queue for something",
+        "ru": "стоять в очереди за чем-то",
+        "example": "I didn’t have time to queue for the concert tickets.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "primary-school",
+        "en": "primary school",
+        "ru": "начальная школа",
+        "example": "Who did you use to sit next to when you were at primary school?",
+        "type": "noun phrase"
+      },
+      {
+        "id": "fly-over",
+        "en": "fly over",
+        "ru": "пролетать над",
+        "example": "A lot of planes fly over our house every day.",
+        "type": "phrasal verb"
+      },
+      {
+        "id": "slippers",
+        "en": "slippers",
+        "ru": "тапочки",
+        "example": "I wear slippers at home.",
+        "type": "noun"
+      },
+      {
+        "id": "get-a-mortgage",
+        "en": "get a mortgage",
+        "ru": "взять ипотеку",
+        "example": "Some people get a mortgage to buy a home.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "shot-photography",
+        "en": "shot",
+        "ru": "снимок / кадр",
+        "example": "One of the hardest shots to take is a close-up of a child.",
+        "type": "noun"
+      },
+      {
+        "id": "capture-a-child",
+        "en": "capture",
+        "ru": "запечатлеть / поймать в кадре",
+        "example": "Toddlers can be difficult to capture because they are never still.",
+        "type": "verb"
+      },
+      {
+        "id": "pose-for-a-photo",
+        "en": "pose for a photo",
+        "ru": "позировать для фотографии",
+        "example": "Children are often more interested in playing than in posing for a photo.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "get-someones-attention",
+        "en": "get someone’s attention",
+        "ru": "привлечь чьё-то внимание",
+        "example": "You have to be creative about getting their attention.",
+        "type": "phrase"
+      },
+      {
+        "id": "beforehand",
+        "en": "beforehand",
+        "ru": "заранее",
+        "example": "Don’t show the toy beforehand.",
+        "type": "adverb"
+      },
+      {
+        "id": "distract-someone",
+        "en": "distract someone",
+        "ru": "отвлечь кого-то",
+        "example": "Ask a friend to help distract the child.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "shine-through",
+        "en": "shine through",
+        "ru": "светить сквозь",
+        "example": "Make sure the sun isn’t shining through the window.",
+        "type": "verb phrase"
+      },
+      {
+        "id": "be-still",
+        "en": "be still",
+        "ru": "оставаться неподвижным",
+        "example": "Toddlers are never still.",
+        "type": "phrase"
+      },
+      {
+        "id": "noisy-toy",
+        "en": "noisy toy",
+        "ru": "шумная игрушка",
+        "example": "You can use a noisy toy to get their attention.",
+        "type": "noun phrase"
+      },
+      {
+        "id": "run-round",
+        "en": "run round",
+        "ru": "бегать по кругу / по комнате",
+        "example": "It isn’t unusual to see an adult running round a room.",
+        "type": "verb phrase"
+      }
+    ]
   }
 ];

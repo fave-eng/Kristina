@@ -1368,6 +1368,9 @@
       const segments = Array.isArray(item.segments) ? item.segments : [];
       const options = Array.isArray(item.options) ? item.options : [];
       control = `<div class="circle-or-tick-sentence"><span>${escapeHtml(segments[0] || '')}</span>${options.map((option, optionIndex) => `<label class="circle-choice"><input type="radio" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>${optionIndex === 0 ? '<span class="choice-slash"> / </span>' : ''}`).join('')}<span>${escapeHtml(segments[1] || '')}</span><label class="circle-tick" title="Both are correct"><input type="radio" name="${escapeHtml(inputId)}" value="both"><span aria-hidden="true">✓</span><span class="sr-only">Both are correct</span></label></div>`;
+    } else if (item.input === 'single' && Array.isArray(item.segments) && item.segments.length >= 2) {
+      const options = Array.isArray(item.options) ? item.options : [];
+      control = `<div class="circle-or-tick-sentence inline-single-sentence"><span>${escapeHtml(item.segments[0] || '')}</span>${options.map((option, optionIndex) => `<label class="circle-choice"><input type="radio" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>${optionIndex < options.length - 1 ? '<span class="choice-slash"> / </span>' : ''}`).join('')}<span>${escapeHtml(item.segments[1] || '')}</span></div>`;
     } else if (item.input === 'multiple' || item.input === 'single') {
       const inputType = item.input === 'multiple' ? 'checkbox' : 'radio';
       control = `<div class="option-list compact-options">${(item.options || []).map((option, optionIndex) => `<label class="option"><input type="${inputType}" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('')}</div>`;
@@ -1390,7 +1393,7 @@
       control = `<input class="text-field" id="${escapeHtml(inputId)}" autocomplete="off" placeholder="${escapeHtml(item.placeholder || '')}">`;
     }
 
-    if (inlineNumberedItems && numberMarkup && !prompt && (item.input === 'gaps' || item.input === 'circle-or-tick' || (item.input === 'select' && Array.isArray(item.segments)))) {
+    if (inlineNumberedItems && numberMarkup && !prompt && (item.input === 'gaps' || item.input === 'circle-or-tick' || ((item.input === 'select' || item.input === 'single') && Array.isArray(item.segments)))) {
       return `<div class="exercise-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="${escapeHtml(item.input || 'text')}">
         <div class="exercise-item-inline-row">${numberMarkup}<div class="exercise-item-inline-content">${context}${control}</div></div>
         <div class="feedback" aria-live="polite"></div>
@@ -1437,6 +1440,39 @@
     const tail = segments.length > answers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : '';
 
     return `<span class="dialogue-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="gaps">${content}${tail}<span class="feedback" aria-live="polite"></span></span>`;
+  }
+
+
+  function renderArticleMcqExercise(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    const articleTitle = escapeHtml(block.articleTitle || '');
+    const articleText = escapeHtml(block.articleText || '').replaceAll('\n', '<br>');
+    const questions = items.map((item, itemIndex) => renderExerciseItem(item, blockId, itemIndex, false)).join('');
+    return `<div class="article-mcq-layout">
+      <article class="article-mcq-copy" aria-label="Article">
+        ${articleTitle ? `<h4>${articleTitle}</h4>` : ''}
+        <p>${articleText}</p>
+      </article>
+      <div class="article-mcq-questions exercise-items">${questions}</div>
+    </div>`;
+  }
+
+  function renderPronunciationChoiceTable(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    return `<div class="pronunciation-choice-table" role="table" aria-label="Pronunciation exercise">
+      ${items.map((item, itemIndex) => {
+        const itemId = safeText(item.id, `${itemIndex + 1}`);
+        const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+        const number = item.number === undefined ? itemIndex + 1 : item.number;
+        const reference = escapeHtml(item.reference || '');
+        const choices = (item.options || []).map((option, optionIndex) => `<label class="pronunciation-table-choice"><input type="radio" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('');
+        return `<div class="pronunciation-choice-row exercise-item" role="row" data-exercise-item="${escapeHtml(itemId)}" data-input-type="single">
+          <div class="pronunciation-choice-reference" role="cell"><span class="exercise-number">${escapeHtml(number)}</span><strong>${reference}</strong></div>
+          <div class="pronunciation-choice-options" role="cell">${choices}</div>
+          <div class="feedback" aria-live="polite"></div>
+        </div>`;
+      }).join('')}
+    </div>`;
   }
 
   function renderDialogueExercise(block, blockId) {
@@ -1521,7 +1557,11 @@
               ? renderEdPronunciationExercise(block, id)
               : block.layout === 'present-past-table'
                 ? renderPresentPastTable(block, id)
-                : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
+                : block.layout === 'article-mcq'
+                  ? renderArticleMcqExercise(block, id)
+                  : block.layout === 'pronunciation-choice-table'
+                    ? renderPronunciationChoiceTable(block, id)
+                    : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
       const hasStickyImage = block.stickyImage === true && imageEntries.length === 1;
       const exerciseBody = hasStickyImage
         ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`

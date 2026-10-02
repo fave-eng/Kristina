@@ -2912,3 +2912,132 @@ label.odd-option {
 .task-checkbox span {
   line-height: 1.45;
 }
+
+/* Homework 16: source-faithful review layouts */
+.inline-single-sentence {
+  line-height: 2.15;
+}
+
+.article-mcq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.article-mcq-copy {
+  position: sticky;
+  top: 92px;
+  max-height: calc(100vh - 118px);
+  overflow: auto;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .04);
+}
+
+.article-mcq-copy h4 {
+  margin: 0 0 16px;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 1.15;
+}
+
+.article-mcq-copy p {
+  margin: 0;
+  color: var(--dark);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.article-mcq-questions {
+  min-width: 0;
+}
+
+.article-mcq-questions .exercise-item {
+  padding: 15px 16px;
+}
+
+.article-mcq-questions .compact-options {
+  grid-template-columns: 1fr;
+}
+
+.pronunciation-choice-table {
+  display: grid;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.pronunciation-choice-row {
+  display: grid;
+  grid-template-columns: minmax(120px, .4fr) minmax(0, 1.6fr);
+  gap: 16px;
+  align-items: center;
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pronunciation-choice-row:last-child {
+  border-bottom: 0;
+}
+
+.pronunciation-choice-reference {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pronunciation-choice-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pronunciation-table-choice {
+  position: relative;
+  cursor: pointer;
+}
+
+.pronunciation-table-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pronunciation-table-choice span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 7px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 700;
+  transition: .15s ease;
+}
+
+.pronunciation-table-choice input:checked + span {
+  border-color: var(--indigo);
+  background: #eef2ff;
+  color: #312e81;
+}
+
+@media (max-width: 820px) {
+  .article-mcq-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article-mcq-copy {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .pronunciation-choice-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
