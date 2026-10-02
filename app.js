@@ -979,6 +979,137 @@
   }
 
 
+
+  function buildCrosswordGridMap(block) {
+    const entries = Array.isArray(block.entries) ? block.entries : [];
+    const cellMap = new Map();
+    const entryMap = new Map();
+    entries.forEach((entry, entryIndex) => {
+      const entryId = safeText(entry.id, `${entryIndex + 1}`);
+      const direction = safeText(entry.direction) === 'down' ? 'down' : 'across';
+      const letters = crosswordLetters(entry.answer);
+      const cells = [];
+      letters.forEach((letter, letterIndex) => {
+        const row = Number(entry.row) + (direction === 'down' ? letterIndex : 0);
+        const col = Number(entry.col) + (direction === 'across' ? letterIndex : 0);
+        const key = `${row}-${col}`;
+        if (!cellMap.has(key)) {
+          cellMap.set(key, { row, col, entries: [], number: null, example: false });
+        }
+        const cell = cellMap.get(key);
+        cell.entries.push({
+          id: entryId,
+          number: Number(entry.number),
+          direction,
+          letterIndex,
+          answerLetter: letter.toUpperCase(),
+          clue: safeText(entry.clue),
+          example: entry.example === true
+        });
+        if (letterIndex === 0) cell.number = Number(entry.number);
+        if (entry.example === true) cell.example = true;
+        cells.push({ row, col, key, letterIndex });
+      });
+      entryMap.set(entryId, { ...entry, id: entryId, direction, letters, cells });
+    });
+    return { cellMap, entryMap };
+  }
+
+  function renderCrosswordGridExercise(block, blockId) {
+    const columns = Math.max(1, Number(block.gridColumns) || 20);
+    const rows = Math.max(1, Number(block.gridRows) || 17);
+    const { cellMap, entryMap } = buildCrosswordGridMap(block);
+    const entryList = [...entryMap.values()];
+    const activeDefault = entryList.find((entry) => !entry.example) || entryList[0];
+    const cellsMarkup = [];
+    for (let row = 1; row <= rows; row += 1) {
+      for (let col = 1; col <= columns; col += 1) {
+        const key = `${row}-${col}`;
+        const cell = cellMap.get(key);
+        if (!cell) {
+          cellsMarkup.push(`<span class="crossword-grid-empty" style="grid-column:${col};grid-row:${row}"></span>`);
+          continue;
+        }
+        const firstEntry = cell.entries[0] || null;
+        const cluesForCell = cell.entries.map((entry) => `${entry.number} ${entry.direction === 'across' ? 'Across' : 'Down'}: ${entry.clue}`).join(' • ');
+        const primaryEntryId = firstEntry ? firstEntry.id : '';
+        const numberMarkup = cell.number ? `<span class="crossword-cell-number">${escapeHtml(cell.number)}</span>` : '';
+        const initialValue = cell.example && firstEntry ? firstEntry.answerLetter : '';
+        const disabled = cell.example ? ' disabled' : '';
+        cellsMarkup.push(`<span class="crossword-grid-cell-wrap${cell.example ? ' is-example' : ''}" data-crossword-grid-cell-wrap data-cell-key="${key}" data-entry-ids="${escapeHtml(cell.entries.map((entry) => entry.id).join('|'))}" data-primary-entry="${escapeHtml(primaryEntryId)}" data-clue-preview="${escapeHtml(cluesForCell)}" style="grid-column:${col};grid-row:${row}">${numberMarkup}<input class="crossword-cell crossword-grid-cell" data-crossword-grid-input data-cell-key="${key}" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="characters" aria-label="Crossword cell ${row}-${col}" value="${escapeHtml(initialValue)}"${disabled}></span>`);
+      }
+    }
+    const clueMarkup = (direction) => {
+      const list = entryList.filter((entry) => entry.direction === direction);
+      return `<section class="crossword-clue-column"><h4>${direction === 'across' ? 'ACROSS' : 'DOWN'}</h4><div class="crossword-clue-list">${list.map((entry) => `<button class="crossword-clue-row${entry.example ? ' is-example' : ''}" type="button" data-crossword-grid-clue="${escapeHtml(entry.id)}"><span class="crossword-clue-number">${escapeHtml(entry.number)}</span><span>${escapeHtml(entry.clue || '')}</span></button>`).join('')}</div></section>`;
+    };
+    const defaultLabel = activeDefault ? `${activeDefault.number} ${activeDefault.direction === 'across' ? 'Across' : 'Down'}: ${safeText(activeDefault.clue)}` : '';
+    return `<div class="crossword-grid-workspace" data-crossword-grid-workspace>
+      <div class="crossword-grid-main">
+        <div class="crossword-active-clue" data-crossword-active-clue>${escapeHtml(defaultLabel)}</div>
+        <div class="crossword-grid crossword-grid-true" role="group" aria-label="Interactive crossword" style="--crossword-cols:${columns};--crossword-rows:${rows};">${cellsMarkup.join('')}</div>
+      </div>
+      <div class="crossword-grid-clues">${clueMarkup('down')}${clueMarkup('across')}</div>
+    </div>`;
+  }
+
+  function collectCrosswordGridCells(node) {
+    const actual = {};
+    node.querySelectorAll('[data-crossword-grid-input]').forEach((input) => {
+      actual[safeText(input.dataset.cellKey)] = safeText(input.value).trim().toUpperCase();
+    });
+    return actual;
+  }
+
+  function readCrosswordGridEntryValue(entry, savedCells) {
+    return entry.cells.map((cell) => safeText(savedCells[cell.key]).trim().toUpperCase()).join('');
+  }
+
+  function checkCrosswordGridBlock(block, node) {
+    const { cellMap, entryMap } = buildCrosswordGridMap(block);
+    const actual = collectCrosswordGridCells(node);
+    let correctCount = 0;
+    let total = 0;
+    const entryResults = new Map();
+
+    entryMap.forEach((entry) => {
+      const typed = readCrosswordGridEntryValue(entry, actual);
+      const correct = normalizeAnswer(typed) === normalizeAnswer(entry.answer);
+      entryResults.set(entry.id, correct);
+      const clueNode = node.querySelector(`[data-crossword-grid-clue="${CSS.escape(entry.id)}"]`);
+      if (clueNode) {
+        clueNode.classList.remove('is-correct', 'is-wrong');
+        if (!entry.example) clueNode.classList.add(correct ? 'is-correct' : 'is-wrong');
+      }
+      if (!entry.example) {
+        total += 1;
+        if (correct) correctCount += 1;
+      }
+    });
+
+    cellMap.forEach((cell) => {
+      const wrap = node.querySelector(`[data-cell-key="${CSS.escape(cell.row + '-' + cell.col)}"]`);
+      if (!wrap) return;
+      wrap.classList.remove('is-correct', 'is-wrong');
+      if (cell.example) return;
+      const related = cell.entries.filter((entry) => !entry.example);
+      if (!related.length) return;
+      const allCorrect = related.every((entry) => entryResults.get(entry.id));
+      wrap.classList.add(allCorrect ? 'is-correct' : 'is-wrong');
+    });
+
+    return { actual, correctCount, total };
+  }
+
+  function restoreCrosswordGridAnswers(block, node, saved) {
+    if (!saved || typeof saved !== 'object') return;
+    Object.entries(saved).forEach(([key, value]) => {
+      const input = node.querySelector(`[data-crossword-grid-input][data-cell-key="${CSS.escape(key)}"]`);
+      if (input && !input.disabled) input.value = safeText(value).slice(0, 1).toUpperCase();
+    });
+  }
+
+
   function renderContinuousGapsExercise(block, blockId) {
     const paragraphs = Array.isArray(block.paragraphs) ? block.paragraphs : [];
     const content = paragraphs.map((paragraph) => {
@@ -1176,6 +1307,66 @@
       const itemNode = input.closest('[data-exercise-item]');
       updatePronunciationPreview(itemNode);
       input.addEventListener('input', () => updatePronunciationPreview(itemNode));
+    });
+
+
+    root.querySelectorAll('[data-crossword-grid-workspace]').forEach((workspace) => {
+      const activeClue = workspace.querySelector('[data-crossword-active-clue]');
+      const showClue = (text) => {
+        if (activeClue) activeClue.textContent = safeText(text);
+      };
+      const focusEntry = (entryId) => {
+        const firstCell = workspace.querySelector(`[data-primary-entry="${CSS.escape(entryId)}"] [data-crossword-grid-input], [data-entry-ids*="${CSS.escape(entryId)}"] [data-crossword-grid-input]`);
+        if (firstCell && !firstCell.disabled) firstCell.focus();
+      };
+      const allInputs = [...workspace.querySelectorAll('[data-crossword-grid-input]')];
+      const findNeighbour = (input, deltaRow, deltaCol) => {
+        const [row, col] = safeText(input.dataset.cellKey).split('-').map(Number);
+        let nextRow = row + deltaRow;
+        let nextCol = col + deltaCol;
+        while (nextRow > 0 && nextCol > 0 && nextRow <= 60 && nextCol <= 60) {
+          const candidate = workspace.querySelector(`[data-crossword-grid-input][data-cell-key="${nextRow}-${nextCol}"]`);
+          if (candidate && !candidate.disabled) return candidate;
+          nextRow += deltaRow;
+          nextCol += deltaCol;
+        }
+        return null;
+      };
+      allInputs.forEach((input) => {
+        const cellWrap = input.closest('[data-crossword-grid-cell-wrap]');
+        const cluePreview = safeText(cellWrap?.dataset.cluePreview);
+        if (cluePreview) {
+          input.addEventListener('focus', () => showClue(cluePreview));
+          input.addEventListener('mouseenter', () => showClue(cluePreview));
+        }
+        input.addEventListener('input', () => {
+          const letters = crosswordLetters(input.value);
+          input.value = safeText(letters[0]).toUpperCase();
+          if (input.value) {
+            const next = findNeighbour(input, 0, 1) || findNeighbour(input, 1, 0);
+            if (next) next.focus();
+          }
+        });
+        input.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowRight') { event.preventDefault(); (findNeighbour(input, 0, 1) || input).focus(); }
+          if (event.key === 'ArrowLeft') { event.preventDefault(); (findNeighbour(input, 0, -1) || input).focus(); }
+          if (event.key === 'ArrowDown') { event.preventDefault(); (findNeighbour(input, 1, 0) || input).focus(); }
+          if (event.key === 'ArrowUp') { event.preventDefault(); (findNeighbour(input, -1, 0) || input).focus(); }
+          if (event.key === 'Backspace' && !input.value) { event.preventDefault(); (findNeighbour(input, 0, -1) || findNeighbour(input, -1, 0) || input).focus(); }
+        });
+      });
+      workspace.querySelectorAll('[data-crossword-grid-clue]').forEach((button) => {
+        const entryId = safeText(button.dataset.crosswordGridClue);
+        button.addEventListener('mouseenter', () => {
+          const text = button.textContent.replace(/\s+/g, ' ').trim();
+          showClue(text);
+        });
+        button.addEventListener('focus', () => {
+          const text = button.textContent.replace(/\s+/g, ' ').trim();
+          showClue(text);
+        });
+        button.addEventListener('click', () => focusEntry(entryId));
+      });
     });
 
     root.querySelectorAll('[data-crossword-workspace]').forEach((workspace) => {
@@ -1617,7 +1808,9 @@
         ? renderDialogueExercise(block, id)
         : block.layout === 'crossword'
           ? renderCrosswordExercise(block, id)
-          : block.layout === 'continuous-gaps'
+          : block.layout === 'crossword-grid'
+            ? renderCrosswordGridExercise(block, id)
+            : block.layout === 'continuous-gaps'
             ? renderContinuousGapsExercise(block, id)
             : block.layout === 'ed-pronunciation'
               ? renderEdPronunciationExercise(block, id)
@@ -1755,6 +1948,7 @@
   }
 
   function checkExerciseBlock(block, node, options = {}) {
+    if (block.layout === 'crossword-grid') return checkCrosswordGridBlock(block, node);
     if (block.layout === 'continuous-gaps') return checkContinuousGapsBlock(block, node);
     if (block.layout === 'ed-pronunciation') return checkEdPronunciationBlock(block, node);
     if (block.layout === 'present-past-table') return checkPresentPastTableBlock(block, node);
@@ -1827,6 +2021,7 @@
 
   function restoreExerciseAnswers(block, node, saved) {
     if (!saved || typeof saved !== 'object') return;
+    if (block.layout === 'crossword-grid') { restoreCrosswordGridAnswers(block, node, saved); return; }
     if (block.layout === 'continuous-gaps') { restoreContinuousGapsAnswers(block, node, saved); return; }
     if (block.layout === 'ed-pronunciation') { restoreEdPronunciationAnswers(block, node, saved); return; }
     if (block.layout === 'present-past-table') { restorePresentPastTableAnswers(block, node, saved); return; }

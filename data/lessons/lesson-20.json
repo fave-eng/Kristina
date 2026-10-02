@@ -1,0 +1,218 @@
+{
+  "id": "lesson-20",
+  "number": 20,
+  "title": "Put it on your CV",
+  "subtitle": "Vocabulary: study and work",
+  "status": "available",
+  "publishedAt": "2026-10-03",
+  "totalPoints": 18,
+  "vocabularyId": "vocab-lesson-20-study-work",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY study and work",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "study and work"
+    },
+    {
+      "type": "exercise",
+      "id": "study-work-1a",
+      "title": "a Complete the text with the words from the list.",
+      "layout": "continuous-gaps",
+      "wordBank": [
+        "academic and research staff",
+        "first degree",
+        "further degree",
+        "Master’s degree",
+        "PhD",
+        "overseas students",
+        "tutorials"
+      ],
+      "introTitle": "THE UNIVERSITY OF MANCHESTER",
+      "introText": "Courses for over 40,000 students from 160 different countries",
+      "paragraphs": [
+        [
+          "The University of Manchester is one of the UK’s largest universities. Around 6,000 ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "academic and research staff"
+          },
+          " work there. It currently has over 40,000 students, both undergraduates studying for their ",
+          {
+            "type": "gap",
+            "id": "2",
+            "answer": "first degree",
+            "width": "medium"
+          },
+          " and graduates studying for a ",
+          {
+            "type": "gap",
+            "id": "3",
+            "answer": "further degree",
+            "width": "medium"
+          },
+          ". These postgraduate qualifications might be a ",
+          {
+            "type": "gap",
+            "id": "4",
+            "answer": "Master’s degree",
+            "acceptedAnswers": [
+              "Master’s degree",
+              "Master's degree"
+            ],
+            "width": "medium"
+          },
+          ", normally a one-year course at the end of which a student has to write a dissertation, or a ",
+          {
+            "type": "gap",
+            "id": "5",
+            "answer": "PhD"
+          },
+          ", a longer course during which students have to write a doctoral thesis. The university has nearly 11,000 ",
+          {
+            "type": "gap",
+            "id": "6",
+            "answer": "overseas students",
+            "width": "medium"
+          },
+          " from 160 different countries. Students are taught through lectures, seminars, and ",
+          {
+            "type": "gap",
+            "id": "7",
+            "answer": "tutorials",
+            "width": "medium"
+          },
+          "."
+        ]
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "study-work-1b",
+      "title": "b Complete the crossword.",
+      "layout": "crossword-grid",
+      "instructions": "Type the letters directly into the crossword. Hover over or focus on a word to see its clue without covering the grid.",
+      "gridColumns": 20,
+      "gridRows": 17,
+      "entries": [
+        {
+          "id": "1-down",
+          "number": 1,
+          "direction": "down",
+          "row": 1,
+          "col": 20,
+          "answer": "hallsofresidence",
+          "displayAnswer": "HALLS OF RESIDENCE",
+          "clue": "A place where university students live.",
+          "example": true
+        },
+        {
+          "id": "2-down",
+          "number": 2,
+          "direction": "down",
+          "row": 3,
+          "col": 4,
+          "answer": "dissertation",
+          "clue": "A long piece of writing you do as part of a Master’s degree."
+        },
+        {
+          "id": "3-down",
+          "number": 3,
+          "direction": "down",
+          "row": 3,
+          "col": 6,
+          "answer": "campus",
+          "clue": "The area of land where the main buildings of a university are."
+        },
+        {
+          "id": "4-across",
+          "number": 4,
+          "direction": "across",
+          "row": 4,
+          "col": 1,
+          "answer": "webinar",
+          "clue": "A seminar or other presentation given via the internet."
+        },
+        {
+          "id": "5-down",
+          "number": 5,
+          "direction": "down",
+          "row": 8,
+          "col": 2,
+          "answer": "seminar",
+          "clue": "A class in which a small group of students discuss a subject with a teacher."
+        },
+        {
+          "id": "6-down",
+          "number": 6,
+          "direction": "down",
+          "row": 6,
+          "col": 13,
+          "answer": "professor",
+          "clue": "A university teacher of the highest rank."
+        },
+        {
+          "id": "7-down",
+          "number": 7,
+          "direction": "down",
+          "row": 6,
+          "col": 16,
+          "answer": "postgraduate",
+          "clue": "A university student who is studying for a further degree."
+        },
+        {
+          "id": "8-across",
+          "number": 8,
+          "direction": "across",
+          "row": 9,
+          "col": 1,
+          "answer": "lecture",
+          "clue": "A talk that is given to a group of students to teach them about a particular subject."
+        },
+        {
+          "id": "9-down",
+          "number": 9,
+          "direction": "down",
+          "row": 8,
+          "col": 5,
+          "answer": "tutor",
+          "clue": "A teacher who is responsible for a small group of students at university."
+        },
+        {
+          "id": "10-across",
+          "number": 10,
+          "direction": "across",
+          "row": 12,
+          "col": 8,
+          "answer": "thesis",
+          "clue": "A long piece of writing you do as part of a PhD."
+        },
+        {
+          "id": "11-across",
+          "number": 11,
+          "direction": "across",
+          "row": 14,
+          "col": 7,
+          "answer": "undergraduate",
+          "clue": "A university student who is studying for their first degree."
+        },
+        {
+          "id": "12-across",
+          "number": 12,
+          "direction": "across",
+          "row": 16,
+          "col": 11,
+          "answer": "faculty",
+          "clue": "One department in a university, e.g. for Arts or Law."
+        }
+      ]
+    }
+  ]
+}

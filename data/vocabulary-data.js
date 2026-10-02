@@ -2547,86 +2547,165 @@ window.VOCABULARY_DATA = [
     ]
   },
   {
-    "id": "vocabulary-future-plans",
-    "order": 18,
-    "title": "Future plans and arrangements",
-    "description": "Useful B1 vocabulary from Unit 4A Grammar: plans, arrangements and moving house.",
-    "level": "B1",
-    "status": "available",
-    "page": "vocabulary.html?id=vocabulary-future-plans",
-    "linkedLessonIds": [
-      "lesson-19"
-    ],
+    "id": "vocab-lesson-20-study-work",
+    "title": "Study and work",
+    "label": "Lesson 20 · Study and work",
+    "icon": "🎓",
+    "type": "lesson",
+    "linkedLessonId": "lesson-20",
+    "page": "vocabulary.html?id=vocab-lesson-20-study-work",
     "words": [
       {
-        "id": "be-cancelled",
-        "en": "be cancelled",
-        "ru": "быть отменённым",
-        "example": "Our flight has been cancelled.",
-        "type": "verb phrase"
+        "id": "lesson-20-academic-research-staff",
+        "en": "academic and research staff",
+        "ru": "академический и исследовательский персонал",
+        "transcription": "/ˌækəˈdemɪk ən(d) rɪˈsɜːtʃ stɑːf/",
+        "exampleEn": "Around 6,000 academic and research staff work there.",
+        "exampleRu": "Там работает около 6 000 академических и исследовательских сотрудников."
       },
       {
-        "id": "sort-things-out",
-        "en": "sort things out",
-        "ru": "разобраться с делами / привести всё в порядок",
-        "example": "I have a whole week to sort things out.",
-        "type": "phrasal verb"
+        "id": "lesson-20-first-degree",
+        "en": "first degree",
+        "ru": "первое высшее образование; первая степень",
+        "transcription": "/ˌfɜːst dɪˈɡriː/",
+        "exampleEn": "She is studying for her first degree.",
+        "exampleRu": "Она учится на первую степень высшего образования."
       },
       {
-        "id": "come-round",
-        "en": "come round",
-        "ru": "зайти / прийти в гости",
-        "example": "Thanks for coming round to help.",
-        "type": "phrasal verb"
+        "id": "lesson-20-further-degree",
+        "en": "further degree",
+        "ru": "дальнейшая степень; последующее высшее образование",
+        "transcription": "/ˌfɜːðə dɪˈɡriː/",
+        "exampleEn": "He wants to do a further degree after university.",
+        "exampleRu": "Он хочет получить ещё одну степень после университета."
       },
       {
-        "id": "set-an-alarm",
-        "en": "set an alarm",
-        "ru": "поставить будильник",
-        "example": "I forgot to set my alarm.",
-        "type": "phrase"
+        "id": "lesson-20-masters-degree",
+        "en": "Master’s degree",
+        "ru": "степень магистра",
+        "transcription": "/ˈmɑːstəz dɪˌɡriː/",
+        "exampleEn": "A Master’s degree often takes one year.",
+        "exampleRu": "Степень магистра часто занимает один год."
       },
       {
-        "id": "all-sorts-of",
-        "en": "all sorts of",
-        "ru": "всевозможные / самые разные",
-        "example": "We have all sorts of things planned.",
-        "type": "phrase"
+        "id": "lesson-20-phd",
+        "en": "PhD",
+        "ru": "докторская степень; PhD",
+        "transcription": "/ˌpiː eɪtʃ ˈdiː/",
+        "exampleEn": "She is doing a PhD in biology.",
+        "exampleRu": "Она получает степень PhD по биологии."
       },
       {
-        "id": "riding-boots",
-        "en": "riding boots",
-        "ru": "сапоги для верховой езды",
-        "example": "Why don’t you give away your riding boots?",
-        "type": "noun phrase"
+        "id": "lesson-20-overseas-students",
+        "en": "overseas students",
+        "ru": "иностранные студенты",
+        "transcription": "/ˌəʊvəˈsiːz ˈstjuːdənts/",
+        "exampleEn": "The university has many overseas students.",
+        "exampleRu": "В университете много иностранных студентов."
       },
       {
-        "id": "ladder",
-        "en": "ladder",
-        "ru": "лестница / стремянка",
-        "example": "Are you going to take that ladder with you?",
-        "type": "noun"
+        "id": "lesson-20-tutorials",
+        "en": "tutorials",
+        "ru": "занятия в маленьких группах; тьюториалы",
+        "transcription": "/tjuːˈtɔːriəlz/",
+        "exampleEn": "Students meet in small tutorials each week.",
+        "exampleRu": "Студенты каждую неделю занимаются в маленьких группах."
       },
       {
-        "id": "garage",
-        "en": "garage",
-        "ru": "гараж",
-        "example": "We could start with the garage.",
-        "type": "noun"
+        "id": "lesson-20-webinar",
+        "en": "webinar",
+        "ru": "вебинар",
+        "transcription": "/ˈwebɪnɑː/",
+        "exampleEn": "The lecture is online as a webinar.",
+        "exampleRu": "Лекция проходит онлайн в формате вебинара."
       },
       {
-        "id": "move-to-a-flat",
-        "en": "move to a flat",
-        "ru": "переехать в квартиру",
-        "example": "I’m moving to a flat.",
-        "type": "phrase"
+        "id": "lesson-20-lecture",
+        "en": "lecture",
+        "ru": "лекция",
+        "transcription": "/ˈlektʃə/",
+        "exampleEn": "We have a lecture at nine o’clock.",
+        "exampleRu": "У нас лекция в девять часов."
       },
       {
-        "id": "pick-something-up",
-        "en": "pick something up",
-        "ru": "забрать что-то",
-        "example": "He’s going to come round to pick it up.",
-        "type": "phrasal verb"
+        "id": "lesson-20-thesis",
+        "en": "thesis",
+        "ru": "диссертация; дипломная работа",
+        "transcription": "/ˈθiːsɪs/",
+        "exampleEn": "He is writing his thesis now.",
+        "exampleRu": "Сейчас он пишет диссертацию."
+      },
+      {
+        "id": "lesson-20-undergraduate",
+        "en": "undergraduate",
+        "ru": "студент бакалавриата",
+        "transcription": "/ˌʌndəˈɡrædʒuət/",
+        "exampleEn": "She is an undergraduate at Manchester.",
+        "exampleRu": "Она студентка бакалавриата в Манчестере."
+      },
+      {
+        "id": "lesson-20-faculty",
+        "en": "faculty",
+        "ru": "факультет",
+        "transcription": "/ˈfækəlti/",
+        "exampleEn": "He works in the Faculty of Law.",
+        "exampleRu": "Он работает на факультете права."
+      },
+      {
+        "id": "lesson-20-dissertation",
+        "en": "dissertation",
+        "ru": "диссертация; исследовательская работа",
+        "transcription": "/ˌdɪsəˈteɪʃn/",
+        "exampleEn": "At the end of the course, students write a dissertation.",
+        "exampleRu": "В конце курса студенты пишут диссертацию."
+      },
+      {
+        "id": "lesson-20-campus",
+        "en": "campus",
+        "ru": "кампус",
+        "transcription": "/ˈkæmpəs/",
+        "exampleEn": "The library is on the main campus.",
+        "exampleRu": "Библиотека находится в главном кампусе."
+      },
+      {
+        "id": "lesson-20-seminar",
+        "en": "seminar",
+        "ru": "семинар",
+        "transcription": "/ˈsemɪnɑː/",
+        "exampleEn": "We discussed the topic in a seminar.",
+        "exampleRu": "Мы обсудили тему на семинаре."
+      },
+      {
+        "id": "lesson-20-professor",
+        "en": "professor",
+        "ru": "профессор",
+        "transcription": "/prəˈfesə/",
+        "exampleEn": "The professor answered our questions.",
+        "exampleRu": "Профессор ответил на наши вопросы."
+      },
+      {
+        "id": "lesson-20-postgraduate",
+        "en": "postgraduate",
+        "ru": "аспирант; магистрант; студент послевузовского образования",
+        "transcription": "/ˌpəʊstˈɡrædʒuət/",
+        "exampleEn": "Many postgraduates stay at the university to do research.",
+        "exampleRu": "Многие студенты послевузовского образования остаются в университете для исследований."
+      },
+      {
+        "id": "lesson-20-tutor",
+        "en": "tutor",
+        "ru": "тьютор; преподаватель-наставник",
+        "transcription": "/ˈtjuːtə/",
+        "exampleEn": "Your tutor can help you with course choices.",
+        "exampleRu": "Твой тьютор может помочь с выбором курсов."
+      },
+      {
+        "id": "lesson-20-halls-of-residence",
+        "en": "halls of residence",
+        "ru": "студенческое общежитие",
+        "transcription": "/ˌhɔːlz əv ˈrezɪdəns/",
+        "exampleEn": "First-year students often live in halls of residence.",
+        "exampleRu": "Студенты первого курса часто живут в общежитии."
       }
     ]
   }
