@@ -2522,7 +2522,7 @@ label.odd-option {
   }
 
   .crossword-grid {
-    --crossword-cell: clamp(20px, 5.8vw, 24px);
+    --crossword-cell: clamp(15px, 4vw, 19px);
   }
 
   .crossword-cell-number {
@@ -3196,16 +3196,21 @@ label.odd-option {
 
 .crossword-grid-main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  grid-template-areas: "grid clue";
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "clue"
+    "grid";
+  gap: 14px;
   align-items: start;
+  min-width: 0;
 }
 
 .crossword-hover-panel {
   grid-area: clue;
-  width: 280px;
+  width: 100%;
   height: 108px;
+  min-height: 108px;
+  max-height: 108px;
   box-sizing: border-box;
   padding: 12px 14px;
   border: 1px solid #d7deeb;
@@ -3226,7 +3231,10 @@ label.odd-option {
 
 .crossword-active-clue {
   height: 68px;
+  min-height: 68px;
+  max-height: 68px;
   overflow-y: auto;
+  overflow-x: hidden;
   color: var(--dark);
   font-size: .92rem;
   font-weight: 700;
@@ -3236,7 +3244,7 @@ label.odd-option {
 
 .crossword-grid-true {
   grid-area: grid;
-  --crossword-cell: clamp(24px, 2.25vw, 34px);
+  --crossword-cell: clamp(16px, 4vw, 34px);
   width: calc(var(--crossword-cell) * var(--crossword-cols));
   max-width: 100%;
   margin: 0 auto;
@@ -3402,4 +3410,15 @@ label.odd-option {
     grid-template-columns: 24px minmax(0, 1fr);
     padding-inline: 5px;
   }
+}
+
+
+/* Homework 20 layout hotfix: keep the clue panel separate from the crossword. */
+.crossword-grid-workspace {
+  padding-bottom: 96px;
+}
+@media (max-width: 520px) {
+  .crossword-grid-workspace { padding-bottom: 110px; }
+  .crossword-grid-cell { font-size: .62rem; }
+  .crossword-cell-number { font-size: .42rem; }
 }
