@@ -5,7 +5,7 @@
   "subtitle": "Vocabulary: study and work",
   "status": "available",
   "publishedAt": "2026-10-03",
-  "totalPoints": 18,
+  "totalPoints": 17,
   "vocabularyId": "vocab-lesson-20-study-work",
   "notification": {
     "enabled": true,
@@ -49,14 +49,34 @@
             "type": "gap",
             "id": "2",
             "answer": "first degree",
-            "width": "medium"
+            "width": "medium",
+            "input": "select",
+            "options": [
+              "academic and research staff",
+              "first degree",
+              "further degree",
+              "Master’s degree",
+              "PhD",
+              "overseas students",
+              "tutorials"
+            ]
           },
           " and graduates studying for a ",
           {
             "type": "gap",
             "id": "3",
             "answer": "further degree",
-            "width": "medium"
+            "width": "medium",
+            "input": "select",
+            "options": [
+              "academic and research staff",
+              "first degree",
+              "further degree",
+              "Master’s degree",
+              "PhD",
+              "overseas students",
+              "tutorials"
+            ]
           },
           ". These postgraduate qualifications might be a ",
           {
@@ -67,27 +87,67 @@
               "Master’s degree",
               "Master's degree"
             ],
-            "width": "medium"
+            "width": "medium",
+            "input": "select",
+            "options": [
+              "academic and research staff",
+              "first degree",
+              "further degree",
+              "Master’s degree",
+              "PhD",
+              "overseas students",
+              "tutorials"
+            ]
           },
           ", normally a one-year course at the end of which a student has to write a dissertation, or a ",
           {
             "type": "gap",
             "id": "5",
-            "answer": "PhD"
+            "answer": "PhD",
+            "input": "select",
+            "options": [
+              "academic and research staff",
+              "first degree",
+              "further degree",
+              "Master’s degree",
+              "PhD",
+              "overseas students",
+              "tutorials"
+            ]
           },
           ", a longer course during which students have to write a doctoral thesis. The university has nearly 11,000 ",
           {
             "type": "gap",
             "id": "6",
             "answer": "overseas students",
-            "width": "medium"
+            "width": "medium",
+            "input": "select",
+            "options": [
+              "academic and research staff",
+              "first degree",
+              "further degree",
+              "Master’s degree",
+              "PhD",
+              "overseas students",
+              "tutorials"
+            ]
           },
           " from 160 different countries. Students are taught through lectures, seminars, and ",
           {
             "type": "gap",
             "id": "7",
             "answer": "tutorials",
-            "width": "medium"
+            "width": "medium",
+            "input": "select",
+            "options": [
+              "academic and research staff",
+              "first degree",
+              "further degree",
+              "Master’s degree",
+              "PhD",
+              "overseas students",
+              "tutorials"
+            ]
           },
           "."
         ]
@@ -98,17 +158,17 @@
       "id": "study-work-1b",
       "title": "b Complete the crossword.",
       "layout": "crossword-grid",
-      "instructions": "Type the letters directly into the crossword. Hover over or focus on a word to see its clue without covering the grid.",
-      "gridColumns": 20,
-      "gridRows": 17,
+      "gridColumns": 18,
+      "gridRows": 18,
       "entries": [
         {
           "id": "1-down",
           "number": 1,
           "direction": "down",
           "row": 1,
-          "col": 20,
+          "col": 18,
           "answer": "hallsofresidence",
+          "pattern": "HALLS OF RESIDENCE",
           "displayAnswer": "HALLS OF RESIDENCE",
           "clue": "A place where university students live.",
           "example": true
@@ -117,100 +177,143 @@
           "id": "2-down",
           "number": 2,
           "direction": "down",
-          "row": 3,
-          "col": 4,
+          "row": 4,
+          "col": 7,
           "answer": "dissertation",
-          "clue": "A long piece of writing you do as part of a Master’s degree."
+          "clue": "A long piece of writing you do as part of a Master’s degree.",
+          "prefill": [
+            0
+          ]
         },
         {
           "id": "3-down",
           "number": 3,
           "direction": "down",
-          "row": 3,
-          "col": 6,
+          "row": 4,
+          "col": 9,
           "answer": "campus",
-          "clue": "The area of land where the main buildings of a university are."
+          "clue": "The area of land where the main buildings of a university are.",
+          "prefill": [
+            0,
+            5
+          ]
         },
         {
           "id": "4-across",
           "number": 4,
           "direction": "across",
-          "row": 4,
-          "col": 1,
+          "row": 5,
+          "col": 4,
           "answer": "webinar",
-          "clue": "A seminar or other presentation given via the internet."
+          "clue": "A seminar or other presentation given via the internet.",
+          "prefill": [
+            0,
+            6
+          ]
         },
         {
           "id": "5-down",
           "number": 5,
           "direction": "down",
-          "row": 8,
+          "row": 7,
           "col": 2,
           "answer": "seminar",
-          "clue": "A class in which a small group of students discuss a subject with a teacher."
+          "clue": "A class in which a small group of students discuss a subject with a teacher.",
+          "prefill": [
+            0,
+            6
+          ]
         },
         {
           "id": "6-down",
           "number": 6,
           "direction": "down",
-          "row": 6,
-          "col": 13,
+          "row": 7,
+          "col": 12,
           "answer": "professor",
-          "clue": "A university teacher of the highest rank."
+          "clue": "A university teacher of the highest rank.",
+          "prefill": [
+            0
+          ]
         },
         {
           "id": "7-down",
           "number": 7,
           "direction": "down",
-          "row": 6,
-          "col": 16,
+          "row": 7,
+          "col": 15,
           "answer": "postgraduate",
-          "clue": "A university student who is studying for a further degree."
+          "clue": "A university student who is studying for a further degree.",
+          "prefill": [
+            0
+          ]
         },
         {
           "id": "8-across",
           "number": 8,
           "direction": "across",
-          "row": 9,
+          "row": 8,
           "col": 1,
           "answer": "lecture",
-          "clue": "A talk that is given to a group of students to teach them about a particular subject."
+          "clue": "A talk that is given to a group of students to teach them about a particular subject.",
+          "prefill": [
+            0,
+            3,
+            6
+          ]
         },
         {
           "id": "9-down",
           "number": 9,
           "direction": "down",
           "row": 8,
-          "col": 5,
+          "col": 4,
           "answer": "tutor",
-          "clue": "A teacher who is responsible for a small group of students at university."
+          "clue": "A teacher who is responsible for a small group of students at university.",
+          "prefill": [
+            0,
+            4
+          ]
         },
         {
           "id": "10-across",
           "number": 10,
           "direction": "across",
           "row": 12,
-          "col": 8,
+          "col": 7,
           "answer": "thesis",
-          "clue": "A long piece of writing you do as part of a PhD."
+          "clue": "A long piece of writing you do as part of a PhD.",
+          "prefill": [
+            0,
+            5
+          ]
         },
         {
           "id": "11-across",
           "number": 11,
           "direction": "across",
-          "row": 14,
-          "col": 7,
+          "row": 15,
+          "col": 6,
           "answer": "undergraduate",
-          "clue": "A university student who is studying for their first degree."
+          "clue": "A university student who is studying for their first degree.",
+          "prefill": [
+            0,
+            1,
+            6
+          ]
         },
         {
           "id": "12-across",
           "number": 12,
           "direction": "across",
-          "row": 16,
-          "col": 11,
+          "row": 17,
+          "col": 10,
           "answer": "faculty",
-          "clue": "One department in a university, e.g. for Arts or Law."
+          "clue": "One department in a university, e.g. for Arts or Law.",
+          "prefill": [
+            0,
+            6
+          ]
         }
       ]
     }
