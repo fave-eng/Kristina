@@ -1,5 +1,6 @@
 /**
  * Published grammar topics.
+ * Explanations are structured as individual textbook-style chapters.
  */
 window.GRAMMAR_DATA = [
   {
@@ -11,213 +12,14 @@ window.GRAMMAR_DATA = [
     "page": "grammar-topic.html?id=grammar-pronouns",
     "passed": false,
     "attempts": 0,
-    "explanation": "Местоимения в английском меняют форму в зависимости от функции в предложении. Чтобы быстро ориентироваться, задай себе три вопроса: кто делает действие, на кого направлено действие и чей это предмет. Отдельно запомни порядок слов с to / for, когда в предложении два дополнения.",
-    "formula": "subject pronoun + verb · verb / preposition + object pronoun · possessive adjective + noun · possessive pronoun (without a noun) · verb + thing + to / for + person",
-    "glanceCards": [
-      {
-        "icon": "👤",
-        "label": "Subject pronoun",
-        "hint": "кто делает действие",
-        "pattern": "I / you / he / she / it / we / they",
-        "example": "She works from home."
-      },
-      {
-        "icon": "🎯",
-        "label": "Object pronoun",
-        "hint": "на кого направлено действие",
-        "pattern": "me / you / him / her / it / us / them",
-        "example": "I can see them."
-      },
-      {
-        "icon": "👜",
-        "label": "Possessive adjective",
-        "hint": "ставим перед существительным",
-        "pattern": "my / your / his / her / its / our / their",
-        "example": "Her laptop is new."
-      },
-      {
-        "icon": "🏷️",
-        "label": "Possessive pronoun",
-        "hint": "заменяет всё словосочетание",
-        "pattern": "mine / yours / his / hers / ours / theirs",
-        "example": "This seat is ours."
-      }
-    ],
-    "anchorLinks": [
-      {
-        "id": "grammar-at-a-glance",
-        "title": "Quick overview"
-      },
-      {
-        "id": "grammar-tables",
-        "title": "Tables"
-      },
-      {
-        "id": "grammar-examples",
-        "title": "Examples"
-      },
-      {
-        "id": "grammar-mistakes",
-        "title": "Common mistakes"
-      },
-      {
-        "id": "grammar-practice-section",
-        "title": "Practice"
-      }
-    ],
-    "miniRules": [
-      {
-        "title": "1. Ask “Who?”",
-        "text": "Если слово отвечает на вопрос «кто?» и стоит перед глаголом, обычно нужен subject pronoun.",
-        "example": "They live in Warsaw."
-      },
-      {
-        "title": "2. Ask “Whom?” or “to whom?”",
-        "text": "После глагола или предлога используем object pronoun.",
-        "example": "I spoke to her after class."
-      },
-      {
-        "title": "3. Check the noun",
-        "text": "Если после формы идёт существительное, нужен possessive adjective. Если существительного нет — possessive pronoun.",
-        "example": "My notes are here. Yours are on the desk."
-      },
-      {
-        "title": "4. Remember to / for",
-        "text": "Когда предмет заменён местоимением it / them, ставим it / them + to / for + person.",
-        "example": "Send it to me. Buy them for us."
-      }
-    ],
-    "tables": [
-      {
-        "title": "Main forms",
-        "headers": [
-          "Meaning",
-          "Subject",
-          "Object",
-          "Before a noun",
-          "Without a noun"
-        ],
-        "rows": [
-          [
-            "I",
-            "I",
-            "me",
-            "my",
-            "mine"
-          ],
-          [
-            "you",
-            "you",
-            "you",
-            "your",
-            "yours"
-          ],
-          [
-            "he",
-            "he",
-            "him",
-            "his",
-            "his"
-          ],
-          [
-            "she",
-            "she",
-            "her",
-            "her",
-            "hers"
-          ],
-          [
-            "it",
-            "it",
-            "it",
-            "its",
-            "—"
-          ],
-          [
-            "we",
-            "we",
-            "us",
-            "our",
-            "ours"
-          ],
-          [
-            "they",
-            "they",
-            "them",
-            "their",
-            "theirs"
-          ]
-        ]
-      },
-      {
-        "title": "Word order with two objects",
-        "headers": [
-          "Pattern",
-          "Use it when…",
-          "Example"
-        ],
-        "rows": [
-          [
-            "give me the book",
-            "both objects are nouns / a person comes first",
-            "She showed us her photos."
-          ],
-          [
-            "give the book to me",
-            "you want to stress the thing or the person",
-            "He sent the email to me."
-          ],
-          [
-            "give it to me",
-            "the thing is a pronoun",
-            "Please give it to me."
-          ],
-          [
-            "buy it for her",
-            "verbs like buy / make / get",
-            "I bought it for her."
-          ],
-          [
-            "read it to them",
-            "verbs like give / send / show / lend / sell / read",
-            "She read it to them."
-          ]
-        ]
-      }
-    ],
-    "exampleGroups": [
-      {
-        "title": "Compare the forms",
-        "items": [
-          "He called me after the meeting.",
-          "My manager sent me a message, but hers didn’t reply.",
-          "Their office is in the city centre, and ours is near the station."
-        ]
-      },
-      {
-        "title": "Spot the difference",
-        "items": [
-          "This is my charger. — The charger is mine.",
-          "We invited them to our house. — They invited us to theirs.",
-          "Can you show me your ticket? — Sorry, I can’t find mine."
-        ]
-      },
-      {
-        "title": "to / for in context",
-        "items": [
-          "Could you send it to him before lunch?",
-          "I made a playlist for you.",
-          "Our teacher read the email to us."
-        ]
-      }
-    ],
-    "commonMistakes": [
-      "me car ✗ → my car ✓. Перед существительным нужен possessive adjective.",
-      "with she ✗ → with her ✓. После предлога используем object pronoun.",
-      "give me it ✗ → give it to me ✓. Если предмет — местоимение, нужен порядок it + to / for + person.",
-      "its laptop = его/её у предмета или животного, а it’s = it is / it has.",
-      "their / there / they’re — это три разные формы: притяжательное, место и сокращение от they are."
-    ],
+    "explanation": "Местоимение выбирается не по русскому переводу, а по роли слова в английском предложении: кто выполняет действие, на кого действие направлено, чей предмет назван и заменяет ли форма существительное целиком.",
+    "formula": "Подлежащее: I / you / he / she / it / we / they · Дополнение: me / you / him / her / it / us / them · Перед существительным: my / your / his / her / its / our / their · Без существительного: mine / yours / his / hers / ours / theirs",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
     "exercises": [
       {
         "type": "exercise",
@@ -477,7 +279,221 @@ window.GRAMMAR_DATA = [
         ]
       }
     ],
-    "linkedLessonId": "lesson-2"
+    "linkedLessonId": "lesson-2",
+    "chapter": [
+      {
+        "id": "pronoun-role-map",
+        "type": "steps",
+        "title": "Сначала определяем роль слова, потом выбираем форму",
+        "intro": "В русском одна и та же идея часто выражается окончанием. В английском форма местоимения прямо показывает его функцию. Поэтому полезнее не переводить слово изолированно, а задать вопрос к его месту в предложении.",
+        "items": [
+          {
+            "title": "1. Кто выполняет действие?",
+            "text": "Если местоимение стоит перед сказуемым и является подлежащим, нужна форма subject pronoun.",
+            "example": {
+              "en": "[[She]] works with us.",
+              "ru": "[[Она]] работает с нами."
+            }
+          },
+          {
+            "title": "2. На кого направлено действие?",
+            "text": "После глагола или предлога используется object pronoun.",
+            "example": {
+              "en": "I called [[her]]. I spoke to [[her]].",
+              "ru": "Я позвонил [[ей]]. Я поговорил с [[ней]]."
+            }
+          },
+          {
+            "title": "3. Чей предмет назван?",
+            "text": "Если после формы сразу идёт существительное, выбираем possessive adjective.",
+            "example": {
+              "en": "This is [[my]] bag.",
+              "ru": "Это [[моя]] сумка."
+            }
+          },
+          {
+            "title": "4. Существительное уже понятно и не повторяется?",
+            "text": "Тогда используем possessive pronoun: оно заменяет сочетание «притяжательное слово + существительное».",
+            "example": {
+              "en": "This bag is [[mine]].",
+              "ru": "Эта сумка [[моя]]."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pronoun-table",
+        "type": "table",
+        "title": "Четыре основные формы в одной системе",
+        "note": "Смотри по строке: лицо остаётся тем же, меняется только грамматическая функция.",
+        "headers": [
+          "Лицо",
+          "Подлежащее",
+          "Дополнение",
+          "Перед существительным",
+          "Самостоятельная форма"
+        ],
+        "rows": [
+          [
+            "я",
+            "I",
+            "me",
+            "my",
+            "mine"
+          ],
+          [
+            "ты / вы",
+            "you",
+            "you",
+            "your",
+            "yours"
+          ],
+          [
+            "он",
+            "he",
+            "him",
+            "his",
+            "his"
+          ],
+          [
+            "она",
+            "she",
+            "her",
+            "her",
+            "hers"
+          ],
+          [
+            "оно",
+            "it",
+            "it",
+            "its",
+            "—"
+          ],
+          [
+            "мы",
+            "we",
+            "us",
+            "our",
+            "ours"
+          ],
+          [
+            "они",
+            "they",
+            "them",
+            "their",
+            "theirs"
+          ]
+        ]
+      },
+      {
+        "id": "pronoun-compare",
+        "type": "compare",
+        "title": "my или mine? her или hers? — главное различие",
+        "columns": [
+          {
+            "title": "Перед существительным",
+            "points": [
+              "my, your, his, her, its, our, their сами предмет не заменяют.",
+              "После них ожидается существительное."
+            ],
+            "examples": [
+              {
+                "en": "Where is [[your phone]]?",
+                "ru": "Где [[твой телефон]]?"
+              },
+              {
+                "en": "I like [[their idea]].",
+                "ru": "Мне нравится [[их идея]]."
+              }
+            ]
+          },
+          {
+            "title": "Без существительного",
+            "points": [
+              "mine, yours, his, hers, ours, theirs уже содержат значение предмета.",
+              "После них существительное не ставится."
+            ],
+            "examples": [
+              {
+                "en": "This phone is [[yours]].",
+                "ru": "Этот телефон [[твой]]."
+              },
+              {
+                "en": "Their idea is better than [[ours]].",
+                "ru": "Их идея лучше [[нашей]]."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pronoun-two-objects",
+        "type": "note",
+        "title": "Два дополнения: порядок слов с to и for",
+        "paragraphs": [
+          "С глаголами give, send, show, lend, read возможны две модели: give [[me]] the book и give the book [[to me]]. Если предмет заменён местоимением it / them, безопасная и стандартная модель — give [[it to me]], а не give me it.",
+          "С buy, make, get обычно используется for: I bought [[a ticket for her]]. — Я купил [[билет для неё]]."
+        ],
+        "examples": [
+          {
+            "en": "Please send [[it to him]].",
+            "ru": "Пожалуйста, отправь [[это ему]]."
+          },
+          {
+            "en": "She made [[some coffee for us]].",
+            "ru": "Она приготовила [[нам кофе]]."
+          }
+        ]
+      },
+      {
+        "id": "pronoun-common-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки",
+        "items": [
+          {
+            "wrong": "with she",
+            "right": "with her",
+            "why": "После предлога нужна объектная форма."
+          },
+          {
+            "wrong": "me car",
+            "right": "my car",
+            "why": "Перед существительным нужна притяжательная форма my."
+          },
+          {
+            "wrong": "This book is my.",
+            "right": "This book is mine.",
+            "why": "Существительного после формы нет, значит нужна mine."
+          },
+          {
+            "wrong": "give me it",
+            "right": "give it to me",
+            "why": "Когда предмет выражен it / them, ставим it / them перед to + person."
+          },
+          {
+            "wrong": "it’s colour",
+            "right": "its colour",
+            "why": "its = притяжательная форма; it’s = it is / it has."
+          }
+        ]
+      },
+      {
+        "id": "pronoun-context",
+        "type": "examples",
+        "title": "Как одна и та же идея меняет форму",
+        "items": [
+          {
+            "en": "[[She]] sent [[me]] [[her]] notes because [[mine]] were incomplete.",
+            "ru": "[[Она]] прислала [[мне]] [[свои]] конспекты, потому что [[мои]] были неполными.",
+            "note": "she — подлежащее; me — дополнение; her — перед notes; mine заменяет my notes."
+          },
+          {
+            "en": "We invited [[them]] to [[our]] house, and later they invited [[us]] to [[theirs]].",
+            "ru": "Мы пригласили [[их]] к [[нам]] домой, а позже они пригласили [[нас]] к [[себе]]."
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "grammar-adjective-suffixes",
@@ -488,245 +504,14 @@ window.GRAMMAR_DATA = [
     "page": "grammar-topic.html?id=grammar-adjective-suffixes",
     "passed": false,
     "attempts": 0,
-    "explanation": "Суффиксы помогают образовывать прилагательные от существительных и глаголов. Они часто подсказывают общее значение слова, но не всегда позволяют угадать точное написание. Поэтому полезно учить не отдельное слово, а целую word family: create → creative, success → successful, rely → reliable. Ниже — понятная карта пяти основных суффиксов из урока и правила, которые помогут выбирать форму быстрее.",
-    "formula": "noun / verb + adjective suffix → adjective · ATTRACT → attractive · HELP → helpful",
-    "glanceCards": [
-      {
-        "icon": "🧩",
-        "label": "-able / -ible",
-        "hint": "«можно…», «обладает качеством»",
-        "pattern": "rely → reliable · response → responsible",
-        "example": "She is reliable and responsible."
-      },
-      {
-        "icon": "💛",
-        "label": "-ate",
-        "hint": "качество или отношение к людям",
-        "pattern": "compassion → compassionate · affection → affectionate",
-        "example": "He is a considerate colleague."
-      },
-      {
-        "icon": "⚡",
-        "label": "-ive",
-        "hint": "склонность, характер, активное качество",
-        "pattern": "create → creative · assert → assertive",
-        "example": "She gave a creative solution."
-      },
-      {
-        "icon": "✨",
-        "label": "-ous",
-        "hint": "обладающий заметным качеством",
-        "pattern": "envy → envious · glamour → glamorous",
-        "example": "The event looked glamorous."
-      },
-      {
-        "icon": "🌟",
-        "label": "-ful",
-        "hint": "«полный…», «обладающий…»",
-        "pattern": "help → helpful · power → powerful",
-        "example": "That was very thoughtful of you."
-      }
-    ],
-    "anchorLinks": [
-      {
-        "id": "grammar-at-a-glance",
-        "title": "Suffixes"
-      },
-      {
-        "id": "grammar-rule-map",
-        "title": "How to choose"
-      },
-      {
-        "id": "grammar-tables",
-        "title": "Tables"
-      },
-      {
-        "id": "grammar-mistakes",
-        "title": "Spelling"
-      },
-      {
-        "id": "grammar-practice-section",
-        "title": "Practice"
-      }
-    ],
-    "miniRules": [
-      {
-        "title": "1. Найди исходное слово",
-        "text": "Определи, от какого существительного или глагола нужно образовать прилагательное: HELP, CREATE, ENVY.",
-        "example": "HELP → helpful"
-      },
-      {
-        "title": "2. Посмотри на смысл",
-        "text": "-ful часто означает «обладающий качеством», -ive — склонность или активную черту, -ous — ярко выраженное качество.",
-        "example": "powerful · creative · glamorous"
-      },
-      {
-        "title": "3. Проверь написание основы",
-        "text": "При добавлении суффикса окончание основы иногда меняется: rely → reliable, create → creative, glamour → glamorous.",
-        "example": "rely → reliable"
-      },
-      {
-        "title": "4. Учись через word families",
-        "text": "Для -able / -ible нет одного надёжного правила. Запоминай форму вместе с исходным словом и примером.",
-        "example": "response → responsible"
-      }
-    ],
-    "tables": [
-      {
-        "title": "Meaning and common examples",
-        "headers": [
-          "Suffix",
-          "General idea",
-          "Examples from the lesson"
-        ],
-        "rows": [
-          [
-            "-able / -ible",
-            "можно доверять / обладающий качеством",
-            "reliable, lovable, responsible"
-          ],
-          [
-            "-ate",
-            "качество, отношение к людям",
-            "compassionate, considerate, affectionate"
-          ],
-          [
-            "-ive",
-            "склонность, характер, действие",
-            "attractive, assertive, creative, possessive, sensitive, impulsive"
-          ],
-          [
-            "-ous",
-            "ярко выраженное качество",
-            "envious, rebellious, glamorous"
-          ],
-          [
-            "-ful",
-            "полный качества / обладающий им",
-            "thoughtful, successful, helpful, powerful"
-          ]
-        ]
-      },
-      {
-        "title": "Word families to remember",
-        "headers": [
-          "Base word",
-          "Adjective",
-          "Meaning"
-        ],
-        "rows": [
-          [
-            "attract",
-            "attractive",
-            "привлекательный"
-          ],
-          [
-            "compassion",
-            "compassionate",
-            "сострадательный"
-          ],
-          [
-            "assert",
-            "assertive",
-            "уверенный и прямой"
-          ],
-          [
-            "thought",
-            "thoughtful",
-            "заботливый, внимательный"
-          ],
-          [
-            "love",
-            "lovable / loveable",
-            "милый, вызывающий любовь"
-          ],
-          [
-            "envy",
-            "envious",
-            "завистливый"
-          ],
-          [
-            "success",
-            "successful",
-            "успешный"
-          ],
-          [
-            "response",
-            "responsible",
-            "ответственный"
-          ],
-          [
-            "impulse",
-            "impulsive",
-            "импульсивный"
-          ],
-          [
-            "help",
-            "helpful",
-            "готовый помочь"
-          ],
-          [
-            "rebel",
-            "rebellious",
-            "бунтарский"
-          ],
-          [
-            "sense",
-            "sensitive",
-            "чувствительный"
-          ],
-          [
-            "rely",
-            "reliable",
-            "надёжный"
-          ],
-          [
-            "glamour",
-            "glamorous",
-            "гламурный, эффектный"
-          ],
-          [
-            "power",
-            "powerful",
-            "сильный, влиятельный"
-          ]
-        ]
-      }
-    ],
-    "exampleGroups": [
-      {
-        "title": "Personality and character",
-        "items": [
-          "Mia is assertive, but she is never rude.",
-          "A reliable colleague does what they promise.",
-          "Leo can be impulsive when he is stressed."
-        ]
-      },
-      {
-        "title": "Positive qualities",
-        "items": [
-          "It was thoughtful of you to call me.",
-          "Our new assistant is helpful and responsible.",
-          "She is a compassionate and considerate doctor."
-        ]
-      },
-      {
-        "title": "Appearance and impression",
-        "items": [
-          "The restaurant has a glamorous interior.",
-          "He is a successful and powerful businessman.",
-          "The main character is rebellious but lovable."
-        ]
-      }
-    ],
-    "commonMistakes": [
-      "Не добавляй суффикс механически: response → responsable ✗. Правильно: responsible.",
-      "rely → reliable: буква y меняется на i, а затем добавляется -able.",
-      "create → creative и sense → sensitive: конечная e исчезает перед -ive.",
-      "glamour → glamorous: в прилагательном пишем glamorous, без второй u.",
-      "success → successful: сохраняем double s в основе, а в суффиксе -ful пишем только одну l.",
-      "lovable и loveable — оба варианта возможны, но lovable встречается чаще."
-    ],
+    "explanation": "Суффиксы -able, -ate, -ive, -ous и -ful помогают узнавать и образовывать прилагательные, но словообразование не является механической формулой: значение, написание и иногда произношение нужно проверять по конкретной word family.",
+    "formula": "основа слова + суффикс → прилагательное: rely → reliable · consider → considerate · create → creative · danger → dangerous · help → helpful",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
     "exercises": [
       {
         "type": "exercise",
@@ -1059,7 +844,224 @@ window.GRAMMAR_DATA = [
         ]
       }
     ],
-    "linkedLessonId": "lesson-2"
+    "linkedLessonId": "lesson-2",
+    "chapter": [
+      {
+        "id": "suffixes-principle",
+        "type": "note",
+        "title": "Что важно понять до запоминания суффиксов",
+        "paragraphs": [
+          "Суффикс показывает, что слово часто является прилагательным, но не гарантирует точный перевод. Например, creative — «творческий», а sensitive — «чувствительный». Поэтому учим не «суффикс = перевод», а целую семью слов и типичное значение конкретного прилагательного.",
+          "Некоторые основы меняют написание: rely → reliable, envy → envious. Это нормальная часть словообразования, а не исключение из грамматики, которое можно всегда вычислить."
+        ]
+      },
+      {
+        "id": "suffixes-family",
+        "type": "table",
+        "title": "Пять суффиксов: значение и типичные модели",
+        "headers": [
+          "Суффикс",
+          "Что часто выражает",
+          "Примеры",
+          "Перевод"
+        ],
+        "rows": [
+          [
+            "-able",
+            "возможность / свойство «можно…», «обладающий качеством»",
+            "reliable, lovable",
+            "надёжный, привлекательный / любимый"
+          ],
+          [
+            "-ate",
+            "качество или характеристику; суффикс встречается не только в прилагательных",
+            "considerate, passionate",
+            "внимательный к другим, страстный"
+          ],
+          [
+            "-ive",
+            "склонность, свойство, активное качество",
+            "creative, impulsive, assertive",
+            "творческий, импульсивный, уверенно отстаивающий своё мнение"
+          ],
+          [
+            "-ous",
+            "обладание качеством",
+            "dangerous, envious, glamorous",
+            "опасный, завистливый, эффектный"
+          ],
+          [
+            "-ful",
+            "«полный / обладающий…»",
+            "helpful, thoughtful, successful",
+            "полезный, заботливый, успешный"
+          ]
+        ]
+      },
+      {
+        "id": "suffixes-spelling",
+        "type": "steps",
+        "title": "Как проверять написание",
+        "items": [
+          {
+            "title": "Сначала найди основу",
+            "text": "Определи исходное слово, если оно очевидно: help → helpful, create → creative.",
+            "example": {
+              "en": "help → [[helpful]]",
+              "ru": "помощь / помогать → [[полезный, готовый помочь]]"
+            }
+          },
+          {
+            "title": "Не сохраняй буквы автоматически",
+            "text": "При добавлении суффикса написание основы может меняться.",
+            "example": {
+              "en": "rely → [[reliable]]",
+              "ru": "полагаться → [[надёжный]]"
+            }
+          },
+          {
+            "title": "Проверяй word family",
+            "text": "Одна семья помогает одновременно закрепить значение и орфографию.",
+            "example": {
+              "en": "create → creation → [[creative]]",
+              "ru": "создавать → создание → [[творческий]]"
+            }
+          },
+          {
+            "title": "Не придумывай слово по аналогии",
+            "text": "Не каждый суффикс можно свободно присоединить к любой основе. Если форма незнакома, её нужно проверить в словаре.",
+            "example": {
+              "en": "success → [[successful]]",
+              "ru": "успех → [[успешный]]"
+            }
+          }
+        ]
+      },
+      {
+        "id": "suffixes-word-families",
+        "type": "table",
+        "title": "Полезные word families",
+        "headers": [
+          "Основа",
+          "Существительное",
+          "Прилагательное",
+          "Перевод прилагательного"
+        ],
+        "rows": [
+          [
+            "create",
+            "creation",
+            "creative",
+            "творческий"
+          ],
+          [
+            "rely",
+            "reliability",
+            "reliable",
+            "надёжный"
+          ],
+          [
+            "impulse",
+            "impulse",
+            "impulsive",
+            "импульсивный"
+          ],
+          [
+            "envy",
+            "envy",
+            "envious",
+            "завистливый"
+          ],
+          [
+            "success",
+            "success",
+            "successful",
+            "успешный"
+          ],
+          [
+            "thought",
+            "thought",
+            "thoughtful",
+            "внимательный, заботливый"
+          ]
+        ]
+      },
+      {
+        "id": "suffixes-meaning",
+        "type": "compare",
+        "title": "Похожие по форме — разные по смыслу",
+        "columns": [
+          {
+            "title": "thoughtful",
+            "points": [
+              "Человек думает о чувствах и потребностях других."
+            ],
+            "examples": [
+              {
+                "en": "That was very [[thoughtful]] of you.",
+                "ru": "Это было очень [[заботливо / внимательно]] с твоей стороны."
+              }
+            ]
+          },
+          {
+            "title": "sensitive",
+            "points": [
+              "Человек легко замечает чувства, изменения или реагирует на них; в контексте личности может быть «чувствительный»."
+            ],
+            "examples": [
+              {
+                "en": "He is very [[sensitive]] to criticism.",
+                "ru": "Он очень [[чувствителен]] к критике."
+              }
+            ]
+          },
+          {
+            "title": "assertive",
+            "points": [
+              "Уверенно выражает свои мысли и границы, но не обязательно агрессивно."
+            ],
+            "examples": [
+              {
+                "en": "Try to be more [[assertive]] in meetings.",
+                "ru": "Попробуй быть более [[уверенным и прямым]] на встречах."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suffixes-errors",
+        "type": "mistakes",
+        "title": "Что чаще всего идёт не так",
+        "items": [
+          {
+            "wrong": "relyable",
+            "right": "reliable",
+            "why": "При образовании reliable меняется написание основы."
+          },
+          {
+            "wrong": "envyous",
+            "right": "envious",
+            "why": "Правильная форма — envious."
+          },
+          {
+            "wrong": "successfull",
+            "right": "successful",
+            "why": "В суффиксе -ful одна l."
+          },
+          {
+            "wrong": "Считать, что -ous всегда значит «опасный / негативный»",
+            "right": "Учить значение всего слова",
+            "why": "glamorous и famous не имеют отрицательного значения."
+          },
+          {
+            "wrong": "Образовывать новое прилагательное по аналогии без проверки",
+            "right": "Проверять словарную форму",
+            "why": "Словообразовательные модели продуктивны не одинаково для всех основ."
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "grammar-present-tenses",
@@ -1070,182 +1072,14 @@ window.GRAMMAR_DATA = [
     "page": "grammar-topic.html?id=grammar-present-tenses",
     "passed": false,
     "attempts": 0,
-    "explanation": "Present simple показывает обычный порядок вещей: привычки, повторяющиеся действия, постоянные факты, мнения и состояния. Present continuous показывает действие в процессе сейчас или временную ситуацию, а также личную договорённость на будущее. Удобная проверка: спросите себя «это обычно / вообще?» — тогда чаще нужен present simple; «это происходит сейчас / временно / уже договорено?» — тогда чаще нужен present continuous. Некоторые глаголы состояния обычно не употребляются в continuous: believe, belong, depend, know, like, matter, need, recognize, understand, want. Но отдельные глаголы меняют значение: I think = я считаю, I’m thinking = я обдумываю; I have = у меня есть, I’m having dinner = я ужинаю; I see = я вижу/понимаю, I’m seeing a friend = я встречаюсь с другом.",
-    "formula": "Present simple: I/you/we/they + verb; he/she/it + verb-s · do/does + subject + verb? · Present continuous: am/is/are + verb-ing",
-    "glanceCards": [
-      {
-        "icon": "🔁",
-        "label": "Present simple",
-        "hint": "обычно, регулярно, всегда",
-        "pattern": "subject + verb / verb-s",
-        "example": "Sam and Richard go hiking every weekend."
-      },
-      {
-        "icon": "▶️",
-        "label": "Present continuous",
-        "hint": "сейчас или временно",
-        "pattern": "am / is / are + verb-ing",
-        "example": "Be quiet! I’m trying to read."
-      },
-      {
-        "icon": "📅",
-        "label": "Future arrangements",
-        "hint": "личный план уже договорён",
-        "pattern": "am / is / are + verb-ing + future time",
-        "example": "We’re meeting some friends at 7.00."
-      },
-      {
-        "icon": "🚌",
-        "label": "Timetables",
-        "hint": "расписание и программа",
-        "pattern": "present simple + future time",
-        "example": "My flight leaves at 14.25."
-      }
-    ],
-    "anchorLinks": [
-      {
-        "id": "grammar-at-a-glance",
-        "title": "Quick overview"
-      },
-      {
-        "id": "grammar-tables",
-        "title": "Tables"
-      },
-      {
-        "id": "grammar-examples",
-        "title": "Examples"
-      },
-      {
-        "id": "grammar-mistakes",
-        "title": "Common mistakes"
-      },
-      {
-        "id": "grammar-practice-section",
-        "title": "Practice"
-      }
-    ],
-    "miniRules": [
-      {
-        "title": "1. Найдите смысл",
-        "text": "Привычка, факт, мнение или состояние → present simple. Процесс сейчас, временная ситуация или договорённость → present continuous.",
-        "example": "She works from home. / She’s working from a café today."
-      },
-      {
-        "title": "2. Проверьте форму",
-        "text": "В present simple у he / she / it добавляется -s. В вопросах и отрицаниях используйте do / does. В continuous обязательно нужны am / is / are и форма -ing.",
-        "example": "Does he work? / Is he working?"
-      },
-      {
-        "title": "3. Будущее: план или расписание",
-        "text": "Личная договорённость обычно выражается present continuous. Официальное расписание — present simple.",
-        "example": "I’m flying on Friday. / The plane leaves at 14.25."
-      },
-      {
-        "title": "4. Проверьте глагол состояния",
-        "text": "Want, believe, belong, matter, depend, recognize и многие другие глаголы состояния обычно ставятся в present simple, даже когда речь идёт о настоящем моменте.",
-        "example": "I don’t want to buy anything."
-      }
-    ],
-    "tables": [
-      {
-        "title": "Основные случаи",
-        "headers": [
-          "Форма",
-          "Когда употребляем",
-          "Маркеры",
-          "Пример"
-        ],
-        "rows": [
-          [
-            "Present simple",
-            "привычка, повторение, факт, состояние",
-            "always, usually, often, every…",
-            "He speaks good French."
-          ],
-          [
-            "Present continuous",
-            "процесс сейчас, временная ситуация",
-            "now, at the moment, today",
-            "We’re having dinner."
-          ],
-          [
-            "Present continuous for future",
-            "личная договорённость",
-            "tonight, tomorrow, next…",
-            "She’s seeing a friend after work."
-          ],
-          [
-            "Present simple for future",
-            "расписание, программа",
-            "время рейса/урока/мероприятия",
-            "The concert starts at 8.30."
-          ]
-        ]
-      },
-      {
-        "title": "Глаголы, которые обычно не ставятся в continuous",
-        "headers": [
-          "Группа",
-          "Глаголы",
-          "Пример"
-        ],
-        "rows": [
-          [
-            "мнение и знание",
-            "believe, know, recognize, understand",
-            "I recognize that man."
-          ],
-          [
-            "желание и отношение",
-            "want, need, like, love, prefer",
-            "I don’t want to buy anything."
-          ],
-          [
-            "состояние и принадлежность",
-            "belong, matter, depend, seem",
-            "It depends on the weather."
-          ],
-          [
-            "меняющееся значение",
-            "think, have, see",
-            "I think it’s right. / I’m thinking about it."
-          ]
-        ]
-      }
-    ],
-    "exampleGroups": [
-      {
-        "title": "Usually vs now",
-        "items": [
-          "Ben uses sunscreen all year round.",
-          "Pay attention! You aren’t listening to me.",
-          "Elizabeth doesn’t usually wear make-up on the beach."
-        ]
-      },
-      {
-        "title": "Plans vs timetables",
-        "items": [
-          "I’m going to a concert on Friday evening.",
-          "My flight leaves at 14.25.",
-          "We’re meeting some friends at 7.00."
-        ]
-      },
-      {
-        "title": "State verbs and changing meanings",
-        "items": [
-          "I don’t believe in ghosts.",
-          "He’s thinking about doing voluntary work.",
-          "We’re having dinner."
-        ]
-      }
-    ],
-    "commonMistakes": [
-      "He go every weekend ✗ → He goes every weekend ✓. В утверждении с he / she / it нужен -s.",
-      "Does he goes? ✗ → Does he go? ✓. После does используется начальная форма глагола.",
-      "I am want ✗ → I want ✓. Want — глагол состояния и обычно не употребляется в continuous.",
-      "The plane is leaving at 14.25 — возможно, но для официального расписания в учебном контексте выбираем The plane leaves at 14.25.",
-      "always is late ✗ → is always late ✓. Наречие частоты ставится после be, но перед обычным смысловым глаголом."
-    ],
+    "explanation": "Present Simple описывает обычный порядок вещей, факты, повторение и состояния. Present Continuous показывает процесс вокруг настоящего момента, временную ситуацию или уже организованную личную договорённость. Главное — не слово-маркер, а смысл ситуации.",
+    "formula": "Present Simple: I/you/we/they work · he/she/it works · do/does not + V · Do/Does … V?  |  Present Continuous: am/is/are + V-ing",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
     "exercises": [
       {
         "type": "exercise",
@@ -1469,7 +1303,178 @@ window.GRAMMAR_DATA = [
         ]
       }
     ],
-    "linkedLessonId": "lesson-5"
+    "linkedLessonId": "lesson-5",
+    "chapter": [
+      {
+        "id": "present-timeline",
+        "type": "timeline",
+        "title": "Две картинки настоящего времени",
+        "points": [
+          {
+            "label": "обычно / всегда / регулярно",
+            "caption": "Present Simple: действие рассматривается как правило, привычка или постоянный факт."
+          },
+          {
+            "label": "NOW",
+            "caption": "Present Continuous: действие находится в процессе сейчас или вокруг текущего периода."
+          },
+          {
+            "label": "временно",
+            "caption": "Present Continuous: ситуация ограничена нынешним периодом, даже если действие не происходит в эту секунду."
+          }
+        ]
+      },
+      {
+        "id": "present-simple",
+        "type": "formula",
+        "title": "Present Simple: строение",
+        "lines": [
+          "Утверждение: I/you/we/they [[work]] · he/she/it [[works]]",
+          "Отрицание: I/you/we/they [[do not (don’t) work]] · he/she/it [[does not (doesn’t) work]]",
+          "Вопрос: [[Do]] you work? · [[Does]] she work?",
+          "После does / doesn’t смысловой глагол возвращается в базовую форму: Does he [[work]]? — не works."
+        ],
+        "examples": [
+          {
+            "en": "She [[works]] from home twice a week.",
+            "ru": "Она [[работает]] из дома два раза в неделю."
+          },
+          {
+            "en": "[[Does]] he [[know]] the answer?",
+            "ru": "[[Знает]] ли он ответ?"
+          }
+        ]
+      },
+      {
+        "id": "present-continuous",
+        "type": "formula",
+        "title": "Present Continuous: строение",
+        "lines": [
+          "Утверждение: subject + [[am / is / are]] + V-ing",
+          "Отрицание: subject + [[am not / isn’t / aren’t]] + V-ing",
+          "Вопрос: [[Am / Is / Are]] + subject + V-ing?"
+        ],
+        "examples": [
+          {
+            "en": "I [[am working]] at home this week.",
+            "ru": "На этой неделе я [[работаю]] дома."
+          },
+          {
+            "en": "[[Are]] you [[waiting]] for someone?",
+            "ru": "Ты [[кого-то ждёшь]]?"
+          }
+        ]
+      },
+      {
+        "id": "present-choice",
+        "type": "table",
+        "title": "Как выбрать время по смыслу",
+        "headers": [
+          "Ситуация",
+          "Present Simple",
+          "Present Continuous"
+        ],
+        "rows": [
+          [
+            "Привычка / регулярность",
+            "I go to the gym on Mondays. — Я хожу в зал по понедельникам.",
+            "—"
+          ],
+          [
+            "Постоянный факт",
+            "She lives in Ufa. — Она живёт в Уфе.",
+            "—"
+          ],
+          [
+            "Состояние / мнение",
+            "I understand you. — Я тебя понимаю.",
+            "обычно не используется"
+          ],
+          [
+            "Процесс сейчас",
+            "—",
+            "She is talking on the phone. — Она сейчас разговаривает по телефону."
+          ],
+          [
+            "Временная ситуация",
+            "—",
+            "I’m staying with my sister this month. — В этом месяце я живу у сестры."
+          ],
+          [
+            "Изменение / развитие",
+            "—",
+            "The weather is getting colder. — Становится холоднее."
+          ],
+          [
+            "Личная договорённость на будущее",
+            "—",
+            "We’re meeting Anna tomorrow. — Завтра мы встречаемся с Анной."
+          ]
+        ]
+      },
+      {
+        "id": "present-stative",
+        "type": "note",
+        "title": "Глаголы состояния: почему continuous часто не подходит",
+        "paragraphs": [
+          "Глаголы know, understand, believe, want, need, belong, seem, remember, love и многие другие обычно описывают состояние, а не наблюдаемый процесс. Поэтому в обычном значении они употребляются в Simple: I [[know]] the answer, а не I am knowing the answer.",
+          "Некоторые глаголы меняют значение. Think = «считать, иметь мнение» обычно Simple: I [[think]] it’s a good idea. Think = «обдумывать» может быть Continuous: I’m [[thinking]] about moving."
+        ],
+        "examples": [
+          {
+            "en": "This bag [[belongs]] to me.",
+            "ru": "Эта сумка [[принадлежит]] мне."
+          },
+          {
+            "en": "I’m [[having]] lunch now.",
+            "ru": "Я сейчас [[обедаю]].",
+            "note": "have в значении действия допускает Continuous."
+          }
+        ]
+      },
+      {
+        "id": "present-always",
+        "type": "callout",
+        "title": "always + Continuous: не просто «всегда»",
+        "tone": "warning",
+        "paragraphs": [
+          "Present Continuous с always / constantly может выражать повторяющееся поведение, которое говорящий эмоционально оценивает — часто раздражение или удивление."
+        ],
+        "examples": [
+          {
+            "en": "You’re [[always losing]] your keys!",
+            "ru": "Ты [[вечно теряешь]] ключи!"
+          }
+        ]
+      },
+      {
+        "id": "present-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки выбора и формы",
+        "items": [
+          {
+            "wrong": "She is knowing the answer.",
+            "right": "She knows the answer.",
+            "why": "know обычно обозначает состояние."
+          },
+          {
+            "wrong": "Does he works here?",
+            "right": "Does he work here?",
+            "why": "После does используется базовая форма."
+          },
+          {
+            "wrong": "I work from home this week.",
+            "right": "I’m working from home this week.",
+            "why": "Если подчёркивается временный период «на этой неделе», естественнее Continuous."
+          },
+          {
+            "wrong": "I am going to work every Monday.",
+            "right": "I go to work every Monday.",
+            "why": "Регулярная привычка требует Present Simple, если нет специального контекста."
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "grammar-possessives",
@@ -1482,242 +1487,14 @@ window.GRAMMAR_DATA = [
     "attempts": 0,
     "lockOnPass": true,
     "revealAnswersOnError": false,
-    "explanation": "Притяжательные конструкции показывают принадлежность или связь: чей это предмет, часть чего-либо или отношение между людьми. С людьми и живыми существами обычно удобно использовать ’s: Anna’s bag. С предметами, частями и более длинными словосочетаниями часто используется of: the door of the building. Притяжательные местоимения mine, yours, his, hers, ours, theirs заменяют сочетание с существительным, а own подчёркивает «свой собственный». Отдельной утвердительной, отрицательной или вопросительной формы у ’s и of нет: это части именной группы, поэтому они могут стоять в утверждениях, отрицаниях и вопросах с обычным глаголом предложения.",
-    "formula": "person + ’s + noun · regular plural + ’ + noun · noun + of + thing · a/an + noun + of + possessive pronoun · possessive adjective + own + noun · noun + of + possessive adjective + own",
-    "glanceCards": [
-      {
-        "icon": "👤",
-        "label": "’s with people",
-        "hint": "принадлежность человеку",
-        "pattern": "Anna’s coat · the children’s room",
-        "example": "That is my neighbour’s car."
-      },
-      {
-        "icon": "👥",
-        "label": "Plural possessive",
-        "hint": "после обычного множественного числа на -s",
-        "pattern": "parents’ house · students’ books",
-        "example": "The teachers’ room is downstairs."
-      },
-      {
-        "icon": "🔗",
-        "label": "of",
-        "hint": "части, предметы и конструкции a friend of…",
-        "pattern": "the roof of the house · a friend of mine",
-        "example": "The colour of the wall is very dark."
-      },
-      {
-        "icon": "🏠",
-        "label": "own",
-        "hint": "«свой собственный»",
-        "pattern": "my own room · a room of my own",
-        "example": "She wants her own office."
-      }
-    ],
-    "anchorLinks": [
-      {
-        "id": "grammar-at-a-glance",
-        "title": "Quick overview"
-      },
-      {
-        "id": "grammar-rule-map",
-        "title": "Rules"
-      },
-      {
-        "id": "grammar-tables",
-        "title": "Tables"
-      },
-      {
-        "id": "grammar-examples",
-        "title": "Examples"
-      },
-      {
-        "id": "grammar-mistakes",
-        "title": "Common mistakes"
-      },
-      {
-        "id": "grammar-practice-section",
-        "title": "Practice"
-      }
-    ],
-    "miniRules": [
-      {
-        "title": "1. Singular person: add ’s",
-        "text": "После имени или существительного в единственном числе обычно добавляем ’s.",
-        "example": "my brother’s phone · the doctor’s office"
-      },
-      {
-        "title": "2. Regular plural ending in -s: add only ’",
-        "text": "Если множественное число уже оканчивается на -s, после него ставится только апостроф.",
-        "example": "my parents’ house · the boys’ bikes"
-      },
-      {
-        "title": "3. Irregular plural: add ’s",
-        "text": "Если множественное число не оканчивается на -s, действует обычное правило ’s.",
-        "example": "children’s clothes · women’s shoes · people’s opinions"
-      },
-      {
-        "title": "4. Names ending in -s",
-        "text": "С именами на -s возможны обе формы: James’s и James’. В современном употреблении James’s очень распространено; важно быть последовательным.",
-        "example": "James’s car / James’ car"
-      },
-      {
-        "title": "5. Shared possession",
-        "text": "Если один предмет принадлежит двум людям вместе, ’s ставится только у второго имени. Если у каждого свой предмет, ’s ставится у обоих.",
-        "example": "Mia and Leo’s flat · Mia’s and Leo’s passports"
-      },
-      {
-        "title": "6. of, possessive pronouns and own",
-        "text": "Для частей и предметов часто используем of. В конструкции a friend of mine после of нужен possessive pronoun. Own ставится после possessive adjective: my own, your own, its own; также возможно a place of my own.",
-        "example": "the end of the street · a colleague of hers · their own business"
-      }
-    ],
-    "tables": [
-      {
-        "title": "Main possessive patterns",
-        "headers": [
-          "Pattern",
-          "Use",
-          "Example"
-        ],
-        "rows": [
-          [
-            "person + ’s + noun",
-            "one person / singular noun",
-            "my sister’s laptop"
-          ],
-          [
-            "regular plural + ’ + noun",
-            "plural already ending in -s",
-            "the students’ books"
-          ],
-          [
-            "irregular plural + ’s + noun",
-            "plural not ending in -s",
-            "the children’s room"
-          ],
-          [
-            "noun + of + noun",
-            "parts, things, longer phrases",
-            "the back of the building"
-          ],
-          [
-            "a/an + noun + of + possessive pronoun",
-            "one person/thing from a group connected to someone",
-            "a neighbour of ours"
-          ],
-          [
-            "possessive adjective + own + noun",
-            "emphasise separate/personal possession",
-            "her own desk"
-          ]
-        ]
-      },
-      {
-        "title": "Possessive adjective vs possessive pronoun",
-        "headers": [
-          "Person",
-          "Before a noun",
-          "Without a noun"
-        ],
-        "rows": [
-          [
-            "I",
-            "my",
-            "mine"
-          ],
-          [
-            "you",
-            "your",
-            "yours"
-          ],
-          [
-            "he",
-            "his",
-            "his"
-          ],
-          [
-            "she",
-            "her",
-            "hers"
-          ],
-          [
-            "we",
-            "our",
-            "ours"
-          ],
-          [
-            "they",
-            "their",
-            "theirs"
-          ]
-        ]
-      },
-      {
-        "title": "Statements, negatives and questions",
-        "headers": [
-          "Type",
-          "Example",
-          "What changes"
-        ],
-        "rows": [
-          [
-            "Statement",
-            "This is Daniel’s coat.",
-            "Possessive phrase stays inside the sentence."
-          ],
-          [
-            "Negative",
-            "This isn’t Daniel’s coat.",
-            "Negation is made with the verb, not with ’s."
-          ],
-          [
-            "Question",
-            "Is this Daniel’s coat? / Whose coat is this?",
-            "Question order comes from the verb; whose asks about possession."
-          ],
-          [
-            "Short answer",
-            "Is this yours? — Yes, it is. / No, it isn’t.",
-            "Use the auxiliary or be from the question."
-          ]
-        ]
-      }
-    ],
-    "exampleGroups": [
-      {
-        "title": "People and groups",
-        "items": [
-          "My colleague’s desk is by the window.",
-          "The players’ bags are in the changing room.",
-          "The children’s coats are in the hall."
-        ]
-      },
-      {
-        "title": "of and double possessives",
-        "items": [
-          "The entrance of the building is on the left.",
-          "She’s a friend of ours.",
-          "That idea of his might work."
-        ]
-      },
-      {
-        "title": "own",
-        "items": [
-          "They have their own business.",
-          "I’d like a desk of my own.",
-          "Does the dog have its own bed?"
-        ]
-      }
-    ],
-    "commonMistakes": [
-      "my parents’s house ✗ → my parents’ house ✓. После обычного множественного числа на -s нужен только апостроф.",
-      "childrens’ toys ✗ → children’s toys ✓. Children — неправильное множественное число, поэтому добавляем ’s.",
-      "a friend of me ✗ → a friend of mine ✓. После of в такой конструкции используется possessive pronoun.",
-      "an own room ✗ → my own room / a room of my own ✓. Own обычно требует possessive adjective или конструкции of my own.",
-      "Mia’s and Leo’s flat обычно означает два отдельных владения; для общей квартиры: Mia and Leo’s flat.",
-      "its = притяжательная форма; it’s = сокращение от it is или it has."
-    ],
+    "explanation": "В английском принадлежность выражается несколькими моделями. Выбор зависит от того, кому или чему принадлежит предмет, названо ли существительное после притяжательной формы и хотим ли мы подчеркнуть «свой собственный».",
+    "formula": "person + ’s + noun · noun + of + thing · my/your/his… + noun · mine/yours/hers… · a friend of mine · my own + noun",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
     "exercises": [
       {
         "type": "exercise",
@@ -1924,7 +1701,198 @@ window.GRAMMAR_DATA = [
         ]
       }
     ],
-    "linkedLessonId": "lesson-6"
+    "linkedLessonId": "lesson-6",
+    "chapter": [
+      {
+        "id": "possessive-decision",
+        "type": "decision",
+        "title": "Как выбрать притяжательную конструкцию",
+        "items": [
+          {
+            "question": "Владелец — человек, животное, организация или время?",
+            "yes": "Часто используем ’s: Anna’s bag, the company’s policy, today’s meeting.",
+            "no": "Для частей предметов и длинных неодушевлённых сочетаний часто естественнее of: the roof of the house."
+          },
+          {
+            "question": "После притяжательной формы стоит существительное?",
+            "yes": "my / your / his / her / its / our / their + noun.",
+            "no": "mine / yours / his / hers / ours / theirs."
+          },
+          {
+            "question": "Нужно подчеркнуть «собственный / самостоятельно принадлежащий»?",
+            "yes": "own после притяжательного слова: my own room, their own business.",
+            "no": "Обычная притяжательная форма без own."
+          }
+        ]
+      },
+      {
+        "id": "possessive-s",
+        "type": "table",
+        "title": "’s и of: не механическое правило «люди vs предметы»",
+        "headers": [
+          "Модель",
+          "Когда естественна",
+          "Пример + перевод"
+        ],
+        "rows": [
+          [
+            "’s / ’",
+            "люди и живые существа",
+            "my sister’s car — машина моей сестры"
+          ],
+          [
+            "’s",
+            "организации, страны, места, время",
+            "the company’s decision — решение компании; today’s news — сегодняшние новости"
+          ],
+          [
+            "of",
+            "части предметов, абстрактные связи, длинные группы",
+            "the end of the road — конец дороги; the colour of the walls — цвет стен"
+          ],
+          [
+            "оба возможны",
+            "иногда выбор зависит от стиля и фокуса",
+            "the company’s policy / the policy of the company — политика компании"
+          ]
+        ]
+      },
+      {
+        "id": "possessive-apostrophe",
+        "type": "steps",
+        "title": "Апостроф: где его ставить",
+        "items": [
+          {
+            "title": "Один владелец",
+            "text": "Добавляем ’s.",
+            "example": {
+              "en": "the [[girl’s]] phone",
+              "ru": "телефон [[девочки]]"
+            }
+          },
+          {
+            "title": "Множественное число на -s",
+            "text": "Добавляем только апостроф после s.",
+            "example": {
+              "en": "the [[students’]] books",
+              "ru": "книги [[студентов]]"
+            }
+          },
+          {
+            "title": "Неправильное множественное число без -s",
+            "text": "Добавляем ’s.",
+            "example": {
+              "en": "the [[children’s]] room",
+              "ru": "[[детская]] комната"
+            }
+          },
+          {
+            "title": "Два человека и один общий предмет",
+            "text": "Обычно ’s ставится у второго имени.",
+            "example": {
+              "en": "Tom and Anna’s flat",
+              "ru": "квартира Тома и Анны"
+            }
+          }
+        ]
+      },
+      {
+        "id": "possessive-forms",
+        "type": "compare",
+        "title": "my и mine: форма зависит от существительного",
+        "columns": [
+          {
+            "title": "my / your / his / her / its / our / their",
+            "points": [
+              "Всегда стоят перед существительным."
+            ],
+            "examples": [
+              {
+                "en": "This is [[our house]].",
+                "ru": "Это [[наш дом]]."
+              }
+            ]
+          },
+          {
+            "title": "mine / yours / his / hers / ours / theirs",
+            "points": [
+              "Заменяют существительное и не требуют noun после себя."
+            ],
+            "examples": [
+              {
+                "en": "This house is [[ours]].",
+                "ru": "Этот дом [[наш]]."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "possessive-double",
+        "type": "note",
+        "title": "a friend of mine: двойная притяжательная конструкция",
+        "paragraphs": [
+          "Конструкция a friend of mine означает «один из моих друзей». Она особенно полезна после a/an, some, any, this, that, these, those, когда простая форма my уже не подходит к структуре."
+        ],
+        "examples": [
+          {
+            "en": "He is [[a friend of mine]].",
+            "ru": "Он [[один из моих друзей]]."
+          },
+          {
+            "en": "That idea of yours is interesting.",
+            "ru": "[[Эта твоя идея]] интересная."
+          }
+        ]
+      },
+      {
+        "id": "possessive-own",
+        "type": "callout",
+        "title": "own усиливает значение «свой собственный»",
+        "tone": "info",
+        "paragraphs": [
+          "own ставится после притяжательного слова: my own, her own, their own. Само по себе own обычно не заменяет притяжательное слово."
+        ],
+        "examples": [
+          {
+            "en": "She has [[her own]] studio.",
+            "ru": "У неё [[своя собственная]] студия."
+          },
+          {
+            "en": "I did it [[on my own]].",
+            "ru": "Я сделал это [[самостоятельно]].",
+            "note": "on my own — отдельная устойчивая конструкция «сам / без помощи»."
+          }
+        ]
+      },
+      {
+        "id": "possessive-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки",
+        "items": [
+          {
+            "wrong": "the car of my brother",
+            "right": "my brother’s car",
+            "why": "С близким личным владельцем ’s обычно естественнее."
+          },
+          {
+            "wrong": "This seat is my.",
+            "right": "This seat is mine.",
+            "why": "После формы нет существительного."
+          },
+          {
+            "wrong": "the childrens’ room",
+            "right": "the children’s room",
+            "why": "children — неправильное множественное число без конечной -s."
+          },
+          {
+            "wrong": "I have own room.",
+            "right": "I have my own room.",
+            "why": "own обычно требует притяжательного слова перед собой."
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "grammar-past-simple-continuous-used-to",
@@ -1937,186 +1905,14 @@ window.GRAMMAR_DATA = [
     "attempts": 0,
     "lockOnPass": true,
     "revealAnswersOnError": false,
-    "explanation": "Эти три формы говорят о прошлом, но показывают разные типы ситуаций. Past simple используется для завершённых событий и последовательности действий в прошлом. Past continuous показывает действие, которое было в процессе в конкретный момент или служило фоном для другого события. Used to описывает повторяющиеся привычки и состояния в прошлом, которые сейчас уже не актуальны. Важно выбирать форму не по одному слову-маркеру, а по смыслу всей ситуации.",
-    "formula": "Past simple: subject + V2 / did not + V1 / Did + subject + V1? · Past continuous: subject + was/were + V-ing / was not, were not + V-ing / Was, Were + subject + V-ing? · Used to: subject + used to + V1 / did not use to + V1 / Did + subject + use to + V1?",
-    "glanceCards": [
-      {
-        "icon": "✓",
-        "label": "Past simple",
-        "hint": "завершённое событие",
-        "pattern": "I moved here in 2022.",
-        "example": "The phone rang while we were having dinner."
-      },
-      {
-        "icon": "↻",
-        "label": "Past continuous",
-        "hint": "действие было в процессе",
-        "pattern": "was / were + V-ing",
-        "example": "At eight o’clock, I was driving home."
-      },
-      {
-        "icon": "↩",
-        "label": "Used to",
-        "hint": "прошлая привычка или состояние",
-        "pattern": "used to + V1",
-        "example": "I used to play outside every day."
-      },
-      {
-        "icon": "?",
-        "label": "Questions & negatives",
-        "hint": "после did используем базовую форму",
-        "pattern": "Did ... use to? · didn’t use to",
-        "example": "Did you use to live here?"
-      }
-    ],
-    "anchorLinks": [
-      {
-        "id": "grammar-at-a-glance",
-        "title": "Quick overview"
-      },
-      {
-        "id": "grammar-tables",
-        "title": "Tables"
-      },
-      {
-        "id": "grammar-examples",
-        "title": "Examples"
-      },
-      {
-        "id": "grammar-mistakes",
-        "title": "Common mistakes"
-      },
-      {
-        "id": "grammar-practice-section",
-        "title": "Practice"
-      }
-    ],
-    "miniRules": [
-      {
-        "title": "1. Завершённое событие → Past simple",
-        "text": "Используй past simple, когда событие произошло и завершилось в прошлом, особенно если важен результат или последовательность событий.",
-        "example": "I woke up late and missed the bus."
-      },
-      {
-        "title": "2. Процесс в момент прошлого → Past continuous",
-        "text": "Используй was/were + -ing для действия, которое уже шло в определённый момент. Часто более короткое событие в past simple прерывает этот процесс.",
-        "example": "I was reading when the phone rang."
-      },
-      {
-        "title": "3. Прошлая привычка или состояние → used to",
-        "text": "Used to подходит для того, что было регулярно или было правдой раньше, но теперь изменилось.",
-        "example": "She used to have long hair."
-      },
-      {
-        "title": "4. После did — use, не used",
-        "text": "В вопросах и отрицаниях прошедшее время уже выражено через did, поэтому used превращается в use.",
-        "example": "Did you use to play here? — No, I didn’t use to."
-      }
-    ],
-    "tables": [
-      {
-        "title": "How the forms are built",
-        "headers": [
-          "Meaning",
-          "Affirmative",
-          "Negative",
-          "Question",
-          "Short answer"
-        ],
-        "rows": [
-          [
-            "Past simple",
-            "I worked. / I went.",
-            "I didn’t work.",
-            "Did you work?",
-            "Yes, I did. / No, I didn’t."
-          ],
-          [
-            "Past continuous",
-            "I was working.",
-            "I wasn’t working.",
-            "Were you working?",
-            "Yes, I was. / No, I wasn’t."
-          ],
-          [
-            "Used to",
-            "I used to work here.",
-            "I didn’t use to work here.",
-            "Did you use to work here?",
-            "Yes, I did. / No, I didn’t."
-          ]
-        ]
-      },
-      {
-        "title": "When to choose each form",
-        "headers": [
-          "Form",
-          "Use",
-          "Typical contrast",
-          "Example"
-        ],
-        "rows": [
-          [
-            "Past simple",
-            "completed event",
-            "finished action",
-            "We lived in Germany for five years."
-          ],
-          [
-            "Past continuous",
-            "action in progress",
-            "background + shorter event",
-            "We were sitting in the garden when they arrived."
-          ],
-          [
-            "Used to",
-            "old habit or state",
-            "past versus now",
-            "My brother used to have a beard, but now he doesn’t."
-          ],
-          [
-            "Past simple or used to",
-            "repeated past action",
-            "both may work when a repeated habit is clear",
-            "We spent / used to spend our holidays there."
-          ]
-        ]
-      }
-    ],
-    "exampleGroups": [
-      {
-        "title": "Past simple",
-        "items": [
-          "I woke up late this morning.",
-          "My son lost his boarding pass at the airport.",
-          "They built a new hypermarket near our house."
-        ]
-      },
-      {
-        "title": "Past continuous",
-        "items": [
-          "I was reading to the children when the phone rang.",
-          "We were waiting at the airport when my son lost his boarding pass.",
-          "They weren’t driving very fast when they hit the lamp post."
-        ]
-      },
-      {
-        "title": "Used to",
-        "items": [
-          "I didn’t use to eat many vegetables when I was a child.",
-          "Did you use to play in the street when you were young?",
-          "We used to go shopping in the high street."
-        ]
-      }
-    ],
-    "commonMistakes": [
-      "I was went ✗ → I went ✓. Past simple не использует was/were перед обычным глаголом.",
-      "I used to playing ✗ → I used to play ✓. После used to ставим базовую форму глагола.",
-      "Did you used to...? ✗ → Did you use to...? ✓. После did нужен use, а не used.",
-      "I was knowing him ✗ → I knew him ✓. Многие глаголы состояния, например know, believe, understand, обычно не используются в continuous.",
-      "When I was a child, I was playing outside every day часто звучит как описание процесса; для привычки лучше I used to play / I played outside every day.",
-      "Past continuous обычно требует контекста процесса: конкретного момента или другого события, на фоне которого действие происходило."
-    ],
+    "explanation": "Past Simple сообщает о завершённых событиях и фактах прошлого. Past Continuous показывает фон или действие в процессе в конкретный момент. used to описывает прежнюю привычку или состояние, которое больше не является актуальным.",
+    "formula": "Past Simple: V2 / did not + V / Did … V? · Past Continuous: was/were + V-ing · used to + V / didn’t use to + V / Did … use to + V?",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
     "exercises": [
       {
         "type": "exercise",
@@ -2306,7 +2102,192 @@ window.GRAMMAR_DATA = [
         ]
       }
     ],
-    "linkedLessonId": "lesson-9"
+    "linkedLessonId": "lesson-9",
+    "chapter": [
+      {
+        "id": "past-story-timeline",
+        "type": "timeline",
+        "title": "Как три формы работают внутри рассказа",
+        "points": [
+          {
+            "label": "раньше, регулярно",
+            "caption": "used to: повторяющаяся привычка или состояние в прошлом, обычно с контрастом «сейчас иначе»."
+          },
+          {
+            "label": "действие было в процессе",
+            "caption": "Past Continuous: фон / процесс вокруг определённого момента."
+          },
+          {
+            "label": "событие произошло",
+            "caption": "Past Simple: завершённое событие, которое двигает рассказ вперёд."
+          }
+        ]
+      },
+      {
+        "id": "past-simple-form",
+        "type": "formula",
+        "title": "Past Simple: завершённое событие или факт",
+        "lines": [
+          "Утверждение: regular verb + -ed или 2-я форма неправильного глагола: worked, went.",
+          "Отрицание: [[didn’t + V]]: didn’t work, didn’t go.",
+          "Вопрос: [[Did + subject + V?]]: Did you go?",
+          "После did / didn’t глагол не ставится во 2-ю форму."
+        ],
+        "examples": [
+          {
+            "en": "I [[met]] her in 2024.",
+            "ru": "Я [[познакомился]] с ней в 2024 году."
+          },
+          {
+            "en": "We [[didn’t see]] him yesterday.",
+            "ru": "Мы [[не видели]] его вчера."
+          }
+        ]
+      },
+      {
+        "id": "past-continuous-form",
+        "type": "formula",
+        "title": "Past Continuous: процесс и фон",
+        "lines": [
+          "Утверждение: subject + [[was / were + V-ing]].",
+          "Отрицание: subject + [[wasn’t / weren’t + V-ing]].",
+          "Вопрос: [[Was / Were + subject + V-ing?]]"
+        ],
+        "examples": [
+          {
+            "en": "At eight, I [[was driving]] home.",
+            "ru": "В восемь я [[ехал]] домой."
+          },
+          {
+            "en": "She [[was cooking]] when the phone rang.",
+            "ru": "Она [[готовила]], когда зазвонил телефон."
+          }
+        ]
+      },
+      {
+        "id": "past-interruption",
+        "type": "compare",
+        "title": "when и while: событие на фоне процесса",
+        "columns": [
+          {
+            "title": "Длительный фон — Past Continuous",
+            "points": [
+              "Показывает, что действие уже шло."
+            ],
+            "examples": [
+              {
+                "en": "I [[was reading]]…",
+                "ru": "Я [[читал]]…"
+              }
+            ]
+          },
+          {
+            "title": "Короткое завершённое событие — Past Simple",
+            "points": [
+              "Происходит внутри фона или прерывает его."
+            ],
+            "examples": [
+              {
+                "en": "…when the lights [[went out]].",
+                "ru": "…когда свет [[погас]]."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "used-to",
+        "type": "note",
+        "title": "used to: «раньше было так, а теперь уже не так»",
+        "paragraphs": [
+          "used to + базовая форма описывает повторяющиеся действия и состояния в прошлом: I used to play outside; I used to be shy. Важен фон прежней нормы, а не одно отдельное событие.",
+          "В вопросах и отрицаниях после did обычно пишется use: Did you [[use to]] live here? I didn’t [[use to]] like coffee."
+        ],
+        "examples": [
+          {
+            "en": "I [[used to live]] near the university.",
+            "ru": "Раньше я [[жил]] рядом с университетом."
+          },
+          {
+            "en": "She [[didn’t use to eat]] vegetables.",
+            "ru": "Раньше она [[не ела]] овощи."
+          }
+        ]
+      },
+      {
+        "id": "past-choice",
+        "type": "table",
+        "title": "Одна ситуация — три разных фокуса",
+        "headers": [
+          "Что хочет сказать говорящий",
+          "Форма",
+          "Пример + перевод"
+        ],
+        "rows": [
+          [
+            "одно завершённое событие",
+            "Past Simple",
+            "I visited Rome in May. — Я был в Риме в мае."
+          ],
+          [
+            "процесс в определённый момент",
+            "Past Continuous",
+            "At 10, I was flying to Rome. — В 10 я летел в Рим."
+          ],
+          [
+            "прежняя регулярная привычка",
+            "used to",
+            "I used to travel every summer. — Раньше я путешествовал каждое лето."
+          ],
+          [
+            "последовательность событий",
+            "Past Simple",
+            "I got up, had breakfast and left. — Я встал, позавтракал и ушёл."
+          ],
+          [
+            "два параллельных процесса",
+            "Past Continuous",
+            "I was cooking while he was setting the table. — Я готовил, пока он накрывал на стол."
+          ]
+        ]
+      },
+      {
+        "id": "past-states",
+        "type": "callout",
+        "title": "Глаголы состояния и Past Continuous",
+        "tone": "warning",
+        "paragraphs": [
+          "Как и в настоящем времени, stative verbs обычно не употребляются в Continuous в значении состояния. Поэтому I knew the answer естественнее, чем I was knowing the answer."
+        ]
+      },
+      {
+        "id": "past-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки",
+        "items": [
+          {
+            "wrong": "Did you went there?",
+            "right": "Did you go there?",
+            "why": "После did нужна базовая форма."
+          },
+          {
+            "wrong": "I was knowing him well.",
+            "right": "I knew him well.",
+            "why": "know обычно не описывает процесс."
+          },
+          {
+            "wrong": "I used to went there.",
+            "right": "I used to go there.",
+            "why": "После used to используется базовая форма."
+          },
+          {
+            "wrong": "When I was arriving, he called me.",
+            "right": "When I arrived, he called me.",
+            "why": "Если arrival рассматривается как завершённое событие, нужен Past Simple."
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "grammar-prepositions-place",
@@ -2319,192 +2300,14 @@ window.GRAMMAR_DATA = [
     "attempts": 0,
     "lockOnPass": true,
     "revealAnswersOnError": false,
-    "explanation": "Предлоги места показывают, где находится человек или предмет относительно фотографии, комнаты или другого объекта. В этом уроке особенно важны in, on, behind, in front of и opposite, а также устойчивые фразы in the foreground, in the background, in the centre, in the distance и in the ... corner. Сам предлог не меняет форму: утверждение, отрицание и вопрос строятся с обычным глаголом предложения, чаще всего be.",
-    "formula": "Statement: subject + be + place phrase · Negative: subject + be not + place phrase · Question: Be + subject + place phrase? · Wh-question: Where + be + subject? · Short answer: Yes, subject + be. / No, subject + be not.",
-    "glanceCards": [
-      {
-        "icon": "📍",
-        "label": "in",
-        "hint": "внутри области / части изображения",
-        "pattern": "in the foreground · in the centre · in the corner",
-        "example": "The woman is in the foreground."
-      },
-      {
-        "icon": "⬆️",
-        "label": "on / on top of",
-        "hint": "на поверхности / сверху",
-        "pattern": "on the trunk · on top of it",
-        "example": "Her hand is on top of the tree trunk."
-      },
-      {
-        "icon": "↔️",
-        "label": "behind / in front of",
-        "hint": "позади / перед",
-        "pattern": "behind + object · in front of + object",
-        "example": "The woman is behind the tree trunk."
-      },
-      {
-        "icon": "👀",
-        "label": "opposite",
-        "hint": "напротив",
-        "pattern": "opposite + object",
-        "example": "The wall is opposite the woman."
-      }
-    ],
-    "anchorLinks": [
-      {
-        "id": "grammar-at-a-glance",
-        "title": "Quick overview"
-      },
-      {
-        "id": "grammar-tables",
-        "title": "Tables"
-      },
-      {
-        "id": "grammar-examples",
-        "title": "Examples"
-      },
-      {
-        "id": "grammar-mistakes",
-        "title": "Common mistakes"
-      },
-      {
-        "id": "grammar-practice-section",
-        "title": "Practice"
-      }
-    ],
-    "miniRules": [
-      {
-        "title": "1. Use in for areas of a photo",
-        "text": "С частями изображения обычно используем in: in the foreground, in the background, in the centre, in the top left-hand corner.",
-        "example": "There are trees in the background."
-      },
-      {
-        "title": "2. Use on for a surface",
-        "text": "On показывает контакт с поверхностью. On top of подчёркивает положение сверху.",
-        "example": "Her left hand is on top of the tree trunk."
-      },
-      {
-        "title": "3. Use behind / in front of for position",
-        "text": "Behind означает «позади», а in front of — «перед». После них ставим объект без дополнительного предлога.",
-        "example": "There is a bush in front of the man."
-      },
-      {
-        "title": "4. Use opposite for “across from”",
-        "text": "Opposite означает «напротив». Не добавляй of: opposite the woman, не opposite of the woman.",
-        "example": "There is a wall opposite the woman."
-      }
-    ],
-    "tables": [
-      {
-        "title": "Core place phrases",
-        "headers": [
-          "Phrase",
-          "Meaning",
-          "Example"
-        ],
-        "rows": [
-          [
-            "in the foreground / background",
-            "на переднем / заднем плане",
-            "The woman is in the foreground."
-          ],
-          [
-            "in the centre / corner",
-            "в центре / углу",
-            "The man is in the centre of the photo."
-          ],
-          [
-            "in the distance",
-            "вдалеке",
-            "The man looks smaller because he is in the distance."
-          ],
-          [
-            "behind / in front of",
-            "позади / перед",
-            "A bush is in front of the man."
-          ],
-          [
-            "opposite",
-            "напротив",
-            "The wall is opposite the woman."
-          ],
-          [
-            "on top of",
-            "сверху на",
-            "Her hand is on top of the trunk."
-          ]
-        ]
-      },
-      {
-        "title": "Statements, negatives and questions",
-        "headers": [
-          "Type",
-          "Pattern",
-          "Example"
-        ],
-        "rows": [
-          [
-            "Affirmative",
-            "subject + be + place phrase",
-            "The house is in the top left-hand corner."
-          ],
-          [
-            "Negative",
-            "subject + be not + place phrase",
-            "The house isn’t in the foreground."
-          ],
-          [
-            "Yes/No question",
-            "Be + subject + place phrase?",
-            "Is the man in the distance?"
-          ],
-          [
-            "Wh-question",
-            "Where + be + subject?",
-            "Where is the older man?"
-          ],
-          [
-            "Short answer",
-            "Yes, ... is. / No, ... isn’t.",
-            "Yes, he is."
-          ]
-        ]
-      }
-    ],
-    "exampleGroups": [
-      {
-        "title": "Photo position",
-        "items": [
-          "The woman is in the foreground.",
-          "The older man is in the centre of the photo.",
-          "There are trees in the background."
-        ]
-      },
-      {
-        "title": "Relative position",
-        "items": [
-          "The woman is standing behind the tree trunk.",
-          "There is a bush in front of the man.",
-          "There is a wall opposite the woman."
-        ]
-      },
-      {
-        "title": "Surface and corner",
-        "items": [
-          "Her left hand is on top of the tree trunk.",
-          "The trunk is in the bottom right-hand corner.",
-          "The house is in the top left-hand corner."
-        ]
-      }
-    ],
-    "commonMistakes": [
-      "in foreground ✗ → in the foreground ✓. В устойчивых названиях частей изображения нужен the.",
-      "on the foreground ✗ → in the foreground ✓. Для области фотографии используем in.",
-      "opposite of the woman ✗ → opposite the woman ✓. В этом значении of не нужен.",
-      "in front the man ✗ → in front of the man ✓. Фраза in front of всегда содержит of.",
-      "in the top of the trunk ✗ → on top of the trunk ✓, если речь о поверхности сверху."
-    ],
+    "explanation": "Предлог места показывает отношение одного объекта к другому. Чтобы выбрать форму, сначала представь геометрию ситуации: внутри пространства, на поверхности, в точке, перед / за объектом или по другую сторону.",
+    "formula": "in = внутри · on = на поверхности · at = в точке/месте как пункте · in front of / behind · opposite · next to · between · in the foreground/background",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
     "exercises": [
       {
         "type": "exercise",
@@ -2693,7 +2496,191 @@ window.GRAMMAR_DATA = [
         ]
       }
     ],
-    "linkedLessonId": "lesson-11"
+    "linkedLessonId": "lesson-11",
+    "chapter": [
+      {
+        "id": "place-three-core",
+        "type": "cards",
+        "title": "Три базовые идеи: in, on, at",
+        "cards": [
+          {
+            "title": "IN — внутри границ",
+            "body": "Комната, город, страна, коробка, фотография как пространство.",
+            "example": {
+              "en": "She is [[in]] the kitchen.",
+              "ru": "Она [[находится в]] кухне."
+            }
+          },
+          {
+            "title": "ON — на поверхности / линии",
+            "body": "Стол, стена, этаж, страница, линия маршрута.",
+            "example": {
+              "en": "The keys are [[on]] the table.",
+              "ru": "Ключи [[на]] столе."
+            }
+          },
+          {
+            "title": "AT — точка / место как пункт",
+            "body": "Конкретная точка, адрес, событие или место деятельности, когда внутреннее пространство не важно.",
+            "example": {
+              "en": "I’ll meet you [[at]] the station.",
+              "ru": "Я встречу тебя [[у / на]] станции."
+            }
+          }
+        ]
+      },
+      {
+        "id": "place-contrast",
+        "type": "table",
+        "title": "in / on / at: сравни масштаб и взгляд говорящего",
+        "headers": [
+          "Предлог",
+          "Как мы представляем место",
+          "Примеры с переводом"
+        ],
+        "rows": [
+          [
+            "in",
+            "объект находится внутри границ",
+            "in a room — в комнате; in London — в Лондоне"
+          ],
+          [
+            "on",
+            "контакт с поверхностью / положение на линии",
+            "on the wall — на стене; on the second floor — на втором этаже"
+          ],
+          [
+            "at",
+            "место как точка или функция",
+            "at the door — у двери; at school — в школе (как место деятельности)"
+          ]
+        ]
+      },
+      {
+        "id": "place-relative",
+        "type": "table",
+        "title": "Положение относительно другого объекта",
+        "headers": [
+          "Фраза",
+          "Смысл",
+          "Пример + перевод"
+        ],
+        "rows": [
+          [
+            "in front of",
+            "перед объектом",
+            "The car is in front of the house. — Машина перед домом."
+          ],
+          [
+            "behind",
+            "за объектом",
+            "The garden is behind the house. — Сад за домом."
+          ],
+          [
+            "opposite",
+            "напротив, по другую сторону",
+            "The bank is opposite the cinema. — Банк напротив кинотеатра."
+          ],
+          [
+            "next to / beside",
+            "рядом непосредственно",
+            "Sit next to me. — Сядь рядом со мной."
+          ],
+          [
+            "between",
+            "между двумя объектами / группами",
+            "The café is between the bank and the hotel. — Кафе между банком и отелем."
+          ]
+        ]
+      },
+      {
+        "id": "place-photo",
+        "type": "visual",
+        "title": "Как описывать фотографию",
+        "items": [
+          {
+            "position": "top-left",
+            "label": "in the top left-hand corner",
+            "ru": "в левом верхнем углу"
+          },
+          {
+            "position": "top-right",
+            "label": "in the top right-hand corner",
+            "ru": "в правом верхнем углу"
+          },
+          {
+            "position": "center",
+            "label": "in the centre",
+            "ru": "в центре"
+          },
+          {
+            "position": "foreground",
+            "label": "in the foreground",
+            "ru": "на переднем плане"
+          },
+          {
+            "position": "background",
+            "label": "in the background",
+            "ru": "на заднем плане"
+          }
+        ],
+        "note": "Для фотографии обычно говорим in the foreground / background / centre, потому что рассматриваем область внутри изображения."
+      },
+      {
+        "id": "place-choice",
+        "type": "examples",
+        "title": "Одинаковое русское «в / на» не означает один и тот же английский предлог",
+        "items": [
+          {
+            "en": "She is [[at]] the airport.",
+            "ru": "Она [[в]] аэропорту.",
+            "note": "Аэропорт рассматривается как пункт назначения / место."
+          },
+          {
+            "en": "She is [[in]] the airport terminal.",
+            "ru": "Она [[внутри]] терминала аэропорта.",
+            "note": "Подчёркивается физическое пространство."
+          },
+          {
+            "en": "There’s a picture [[on]] the wall.",
+            "ru": "На стене висит картина.",
+            "note": "Контакт с поверхностью."
+          },
+          {
+            "en": "There’s a mark [[in]] the photo.",
+            "ru": "На фотографии есть отметка.",
+            "note": "Фотография рассматривается как область изображения."
+          }
+        ]
+      },
+      {
+        "id": "place-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки",
+        "items": [
+          {
+            "wrong": "in the wall (для картины)",
+            "right": "on the wall",
+            "why": "Картина находится на поверхности стены."
+          },
+          {
+            "wrong": "in front the house",
+            "right": "in front of the house",
+            "why": "Нужна полная составная форма in front of."
+          },
+          {
+            "wrong": "opposite to the bank (в базовой модели BrE)",
+            "right": "opposite the bank",
+            "why": "В британском английском opposite часто употребляется без to."
+          },
+          {
+            "wrong": "in the left corner (при описании фото)",
+            "right": "in the left-hand corner / in the top left-hand corner",
+            "why": "Так формулировка точнее и естественнее для позиции на изображении."
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "grammar-articles",
@@ -2704,172 +2691,14 @@ window.GRAMMAR_DATA = [
     "page": "grammar-topic.html?id=grammar-articles",
     "passed": false,
     "attempts": 0,
-    "explanation": "Артикль показывает, говорим ли мы об одном неопределённом предмете, о конкретном / уже известном предмете или о понятии в общем. Перед исчисляемым существительным в единственном числе обычно нужен a / an или the. С множественным числом и неисчисляемыми существительными артикль часто не нужен, если мы говорим в общем.",
-    "formula": "a / an + singular countable noun · the + specific / known noun · no article + plural or uncountable noun in general",
-    "glanceCards": [
-      {
-        "icon": "1️⃣",
-        "label": "a / an",
-        "hint": "один из многих; впервые упоминаем",
-        "pattern": "a + consonant sound · an + vowel sound",
-        "example": "She is an engineer."
-      },
-      {
-        "icon": "🎯",
-        "label": "the",
-        "hint": "конкретный, известный или уникальный",
-        "pattern": "the + noun",
-        "example": "Did you lock the door?"
-      },
-      {
-        "icon": "∅",
-        "label": "No article",
-        "hint": "говорим о категории или веществе в общем",
-        "pattern": "plural / uncountable noun",
-        "example": "Money doesn’t make people happy."
-      },
-      {
-        "icon": "📌",
-        "label": "Fixed expressions",
-        "hint": "частые сочетания нужно запоминать целиком",
-        "pattern": "have lunch · next weekend · once a week",
-        "example": "We go to the cinema once a week."
-      }
-    ],
-    "anchorLinks": [
-      {
-        "id": "grammar-at-a-glance",
-        "title": "Quick overview"
-      },
-      {
-        "id": "grammar-tables",
-        "title": "Tables"
-      },
-      {
-        "id": "grammar-examples",
-        "title": "Examples"
-      },
-      {
-        "id": "grammar-mistakes",
-        "title": "Common mistakes"
-      },
-      {
-        "id": "grammar-practice-section",
-        "title": "Practice"
-      }
-    ],
-    "miniRules": [
-      {
-        "title": "1. a / an = one non-specific person or thing",
-        "text": "Используй a / an перед исчисляемым существительным в единственном числе, если человек или предмет упоминается впервые, либо когда говорим о профессии / категории.",
-        "example": "He is a doctor. She is an engineer."
-      },
-      {
-        "title": "2. the = specific or already known",
-        "text": "Используй the, когда понятно, о каком именно предмете идёт речь, или когда он уже определён контекстом.",
-        "example": "Did you lock the door? The salmon we had was delicious."
-      },
-      {
-        "title": "3. No article = general meaning",
-        "text": "С существительными во множественном числе и неисчисляемыми существительными артикль часто не нужен, когда говорим в целом.",
-        "example": "Women and men are different. Money doesn’t make people happy."
-      },
-      {
-        "title": "4. Learn common expressions",
-        "text": "Запоминай устойчивые сочетания: have lunch, leave school, leave work, next weekend, once a week; но go to the cinema, the world, the TV.",
-        "example": "She leaves work at five. We go to the cinema once a week."
-      }
-    ],
-    "tables": [
-      {
-        "title": "Main uses",
-        "headers": [
-          "Form",
-          "Use",
-          "Example"
-        ],
-        "rows": [
-          [
-            "a / an",
-            "one non-specific singular countable noun",
-            "a German · an engineer · a beautiful day"
-          ],
-          [
-            "the",
-            "specific / known / unique",
-            "the door · the salmon we had · the world"
-          ],
-          [
-            "no article",
-            "plural / uncountable noun in general",
-            "girls · languages · fish · money"
-          ]
-        ]
-      },
-      {
-        "title": "Useful contrasts",
-        "headers": [
-          "No article",
-          "the",
-          "Meaning"
-        ],
-        "rows": [
-          [
-            "have lunch",
-            "the lunch we had",
-            "meal in general / a specific meal"
-          ],
-          [
-            "next weekend",
-            "the last weekend",
-            "fixed time expression / a specific weekend"
-          ],
-          [
-            "fish",
-            "the fish on the plate",
-            "food in general / specific fish"
-          ],
-          [
-            "leave work",
-            "leave the workplace building",
-            "fixed expression / a specific place"
-          ]
-        ]
-      }
-    ],
-    "exampleGroups": [
-      {
-        "title": "a / an",
-        "items": [
-          "What a beautiful day!",
-          "My sister is married to a German.",
-          "Alex is studying to become a doctor."
-        ]
-      },
-      {
-        "title": "the",
-        "items": [
-          "Did you lock the door?",
-          "The salmon we had last night was delicious.",
-          "That was one of the best meals I’ve ever had."
-        ]
-      },
-      {
-        "title": "No article",
-        "items": [
-          "Money doesn’t make people happy.",
-          "I love cats.",
-          "She leaves work at half past five."
-        ]
-      }
-    ],
-    "commonMistakes": [
-      "He is engineer ✗ → He is an engineer ✓. Профессия в единственном числе требует a / an.",
-      "The money doesn’t make people happy ✗ → Money doesn’t make people happy ✓, если речь о деньгах вообще.",
-      "the next weekend ✗ → next weekend ✓. С next / last в обычных временных выражениях the обычно не нужен.",
-      "leave the work ✗ → leave work ✓.",
-      "a lunch ✗ → lunch ✓, когда речь просто о приёме пищи."
-    ],
+    "explanation": "Артикль показывает, как говорящий представляет существительное слушателю: как один ещё не определённый предмет, как конкретный / уже идентифицируемый предмет или как понятие в общем. Выбор начинается с исчисляемости и числа, а не со списка отдельных слов.",
+    "formula": "a/an = один, неидентифицированный singular countable · the = конкретный / единственный / понятный из контекста · Ø = обобщение с plural / uncountable и ряд устойчивых случаев",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
     "exercises": [
       {
         "type": "exercise",
@@ -3069,7 +2898,183 @@ window.GRAMMAR_DATA = [
         ]
       }
     ],
-    "linkedLessonId": "lesson-12"
+    "linkedLessonId": "lesson-12",
+    "chapter": [
+      {
+        "id": "articles-decision",
+        "type": "decision",
+        "title": "Алгоритм выбора артикля",
+        "items": [
+          {
+            "question": "Существительное исчисляемое и в единственном числе?",
+            "yes": "Оно обычно не может стоять «голым»: нужен a/an, the или другой определитель (my, this, one…).",
+            "no": "Переходим к вопросу: говорим о понятии вообще или о конкретном количестве / объекте?"
+          },
+          {
+            "question": "Слушатель может понять, о каком именно объекте речь?",
+            "yes": "Обычно the: объект уже упомянут, уточнён, единственный в ситуации или очевиден обоим.",
+            "no": "Для одного исчисляемого предмета обычно a/an."
+          },
+          {
+            "question": "Говорим о множественном числе или неисчисляемом понятии вообще?",
+            "yes": "Часто используется нулевой артикль: Cats are independent; Money doesn’t buy happiness.",
+            "no": "Если речь о конкретной группе / конкретном веществе, возможен the."
+          }
+        ]
+      },
+      {
+        "id": "articles-a-an",
+        "type": "note",
+        "title": "a / an: вводим один предмет в разговор",
+        "paragraphs": [
+          "a/an используется только с исчисляемым существительным в единственном числе, когда предмет ещё не идентифицирован для слушателя: I saw [[a dog]]. — Я увидел [[собаку]].",
+          "Выбор a или an зависит от звука, а не от буквы: an hour (первый звук гласный), a university (первый звук /j/)."
+        ],
+        "examples": [
+          {
+            "en": "She is [[an engineer]].",
+            "ru": "Она [[инженер]]."
+          },
+          {
+            "en": "He bought [[a useful book]].",
+            "ru": "Он купил [[полезную книгу]]."
+          }
+        ]
+      },
+      {
+        "id": "articles-the",
+        "type": "cards",
+        "title": "Когда нужен the",
+        "cards": [
+          {
+            "title": "Уже упоминали",
+            "body": "Сначала a/an вводит предмет, затем the указывает на тот же предмет.",
+            "example": {
+              "en": "I saw [[a dog]]. [[The dog]] was very friendly.",
+              "ru": "Я увидел [[собаку]]. [[Эта собака]] была очень дружелюбной."
+            }
+          },
+          {
+            "title": "Есть уточнение",
+            "body": "Контекст делает объект конкретным.",
+            "example": {
+              "en": "[[The book on the table]] is mine.",
+              "ru": "[[Книга на столе]] моя."
+            }
+          },
+          {
+            "title": "Единственный / очевидный",
+            "body": "В данной ситуации понятно, какой объект имеется в виду.",
+            "example": {
+              "en": "Please close [[the door]].",
+              "ru": "Пожалуйста, закрой [[дверь]]."
+            }
+          },
+          {
+            "title": "Превосходная степень и порядковые",
+            "body": "the часто используется с superlatives и ordinal numbers.",
+            "example": {
+              "en": "It was [[the best]] day of the year.",
+              "ru": "Это был [[лучший]] день года."
+            }
+          }
+        ]
+      },
+      {
+        "id": "articles-zero",
+        "type": "table",
+        "title": "Нулевой артикль: говорим о классе или понятии вообще",
+        "headers": [
+          "Тип",
+          "Обобщение без артикля",
+          "Конкретный случай с the"
+        ],
+        "rows": [
+          [
+            "множественное исчисляемое",
+            "Cats are independent. — Кошки независимы.",
+            "The cats next door are noisy. — Кошки у соседей шумные."
+          ],
+          [
+            "неисчисляемое",
+            "Money is important. — Деньги важны.",
+            "The money on the table is yours. — Деньги на столе твои."
+          ],
+          [
+            "языки / предметы",
+            "She speaks German. — Она говорит по-немецки.",
+            "The German in this text is difficult. — Немецкий язык в этом тексте сложный."
+          ]
+        ]
+      },
+      {
+        "id": "articles-institutions",
+        "type": "compare",
+        "title": "school, university, hospital: функция или здание?",
+        "columns": [
+          {
+            "title": "Без артикля — основная функция",
+            "points": [
+              "go to school / be at university / go to bed — человек участвует в обычной функции места или действия."
+            ],
+            "examples": [
+              {
+                "en": "Her son is [[at school]].",
+                "ru": "Её сын [[в школе]] (как ученик)."
+              }
+            ]
+          },
+          {
+            "title": "the — конкретное место / здание",
+            "points": [
+              "the school / the university — конкретное учреждение как объект или место."
+            ],
+            "examples": [
+              {
+                "en": "I went to [[the school]] to speak to the teacher.",
+                "ru": "Я пошёл [[в школу]] поговорить с учителем."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "articles-fixed",
+        "type": "note",
+        "title": "Еда, транспорт и устойчивые выражения",
+        "paragraphs": [
+          "Названия приёмов пищи часто употребляются без артикля в общем значении: have breakfast, have lunch. Но при уточнении возможен артикль: The lunch we had yesterday was excellent.",
+          "В выражениях by car / by train / by plane артикль не ставится. Но: in the car, on the train — речь уже о конкретном способе положения / конкретном транспортном средстве."
+        ]
+      },
+      {
+        "id": "articles-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки",
+        "items": [
+          {
+            "wrong": "She is doctor.",
+            "right": "She is a doctor.",
+            "why": "Профессия — singular countable noun, нужен a/an."
+          },
+          {
+            "wrong": "The money makes people happy. (обобщение)",
+            "right": "Money makes people happy.",
+            "why": "Неисчисляемое существительное в общем значении употребляется без артикля."
+          },
+          {
+            "wrong": "I like the cats. (все кошки вообще)",
+            "right": "I like cats.",
+            "why": "Для класса в целом во множественном числе нужен нулевой артикль."
+          },
+          {
+            "wrong": "an university",
+            "right": "a university",
+            "why": "Начальный звук /j/ согласный."
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "grammar-future-forms",
@@ -3080,182 +3085,14 @@ window.GRAMMAR_DATA = [
     "page": "grammar-topic.html?id=grammar-future-forms",
     "passed": false,
     "attempts": 0,
-    "explanation": "В английском будущее выражается несколькими формами. Will обычно используется для решения, принятого в момент речи, обещаний, предложений и прогнозов-мнений. Shall употребляется главным образом с I / we в вопросах-предложениях и предложениях совместного действия. Be going to показывает заранее принятое намерение или прогноз по видимым признакам. Present continuous часто используется для уже организованных договорённостей. Was / were going to описывает прошлое намерение, которое не осуществилось или изменилось.",
-    "formula": "will / shall + base verb · am/is/are going to + base verb · am/is/are + verb-ing (arrangements) · was/were going to + base verb",
-    "glanceCards": [
-      {
-        "icon": "⚡",
-        "label": "will",
-        "hint": "решение сейчас, обещание, предложение, мнение о будущем",
-        "pattern": "will + base verb",
-        "example": "I’ll help you."
-      },
-      {
-        "icon": "🤝",
-        "label": "shall",
-        "hint": "вопросы-предложения с I / we",
-        "pattern": "Shall I / we + base verb?",
-        "example": "Shall I help you?"
-      },
-      {
-        "icon": "🎯",
-        "label": "be going to",
-        "hint": "заранее принятое намерение или прогноз по признакам",
-        "pattern": "am/is/are going to + base verb",
-        "example": "I’m going to stay with my sister."
-      },
-      {
-        "icon": "📅",
-        "label": "present continuous",
-        "hint": "уже организованная договорённость",
-        "pattern": "am/is/are + verb-ing",
-        "example": "I’m moving next Saturday."
-      }
-    ],
-    "anchorLinks": [
-      {
-        "id": "grammar-at-a-glance",
-        "title": "Quick overview"
-      },
-      {
-        "id": "grammar-tables",
-        "title": "Tables"
-      },
-      {
-        "id": "grammar-examples",
-        "title": "Examples"
-      },
-      {
-        "id": "grammar-mistakes",
-        "title": "Common mistakes"
-      },
-      {
-        "id": "grammar-practice-section",
-        "title": "Practice"
-      }
-    ],
-    "miniRules": [
-      {
-        "title": "1. will = decision now / promise / offer / opinion",
-        "text": "Используй will, когда решение возникает прямо сейчас, когда обещаешь или предлагаешь помощь, а также для прогнозов, основанных на мнении, а не на очевидных признаках.",
-        "example": "I’ll go and get the boxes. · I won’t tell anyone."
-      },
-      {
-        "title": "2. Shall I / we ...? = offer or suggestion",
-        "text": "Shall чаще всего встречается в вопросах с I и we: предложить помощь или спросить, что сделать вместе.",
-        "example": "Shall I help? · What shall we do today?"
-      },
-      {
-        "title": "3. be going to = prior intention / evidence-based prediction",
-        "text": "Используй be going to для намерения, принятого до момента речи, и когда есть основания ожидать результат.",
-        "example": "I’m going to stay with my sister. · It’s going to rain."
-      },
-      {
-        "title": "4. Present continuous = arranged future",
-        "text": "Present continuous подходит для конкретной договорённости или уже организованного плана. Иногда present continuous и be going to возможны оба.",
-        "example": "We’re having a barbecue next weekend. · My sister is getting married in the spring."
-      },
-      {
-        "title": "5. was / were going to = past intention that changed",
-        "text": "Используй was / were going to, когда собирался что-то сделать, но план не осуществился или изменился.",
-        "example": "We were going to fly to Madrid, but the flight was cancelled."
-      }
-    ],
-    "tables": [
-      {
-        "title": "Main future forms",
-        "headers": [
-          "Form",
-          "Typical use",
-          "Example"
-        ],
-        "rows": [
-          [
-            "will + base verb",
-            "instant decision, promise, offer, opinion",
-            "I’ll help you."
-          ],
-          [
-            "Shall I / we + base verb?",
-            "offer / suggestion",
-            "Shall I move the car?"
-          ],
-          [
-            "be going to + base verb",
-            "prior intention / evidence-based prediction",
-            "It’s going to rain."
-          ],
-          [
-            "present continuous",
-            "fixed arrangement",
-            "I’m moving next Saturday."
-          ],
-          [
-            "was / were going to + base verb",
-            "past plan that changed",
-            "I was going to get up early."
-          ]
-        ]
-      },
-      {
-        "title": "Negative and question forms",
-        "headers": [
-          "Form",
-          "Negative",
-          "Question"
-        ],
-        "rows": [
-          [
-            "will",
-            "won’t + base",
-            "Will + subject + base?"
-          ],
-          [
-            "be going to",
-            "am/is/are not going to + base",
-            "Am/Is/Are + subject + going to + base?"
-          ],
-          [
-            "present continuous",
-            "am/is/are not + -ing",
-            "Am/Is/Are + subject + -ing?"
-          ]
-        ]
-      }
-    ],
-    "exampleGroups": [
-      {
-        "title": "Decision / promise / offer",
-        "items": [
-          "I’ll go and get the boxes.",
-          "I won’t tell anyone.",
-          "Shall I help you?"
-        ]
-      },
-      {
-        "title": "Plans and arrangements",
-        "items": [
-          "I’m going to stay with my sister.",
-          "I’m moving next Saturday.",
-          "We’re having a barbecue next weekend."
-        ]
-      },
-      {
-        "title": "Predictions and changed plans",
-        "items": [
-          "It’s going to rain.",
-          "They’ll be in bed.",
-          "I was going to get up early, but I forgot to set my alarm."
-        ]
-      }
-    ],
-    "commonMistakes": [
-      "I will to help ✗ → I will help ✓. После will / shall используется базовая форма без to.",
-      "I’m going to staying ✗ → I’m going to stay ✓.",
-      "Will I help you? ✗ в значении предложения помощи → Shall I help you? ✓.",
-      "I’m going to get up early, but I forgot my alarm ✗, если речь о несостоявшемся прошлом намерении → I was going to get up early ✓.",
-      "Present continuous и be going to иногда оба возможны для будущего плана; present continuous обычно звучит как более конкретная договорённость."
-    ],
+    "explanation": "В английском нет одной универсальной «формы будущего». Говорящий выбирает конструкцию по типу будущей ситуации: решение сейчас, обещание, намерение, прогноз по признакам или уже организованная договорённость.",
+    "formula": "will + V · shall I/we + V? · am/is/are going to + V · Present Continuous for arrangements",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
     "exercises": [
       {
         "type": "exercise",
@@ -3447,6 +3284,197 @@ window.GRAMMAR_DATA = [
         ]
       }
     ],
-    "linkedLessonId": "lesson-19"
+    "linkedLessonId": "lesson-19",
+    "chapter": [
+      {
+        "id": "future-choice-map",
+        "type": "decision",
+        "title": "Сначала определяем тип будущего",
+        "items": [
+          {
+            "question": "Решение принимается прямо сейчас, это обещание / предложение / реакция?",
+            "yes": "will: I’ll help you.",
+            "no": "Проверяем, существовал ли план раньше."
+          },
+          {
+            "question": "Намерение или план уже существовал до момента речи?",
+            "yes": "be going to: I’m going to apply for the course.",
+            "no": "Если это конкретная договорённость с временем / местом / людьми, часто Present Continuous."
+          },
+          {
+            "question": "Есть конкретная договорённость?",
+            "yes": "Present Continuous: I’m meeting the tutor at 3.",
+            "no": "Для прогноза смотрим на основание."
+          },
+          {
+            "question": "Прогноз основан на видимых признаках сейчас?",
+            "yes": "be going to: Look at those clouds. It’s going to rain.",
+            "no": "Мнение / нейтральный прогноз часто выражается will: I think it will rain tomorrow."
+          }
+        ]
+      },
+      {
+        "id": "future-will",
+        "type": "formula",
+        "title": "will: решение, реакция, обещание, прогноз-мнение",
+        "lines": [
+          "Утверждение: subject + [[will + V]] → I’ll call you.",
+          "Отрицание: subject + [[will not / won’t + V]].",
+          "Вопрос: [[Will + subject + V?]]",
+          "После will всегда базовая форма без to."
+        ],
+        "examples": [
+          {
+            "en": "The phone is ringing. — I [[will get]] it.",
+            "ru": "Телефон звонит. — Я [[отвечу]].",
+            "note": "Решение принято в момент речи."
+          },
+          {
+            "en": "I think prices [[will rise]].",
+            "ru": "Думаю, цены [[вырастут]].",
+            "note": "Прогноз-мнение."
+          }
+        ]
+      },
+      {
+        "id": "future-shall",
+        "type": "note",
+        "title": "shall: ограниченная, но полезная функция",
+        "paragraphs": [
+          "В современном английском shall чаще всего встречается в вопросах с I / we, когда мы предлагаем действие или просим решить, что делать: Shall I open the window? Shall we start?",
+          "Для обычного нейтрального будущего will значительно универсальнее."
+        ],
+        "examples": [
+          {
+            "en": "[[Shall I]] help you?",
+            "ru": "[[Мне помочь]] тебе?"
+          },
+          {
+            "en": "[[Shall we]] go?",
+            "ru": "[[Пойдём]]?"
+          }
+        ]
+      },
+      {
+        "id": "future-going-to",
+        "type": "formula",
+        "title": "be going to: намерение и прогноз по признакам",
+        "lines": [
+          "Утверждение: subject + [[am/is/are going to + V]].",
+          "Отрицание: subject + [[am/is/are not going to + V]].",
+          "Вопрос: [[Am/Is/Are + subject + going to + V?]]"
+        ],
+        "examples": [
+          {
+            "en": "I’m [[going to study]] tonight.",
+            "ru": "Я [[собираюсь заниматься]] сегодня вечером."
+          },
+          {
+            "en": "Be careful! You’re [[going to drop]] it.",
+            "ru": "Осторожно! Ты [[сейчас уронишь]] это.",
+            "note": "Прогноз основан на наблюдаемой ситуации."
+          }
+        ]
+      },
+      {
+        "id": "future-arrangement",
+        "type": "timeline",
+        "title": "Present Continuous: будущее уже внесено в реальность",
+        "points": [
+          {
+            "label": "сейчас",
+            "caption": "Договорённость уже существует: назначено время, согласованы люди, куплены билеты и т. п."
+          },
+          {
+            "label": "завтра / в пятницу",
+            "caption": "I’m meeting Anna at 6. — Я встречаюсь с Анной в 6."
+          }
+        ]
+      },
+      {
+        "id": "future-compare",
+        "type": "table",
+        "title": "Одна тема будущего — разные оттенки",
+        "headers": [
+          "Контекст",
+          "Форма",
+          "Пример + перевод"
+        ],
+        "rows": [
+          [
+            "решение сейчас",
+            "will",
+            "I’ll take the blue one. — Я возьму синий."
+          ],
+          [
+            "обещание",
+            "will",
+            "I won’t tell anyone. — Я никому не скажу."
+          ],
+          [
+            "план / намерение",
+            "be going to",
+            "I’m going to start a course. — Я собираюсь начать курс."
+          ],
+          [
+            "видимые признаки",
+            "be going to",
+            "It’s going to fall. — Оно сейчас упадёт."
+          ],
+          [
+            "личная договорённость",
+            "Present Continuous",
+            "We’re having dinner with Sam on Friday. — В пятницу мы ужинаем с Сэмом."
+          ],
+          [
+            "предложение с I/we",
+            "shall",
+            "Shall we leave now? — Пойдём сейчас?"
+          ]
+        ]
+      },
+      {
+        "id": "future-present-simple",
+        "type": "callout",
+        "title": "А где Present Simple?",
+        "tone": "info",
+        "paragraphs": [
+          "Для расписаний и официальных графиков часто используется Present Simple: The train leaves at 7.30. Это не личная договорённость, а установленное расписание."
+        ],
+        "examples": [
+          {
+            "en": "The lesson [[starts]] at 10 tomorrow.",
+            "ru": "Завтра урок [[начинается]] в 10."
+          }
+        ]
+      },
+      {
+        "id": "future-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки",
+        "items": [
+          {
+            "wrong": "I will to call you.",
+            "right": "I will call you.",
+            "why": "После will используется базовая форма без to."
+          },
+          {
+            "wrong": "I going to study.",
+            "right": "I’m going to study.",
+            "why": "В конструкции going to нужен глагол be."
+          },
+          {
+            "wrong": "Look at the sky. It will rain.",
+            "right": "Look at the sky. It’s going to rain.",
+            "why": "Если прогноз основан на видимых признаках сейчас, going to обычно точнее."
+          },
+          {
+            "wrong": "I’m meeting him someday.",
+            "right": "I’ll meet him someday. / I’m going to meet him someday.",
+            "why": "Present Continuous естественнее для конкретной организованной договорённости, а не расплывчатого someday."
+          }
+        ]
+      }
+    ]
   }
 ];

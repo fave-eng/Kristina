@@ -2447,6 +2447,101 @@
     renderPractice();
   }
 
+
+  function renderGrammarMarkedText(value) {
+    const text = safeText(value);
+    const parts = text.split(/(\[\[[\s\S]*?\]\])/g);
+    return parts.map((part) => {
+      if (part.startsWith('[[') && part.endsWith(']]')) {
+        return `<span class="grammar-mark">${escapeHtml(part.slice(2, -2))}</span>`;
+      }
+      return escapeHtml(part);
+    }).join('');
+  }
+
+  function renderGrammarBilingualExample(example) {
+    if (!example) return '';
+    const en = typeof example === 'string' ? example : safeText(example.en);
+    const ru = typeof example === 'string' ? '' : safeText(example.ru);
+    const note = typeof example === 'string' ? '' : safeText(example.note);
+    return `<div class="grammar-bi-example"><div class="grammar-bi-en">${renderGrammarMarkedText(en)}</div>${ru ? `<div class="grammar-bi-ru">${renderGrammarMarkedText(ru)}</div>` : ''}${note ? `<div class="grammar-bi-note">${renderGrammarMarkedText(note)}</div>` : ''}</div>`;
+  }
+
+  function renderGrammarChapterBlock(block) {
+    const type = safeText(block.type, 'note');
+    const title = safeText(block.title);
+    const id = safeText(block.id);
+    const sectionOpen = `<section class="section grammar-chapter-section grammar-chapter-${escapeHtml(type)}" id="${escapeHtml(id)}"><div class="section-heading"><div><h2>${escapeHtml(title)}</h2></div></div>`;
+    const sectionClose = '</section>';
+
+    if (type === 'table') {
+      return `${sectionOpen}<article class="card lesson-block grammar-chapter-card">${block.note ? `<p class="grammar-section-note">${renderGrammarMarkedText(block.note)}</p>` : ''}${grammarTable({ headers: block.headers || [], rows: block.rows || [] })}</article>${sectionClose}`;
+    }
+
+    if (type === 'timeline') {
+      const points = Array.isArray(block.points) ? block.points : [];
+      return `${sectionOpen}<article class="card grammar-timeline-card"><div class="grammar-timeline">${points.map((point, index) => `<div class="grammar-timeline-point"><div class="grammar-timeline-dot">${index + 1}</div><div><h3>${renderGrammarMarkedText(point.label || '')}</h3><p>${renderGrammarMarkedText(point.caption || '')}</p></div></div>`).join('')}</div></article>${sectionClose}`;
+    }
+
+    if (type === 'steps') {
+      const items = Array.isArray(block.items) ? block.items : [];
+      return `${sectionOpen}${block.intro ? `<p class="grammar-section-intro">${renderGrammarMarkedText(block.intro)}</p>` : ''}<div class="grammar-step-grid">${items.map((item, index) => `<article class="card grammar-step-card"><div class="grammar-step-number">${index + 1}</div><h3>${escapeHtml(item.title || '')}</h3><p>${renderGrammarMarkedText(item.text || '')}</p>${item.example ? renderGrammarBilingualExample(item.example) : ''}</article>`).join('')}</div>${sectionClose}`;
+    }
+
+    if (type === 'cards') {
+      const cards = Array.isArray(block.cards) ? block.cards : [];
+      return `${sectionOpen}<div class="grammar-concept-grid">${cards.map((card) => `<article class="card grammar-concept-card"><h3>${escapeHtml(card.title || '')}</h3><p>${renderGrammarMarkedText(card.body || '')}</p>${card.example ? renderGrammarBilingualExample(card.example) : ''}</article>`).join('')}</div>${sectionClose}`;
+    }
+
+    if (type === 'compare') {
+      const columns = Array.isArray(block.columns) ? block.columns : [];
+      return `${sectionOpen}<div class="grammar-compare-grid">${columns.map((column) => `<article class="card grammar-compare-card"><h3>${escapeHtml(column.title || '')}</h3><div class="list">${(column.points || []).map((point) => `<p>• ${renderGrammarMarkedText(point)}</p>`).join('')}</div><div class="grammar-example-stack">${(column.examples || []).map(renderGrammarBilingualExample).join('')}</div></article>`).join('')}</div>${sectionClose}`;
+    }
+
+    if (type === 'formula') {
+      const lines = Array.isArray(block.lines) ? block.lines : [];
+      return `${sectionOpen}<article class="card grammar-formula-chapter-card"><div class="grammar-formula-lines">${lines.map((line) => `<div class="grammar-formula-line">${renderGrammarMarkedText(line)}</div>`).join('')}</div><div class="grammar-example-stack">${(block.examples || []).map(renderGrammarBilingualExample).join('')}</div></article>${sectionClose}`;
+    }
+
+    if (type === 'decision') {
+      const items = Array.isArray(block.items) ? block.items : [];
+      return `${sectionOpen}<div class="grammar-decision-list">${items.map((item, index) => `<article class="card grammar-decision-card"><div class="grammar-decision-question"><span>${index + 1}</span><strong>${escapeHtml(item.question || '')}</strong></div><div class="grammar-decision-branches"><div><span class="grammar-yes">ДА</span><p>${renderGrammarMarkedText(item.yes || '')}</p></div><div><span class="grammar-no">НЕТ / ИНАЧЕ</span><p>${renderGrammarMarkedText(item.no || '')}</p></div></div></article>`).join('')}</div>${sectionClose}`;
+    }
+
+    if (type === 'mistakes') {
+      const items = Array.isArray(block.items) ? block.items : [];
+      return `${sectionOpen}<div class="grammar-mistake-grid">${items.map((item) => `<article class="card grammar-mistake-card"><div class="grammar-wrong">✗ ${escapeHtml(item.wrong || '')}</div><div class="grammar-right">✓ ${escapeHtml(item.right || '')}</div><p>${renderGrammarMarkedText(item.why || '')}</p></article>`).join('')}</div>${sectionClose}`;
+    }
+
+    if (type === 'examples') {
+      return `${sectionOpen}<article class="card lesson-block grammar-chapter-card"><div class="grammar-example-stack">${(block.items || []).map(renderGrammarBilingualExample).join('')}</div></article>${sectionClose}`;
+    }
+
+    if (type === 'visual') {
+      const items = Array.isArray(block.items) ? block.items : [];
+      return `${sectionOpen}<article class="card grammar-photo-map"><div class="grammar-photo-frame">${items.map((item) => `<div class="grammar-photo-label grammar-photo-${escapeHtml(item.position || 'center')}"><strong>${escapeHtml(item.label || '')}</strong><span>${escapeHtml(item.ru || '')}</span></div>`).join('')}</div>${block.note ? `<p class="grammar-section-note">${renderGrammarMarkedText(block.note)}</p>` : ''}</article>${sectionClose}`;
+    }
+
+    const tone = safeText(block.tone, 'info');
+    return `${sectionOpen}<article class="card grammar-note-card grammar-note-${escapeHtml(tone)}"><div class="grammar-paragraphs">${(block.paragraphs || []).map((paragraph) => `<p>${renderGrammarMarkedText(paragraph)}</p>`).join('')}</div><div class="grammar-example-stack">${(block.examples || []).map(renderGrammarBilingualExample).join('')}</div></article>${sectionClose}`;
+  }
+
+  function renderGrammarChapter(topic) {
+    const chapter = Array.isArray(topic.chapter) ? topic.chapter : [];
+    const anchors = chapter.map((block) => ({ id: safeText(block.id), title: safeText(block.title) })).filter((item) => item.id && item.title);
+    return `
+      <article class="card grammar-intro-card grammar-textbook-intro">
+        <span class="eyebrow">Грамматика</span>
+        <h2>${escapeHtml(topic.title)}</h2>
+        <p class="grammar-lead">${renderGrammarMarkedText(topic.explanation || '')}</p>
+        ${topic.formula ? `<div class="grammar-formula-box"><strong>Опорная схема</strong><p>${renderGrammarMarkedText(topic.formula)}</p></div>` : ''}
+        ${anchors.length ? `<nav class="grammar-anchor-links grammar-chapter-nav" aria-label="Навигация по теме">${anchors.map((link) => `<a class="grammar-anchor-link" href="#${escapeHtml(link.id)}">${escapeHtml(link.title)}</a>`).join('')}</nav>` : ''}
+      </article>
+      ${chapter.map(renderGrammarChapterBlock).join('')}
+      <section class="section" id="grammar-practice-section" aria-labelledby="grammar-practice-title"><div class="section-heading"><div><span class="eyebrow">Практика</span><h2 id="grammar-practice-title">Упражнения по теме</h2></div></div><div id="grammar-quiz"></div></section>
+    `;
+  }
+
   function renderGrammarTopic() {
     const id = queryParam('id');
     const topic = GRAMMAR_DATA.find((item) => item.id === id && item.status !== 'draft');
@@ -2466,6 +2561,14 @@
     const exampleGroups = Array.isArray(topic.exampleGroups) ? topic.exampleGroups : [];
     const examples = Array.isArray(topic.examples) ? topic.examples : [];
     const mistakes = Array.isArray(topic.commonMistakes) ? topic.commonMistakes : [];
+
+    const chapter = Array.isArray(topic.chapter) ? topic.chapter : [];
+    if (chapter.length) {
+      byId('grammar-hero-subtitle').textContent = `${safeText(topic.level, student.level)} · подробное объяснение и практика`;
+      root.innerHTML = renderGrammarChapter(topic);
+      renderGrammarPractice(topic, byId('grammar-quiz'));
+      return;
+    }
 
     root.innerHTML = `
       <article class="card grammar-intro-card">
