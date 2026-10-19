@@ -395,10 +395,8 @@
           "id": "1",
           "number": 1,
           "example": true,
-          "exampleLabel": "EXAMPLE",
-          "showExampleNumber": true,
-          "exampleTextOnly": true,
-          "prompt": "My sister has a boyfriend, so she doesn’t spend enough time studying. → My sister would spend more time studying if she didn’t have a boyfriend."
+          "prompt": "My sister has a boyfriend, so she doesn’t spend enough time studying.",
+          "exampleAnswer": "My sister would spend more time studying if she didn’t have a boyfriend."
         },
         {
           "id": "2",
