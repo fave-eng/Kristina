@@ -1,0 +1,527 @@
+{
+  "id": "lesson-22",
+  "number": 22,
+  "title": "Put it on your CV",
+  "subtitle": "Grammar: first and second conditionals",
+  "status": "available",
+  "publishedAt": "2026-10-20",
+  "totalPoints": 23,
+  "vocabularyId": "vocab-lesson-22-conditionals-context",
+  "grammarIds": [
+    "grammar-first-second-conditionals"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "GRAMMAR first and second conditionals",
+      "sectionNumber": 3,
+      "titleLead": "GRAMMAR",
+      "titleTail": "first and second conditionals"
+    },
+    {
+      "type": "exercise",
+      "id": "conditionals-3a",
+      "title": "a Match the sentence halves.",
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "select",
+          "segments": [
+            "If I lost my job, ",
+            ""
+          ],
+          "options": [
+            "a if I don’t feel better tomorrow.",
+            "b you should let your tutor know.",
+            "c I’d get a room in a hall of residence.",
+            "d unless I needed the money.",
+            "e I’d go abroad for a couple of years.",
+            "f if they offered me a place on the course.",
+            "g I can study for my exam.",
+            "h unless you get the right experience."
+          ],
+          "answer": 4
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "If I stay in tonight, ",
+            ""
+          ],
+          "options": [
+            "a if I don’t feel better tomorrow.",
+            "b you should let your tutor know.",
+            "c I’d get a room in a hall of residence.",
+            "d unless I needed the money.",
+            "e I’d go abroad for a couple of years.",
+            "f if they offered me a place on the course.",
+            "g I can study for my exam.",
+            "h unless you get the right experience."
+          ],
+          "answer": 6
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "If you can’t attend a tutorial, ",
+            ""
+          ],
+          "options": [
+            "a if I don’t feel better tomorrow.",
+            "b you should let your tutor know.",
+            "c I’d get a room in a hall of residence.",
+            "d unless I needed the money.",
+            "e I’d go abroad for a couple of years.",
+            "f if they offered me a place on the course.",
+            "g I can study for my exam.",
+            "h unless you get the right experience."
+          ],
+          "answer": 1
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "You won’t get a good job ",
+            ""
+          ],
+          "options": [
+            "a if I don’t feel better tomorrow.",
+            "b you should let your tutor know.",
+            "c I’d get a room in a hall of residence.",
+            "d unless I needed the money.",
+            "e I’d go abroad for a couple of years.",
+            "f if they offered me a place on the course.",
+            "g I can study for my exam.",
+            "h unless you get the right experience."
+          ],
+          "answer": 7
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "I won’t go to the seminar ",
+            ""
+          ],
+          "options": [
+            "a if I don’t feel better tomorrow.",
+            "b you should let your tutor know.",
+            "c I’d get a room in a hall of residence.",
+            "d unless I needed the money.",
+            "e I’d go abroad for a couple of years.",
+            "f if they offered me a place on the course.",
+            "g I can study for my exam.",
+            "h unless you get the right experience."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "I’d be delighted ",
+            ""
+          ],
+          "options": [
+            "a if I don’t feel better tomorrow.",
+            "b you should let your tutor know.",
+            "c I’d get a room in a hall of residence.",
+            "d unless I needed the money.",
+            "e I’d go abroad for a couple of years.",
+            "f if they offered me a place on the course.",
+            "g I can study for my exam.",
+            "h unless you get the right experience."
+          ],
+          "answer": 5
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "If I were you, ",
+            ""
+          ],
+          "options": [
+            "a if I don’t feel better tomorrow.",
+            "b you should let your tutor know.",
+            "c I’d get a room in a hall of residence.",
+            "d unless I needed the money.",
+            "e I’d go abroad for a couple of years.",
+            "f if they offered me a place on the course.",
+            "g I can study for my exam.",
+            "h unless you get the right experience."
+          ],
+          "answer": 2
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "select",
+          "segments": [
+            "I wouldn’t get a part-time job ",
+            ""
+          ],
+          "options": [
+            "a if I don’t feel better tomorrow.",
+            "b you should let your tutor know.",
+            "c I’d get a room in a hall of residence.",
+            "d unless I needed the money.",
+            "e I’d go abroad for a couple of years.",
+            "f if they offered me a place on the course.",
+            "g I can study for my exam.",
+            "h unless you get the right experience."
+          ],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "conditionals-3b",
+      "title": "b Correct any mistakes in the highlighted phrases. Tick (✓) the correct sentences.",
+      "instructions": "Type the corrected highlighted phrase. If the highlighted phrase is already correct, type ✓.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "contextParts": [
+            {
+              "text": "If I don’t answer",
+              "highlight": true
+            },
+            " the phone, leave me a message."
+          ],
+          "exampleTarget": "✓"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            {
+              "text": "If he’ll be late",
+              "highlight": true
+            },
+            " again, he might lose his job."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "If he’s late",
+            "If he's late"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "If they paid us more, ",
+            {
+              "text": "we didn’t complain",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "we wouldn’t complain",
+            "we wouldn't complain"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            {
+              "text": "You’d miss the traffic",
+              "highlight": true
+            },
+            " if you left a bit earlier."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "✔️"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "We’ll never finish everything ",
+            {
+              "text": "if we won’t work late",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "if we don’t work late",
+            "if we don't work late"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "If Sally lived in the city centre, ",
+            {
+              "text": "she could walk to her office",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "✔️"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "Max won’t accept the job ",
+            {
+              "text": "unless they don’t agree to his conditions",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "unless they agree to his conditions"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            {
+              "text": "He does a postgraduate course",
+              "highlight": true
+            },
+            " if he can’t find a job."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "He’ll do a postgraduate course",
+            "He'll do a postgraduate course"
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            "I wouldn’t live at home ",
+            {
+              "text": "if I’m a student",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "if I was a student",
+            "if I were a student"
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "text",
+          "prompt": "",
+          "contextParts": [
+            {
+              "text": "If you didn’t have a part-time job",
+              "highlight": true
+            },
+            ", you’d have more time to study."
+          ],
+          "placeholder": "Correction or ✓",
+          "acceptedAnswers": [
+            "✓",
+            "✔",
+            "✔️"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "conditionals-3c",
+      "title": "c Write first and second conditional sentences.",
+      "image": "images/lesson-22/conditionals-context.png",
+      "imageAlt": "The original workbook photo of two students reading together.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleTextOnly": true,
+          "prompt": "My sister has a boyfriend, so she doesn’t spend enough time studying. → My sister would spend more time studying if she didn’t have a boyfriend."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "I don’t earn enough money, so I can’t buy my own flat.\nI could buy my own flat if ...",
+          "acceptedAnswers": [
+            "I earned more money",
+            "I earned more money."
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "Becky can only go to an American university if she gets a scholarship.\nBecky ... an American university unless she gets a scholarship.",
+          "acceptedAnswers": [
+            "can’t go to",
+            "can't go to"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "Matt doesn’t live in a hall of residence because it’s too expensive.\nIf it wasn’t so expensive, ...",
+          "acceptedAnswers": [
+            "Matt would live in a hall of residence",
+            "Matt would live in a hall of residence."
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "If I can’t find a job, it’s possible I’ll do a Master’s degree.\nI ... if I can’t find a job.",
+          "acceptedAnswers": [
+            "might do a Master’s degree",
+            "might do a Master's degree"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "I think you should wear a suit to the interview.\nIf ..., I’d wear a suit to the interview.",
+          "acceptedAnswers": [
+            "I were you"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "prompt": "You miss your lectures because you get up late.\nIf you got up earlier, ...",
+          "acceptedAnswers": [
+            "you wouldn’t miss your lectures",
+            "you wouldn't miss your lectures"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "text",
+          "prompt": "Students who don’t attend lectures get into trouble.\nIf students don’t attend lectures, ...",
+          "acceptedAnswers": [
+            "they’ll get into trouble",
+            "they'll get into trouble"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "conditionals-3d",
+      "title": "d Complete the sentences about you.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "textarea",
+          "prompt": "If I can’t do my homework, ...",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "textarea",
+          "prompt": "I’ll go out tonight if ...",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "textarea",
+          "prompt": "I won’t watch TV later unless ...",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "textarea",
+          "prompt": "If I hated my job, ...",
+          "scored": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "textarea",
+          "prompt": "I’d be happier if ...",
+          "scored": false
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "textarea",
+          "prompt": "I wouldn’t move abroad unless ...",
+          "scored": false
+        }
+      ]
+    }
+  ]
+}

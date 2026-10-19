@@ -2879,5 +2879,56 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Она заработала 200 фунтов за один день."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-22-conditionals-context",
+    "title": "Conditionals in context",
+    "label": "Lesson 22 · Conditionals in context",
+    "icon": "🧩",
+    "type": "lesson",
+    "linkedLessonId": "lesson-22",
+    "page": "vocabulary.html?id=vocab-lesson-22-conditionals-context",
+    "words": [
+      {
+        "id": "lesson-22-part-time-job",
+        "en": "part-time job",
+        "ru": "работа с неполной занятостью",
+        "transcription": "/ˌpɑːt taɪm ˈdʒɒb/",
+        "exampleEn": "She has a part-time job at the weekend.",
+        "exampleRu": "По выходным она работает неполный день."
+      },
+      {
+        "id": "lesson-22-delighted",
+        "en": "delighted",
+        "ru": "очень рад, в восторге",
+        "transcription": "/dɪˈlaɪtɪd/",
+        "exampleEn": "I’d be delighted if they offered me a place.",
+        "exampleRu": "Я был(а) бы очень рад(а), если бы мне предложили место."
+      },
+      {
+        "id": "lesson-22-conditions",
+        "en": "conditions",
+        "ru": "условия, требования",
+        "transcription": "/kənˈdɪʃənz/",
+        "exampleEn": "He won’t accept the job unless they agree to his conditions.",
+        "exampleRu": "Он не примет работу, если они не согласятся на его условия."
+      },
+      {
+        "id": "lesson-22-get-into-trouble",
+        "en": "get into trouble",
+        "ru": "попасть в неприятности",
+        "transcription": "/ɡet ˌɪntə ˈtrʌbəl/",
+        "exampleEn": "Students can get into trouble if they miss too many lectures.",
+        "exampleRu": "Студенты могут попасть в неприятности, если пропускают слишком много лекций."
+      },
+      {
+        "id": "lesson-22-stay-in",
+        "en": "stay in",
+        "ru": "остаться дома; никуда не выходить",
+        "transcription": "/steɪ ˈɪn/",
+        "exampleEn": "I’m staying in tonight to study.",
+        "exampleRu": "Сегодня вечером я остаюсь дома, чтобы заниматься."
+      }
+    ]
   }
 ];
