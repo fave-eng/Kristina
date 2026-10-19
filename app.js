@@ -595,6 +595,202 @@
     return match ? Number(match[1]) || 0 : 0;
   }
 
+
+  function knowledgeLessonNumber(item, fallbackIndex = 0) {
+    const direct = numericSuffix(item?.linkedLessonId);
+    if (direct) return direct;
+    const idNumber = numericSuffix(item?.id);
+    if (idNumber) return idNumber;
+    return fallbackIndex + 1;
+  }
+
+  function knowledgeSummary(text, fallback = '') {
+    const value = safeText(text || fallback).replace(/\s+/g, ' ').trim();
+    if (!value) return '';
+    if (value.length <= 190) return value;
+    const cut = value.slice(0, 187);
+    const lastSpace = cut.lastIndexOf(' ');
+    return `${cut.slice(0, lastSpace > 120 ? lastSpace : cut.length).trim()}…`;
+  }
+
+  function buildKnowledgeItems() {
+    const grammarProgress = window.ProgressService.loadGrammarProgress();
+    const vocabularyProgress = window.ProgressService.loadVocabularyProgress();
+    const items = [];
+
+    GRAMMAR_DATA.forEach((topic, index) => {
+      if (!topic || topic.status === 'draft' || topic.status === 'locked') return;
+      const passed = grammarProgress.topics?.[topic.id]?.passed === true || topic.passed === true;
+      const lessonNumber = knowledgeLessonNumber(topic, index);
+      const summary = knowledgeSummary(topic.explanation, 'Grammar explanation and practice.');
+      const formula = knowledgeSummary(topic.formula, '');
+      const searchText = [topic.title, topic.explanation, topic.formula]
+        .map((value) => safeText(value).toLocaleLowerCase('en'))
+        .join(' ');
+      items.push({
+        id: `grammar:${topic.id}`,
+        type: 'grammar',
+        icon: '📐',
+        label: 'Grammar',
+        title: safeText(topic.title, 'Grammar'),
+        summary,
+        reference: formula,
+        status: passed ? 'learned' : 'available',
+        statusLabel: passed ? 'Learned' : 'Review rule',
+        progressText: passed ? 'Topic completed' : 'Explanation + practice',
+        href: topic.page || `grammar-topic.html?id=${encodeURIComponent(topic.id)}`,
+        lessonNumber,
+        order: lessonNumber * 100 + index,
+        searchText
+      });
+    });
+
+    VOCABULARY_CATALOG.allTopics.forEach((topic, index) => {
+      if (!topic || !Array.isArray(topic.words) || !topic.words.length || topic.status === 'draft' || topic.status === 'locked') return;
+      const totalWords = topic.words.length;
+      const knownWords = topic.words.filter((word) => vocabularyProgress.words?.[word.__wordKey]?.status === 'known').length;
+      const lessonNumber = knowledgeLessonNumber(topic, index);
+      const complete = totalWords > 0 && knownWords === totalWords;
+      const summary = knowledgeSummary(topic.description || topic.label, `${totalWords} words and expressions from this course topic.`);
+      const searchText = [topic.title, topic.label, topic.description, ...topic.words.flatMap((word) => [word.en, word.ru])]
+        .map((value) => safeText(value).toLocaleLowerCase('en'))
+        .join(' ');
+      items.push({
+        id: `vocabulary:${topic.id}`,
+        type: 'vocabulary',
+        icon: '💥',
+        label: 'Vocabulary',
+        title: safeText(topic.title, 'Vocabulary'),
+        summary,
+        reference: '',
+        status: complete ? 'learned' : knownWords > 0 ? 'in-progress' : 'available',
+        statusLabel: complete ? 'Learned' : knownWords > 0 ? `${knownWords}/${totalWords} learned` : 'Word list',
+        progressText: `${knownWords} of ${totalWords} learned`,
+        href: topic.page || `vocabulary.html?id=${encodeURIComponent(topic.id)}`,
+        lessonNumber,
+        order: lessonNumber * 100 + index,
+        searchText
+      });
+    });
+
+    return items.sort((a, b) => b.order - a.order || a.title.localeCompare(b.title));
+  }
+
+  function renderKnowledgeBase() {
+    const root = byId('knowledge-base-root');
+    if (!root) return;
+
+    const allItems = buildKnowledgeItems();
+    if (!allItems.length) {
+      root.innerHTML = emptyState('🧠', 'No reference materials yet', 'Grammar rules and vocabulary topics will appear here as they are published.');
+      return;
+    }
+
+    let type = 'all';
+    let query = '';
+    let expanded = false;
+    const previewLimit = 6;
+
+    const grammarCount = allItems.filter((item) => item.type === 'grammar').length;
+    const vocabularyCount = allItems.filter((item) => item.type === 'vocabulary').length;
+    const learnedCount = allItems.filter((item) => item.status === 'learned').length;
+
+    root.innerHTML = `<div class="knowledge-shell">
+      <div class="knowledge-overview" aria-label="Knowledge base summary">
+        <div class="knowledge-stat"><strong>${grammarCount}</strong><span>Grammar topics</span></div>
+        <div class="knowledge-stat"><strong>${vocabularyCount}</strong><span>Vocabulary topics</span></div>
+        <div class="knowledge-stat"><strong>${learnedCount}</strong><span>Fully learned</span></div>
+      </div>
+
+      <div class="knowledge-toolbar card">
+        <label class="knowledge-search-wrap" for="knowledge-search">
+          <span class="knowledge-search-icon" aria-hidden="true">⌕</span>
+          <input id="knowledge-search" class="knowledge-search" type="search" placeholder="Search a rule, topic or word…" autocomplete="off">
+        </label>
+        <div class="knowledge-filters" role="group" aria-label="Filter knowledge base">
+          <button class="knowledge-filter active" type="button" data-knowledge-filter="all">All</button>
+          <button class="knowledge-filter" type="button" data-knowledge-filter="grammar">Grammar</button>
+          <button class="knowledge-filter" type="button" data-knowledge-filter="vocabulary">Vocabulary</button>
+        </div>
+      </div>
+
+      <div class="knowledge-results-head">
+        <p id="knowledge-result-count" class="muted" aria-live="polite"></p>
+        <button class="knowledge-expand-btn" type="button" id="knowledge-expand">Show all</button>
+      </div>
+      <div class="knowledge-grid" id="knowledge-grid"></div>
+    </div>`;
+
+    const grid = byId('knowledge-grid');
+    const count = byId('knowledge-result-count');
+    const expandButton = byId('knowledge-expand');
+    const search = byId('knowledge-search');
+    const filters = root.querySelector('.knowledge-filters');
+
+    const cardMarkup = (item) => {
+      const lessonBadge = item.lessonNumber ? `<span class="knowledge-lesson">Lesson ${item.lessonNumber}</span>` : '';
+      const statusClass = item.status === 'learned' ? ' is-learned' : item.status === 'in-progress' ? ' is-progress' : '';
+      const reference = item.type === 'grammar' && item.reference
+        ? `<div class="knowledge-rule-preview"><span>Quick rule</span><p>${escapeHtml(item.reference)}</p></div>`
+        : `<div class="knowledge-progress-copy">${escapeHtml(item.progressText)}</div>`;
+      return `<a class="card interactive knowledge-card knowledge-card-${item.type}${statusClass}" href="${escapeHtml(item.href)}" data-knowledge-card="${escapeHtml(item.id)}">
+        <div class="knowledge-card-top">
+          <span class="knowledge-type knowledge-type-${item.type}"><span aria-hidden="true">${item.icon}</span> ${escapeHtml(item.label)}</span>
+          ${lessonBadge}
+        </div>
+        <div class="knowledge-card-body">
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.summary)}</p>
+          ${reference}
+        </div>
+        <div class="knowledge-card-footer">
+          <span class="knowledge-status${statusClass}">${escapeHtml(item.statusLabel)}</span>
+          <span class="knowledge-open">Open <span aria-hidden="true">→</span></span>
+        </div>
+      </a>`;
+    };
+
+    const draw = () => {
+      const normalizedQuery = query.toLocaleLowerCase('en').trim();
+      const filtered = allItems.filter((item) => {
+        const typeMatches = type === 'all' || item.type === type;
+        const searchMatches = !normalizedQuery || item.searchText.includes(normalizedQuery) || item.title.toLocaleLowerCase('en').includes(normalizedQuery);
+        return typeMatches && searchMatches;
+      });
+      const forceAll = expanded || normalizedQuery || type !== 'all';
+      const visible = forceAll ? filtered : filtered.slice(0, previewLimit);
+      grid.innerHTML = visible.length
+        ? visible.map(cardMarkup).join('')
+        : `<div class="knowledge-empty"><span aria-hidden="true">🔎</span><strong>Nothing found</strong><p>Try another word or switch the filter.</p></div>`;
+      count.textContent = filtered.length === 1 ? '1 material' : `${filtered.length} materials`;
+      const canCollapse = filtered.length > previewLimit && !normalizedQuery && type === 'all';
+      expandButton.hidden = filtered.length <= previewLimit || normalizedQuery || type !== 'all';
+      if (!expandButton.hidden) expandButton.textContent = expanded ? 'Show less' : `Show all ${filtered.length}`;
+      if (!canCollapse && expanded && (normalizedQuery || type !== 'all')) expanded = false;
+    };
+
+    search.addEventListener('input', () => {
+      query = search.value;
+      draw();
+    });
+
+    filters.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-knowledge-filter]');
+      if (!button) return;
+      type = safeText(button.dataset.knowledgeFilter, 'all');
+      filters.querySelectorAll('[data-knowledge-filter]').forEach((item) => item.classList.toggle('active', item === button));
+      draw();
+    });
+
+    expandButton.addEventListener('click', () => {
+      expanded = !expanded;
+      draw();
+      if (!expanded) root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    draw();
+  }
+
   function renderHome() {
     const t = totals();
     if (byId('home-stat-completed')) byId('home-stat-completed').textContent = t.homeworkCompleted;
@@ -628,6 +824,7 @@
           : '<div class="card disabled empty-state"><div class="empty-state-icon">✨</div><h3>No current material has been published yet</h3><p>The latest available homework assignment will appear here automatically.</p></div>';
       }
     }
+    renderKnowledgeBase();
   }
 
 
