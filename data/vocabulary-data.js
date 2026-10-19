@@ -2708,5 +2708,176 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Студенты первого курса часто живут в общежитии."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-21-study-work-continued",
+    "title": "Study and work — applications and money",
+    "label": "Lesson 21 · Study and work",
+    "icon": "💼",
+    "type": "lesson",
+    "linkedLessonId": "lesson-21",
+    "page": "vocabulary.html?id=vocab-lesson-21-study-work-continued",
+    "words": [
+      {
+        "id": "lesson-21-work-permit",
+        "en": "work permit",
+        "ru": "разрешение на работу",
+        "transcription": "/ˈwɜːk ˌpɜːmɪt/",
+        "exampleEn": "You may need a work permit to work in another country.",
+        "exampleRu": "Для работы в другой стране может понадобиться разрешение на работу."
+      },
+      {
+        "id": "lesson-21-grant",
+        "en": "grant",
+        "ru": "грант; финансовая помощь",
+        "transcription": "/ɡrɑːnt/",
+        "exampleEn": "She applied for a grant to pay for the course.",
+        "exampleRu": "Она подала заявку на грант, чтобы оплатить курс."
+      },
+      {
+        "id": "lesson-21-intern",
+        "en": "intern",
+        "ru": "стажёр",
+        "transcription": "/ˈɪntɜːn/",
+        "exampleEn": "He worked as an intern for three months.",
+        "exampleRu": "Он работал стажёром три месяца."
+      },
+      {
+        "id": "lesson-21-job-offer",
+        "en": "job offer",
+        "ru": "предложение о работе",
+        "transcription": "/ˈdʒɒb ˌɒfə/",
+        "exampleEn": "She received a job offer after the interview.",
+        "exampleRu": "После собеседования она получила предложение о работе."
+      },
+      {
+        "id": "lesson-21-job-vacancy",
+        "en": "job vacancy",
+        "ru": "вакансия",
+        "transcription": "/ˈdʒɒb ˌveɪkənsi/",
+        "exampleEn": "I found the job vacancy online.",
+        "exampleRu": "Я нашёл вакансию в интернете."
+      },
+      {
+        "id": "lesson-21-covering-letter",
+        "en": "covering letter",
+        "ru": "сопроводительное письмо",
+        "transcription": "/ˈkʌvərɪŋ ˌletə/",
+        "exampleEn": "Send your CV with a covering letter.",
+        "exampleRu": "Отправьте резюме вместе с сопроводительным письмом."
+      },
+      {
+        "id": "lesson-21-reference",
+        "en": "reference",
+        "ru": "рекомендация; рекомендательное письмо",
+        "transcription": "/ˈrefrəns/",
+        "exampleEn": "Her tutor agreed to give her a reference.",
+        "exampleRu": "Её преподаватель согласился дать ей рекомендацию."
+      },
+      {
+        "id": "lesson-21-scholarship",
+        "en": "scholarship",
+        "ru": "стипендия; грант на обучение",
+        "transcription": "/ˈskɒləʃɪp/",
+        "exampleEn": "He won a scholarship to study abroad.",
+        "exampleRu": "Он получил стипендию для учёбы за границей."
+      },
+      {
+        "id": "lesson-21-work-experience",
+        "en": "work experience",
+        "ru": "опыт работы",
+        "transcription": "/ˈwɜːk ɪkˌspɪəriəns/",
+        "exampleEn": "The job requires two years of work experience.",
+        "exampleRu": "Для этой работы требуется два года опыта."
+      },
+      {
+        "id": "lesson-21-apprenticeship",
+        "en": "apprenticeship",
+        "ru": "обучение профессии на рабочем месте; ученичество",
+        "transcription": "/əˈprentɪʃɪp/",
+        "exampleEn": "She started an apprenticeship after school.",
+        "exampleRu": "После школы она начала профессиональное обучение на рабочем месте."
+      },
+      {
+        "id": "lesson-21-internship",
+        "en": "internship",
+        "ru": "стажировка",
+        "transcription": "/ˈɪntɜːnʃɪp/",
+        "exampleEn": "The internship lasts six weeks.",
+        "exampleRu": "Стажировка длится шесть недель."
+      },
+      {
+        "id": "lesson-21-qualifications",
+        "en": "qualifications",
+        "ru": "квалификация; образование и подтверждённые навыки",
+        "transcription": "/ˌkwɒlɪfɪˈkeɪʃənz/",
+        "exampleEn": "You need the right qualifications for this job.",
+        "exampleRu": "Для этой работы нужна соответствующая квалификация."
+      },
+      {
+        "id": "lesson-21-cv",
+        "en": "CV",
+        "ru": "резюме (BrE)",
+        "transcription": "/ˌsiː ˈviː/",
+        "exampleEn": "Please email us your CV.",
+        "exampleRu": "Пожалуйста, отправьте нам своё резюме по электронной почте."
+      },
+      {
+        "id": "lesson-21-attend-interview",
+        "en": "attend an interview",
+        "ru": "прийти на собеседование; присутствовать на собеседовании",
+        "transcription": "/əˌtend ən ˈɪntəvjuː/",
+        "exampleEn": "She was invited to attend an interview.",
+        "exampleRu": "Её пригласили прийти на собеседование."
+      },
+      {
+        "id": "lesson-21-apply-for",
+        "en": "apply for",
+        "ru": "подавать заявление на; претендовать на",
+        "transcription": "/əˈplaɪ fə/",
+        "exampleEn": "I’m going to apply for the job.",
+        "exampleRu": "Я собираюсь подать заявление на эту работу."
+      },
+      {
+        "id": "lesson-21-suitable-for",
+        "en": "suitable for",
+        "ru": "подходящий для",
+        "transcription": "/ˈsuːtəbl fə/",
+        "exampleEn": "Do you think I’m suitable for the position?",
+        "exampleRu": "Как ты думаешь, я подхожу для этой должности?"
+      },
+      {
+        "id": "lesson-21-position",
+        "en": "position",
+        "ru": "должность; место работы",
+        "transcription": "/pəˈzɪʃn/",
+        "exampleEn": "She was offered the position.",
+        "exampleRu": "Ей предложили эту должность."
+      },
+      {
+        "id": "lesson-21-pocket-money",
+        "en": "pocket money",
+        "ru": "карманные деньги",
+        "transcription": "/ˈpɒkɪt ˌmʌni/",
+        "exampleEn": "I got a little pocket money every week.",
+        "exampleRu": "Каждую неделю я получал немного карманных денег."
+      },
+      {
+        "id": "lesson-21-wages",
+        "en": "wages",
+        "ru": "заработная плата; заработок",
+        "transcription": "/ˈweɪdʒɪz/",
+        "exampleEn": "He pays the rent out of his wages.",
+        "exampleRu": "Он платит аренду из своей зарплаты."
+      },
+      {
+        "id": "lesson-21-earn",
+        "en": "earn",
+        "ru": "зарабатывать",
+        "transcription": "/ɜːn/",
+        "exampleEn": "She earned £200 in one day.",
+        "exampleRu": "Она заработала 200 фунтов за один день."
+      }
+    ]
   }
 ];

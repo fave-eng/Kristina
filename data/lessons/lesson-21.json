@@ -1,0 +1,401 @@
+{
+  "id": "lesson-21",
+  "number": 21,
+  "title": "Put it on your CV",
+  "subtitle": "Vocabulary: study and work · Vocabulary from reading · Pronunciation: word stress",
+  "status": "available",
+  "publishedAt": "2026-10-19",
+  "totalPoints": 32,
+  "vocabularyId": "vocab-lesson-21-study-work-continued",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY study and work",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "study and work"
+    },
+    {
+      "type": "exercise",
+      "id": "study-work-1c",
+      "title": "c Circle the correct words.",
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "choice",
+          "exampleAnswer": "work permit",
+          "prompt": "You need to apply for a CV / work permit if you get a job in another country."
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "single",
+          "segments": [
+            "You can apply for a ",
+            " to study at university if you can’t afford to pay for the course."
+          ],
+          "options": [
+            "grant",
+            "an intern"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "single",
+          "segments": [
+            "You get a ",
+            " if a company wants you to work for them."
+          ],
+          "options": [
+            "job offer",
+            "job vacancy"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "single",
+          "segments": [
+            "You need to write a ",
+            " to send with your CV."
+          ],
+          "options": [
+            "covering letter",
+            "reference"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "single",
+          "segments": [
+            "You can apply for ",
+            " to study at university if your exam marks are very high."
+          ],
+          "options": [
+            "experience",
+            "a scholarship"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "single",
+          "segments": [
+            "If you’re a student, you can get practical experience of a job by doing a six-week ",
+            " ."
+          ],
+          "options": [
+            "apprenticeship",
+            "internship"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "single",
+          "segments": [
+            "You need to have academic ",
+            " such as a PhD to become a researcher."
+          ],
+          "options": [
+            "qualifications",
+            "skills"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "single",
+          "segments": [
+            "A company will invite you to ",
+            " an interview if they think you might be suitable for a job."
+          ],
+          "options": [
+            "assist",
+            "attend"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "study-work-1d",
+      "title": "d Complete the text with words from c.",
+      "layout": "continuous-gaps",
+      "image": "images/lesson-21/interview.png",
+      "imageAlt": "A job interview, as shown in the workbook",
+      "hideAnswersOnError": true,
+      "paragraphs": [
+        [
+          "When Maria finished university, she started looking out for ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "job vacancies"
+          },
+          ". With her degree in Business Administration, she found that she had the right ",
+          {
+            "type": "gap",
+            "id": "2",
+            "answer": "qualifications",
+            "width": "medium"
+          },
+          " for some of the jobs, but she had no ",
+          {
+            "type": "gap",
+            "id": "3",
+            "answer": "experience",
+            "width": "medium"
+          },
+          " because she had never worked before. One day, she saw an advert for a three-month ",
+          {
+            "type": "gap",
+            "id": "4",
+            "answer": "internship",
+            "width": "medium"
+          },
+          " at a local company, so she decided to apply for it because she thought she might learn some useful ",
+          {
+            "type": "gap",
+            "id": "5",
+            "answer": "skills",
+            "width": "medium"
+          },
+          ". She carefully typed out her ",
+          {
+            "type": "gap",
+            "id": "6",
+            "answer": "CV"
+          },
+          ", including a record of her education and the jobs she had done, and asked her university tutor if he would give her a ",
+          {
+            "type": "gap",
+            "id": "7",
+            "answer": "reference",
+            "width": "medium"
+          },
+          ". After that, she wrote a ",
+          {
+            "type": "gap",
+            "id": "8",
+            "answer": "covering letter",
+            "width": "medium"
+          },
+          " and emailed everything to the company. A week later, she received an email inviting her to ",
+          {
+            "type": "gap",
+            "id": "9",
+            "answer": "attend"
+          },
+          " an interview. The day after, she was offered the position, but she decided not to accept it. She hadn’t realized that if you work as an ",
+          {
+            "type": "gap",
+            "id": "10",
+            "answer": "intern"
+          },
+          " you don’t get paid anything!"
+        ]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "VOCABULARY FROM READING",
+      "sectionNumber": "",
+      "titleLead": "VOCABULARY FROM READING",
+      "titleTail": ""
+    },
+    {
+      "type": "exercise",
+      "id": "vocabulary-from-reading-4b",
+      "title": "Complete the sentences with a word from the list.",
+      "layout": "continuous-gaps",
+      "wordBankLabel": "",
+      "wordBank": [
+        "cash",
+        "checkout",
+        "earned",
+        "pocket money",
+        "wages"
+      ],
+      "image": "images/lesson-21/cash.png",
+      "imageAlt": "Coins and a purse, as shown in the workbook",
+      "hideAnswersOnError": true,
+      "paragraphs": [
+        [
+          "1 How much ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "cash"
+          },
+          " do you have on you?"
+        ],
+        [
+          "2 I didn’t use to get much ",
+          {
+            "type": "gap",
+            "id": "2",
+            "input": "select",
+            "options": [
+              "cash",
+              "checkout",
+              "earned",
+              "pocket money",
+              "wages"
+            ],
+            "answer": "pocket money",
+            "width": "medium"
+          },
+          " when I was a child – only £1 a week."
+        ],
+        [
+          "3 I once ",
+          {
+            "type": "gap",
+            "id": "3",
+            "input": "select",
+            "options": [
+              "cash",
+              "checkout",
+              "earned",
+              "pocket money",
+              "wages"
+            ],
+            "answer": "earned"
+          },
+          " £200 in one day translating for a German company."
+        ],
+        [
+          "4 I can just about pay the rent out of my ",
+          {
+            "type": "gap",
+            "id": "4",
+            "input": "select",
+            "options": [
+              "cash",
+              "checkout",
+              "earned",
+              "pocket money",
+              "wages"
+            ],
+            "answer": "wages"
+          },
+          "."
+        ],
+        [
+          "5 I didn’t realize I’d lost my wallet until I went to pay for my shopping at the ",
+          {
+            "type": "gap",
+            "id": "5",
+            "input": "select",
+            "options": [
+              "cash",
+              "checkout",
+              "earned",
+              "pocket money",
+              "wages"
+            ],
+            "answer": "checkout"
+          },
+          "."
+        ]
+      ]
+    },
+    {
+      "type": "section",
+      "title": "PRONUNCIATION word stress",
+      "sectionNumber": 2,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "word stress"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-word-stress-2a",
+      "title": "a Underline the stressed syllable in the words from the list. Then write them in the correct column.",
+      "layout": "ed-pronunciation",
+      "verbs": [
+        "attend",
+        "degree",
+        "dissertation",
+        "PhD",
+        "postgraduate",
+        "professor",
+        "reference",
+        "residence",
+        "scholarship",
+        "seminar",
+        "tutorial",
+        "undergraduate",
+        "vacancy"
+      ],
+      "columns": [
+        {
+          "key": "first",
+          "label": "Stress on first syllable",
+          "answers": [
+            "reference",
+            "residence",
+            "scholarship",
+            "seminar",
+            "vacancy"
+          ]
+        },
+        {
+          "key": "second",
+          "label": "Stress on second syllable",
+          "example": "attend",
+          "answers": [
+            "degree",
+            "postgraduate",
+            "professor",
+            "tutorial"
+          ]
+        },
+        {
+          "key": "third",
+          "label": "Stress on third syllable",
+          "answers": [
+            "dissertation",
+            "PhD",
+            "undergraduate"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-word-stress-2b",
+      "title": "b 4.3 Listen and check. Then listen again and repeat the words.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_4.3.mp3",
+      "items": [
+        {
+          "id": "done",
+          "number": "",
+          "input": "checkbox",
+          "prompt": "I listened again and repeated the words.",
+          "scored": false
+        }
+      ]
+    }
+  ]
+}
