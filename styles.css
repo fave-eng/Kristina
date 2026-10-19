@@ -4106,3 +4106,134 @@ label.odd-option {
   }
 }
 
+/* Homework 22: correction field + automatic tick */
+.correction-or-check-control {
+  display: grid;
+  gap: 12px;
+  width: min(100%, 720px);
+  margin-top: 12px;
+}
+
+.correction-field-wrap {
+  display: grid;
+  gap: 7px;
+}
+
+.correction-control-label {
+  color: var(--muted);
+  font-size: .88rem;
+  font-weight: 700;
+}
+
+.correction-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.correction-divider::before,
+.correction-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.correct-sentence-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--dark);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.correct-sentence-check input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.correct-sentence-box {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #aab5c8;
+  border-radius: 7px;
+  background: #fff;
+  color: transparent;
+  font-size: 17px;
+  font-weight: 950;
+  transition: .15s ease;
+}
+
+.correct-sentence-check input:checked + .correct-sentence-box {
+  border-color: #4f46e5;
+  background: #4f46e5;
+  color: #fff;
+}
+
+.correct-sentence-check:has(input:focus-visible) {
+  outline: 3px solid rgba(79,70,229,.18);
+  outline-offset: 2px;
+}
+
+.correction-check-example .exercise-control {
+  display: grid;
+  gap: 10px;
+}
+
+.correction-or-check-control.is-example {
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #dbe3f0;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.correction-example-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: baseline;
+}
+
+.correction-example-note strong {
+  color: #4338ca;
+}
+
+.correction-example-note span,
+.correction-example-help {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.is-example-check {
+  cursor: default;
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+@media (max-width: 640px) {
+  .correct-sentence-check {
+    width: 100%;
+    align-items: flex-start;
+  }
+  .correction-or-check-control {
+    gap: 10px;
+  }
+}

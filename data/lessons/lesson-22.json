@@ -197,7 +197,7 @@
       "type": "exercise",
       "id": "conditionals-3b",
       "title": "b Correct any mistakes in the highlighted phrases. Tick (✓) the correct sentences.",
-      "instructions": "Type the corrected highlighted phrase. If the highlighted phrase is already correct, type ✓.",
+      "instructions": "Correct the highlighted phrase if it is wrong. If the sentence is correct, tick the checkbox.",
       "hideAnswersOnError": true,
       "items": [
         {
@@ -213,12 +213,14 @@
             },
             " the phone, leave me a message."
           ],
-          "exampleTarget": "✓"
+          "input": "correction-or-check",
+          "exampleMode": "correction-or-check",
+          "expectedCorrect": true
         },
         {
           "id": "2",
           "number": 2,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             {
@@ -227,16 +229,17 @@
             },
             " again, he might lose his job."
           ],
-          "placeholder": "Correction or ✓",
+          "placeholder": "Type the correction here",
           "acceptedAnswers": [
             "If he’s late",
             "If he's late"
-          ]
+          ],
+          "expectedCorrect": false
         },
         {
           "id": "3",
           "number": 3,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             "If they paid us more, ",
@@ -246,16 +249,17 @@
             },
             "."
           ],
-          "placeholder": "Correction or ✓",
+          "placeholder": "Type the correction here",
           "acceptedAnswers": [
             "we wouldn’t complain",
             "we wouldn't complain"
-          ]
+          ],
+          "expectedCorrect": false
         },
         {
           "id": "4",
           "number": 4,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             {
@@ -264,17 +268,14 @@
             },
             " if you left a bit earlier."
           ],
-          "placeholder": "Correction or ✓",
-          "acceptedAnswers": [
-            "✓",
-            "✔",
-            "✔️"
-          ]
+          "placeholder": "Type the correction here",
+          "acceptedAnswers": [],
+          "expectedCorrect": true
         },
         {
           "id": "5",
           "number": 5,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             "We’ll never finish everything ",
@@ -284,16 +285,17 @@
             },
             "."
           ],
-          "placeholder": "Correction or ✓",
+          "placeholder": "Type the correction here",
           "acceptedAnswers": [
             "if we don’t work late",
             "if we don't work late"
-          ]
+          ],
+          "expectedCorrect": false
         },
         {
           "id": "6",
           "number": 6,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             "If Sally lived in the city centre, ",
@@ -303,17 +305,14 @@
             },
             "."
           ],
-          "placeholder": "Correction or ✓",
-          "acceptedAnswers": [
-            "✓",
-            "✔",
-            "✔️"
-          ]
+          "placeholder": "Type the correction here",
+          "acceptedAnswers": [],
+          "expectedCorrect": true
         },
         {
           "id": "7",
           "number": 7,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             "Max won’t accept the job ",
@@ -323,15 +322,16 @@
             },
             "."
           ],
-          "placeholder": "Correction or ✓",
+          "placeholder": "Type the correction here",
           "acceptedAnswers": [
             "unless they agree to his conditions"
-          ]
+          ],
+          "expectedCorrect": false
         },
         {
           "id": "8",
           "number": 8,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             {
@@ -340,16 +340,17 @@
             },
             " if he can’t find a job."
           ],
-          "placeholder": "Correction or ✓",
+          "placeholder": "Type the correction here",
           "acceptedAnswers": [
             "He’ll do a postgraduate course",
             "He'll do a postgraduate course"
-          ]
+          ],
+          "expectedCorrect": false
         },
         {
           "id": "9",
           "number": 9,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             "I wouldn’t live at home ",
@@ -359,16 +360,17 @@
             },
             "."
           ],
-          "placeholder": "Correction or ✓",
+          "placeholder": "Type the correction here",
           "acceptedAnswers": [
             "if I was a student",
             "if I were a student"
-          ]
+          ],
+          "expectedCorrect": false
         },
         {
           "id": "10",
           "number": 10,
-          "input": "text",
+          "input": "correction-or-check",
           "prompt": "",
           "contextParts": [
             {
@@ -377,12 +379,9 @@
             },
             ", you’d have more time to study."
           ],
-          "placeholder": "Correction or ✓",
-          "acceptedAnswers": [
-            "✓",
-            "✔",
-            "✔️"
-          ]
+          "placeholder": "Type the correction here",
+          "acceptedAnswers": [],
+          "expectedCorrect": true
         }
       ]
     },
@@ -390,8 +389,6 @@
       "type": "exercise",
       "id": "conditionals-3c",
       "title": "c Write first and second conditional sentences.",
-      "image": "images/lesson-22/conditionals-context.png",
-      "imageAlt": "The original workbook photo of two students reading together.",
       "hideAnswersOnError": true,
       "items": [
         {

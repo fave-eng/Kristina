@@ -1871,6 +1871,19 @@
       </div>`;
     }
 
+    if (item.example && item.exampleMode === 'correction-or-check') {
+      return `<div class="exercise-item exercise-example correction-check-example" data-exercise-item="${escapeHtml(itemId)}" data-input-type="correction-or-check">
+        <div class="exercise-item-header">${numberMarkup}<div class="exercise-prompt">${prompt}</div></div>
+        <div class="exercise-control">${context}
+          <div class="correction-or-check-control is-example">
+            <div class="correction-example-note"><strong>Correct sentence</strong><span>Nothing needs to be rewritten.</span></div>
+            <label class="correct-sentence-check is-example-check"><input type="checkbox" checked disabled><span aria-hidden="true" class="correct-sentence-box">✓</span><span>Tick the box because the highlighted phrase is correct.</span></label>
+            <div class="correction-example-help">If the highlighted phrase is wrong, type only the corrected phrase in the field instead.</div>
+          </div>
+        </div>
+      </div>`;
+    }
+
     if (item.example && item.exampleTarget) {
       if (inlineNumberedItems && !prompt) {
         return `<div class="exercise-item exercise-example" data-exercise-item="${escapeHtml(itemId)}">
@@ -1997,6 +2010,12 @@
       const segments = Array.isArray(item.segments) ? item.segments : [];
       const gapClass = item.inputSize === 'wide' ? 'gap-input gap-input-wide' : 'gap-input';
       control = `<div class="sentence-gaps" aria-label="${prompt}">${answers.map((answer, gapIndex) => `${gapIndex < segments.length ? `<span>${escapeHtml(segments[gapIndex])}</span>` : ''}<input class="${gapClass}" data-gap-index="${gapIndex}" aria-label="Gap ${gapIndex + 1}" autocomplete="off">`).join('')}${segments.length > answers.length ? `<span>${escapeHtml(segments[segments.length - 1])}</span>` : ''}</div>`;
+    } else if (item.input === 'correction-or-check') {
+      control = `<div class="correction-or-check-control">
+        <label class="correction-field-wrap" for="${escapeHtml(inputId)}"><span class="correction-control-label">If it is wrong, correct the highlighted phrase:</span><input class="text-field" id="${escapeHtml(inputId)}" data-correction-input autocomplete="off" placeholder="${escapeHtml(item.placeholder || 'Type the correction here')}"></label>
+        <div class="correction-divider"><span>OR</span></div>
+        <label class="correct-sentence-check"><input type="checkbox" data-correct-sentence-check><span aria-hidden="true" class="correct-sentence-box">✓</span><span>The highlighted phrase is already correct</span></label>
+      </div>`;
     } else if (item.input === 'checkbox') {
       control = `<label class="task-checkbox"><input type="checkbox" id="${escapeHtml(inputId)}"><span>${prompt || escapeHtml(item.label || 'Done')}</span></label>`;
     } else {
@@ -2318,6 +2337,15 @@
         const accepted = Array.isArray(answer) ? answer : [answer];
         return accepted.some((variant) => normalizeAnswer(variant) === normalizeAnswer(actual[index]));
       });
+    } else if (inputType === 'correction-or-check') {
+      const correction = safeText(itemNode.querySelector('[data-correction-input]')?.value).trim();
+      const ticked = itemNode.querySelector('[data-correct-sentence-check]')?.checked || false;
+      actual = { correction, correct: ticked };
+      if (item.expectedCorrect === true) {
+        correct = ticked && correction === '';
+      } else {
+        correct = !ticked && correction !== '' && textAnswerMatches(item, correction);
+      }
     } else if (inputType === 'checkbox') {
       actual = itemNode.querySelector('input[type="checkbox"]')?.checked || false;
       correct = Boolean(actual);
@@ -2461,6 +2489,18 @@
       } else if (inputType === 'gaps') {
         const values = Array.isArray(value) ? value : [];
         itemNode.querySelectorAll('[data-gap-index]').forEach((input, gapIndex) => { input.value = safeText(values[gapIndex]); });
+      } else if (inputType === 'correction-or-check') {
+        const textInput = itemNode.querySelector('[data-correction-input]');
+        const checkInput = itemNode.querySelector('[data-correct-sentence-check]');
+        if (value && typeof value === 'object' && !Array.isArray(value)) {
+          if (textInput) textInput.value = safeText(value.correction);
+          if (checkInput) checkInput.checked = Boolean(value.correct);
+        } else {
+          const oldValue = safeText(value).trim();
+          const wasTick = ['✓', '✔', '✔️'].includes(oldValue);
+          if (textInput && !wasTick) textInput.value = oldValue;
+          if (checkInput) checkInput.checked = wasTick;
+        }
       } else if (inputType === 'image-spelling') {
         const values = Array.isArray(value) ? value : [];
         itemNode.querySelectorAll('[data-spelling-letter]').forEach((input, letterIndex) => { input.value = safeText(values[letterIndex]); });
