@@ -140,8 +140,6 @@
       "id": "study-work-1d",
       "title": "d Complete the text with words from c.",
       "layout": "continuous-gaps",
-      "image": "images/lesson-21/interview.png",
-      "imageAlt": "A job interview, as shown in the workbook",
       "hideAnswersOnError": true,
       "paragraphs": [
         [
@@ -236,8 +234,6 @@
         "pocket money",
         "wages"
       ],
-      "image": "images/lesson-21/cash.png",
-      "imageAlt": "Coins and a purse, as shown in the workbook",
       "hideAnswersOnError": true,
       "paragraphs": [
         [
@@ -332,7 +328,7 @@
       "type": "exercise",
       "id": "pronunciation-word-stress-2a",
       "title": "a Underline the stressed syllable in the words from the list. Then write them in the correct column.",
-      "layout": "ed-pronunciation",
+      "layout": "word-stress-drag",
       "verbs": [
         "attend",
         "degree",

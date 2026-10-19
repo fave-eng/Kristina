@@ -3720,3 +3720,30 @@ label.odd-option {
   .grammar-photo-label { max-width: 150px; font-size: .9rem; }
 }
 
+/* Homework 21: drag-and-drop word-stress table */
+.word-stress-drag { display:grid; gap:18px; padding:18px; }
+.word-stress-pool-wrap { display:grid; gap:10px; }
+.word-stress-pool-label { color:var(--muted); font-size:.84rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
+.word-stress-pool, .word-stress-dropzone { min-height:62px; display:flex; flex-wrap:wrap; align-content:flex-start; gap:8px; padding:10px; border:1px dashed #c7d2fe; border-radius:14px; background:#f8fafc; transition:border-color .15s ease,background .15s ease; }
+.word-stress-pool.is-drag-over, .word-stress-dropzone.is-drag-over { border-color:var(--indigo); background:#eef2ff; }
+.word-stress-chip { appearance:none; border:1px solid #cbd5e1; border-radius:999px; background:#fff; color:var(--dark); padding:8px 12px; font:inherit; font-weight:750; line-height:1.15; cursor:grab; user-select:none; touch-action:manipulation; box-shadow:0 1px 2px rgba(15,23,42,.05); transition:transform .12s ease,border-color .12s ease,background .12s ease; }
+.word-stress-chip:hover { border-color:#a5b4fc; transform:translateY(-1px); }
+.word-stress-chip:active { cursor:grabbing; }
+.word-stress-chip.is-dragging { opacity:.45; }
+.word-stress-chip.is-selected { border-color:var(--indigo); background:#eef2ff; box-shadow:0 0 0 3px rgba(79,70,229,.12); }
+.word-stress-chip.is-correct { border-color:#22c55e; background:#f0fdf4; }
+.word-stress-chip.is-wrong { border-color:#fb7185; background:#fff7f7; }
+.word-stress-drag-hint { margin:0; color:var(--muted); font-size:.9rem; }
+.word-stress-table { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--border); border-radius:16px; overflow:hidden; background:#fff; }
+.word-stress-column { min-width:0; padding-bottom:12px; }
+.word-stress-column + .word-stress-column { border-left:1px solid var(--border); }
+.word-stress-column > header { min-height:66px; display:grid; place-items:center; padding:12px; background:#f8fafc; border-bottom:1px solid var(--border); color:var(--dark); font-weight:850; text-align:center; }
+.word-stress-example { min-height:54px; display:flex; align-items:center; justify-content:center; gap:8px; padding:8px 10px; border-bottom:1px solid #eef2f7; }
+.word-stress-column .word-stress-dropzone { margin:10px; min-height:122px; border-style:dashed; }
+.word-stress-column.has-missing .word-stress-dropzone { border-color:#fb7185; background:#fff7f7; }
+@media (max-width:760px) {
+  .word-stress-drag { padding:14px; }
+  .word-stress-table { grid-template-columns:1fr; }
+  .word-stress-column + .word-stress-column { border-left:0; border-top:1px solid var(--border); }
+  .word-stress-column .word-stress-dropzone { min-height:76px; }
+}

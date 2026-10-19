@@ -1185,6 +1185,78 @@
     return `${verbList}${table}`;
   }
 
+
+  function renderWordStressDragExercise(block, blockId) {
+    const columns = Array.isArray(block.columns) ? block.columns : [];
+    const examples = new Set(columns.map((column) => normalizeAnswer(column.example || '')).filter(Boolean));
+    const words = (Array.isArray(block.verbs) ? block.verbs : []).filter((word) => !examples.has(normalizeAnswer(word)));
+    const chips = words.map((word) => `<button class="word-stress-chip" type="button" draggable="true" data-word-stress-chip="${escapeHtml(word)}" aria-label="${escapeHtml(word)}">${escapeHtml(word)}</button>`).join('');
+    const table = columns.map((column) => {
+      const key = safeText(column.key);
+      const capacity = Array.isArray(column.answers) ? column.answers.length : 0;
+      const example = column.example ? `<div class="word-stress-example"><span class="continuous-example-label">EXAMPLE</span><strong>${escapeHtml(column.example)}</strong></div>` : '';
+      return `<section class="word-stress-column" data-word-stress-column="${escapeHtml(key)}" data-word-stress-capacity="${capacity}">
+        <header>${escapeHtml(column.label || key)}</header>
+        ${example}
+        <div class="word-stress-dropzone" data-word-stress-dropzone="${escapeHtml(key)}" tabindex="0" aria-label="${escapeHtml(column.label || key)} drop zone"></div>
+      </section>`;
+    }).join('');
+    return `<div class="word-stress-drag" data-word-stress-drag>
+      <div class="word-stress-pool-wrap">
+        <div class="word-stress-pool-label">Words</div>
+        <div class="word-stress-pool" data-word-stress-pool tabindex="0" aria-label="Word bank">${chips}</div>
+        <p class="word-stress-drag-hint">Drag each word into the correct column. On a phone, tap a word and then tap a column.</p>
+      </div>
+      <div class="word-stress-table">${table}</div>
+    </div>`;
+  }
+
+  function collectWordStressDragAnswers(block, node) {
+    const actual = {};
+    (Array.isArray(block.columns) ? block.columns : []).forEach((column) => {
+      const key = safeText(column.key);
+      actual[key] = [...node.querySelectorAll(`[data-word-stress-dropzone="${CSS.escape(key)}"] [data-word-stress-chip]`)].map((chip) => safeText(chip.dataset.wordStressChip));
+    });
+    return actual;
+  }
+
+  function checkWordStressDragBlock(block, node) {
+    const actual = collectWordStressDragAnswers(block, node);
+    let correctCount = 0;
+    let total = 0;
+    (Array.isArray(block.columns) ? block.columns : []).forEach((column) => {
+      const key = safeText(column.key);
+      const expected = new Set((Array.isArray(column.answers) ? column.answers : []).map((answer) => normalizeAnswer(answer)));
+      const chips = [...node.querySelectorAll(`[data-word-stress-dropzone="${CSS.escape(key)}"] [data-word-stress-chip]`)];
+      chips.forEach((chip) => {
+        const correct = expected.has(normalizeAnswer(chip.dataset.wordStressChip));
+        chip.classList.toggle('is-correct', correct);
+        chip.classList.toggle('is-wrong', !correct);
+        total += 1;
+        if (correct) correctCount += 1;
+      });
+      const missing = Math.max(0, expected.size - chips.length);
+      total += missing;
+      node.querySelector(`[data-word-stress-column="${CSS.escape(key)}"]`)?.classList.toggle('has-missing', missing > 0);
+    });
+    return { actual, correctCount, total };
+  }
+
+  function restoreWordStressDragAnswers(block, node, saved) {
+    if (!saved || typeof saved !== 'object') return;
+    const chipsByWord = new Map([...node.querySelectorAll('[data-word-stress-chip]')].map((chip) => [normalizeAnswer(chip.dataset.wordStressChip), chip]));
+    (Array.isArray(block.columns) ? block.columns : []).forEach((column) => {
+      const key = safeText(column.key);
+      const zone = node.querySelector(`[data-word-stress-dropzone="${CSS.escape(key)}"]`);
+      if (!zone) return;
+      const values = Array.isArray(saved[key]) ? saved[key] : [];
+      values.forEach((value) => {
+        const chip = chipsByWord.get(normalizeAnswer(value));
+        if (chip) zone.appendChild(chip);
+      });
+    });
+  }
+
   function renderPresentPastTable(block, blockId) {
     const rows = Array.isArray(block.rows) ? block.rows : [];
     return `<div class="present-past-table" data-present-past-table>
@@ -1335,6 +1407,59 @@
             const next = inputs[Math.min(index + pasted.length, inputs.length - 1)];
             if (next) next.focus();
           });
+        });
+      });
+    });
+
+
+    root.querySelectorAll('[data-word-stress-drag]').forEach((workspace) => {
+      let selectedChip = null;
+      const clearSelection = () => {
+        workspace.querySelectorAll('[data-word-stress-chip].is-selected').forEach((chip) => chip.classList.remove('is-selected'));
+        selectedChip = null;
+      };
+      const moveChip = (chip, destination) => {
+        if (!chip || !destination) return;
+        if (destination.matches('[data-word-stress-dropzone]')) {
+          const column = destination.closest('[data-word-stress-column]');
+          const capacity = Number(column?.dataset.wordStressCapacity || 0);
+          const current = destination.querySelectorAll('[data-word-stress-chip]').length;
+          if (capacity > 0 && current >= capacity && chip.parentElement !== destination) return;
+        }
+        destination.appendChild(chip);
+        chip.classList.remove('is-correct', 'is-wrong');
+        workspace.querySelectorAll('[data-word-stress-column]').forEach((column) => column.classList.remove('has-missing'));
+        clearSelection();
+      };
+      workspace.querySelectorAll('[data-word-stress-chip]').forEach((chip) => {
+        chip.addEventListener('dragstart', (event) => {
+          event.dataTransfer.effectAllowed = 'move';
+          event.dataTransfer.setData('text/plain', safeText(chip.dataset.wordStressChip));
+          chip.classList.add('is-dragging');
+        });
+        chip.addEventListener('dragend', () => chip.classList.remove('is-dragging'));
+        chip.addEventListener('click', () => {
+          const wasSelected = chip === selectedChip;
+          clearSelection();
+          if (!wasSelected) { selectedChip = chip; chip.classList.add('is-selected'); }
+        });
+      });
+      const destinations = [...workspace.querySelectorAll('[data-word-stress-dropzone]'), workspace.querySelector('[data-word-stress-pool]')].filter(Boolean);
+      destinations.forEach((destination) => {
+        destination.addEventListener('dragover', (event) => { event.preventDefault(); event.dataTransfer.dropEffect = 'move'; destination.classList.add('is-drag-over'); });
+        destination.addEventListener('dragleave', () => destination.classList.remove('is-drag-over'));
+        destination.addEventListener('drop', (event) => {
+          event.preventDefault(); destination.classList.remove('is-drag-over');
+          const word = event.dataTransfer.getData('text/plain');
+          const chip = [...workspace.querySelectorAll('[data-word-stress-chip]')].find((item) => normalizeAnswer(item.dataset.wordStressChip) === normalizeAnswer(word));
+          moveChip(chip, destination);
+        });
+        destination.addEventListener('click', (event) => {
+          if (event.target.closest('[data-word-stress-chip]')) return;
+          if (selectedChip) moveChip(selectedChip, destination);
+        });
+        destination.addEventListener('keydown', (event) => {
+          if ((event.key === 'Enter' || event.key === ' ') && selectedChip) { event.preventDefault(); moveChip(selectedChip, destination); }
         });
       });
     });
@@ -1882,7 +2007,9 @@
             ? renderContinuousGapsExercise(block, id)
             : block.layout === 'ed-pronunciation'
               ? renderEdPronunciationExercise(block, id)
-              : block.layout === 'present-past-table'
+              : block.layout === 'word-stress-drag'
+                ? renderWordStressDragExercise(block, id)
+                : block.layout === 'present-past-table'
                 ? renderPresentPastTable(block, id)
                 : block.layout === 'article-mcq'
                   ? renderArticleMcqExercise(block, id)
@@ -2019,6 +2146,7 @@
     if (block.layout === 'crossword-grid') return checkCrosswordGridBlock(block, node);
     if (block.layout === 'continuous-gaps') return checkContinuousGapsBlock(block, node);
     if (block.layout === 'ed-pronunciation') return checkEdPronunciationBlock(block, node);
+    if (block.layout === 'word-stress-drag') return checkWordStressDragBlock(block, node);
     if (block.layout === 'present-past-table') return checkPresentPastTableBlock(block, node);
     const actual = {};
     let correctCount = 0;
@@ -2092,6 +2220,7 @@
     if (block.layout === 'crossword-grid') { restoreCrosswordGridAnswers(block, node, saved); return; }
     if (block.layout === 'continuous-gaps') { restoreContinuousGapsAnswers(block, node, saved); return; }
     if (block.layout === 'ed-pronunciation') { restoreEdPronunciationAnswers(block, node, saved); return; }
+    if (block.layout === 'word-stress-drag') { restoreWordStressDragAnswers(block, node, saved); return; }
     if (block.layout === 'present-past-table') { restorePresentPastTableAnswers(block, node, saved); return; }
     (Array.isArray(block.items) ? block.items : []).forEach((item, index) => {
       if (item.example || item.displayOnly) return;
