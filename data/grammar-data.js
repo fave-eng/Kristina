@@ -1,7 +1,3 @@
-/**
- * Published grammar topics.
- * Explanations are structured as individual textbook-style chapters.
- */
 window.GRAMMAR_DATA = [
   {
     "id": "grammar-pronouns",
@@ -3472,6 +3468,542 @@ window.GRAMMAR_DATA = [
             "wrong": "I’m meeting him someday.",
             "right": "I’ll meet him someday. / I’m going to meet him someday.",
             "why": "Present Continuous естественнее для конкретной организованной договорённости, а не расплывчатого someday."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grammar-first-second-conditionals",
+    "order": 9,
+    "title": "First and second conditionals",
+    "level": "B1",
+    "status": "available",
+    "page": "grammar-topic.html?id=grammar-first-second-conditionals",
+    "passed": false,
+    "attempts": 0,
+    "linkedLessonId": "lesson-22",
+    "revealAnswersOnError": false,
+    "lockOnPass": false,
+    "explanation": "Условные предложения показывают связь между условием и результатом. First Conditional нужен, когда говорящий считает будущую ситуацию реальной или вполне возможной. Second Conditional нужен для гипотетической, маловероятной или нереальной ситуации в настоящем или будущем. Поэтому сначала определяем смысл, а уже затем выбираем форму.",
+    "formula": "First: if / unless + Present Simple → will / can / may + V · Second: if + Past Simple → would / could / might + V",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
+    "chapter": [
+      {
+        "id": "cond-meaning",
+        "type": "compare",
+        "title": "Главное различие: насколько реальна ситуация?",
+        "columns": [
+          {
+            "title": "First Conditional — реальная возможность",
+            "points": [
+              "Будущее событие действительно может произойти.",
+              "Часто говорим о планах, предупреждениях, обещаниях и последствиях."
+            ],
+            "examples": [
+              {
+                "en": "If I [[finish]] work early, I [[will call]] you.",
+                "ru": "Если я [[закончу]] работу рано, я [[позвоню]] тебе.",
+                "note": "Говорящий считает это реальной возможностью."
+              },
+              {
+                "en": "If she [[gets]] the scholarship, she [[can study]] abroad.",
+                "ru": "Если она [[получит]] стипендию, она [[сможет учиться]] за границей."
+              }
+            ]
+          },
+          {
+            "title": "Second Conditional — гипотеза",
+            "points": [
+              "Ситуация сейчас не соответствует реальности или кажется маловероятной.",
+              "Часто говорим о мечтах, предположениях и советах."
+            ],
+            "examples": [
+              {
+                "en": "If I [[earned]] more, I [[would buy]] my own flat.",
+                "ru": "Если бы я [[зарабатывал]] больше, я [[купил бы]] собственную квартиру.",
+                "note": "Сейчас говорящий зарабатывает недостаточно."
+              },
+              {
+                "en": "If I [[were]] you, I [[would take]] the job.",
+                "ru": "На твоём месте я [[согласился бы]] на эту работу."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cond-first",
+        "type": "formula",
+        "title": "First Conditional: реальное условие в будущем",
+        "lines": [
+          "[[If + Present Simple]], [[will + infinitive]]",
+          "[[If + Present Simple]], [[can / may + infinitive]]",
+          "[[Imperative]] + if-clause: Call me if you need help."
+        ],
+        "examples": [
+          {
+            "en": "If you [[study]] regularly, you [[will make]] faster progress.",
+            "ru": "Если ты [[будешь заниматься]] регулярно, ты [[будешь прогрессировать]] быстрее."
+          },
+          {
+            "en": "If the interview [[goes]] well, they [[may offer]] her the job.",
+            "ru": "Если собеседование [[пройдёт]] хорошо, ей [[могут предложить]] работу."
+          },
+          {
+            "en": "[[Tell]] me if you [[need]] any help.",
+            "ru": "[[Скажи]] мне, если тебе [[понадобится]] помощь."
+          }
+        ]
+      },
+      {
+        "id": "cond-first-structure",
+        "type": "table",
+        "title": "First Conditional: утверждение, отрицание и вопрос",
+        "headers": [
+          "Тип",
+          "Условие",
+          "Результат",
+          "Пример"
+        ],
+        "rows": [
+          [
+            "утверждение",
+            "if + Present Simple",
+            "will + V",
+            "If I finish early, I’ll call you. — Если я закончу рано, я позвоню."
+          ],
+          [
+            "отрицательное условие",
+            "if + do/does not + V",
+            "will + V",
+            "If she doesn’t hurry, she’ll miss the bus. — Если она не поторопится, она опоздает."
+          ],
+          [
+            "отрицательный результат",
+            "if + Present Simple",
+            "will not + V",
+            "If we leave now, we won’t be late. — Если мы уйдём сейчас, мы не опоздаем."
+          ],
+          [
+            "вопрос",
+            "if + Present Simple",
+            "will + subject + V?",
+            "What will you do if you don’t get the job? — Что ты будешь делать, если не получишь работу?"
+          ]
+        ]
+      },
+      {
+        "id": "cond-no-will",
+        "type": "note",
+        "title": "Почему после if обычно не ставим will",
+        "paragraphs": [
+          "В обычном First Conditional после if используется Present Simple, хотя по смыслу речь идёт о будущем. Будущее выражается в главной части.",
+          "Правильно: [[If I get the job, I will move.]] Неправильно в обычном условном значении: [[If I will get the job...]].",
+          "Для уровня B1 удобно правило: после if / unless в условной части — Present Simple; will обычно находится в части с результатом."
+        ],
+        "examples": [
+          {
+            "en": "If she [[passes]] the exam, she [[will celebrate]].",
+            "ru": "Если она [[сдаст]] экзамен, она [[отпразднует]]."
+          }
+        ]
+      },
+      {
+        "id": "cond-second",
+        "type": "formula",
+        "title": "Second Conditional: нереальное или маловероятное условие",
+        "lines": [
+          "[[If + Past Simple]], [[would + infinitive]]",
+          "[[If + Past Simple]], [[could / might + infinitive]]"
+        ],
+        "examples": [
+          {
+            "en": "If I [[had]] more free time, I [[would learn]] Italian.",
+            "ru": "Если бы у меня [[было]] больше свободного времени, я [[учил бы]] итальянский."
+          },
+          {
+            "en": "If they [[lived]] closer, we [[could meet]] more often.",
+            "ru": "Если бы они [[жили]] ближе, мы [[могли бы встречаться]] чаще."
+          },
+          {
+            "en": "If she [[applied]], she [[might get]] the scholarship.",
+            "ru": "Если бы она [[подала заявку]], она [[могла бы получить]] стипендию."
+          }
+        ]
+      },
+      {
+        "id": "cond-compare",
+        "type": "table",
+        "title": "First или Second? Один смысл — разная степень реальности",
+        "headers": [
+          "Ситуация",
+          "First Conditional",
+          "Second Conditional"
+        ],
+        "rows": [
+          [
+            "работа",
+            "If I get the job, I’ll move to London. — Если я получу работу, я перееду в Лондон.",
+            "If I got that job, I’d move to London. — Если бы я получил ту работу, я бы переехал в Лондон."
+          ],
+          [
+            "деньги",
+            "If I save enough, I’ll buy a laptop. — Если накоплю достаточно, куплю ноутбук.",
+            "If I had more money, I’d buy a better laptop. — Если бы у меня было больше денег, я бы купил ноутбук получше."
+          ],
+          [
+            "учёба",
+            "If she gets a scholarship, she’ll study abroad. — Если она получит стипендию, она будет учиться за границей.",
+            "If she got a scholarship, she’d study abroad. — Если бы она получила стипендию, она бы училась за границей."
+          ]
+        ],
+        "note": "Past Simple во Second Conditional не обозначает прошлое. Здесь он показывает дистанцию от реальности."
+      },
+      {
+        "id": "cond-were",
+        "type": "cards",
+        "title": "If I were you и were в гипотезах",
+        "cards": [
+          {
+            "title": "Совет: If I were you",
+            "body": "Устойчивая конструкция для совета. После неё обычно would + infinitive.",
+            "example": {
+              "en": "If I [[were]] you, I [[would prepare]] for the interview.",
+              "ru": "На твоём месте я [[подготовился бы]] к собеседованию."
+            }
+          },
+          {
+            "title": "Почему were?",
+            "body": "В стандартном гипотетическом употреблении were возможно со всеми лицами: if I were, if he were. В разговорной речи с I/he/she встречается was, но в учебных и экзаменационных заданиях безопаснее выбирать were.",
+            "example": {
+              "en": "If he [[were]] more organised, he [[wouldn’t miss]] deadlines.",
+              "ru": "Если бы он [[был]] более организованным, он [[не пропускал бы]] сроки."
+            }
+          }
+        ]
+      },
+      {
+        "id": "cond-unless",
+        "type": "compare",
+        "title": "unless = if ... not",
+        "columns": [
+          {
+            "title": "if + отрицание",
+            "points": [
+              "If you don’t get the right experience, you won’t get the job."
+            ],
+            "examples": [
+              {
+                "en": "I won’t go out [[if I don’t finish]] this work.",
+                "ru": "Я не пойду гулять, [[если не закончу]] эту работу."
+              }
+            ]
+          },
+          {
+            "title": "unless + утвердительная форма",
+            "points": [
+              "Unless you get the right experience, you won’t get the job.",
+              "После unless обычно не добавляем ещё одно not."
+            ],
+            "examples": [
+              {
+                "en": "I won’t go out [[unless I finish]] this work.",
+                "ru": "Я не пойду гулять, [[если не закончу]] эту работу."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cond-modals",
+        "type": "table",
+        "title": "В результате возможны не только will и would",
+        "headers": [
+          "Форма",
+          "Смысл",
+          "Пример"
+        ],
+        "rows": [
+          [
+            "First: can",
+            "реальная возможность / способность",
+            "If you finish early, you can come with us. — Если закончишь рано, сможешь пойти с нами."
+          ],
+          [
+            "First: may",
+            "возможный результат",
+            "If she applies, she may get an interview. — Если она подаст заявку, её могут пригласить."
+          ],
+          [
+            "Second: could",
+            "воображаемая возможность",
+            "If I had more time, I could do a Master’s degree. — Если бы у меня было больше времени, я мог бы учиться в магистратуре."
+          ],
+          [
+            "Second: might",
+            "менее уверенный гипотетический результат",
+            "If he asked, they might help him. — Если бы он попросил, они, возможно, помогли бы."
+          ]
+        ]
+      },
+      {
+        "id": "cond-order",
+        "type": "note",
+        "title": "Порядок частей и запятая",
+        "paragraphs": [
+          "Условная часть может стоять первой или второй; смысл не меняется.",
+          "Если if-clause стоит первой, обычно ставим запятую: [[If I get the job, I’ll move.]]",
+          "Если главная часть стоит первой, запятая обычно не нужна: [[I’ll move if I get the job.]]",
+          "В вопросе вопросительный порядок находится в главной части: [[What would you do if you lost your job?]] В if-clause сохраняется обычный порядок слов."
+        ]
+      },
+      {
+        "id": "cond-decision",
+        "type": "decision",
+        "title": "Как быстро выбрать First или Second Conditional",
+        "items": [
+          {
+            "question": "Это реальная будущая ситуация, которая вполне может произойти?",
+            "yes": "First Conditional: if + Present Simple → will / can / may + V.",
+            "no": "Переходи к следующему вопросу."
+          },
+          {
+            "question": "Это воображаемая, маловероятная или сейчас нереальная ситуация?",
+            "yes": "Second Conditional: if + Past Simple → would / could / might + V.",
+            "no": "Проверь контекст: возможно, нужен другой тип конструкции."
+          },
+          {
+            "question": "Ты даёшь совет со значением «на твоём месте»?",
+            "yes": "If I were you, I would ...",
+            "no": "Определи степень реальности по первым двум вопросам."
+          }
+        ]
+      },
+      {
+        "id": "cond-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки",
+        "items": [
+          {
+            "wrong": "If I will get the job, I will move.",
+            "right": "If I get the job, I will move.",
+            "why": "В обычном First Conditional после if используем Present Simple."
+          },
+          {
+            "wrong": "If I would have more money, I would travel more.",
+            "right": "If I had more money, I would travel more.",
+            "why": "Во Second Conditional would обычно не ставится в if-clause."
+          },
+          {
+            "wrong": "Unless you don’t hurry, you’ll be late.",
+            "right": "Unless you hurry, you’ll be late.",
+            "why": "Unless уже означает «если не»."
+          },
+          {
+            "wrong": "If I was you, I will accept it.",
+            "right": "If I were you, I would accept it.",
+            "why": "Для совета: If I were you + would."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "type": "exercise",
+        "title": "Choose First or Second Conditional",
+        "difficulty": "Easy",
+        "instructions": "Выбери форму, которая соответствует смыслу ситуации.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "If I ___ enough money this month, I’ll buy the course.",
+            "options": [
+              "save",
+              "saved",
+              "would save"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "If I ___ more free time, I’d learn another language.",
+            "options": [
+              "have",
+              "had",
+              "will have"
+            ],
+            "answer": 1
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "If she gets the scholarship, she ___ abroad.",
+            "options": [
+              "will study",
+              "would study",
+              "studied"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "If he ___ closer, we could meet more often.",
+            "options": [
+              "lives",
+              "lived",
+              "will live"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Complete the conditional",
+        "difficulty": "Medium",
+        "instructions": "Впиши правильную форму глагола.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "If she ___ the interview, she’ll call us. (finish)",
+            "acceptedAnswers": [
+              "finishes"
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "If I ___ you, I’d take the job. (be)",
+            "acceptedAnswers": [
+              "were"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "If they offered me the position, I ___ it. (accept)",
+            "acceptedAnswers": [
+              "would accept",
+              "'d accept"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "If we don’t leave now, we ___ the train. (miss)",
+            "acceptedAnswers": [
+              "will miss",
+              "'ll miss"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "unless and modal verbs",
+        "difficulty": "Medium → Hard",
+        "instructions": "Выбери вариант, который грамматически и по смыслу завершает предложение.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "You won’t improve ___ you practise regularly.",
+            "options": [
+              "unless",
+              "unless not",
+              "if not"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "If you finish early, you ___ come with us.",
+            "options": [
+              "can",
+              "would",
+              "had"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "If I had more experience, I ___ apply for that job.",
+            "options": [
+              "could",
+              "will",
+              "can"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "If she applies today, she ___ get an interview.",
+            "options": [
+              "may",
+              "would",
+              "had"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Build and correct the sentence",
+        "difficulty": "Hard",
+        "instructions": "Напиши полное правильное предложение.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "Correct: If I will get the job, I’ll move to London.",
+            "acceptedAnswers": [
+              "If I get the job, I’ll move to London.",
+              "If I get the job, I'll move to London.",
+              "If I get the job, I will move to London."
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "Write with unless: If you don’t get enough experience, you won’t get the job.",
+            "acceptedAnswers": [
+              "Unless you get enough experience, you won’t get the job.",
+              "Unless you get enough experience, you won't get the job.",
+              "Unless you get enough experience, you will not get the job."
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "Give advice: you / be / me / prepare for the interview",
+            "acceptedAnswers": [
+              "If I were you, I would prepare for the interview.",
+              "If I were you, I’d prepare for the interview.",
+              "If I were you, I'd prepare for the interview."
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "Second Conditional: I don’t earn enough money, so I can’t buy my own flat.",
+            "acceptedAnswers": [
+              "If I earned enough money, I could buy my own flat.",
+              "If I earned more money, I could buy my own flat."
+            ]
           }
         ]
       }
