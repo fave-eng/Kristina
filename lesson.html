@@ -114,6 +114,11 @@
             if (block?.type !== 'exercise' || !block.id || !Array.isArray(block.items)) continue;
             const exercise = root.querySelector(`[data-task="${esc(block.id)}"]`);
             if (!exercise) continue;
+
+            // image-spelling-grid already renders item.image inside each card in app.js.
+            // Do not inject the same image a second time here.
+            if (block.layout === 'image-spelling-grid') continue;
+
             if (block.layout === 'media-list') exercise.classList.add('exercise-layout-media-list');
 
             for (const item of block.items) {
