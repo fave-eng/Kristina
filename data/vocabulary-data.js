@@ -2930,5 +2930,176 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Сегодня вечером я остаюсь дома, чтобы заниматься."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-23-television",
+    "title": "Television",
+    "label": "Lesson 23 · Television",
+    "icon": "📺",
+    "type": "lesson",
+    "linkedLessonId": "lesson-23",
+    "page": "vocabulary.html?id=vocab-lesson-23-television",
+    "words": [
+      {
+        "id": "lesson-23-crime-drama",
+        "en": "crime drama",
+        "ru": "криминальная драма",
+        "transcription": "/ˈkraɪm ˌdrɑːmə/",
+        "exampleEn": "We watched a crime drama last night.",
+        "exampleRu": "Вчера вечером мы смотрели криминальную драму."
+      },
+      {
+        "id": "lesson-23-cookery-programme",
+        "en": "cookery programme",
+        "ru": "кулинарная программа",
+        "transcription": "/ˈkʊkəri ˌprəʊɡræm/",
+        "exampleEn": "She learned the recipe from a cookery programme.",
+        "exampleRu": "Она узнала этот рецепт из кулинарной программы."
+      },
+      {
+        "id": "lesson-23-weather-forecast",
+        "en": "weather forecast",
+        "ru": "прогноз погоды",
+        "transcription": "/ˈweðə ˌfɔːkɑːst/",
+        "exampleEn": "I checked the weather forecast before leaving.",
+        "exampleRu": "Я проверил прогноз погоды перед выходом."
+      },
+      {
+        "id": "lesson-23-current-affairs-programme",
+        "en": "current affairs programme",
+        "ru": "программа о текущих событиях",
+        "transcription": "/ˌkʌrənt əˈfeəz ˌprəʊɡræm/",
+        "exampleEn": "The current affairs programme discussed the election results.",
+        "exampleRu": "В программе о текущих событиях обсуждали результаты выборов."
+      },
+      {
+        "id": "lesson-23-cartoon",
+        "en": "cartoon",
+        "ru": "мультфильм; мультсериал",
+        "transcription": "/kɑːˈtuːn/",
+        "exampleEn": "This cartoon is popular with both children and adults.",
+        "exampleRu": "Этот мультфильм популярен и у детей, и у взрослых."
+      },
+      {
+        "id": "lesson-23-documentary",
+        "en": "documentary",
+        "ru": "документальный фильм",
+        "transcription": "/ˌdɒkjuˈmentəri/",
+        "exampleEn": "We watched a documentary about wildlife.",
+        "exampleRu": "Мы посмотрели документальный фильм о дикой природе."
+      },
+      {
+        "id": "lesson-23-advert",
+        "en": "advert",
+        "ru": "реклама; рекламный ролик",
+        "transcription": "/ˈædvɜːt/",
+        "exampleEn": "The advert was only thirty seconds long.",
+        "exampleRu": "Рекламный ролик длился всего тридцать секунд."
+      },
+      {
+        "id": "lesson-23-chat-show",
+        "en": "chat show",
+        "ru": "ток-шоу",
+        "transcription": "/ˈtʃæt ˌʃəʊ/",
+        "exampleEn": "The actor appeared on a chat show.",
+        "exampleRu": "Актёр появился в ток-шоу."
+      },
+      {
+        "id": "lesson-23-live-sport",
+        "en": "live sport",
+        "ru": "спортивная трансляция в прямом эфире",
+        "transcription": "/ˌlaɪv ˈspɔːt/",
+        "exampleEn": "My dad mostly watches live sport.",
+        "exampleRu": "Мой папа в основном смотрит спортивные трансляции в прямом эфире."
+      },
+      {
+        "id": "lesson-23-period-drama",
+        "en": "period drama",
+        "ru": "историческая костюмная драма",
+        "transcription": "/ˈpɪəriəd ˌdrɑːmə/",
+        "exampleEn": "The series is a period drama set in the 1920s.",
+        "exampleRu": "Этот сериал — историческая драма, действие которой происходит в 1920-е годы."
+      },
+      {
+        "id": "lesson-23-quiz-show",
+        "en": "quiz show",
+        "ru": "телевикторина",
+        "transcription": "/ˈkwɪz ˌʃəʊ/",
+        "exampleEn": "The contestants answered questions on a quiz show.",
+        "exampleRu": "Участники отвечали на вопросы в телевикторине."
+      },
+      {
+        "id": "lesson-23-reality-show",
+        "en": "reality show",
+        "ru": "реалити-шоу",
+        "transcription": "/riˈæləti ˌʃəʊ/",
+        "exampleEn": "They became famous after appearing on a reality show.",
+        "exampleRu": "Они стали известны после участия в реалити-шоу."
+      },
+      {
+        "id": "lesson-23-the-news",
+        "en": "the news",
+        "ru": "новости",
+        "transcription": "/ðə ˈnjuːz/",
+        "exampleEn": "I usually watch the news in the evening.",
+        "exampleRu": "Я обычно смотрю новости вечером."
+      },
+      {
+        "id": "lesson-23-sitcom",
+        "en": "sitcom",
+        "ru": "ситком; комедийный сериал",
+        "transcription": "/ˈsɪtkɒm/",
+        "exampleEn": "Friends is a well-known American sitcom.",
+        "exampleRu": "«Друзья» — известный американский ситком."
+      },
+      {
+        "id": "lesson-23-episode",
+        "en": "episode",
+        "ru": "серия; эпизод",
+        "transcription": "/ˈepɪsəʊd/",
+        "exampleEn": "I watched the final episode yesterday.",
+        "exampleRu": "Вчера я посмотрел последнюю серию."
+      },
+      {
+        "id": "lesson-23-series",
+        "en": "series",
+        "ru": "сериал; серия программ",
+        "transcription": "/ˈsɪəriːz/",
+        "exampleEn": "The series became popular around the world.",
+        "exampleRu": "Сериал стал популярным во всём мире."
+      },
+      {
+        "id": "lesson-23-soap",
+        "en": "soap",
+        "ru": "мыльная опера; многосерийная бытовая драма",
+        "transcription": "/səʊp/",
+        "exampleEn": "Coronation Street is a long-running British soap.",
+        "exampleRu": "Coronation Street — британская мыльная опера, которая выходит много лет."
+      },
+      {
+        "id": "lesson-23-box-set",
+        "en": "box set",
+        "ru": "полный комплект сезонов или фильмов",
+        "transcription": "/ˈbɒks set/",
+        "exampleEn": "The box set contains all eight films.",
+        "exampleRu": "В комплект входят все восемь фильмов."
+      },
+      {
+        "id": "lesson-23-season",
+        "en": "season",
+        "ru": "сезон сериала",
+        "transcription": "/ˈsiːzn/",
+        "exampleEn": "The drama ran for six seasons.",
+        "exampleRu": "Драма выходила шесть сезонов."
+      },
+      {
+        "id": "lesson-23-streaming-service",
+        "en": "streaming service",
+        "ru": "стриминговый сервис",
+        "transcription": "/ˈstriːmɪŋ ˌsɜːvɪs/",
+        "exampleEn": "Netflix is a popular streaming service.",
+        "exampleRu": "Netflix — популярный стриминговый сервис."
+      }
+    ]
   }
 ];

@@ -1,0 +1,393 @@
+{
+  "id": "lesson-23",
+  "number": 23,
+  "title": "Screen time",
+  "subtitle": "Vocabulary: television",
+  "status": "available",
+  "publishedAt": "2026-10-20",
+  "totalPoints": 17,
+  "vocabularyId": "vocab-lesson-23-television",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY television",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "television"
+    },
+    {
+      "type": "exercise",
+      "id": "television-1a",
+      "title": "a Complete the words with the missing vowels a, e, i, o, or u.",
+      "layout": "image-spelling-grid",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "answer": "crime drama",
+          "image": "images/lesson-23/01-crime-drama.jpg",
+          "imageAlt": "A scene from a crime television drama"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "image-spelling",
+          "pattern": "c__k_ry pr_gr_mm_",
+          "answer": "cookery programme",
+          "image": "images/lesson-23/02-cookery-programme.jpg",
+          "imageAlt": "Two people cooking in a television studio"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "image-spelling",
+          "pattern": "th_ w__th_r f_r_c_st",
+          "answer": "the weather forecast",
+          "image": "images/lesson-23/03-weather-forecast.jpg",
+          "imageAlt": "A television weather map"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "image-spelling",
+          "pattern": "c_rr_nt _ff__rs pr_gr_mm_",
+          "answer": "current affairs programme",
+          "image": "images/lesson-23/04-current-affairs.jpg",
+          "imageAlt": "A formal current affairs television programme"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "image-spelling",
+          "pattern": "c_rt__n",
+          "answer": "cartoon",
+          "image": "images/lesson-23/05-cartoon.jpg",
+          "imageAlt": "Animated television characters"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "image-spelling",
+          "pattern": "d_c_m_nt_ry",
+          "answer": "documentary",
+          "image": "images/lesson-23/06-documentary.jpg",
+          "imageAlt": "Penguins in a nature programme"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "television-1b",
+      "title": "b Match the extracts to a type of programme from the list.",
+      "wordBank": [
+        "advert",
+        "chat show",
+        "live sport",
+        "period drama",
+        "quiz show",
+        "reality show",
+        "the news"
+      ],
+      "wordBankLabel": "Programme types",
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "select",
+          "segments": [
+            "‘On tonight’s show, two more contestants compete against each other to see who will go through to the next round.’ ",
+            ""
+          ],
+          "options": [
+            "advert",
+            "chat show",
+            "live sport",
+            "period drama",
+            "quiz show",
+            "reality show",
+            "the news"
+          ],
+          "answer": 4
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "‘If you don’t sleep well, it can affect your whole day. Try taking SleepWell, the sleep aid guaranteed to give you a good night’s rest.’ ",
+            ""
+          ],
+          "options": [
+            "advert",
+            "chat show",
+            "live sport",
+            "period drama",
+            "quiz show",
+            "reality show",
+            "the news"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "‘Welcome to stage two of the most famous cycling race in the world.’ ",
+            ""
+          ],
+          "options": [
+            "advert",
+            "chat show",
+            "live sport",
+            "period drama",
+            "quiz show",
+            "reality show",
+            "the news"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "‘So let’s have a look at how the housemates have been getting on today…’ ",
+            ""
+          ],
+          "options": [
+            "advert",
+            "chat show",
+            "live sport",
+            "period drama",
+            "quiz show",
+            "reality show",
+            "the news"
+          ],
+          "answer": 5
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "‘Now on BBC1, a new dramatization of Charles Dickens’s novel Oliver Twist.’ ",
+            ""
+          ],
+          "options": [
+            "advert",
+            "chat show",
+            "live sport",
+            "period drama",
+            "quiz show",
+            "reality show",
+            "the news"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "‘Tonight Graham Norton talks to two special guests, actors Eddie Redmayne and Emma Stone.’ ",
+            ""
+          ],
+          "options": [
+            "advert",
+            "chat show",
+            "live sport",
+            "period drama",
+            "quiz show",
+            "reality show",
+            "the news"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "‘And here, with the latest national and international stories on the hour, is Mark Finch.’ ",
+            ""
+          ],
+          "options": [
+            "advert",
+            "chat show",
+            "live sport",
+            "period drama",
+            "quiz show",
+            "reality show",
+            "the news"
+          ],
+          "answer": 6
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "television-1c",
+      "title": "c Complete the sentences with a word from the list.",
+      "wordBank": [
+        "box set",
+        "episode",
+        "seasons",
+        "series",
+        "sitcom",
+        "soap",
+        "streaming service"
+      ],
+      "wordBankLabel": "Word list",
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "select",
+          "segments": [
+            "Friends was an American ",
+            " about the romantic and often amusing adventures of a group of six friends living in New York."
+          ],
+          "options": [
+            "box set",
+            "episode",
+            "seasons",
+            "series",
+            "sitcom",
+            "soap",
+            "streaming service"
+          ],
+          "answer": 4
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "More than 10 million viewers watched the final ",
+            " of the TV drama Bodyguard."
+          ],
+          "options": [
+            "box set",
+            "episode",
+            "seasons",
+            "series",
+            "sitcom",
+            "soap",
+            "streaming service"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "Game of Thrones is one of the most popular ",
+            " ever shown on TV."
+          ],
+          "options": [
+            "box set",
+            "episode",
+            "seasons",
+            "series",
+            "sitcom",
+            "soap",
+            "streaming service"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "The British ",
+            " Coronation Street follows the lives and problems of the neighbours on a fictional street."
+          ],
+          "options": [
+            "box set",
+            "episode",
+            "seasons",
+            "series",
+            "sitcom",
+            "soap",
+            "streaming service"
+          ],
+          "answer": 5
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "The Harry Potter ",
+            " contains all eight films."
+          ],
+          "options": [
+            "box set",
+            "episode",
+            "seasons",
+            "series",
+            "sitcom",
+            "soap",
+            "streaming service"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "The period drama Downton Abbey ran for a total of six ",
+            "."
+          ],
+          "options": [
+            "box set",
+            "episode",
+            "seasons",
+            "series",
+            "sitcom",
+            "soap",
+            "streaming service"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "Netflix is a ",
+            " that distributes series like Stranger Things and The Crown."
+          ],
+          "options": [
+            "box set",
+            "episode",
+            "seasons",
+            "series",
+            "sitcom",
+            "soap",
+            "streaming service"
+          ],
+          "answer": 6
+        }
+      ]
+    }
+  ]
+}
