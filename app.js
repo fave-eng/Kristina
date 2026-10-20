@@ -252,7 +252,7 @@
       return this.client;
     },
     queue(section) {
-      if (!this.isConfigured() || !this.client || this.syncing) return;
+      if (!this.isConfigured() || this.syncing) return;
       window.clearTimeout(this.timers[section]);
       this.timers[section] = window.setTimeout(() => {
         window.ProgressService.syncToCloud(section).catch((error) => {
@@ -322,6 +322,29 @@
     return { words, topics };
   }
 
+  function normalizeGrammarProgress(value) {
+    const rawTopics = value?.topics && typeof value.topics === 'object' ? value.topics : {};
+    const topics = {};
+    Object.entries(rawTopics).forEach(([topicId, state]) => {
+      const attempts = Math.max(0, Number(state?.attempts || 0));
+      const bestScore = Math.min(100, Math.max(0, Number(state?.bestScore || 0)));
+      const passed = Boolean(state?.passed || bestScore >= 100);
+      const updatedAt = state?.updatedAt || null;
+      const passedAt = passed
+        ? (state?.passedAt || updatedAt || new Date().toISOString())
+        : null;
+      topics[topicId] = {
+        passed,
+        attempts,
+        bestScore,
+        answers: state?.answers && typeof state.answers === 'object' ? state.answers : {},
+        updatedAt,
+        passedAt
+      };
+    });
+    return { topics };
+  }
+
   window.ProgressService = {
     loadHomeworkProgress() {
       const value = storage.read(key('homework'), {});
@@ -350,11 +373,11 @@
       return ok;
     },
     loadGrammarProgress() {
-      const value = storage.read(key('grammar'), {});
-      return { topics: value.topics && typeof value.topics === 'object' ? value.topics : {} };
+      return normalizeGrammarProgress(storage.read(key('grammar'), {}));
     },
     saveGrammarProgress(progress) {
-      const ok = storage.write(key('grammar'), progress || {});
+      const normalized = normalizeGrammarProgress(progress || {});
+      const ok = storage.write(key('grammar'), normalized);
       CloudService.queue('grammar');
       return ok;
     },
@@ -422,15 +445,23 @@
         const grammar = this.loadGrammarProgress();
         (grammarResponse.data || []).forEach((row) => {
           const local = grammar.topics[row.topic_id] || {};
+          const bestScore = Math.max(Number(local.bestScore || 0), Number(row.best_score || 0));
+          const passed = Boolean(local.passed || row.passed || bestScore >= 100);
+          const cloudIsNewer = dateMs(row.updated_at) >= dateMs(local.updatedAt);
+          const updatedAt = cloudIsNewer ? row.updated_at : local.updatedAt;
+          const passedAt = passed
+            ? (local.passedAt || row.passed_at || updatedAt || new Date().toISOString())
+            : null;
           grammar.topics[row.topic_id] = {
-            passed: Boolean(local.passed || row.passed),
+            passed,
             attempts: Math.max(Number(local.attempts || 0), Number(row.attempts || 0)),
-            bestScore: Math.max(Number(local.bestScore || 0), Number(row.best_score || 0)),
+            bestScore,
             answers: local.answers && typeof local.answers === 'object' ? local.answers : {},
-            updatedAt: dateMs(row.updated_at) >= dateMs(local.updatedAt) ? row.updated_at : local.updatedAt
+            updatedAt,
+            passedAt
           };
         });
-        storage.write(key('grammar'), grammar);
+        storage.write(key('grammar'), normalizeGrammarProgress(grammar));
         await this.syncToCloud();
         return true;
       } finally {
@@ -502,13 +533,17 @@
 
       if (sections.includes('grammar')) {
         const progress = this.loadGrammarProgress();
-        const rows = Object.entries(progress.topics).map(([topicId, state]) => ({
-          student_id: studentId,
-          topic_id: topicId,
-          passed: Boolean(state.passed),
-          attempts: Number(state.attempts || 0),
-          best_score: Number(state.bestScore || 0)
-        }));
+        const rows = Object.entries(progress.topics).map(([topicId, state]) => {
+          const passed = Boolean(state.passed || Number(state.bestScore || 0) >= 100);
+          return {
+            student_id: studentId,
+            topic_id: topicId,
+            passed,
+            attempts: Math.max(0, Number(state.attempts || 0)),
+            best_score: Math.min(100, Math.max(0, Number(state.bestScore || 0))),
+            passed_at: passed ? (state.passedAt || state.updatedAt || new Date().toISOString()) : null
+          };
+        });
         if (rows.length) {
           const { error } = await client.from(tables.grammar).upsert(rows, { onConflict: 'student_id,topic_id' });
           if (error) throw error;
@@ -2884,12 +2919,15 @@
         byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct</p>${percent === 100 ? '<p class="grammar-success-note">Excellent! All answers are correct. The topic is marked as learned.</p>' : '<p class="grammar-success-note">There are errors. Correct them and check the exercises again.</p>'}`;
         const latestProgress = window.ProgressService.loadGrammarProgress();
         const previous = latestProgress.topics[topic.id] || {};
+        const checkedAt = new Date().toISOString();
+        const passed = Boolean(previous.passed || percent === 100);
         latestProgress.topics[topic.id] = {
-          passed: Boolean(previous.passed || percent === 100),
+          passed,
           attempts: Number(previous.attempts || 0) + 1,
           bestScore: Math.max(Number(previous.bestScore || 0), percent),
           answers,
-          updatedAt: new Date().toISOString()
+          updatedAt: checkedAt,
+          passedAt: passed ? (previous.passedAt || checkedAt) : null
         };
         window.ProgressService.saveGrammarProgress(latestProgress);
 
