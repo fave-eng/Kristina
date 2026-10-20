@@ -676,6 +676,109 @@
     return items.sort((a, b) => b.order - a.order || a.title.localeCompare(b.title));
   }
 
+  const KNOWLEDGE_IRREGULAR_VERBS = [
+    { base: 'be', past: 'was / were', participle: 'been', ru: 'быть' },
+    { base: 'become', past: 'became', participle: 'become', ru: 'становиться' },
+    { base: 'begin', past: 'began', participle: 'begun', ru: 'начинать' },
+    { base: 'break', past: 'broke', participle: 'broken', ru: 'ломать' },
+    { base: 'bring', past: 'brought', participle: 'brought', ru: 'приносить' },
+    { base: 'build', past: 'built', participle: 'built', ru: 'строить' },
+    { base: 'buy', past: 'bought', participle: 'bought', ru: 'покупать' },
+    { base: 'catch', past: 'caught', participle: 'caught', ru: 'ловить' },
+    { base: 'choose', past: 'chose', participle: 'chosen', ru: 'выбирать' },
+    { base: 'come', past: 'came', participle: 'come', ru: 'приходить' },
+    { base: 'cost', past: 'cost', participle: 'cost', ru: 'стоить' },
+    { base: 'cut', past: 'cut', participle: 'cut', ru: 'резать' },
+    { base: 'do', past: 'did', participle: 'done', ru: 'делать' },
+    { base: 'drink', past: 'drank', participle: 'drunk', ru: 'пить' },
+    { base: 'drive', past: 'drove', participle: 'driven', ru: 'водить' },
+    { base: 'eat', past: 'ate', participle: 'eaten', ru: 'есть' },
+    { base: 'fall', past: 'fell', participle: 'fallen', ru: 'падать' },
+    { base: 'feel', past: 'felt', participle: 'felt', ru: 'чувствовать' },
+    { base: 'find', past: 'found', participle: 'found', ru: 'находить' },
+    { base: 'get', past: 'got', participle: 'got', ru: 'получать' },
+    { base: 'give', past: 'gave', participle: 'given', ru: 'давать' },
+    { base: 'go', past: 'went', participle: 'gone', ru: 'идти' },
+    { base: 'have', past: 'had', participle: 'had', ru: 'иметь' },
+    { base: 'hear', past: 'heard', participle: 'heard', ru: 'слышать' },
+    { base: 'keep', past: 'kept', participle: 'kept', ru: 'держать' },
+    { base: 'know', past: 'knew', participle: 'known', ru: 'знать' },
+    { base: 'leave', past: 'left', participle: 'left', ru: 'покидать' },
+    { base: 'make', past: 'made', participle: 'made', ru: 'делать / создавать' },
+    { base: 'meet', past: 'met', participle: 'met', ru: 'встречать' },
+    { base: 'pay', past: 'paid', participle: 'paid', ru: 'платить' },
+    { base: 'put', past: 'put', participle: 'put', ru: 'класть' },
+    { base: 'read', past: 'read', participle: 'read', ru: 'читать' },
+    { base: 'run', past: 'ran', participle: 'run', ru: 'бегать' },
+    { base: 'say', past: 'said', participle: 'said', ru: 'говорить' },
+    { base: 'see', past: 'saw', participle: 'seen', ru: 'видеть' },
+    { base: 'sell', past: 'sold', participle: 'sold', ru: 'продавать' },
+    { base: 'send', past: 'sent', participle: 'sent', ru: 'отправлять' },
+    { base: 'sit', past: 'sat', participle: 'sat', ru: 'сидеть' },
+    { base: 'sleep', past: 'slept', participle: 'slept', ru: 'спать' },
+    { base: 'speak', past: 'spoke', participle: 'spoken', ru: 'говорить' },
+    { base: 'spend', past: 'spent', participle: 'spent', ru: 'тратить' },
+    { base: 'stand', past: 'stood', participle: 'stood', ru: 'стоять' },
+    { base: 'take', past: 'took', participle: 'taken', ru: 'брать' },
+    { base: 'teach', past: 'taught', participle: 'taught', ru: 'учить' },
+    { base: 'tell', past: 'told', participle: 'told', ru: 'рассказывать' },
+    { base: 'think', past: 'thought', participle: 'thought', ru: 'думать' },
+    { base: 'understand', past: 'understood', participle: 'understood', ru: 'понимать' },
+    { base: 'wear', past: 'wore', participle: 'worn', ru: 'носить' },
+    { base: 'win', past: 'won', participle: 'won', ru: 'выигрывать' },
+    { base: 'write', past: 'wrote', participle: 'written', ru: 'писать' }
+  ];
+
+  function knowledgeLocalDayNumber() {
+    const now = new Date();
+    return Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+  }
+
+  function renderKnowledgeDailyReview(allItems) {
+    const day = knowledgeLocalDayNumber();
+    const grammarItems = allItems.filter((item) => item.type === 'grammar');
+    const usefulGrammar = grammarItems.filter((item) => safeText(item.reference || item.summary).trim());
+    const pool = usefulGrammar.length ? usefulGrammar : grammarItems;
+    const first = pool.length ? pool[day % pool.length] : null;
+    const second = pool.length > 1 ? pool[(day + Math.max(1, Math.floor(pool.length / 2))) % pool.length] : null;
+    const verb = KNOWLEDGE_IRREGULAR_VERBS[day % KNOWLEDGE_IRREGULAR_VERBS.length];
+
+    const ruleCard = (item, label) => {
+      if (!item) return '';
+      const rule = safeText(item.reference || item.summary);
+      return `<a class="knowledge-daily-card knowledge-daily-rule" href="${escapeHtml(item.href)}">
+        <div class="knowledge-daily-top"><span>${escapeHtml(label)}</span><span aria-hidden="true">📐</span></div>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(rule)}</p>
+        <span class="knowledge-daily-open">Open full rule <span aria-hidden="true">→</span></span>
+      </a>`;
+    };
+
+    const verbCard = verb ? `<article class="knowledge-daily-card knowledge-daily-verb">
+      <div class="knowledge-daily-top"><span>Irregular verb of the day</span><span aria-hidden="true">🔁</span></div>
+      <div class="knowledge-verb-word">${escapeHtml(verb.base)}</div>
+      <div class="knowledge-verb-forms" aria-label="Verb forms">
+        <div><span>V1</span><strong>${escapeHtml(verb.base)}</strong></div>
+        <div><span>V2</span><strong>${escapeHtml(verb.past)}</strong></div>
+        <div><span>V3</span><strong>${escapeHtml(verb.participle)}</strong></div>
+      </div>
+      <p class="knowledge-verb-translation">${escapeHtml(verb.ru)}</p>
+      <span class="knowledge-daily-note">A new verb appears tomorrow.</span>
+    </article>` : '';
+
+    return `<section class="knowledge-daily" aria-label="Daily revision">
+      <div class="knowledge-daily-heading">
+        <div><span class="eyebrow">Today</span><h3>Quick revision</h3></div>
+        <span class="knowledge-daily-badge">Changes daily</span>
+      </div>
+      <div class="knowledge-daily-grid">
+        ${ruleCard(first, 'Rule of the day')}
+        ${ruleCard(second, 'One more rule')}
+        ${verbCard}
+      </div>
+    </section>`;
+  }
+
   function renderKnowledgeBase() {
     const root = byId('knowledge-base-root');
     if (!root) return;
@@ -691,16 +794,8 @@
     let expanded = false;
     const previewLimit = 6;
 
-    const grammarCount = allItems.filter((item) => item.type === 'grammar').length;
-    const vocabularyCount = allItems.filter((item) => item.type === 'vocabulary').length;
-    const learnedCount = allItems.filter((item) => item.status === 'learned').length;
-
     root.innerHTML = `<div class="knowledge-shell">
-      <div class="knowledge-overview" aria-label="Knowledge base summary">
-        <div class="knowledge-stat"><strong>${grammarCount}</strong><span>Grammar topics</span></div>
-        <div class="knowledge-stat"><strong>${vocabularyCount}</strong><span>Vocabulary topics</span></div>
-        <div class="knowledge-stat"><strong>${learnedCount}</strong><span>Fully learned</span></div>
-      </div>
+      ${renderKnowledgeDailyReview(allItems)}
 
       <div class="knowledge-toolbar card">
         <label class="knowledge-search-wrap" for="knowledge-search">
@@ -715,14 +810,13 @@
       </div>
 
       <div class="knowledge-results-head">
-        <p id="knowledge-result-count" class="muted" aria-live="polite"></p>
+        <p class="muted">Course materials</p>
         <button class="knowledge-expand-btn" type="button" id="knowledge-expand">Show all</button>
       </div>
       <div class="knowledge-grid" id="knowledge-grid"></div>
     </div>`;
 
     const grid = byId('knowledge-grid');
-    const count = byId('knowledge-result-count');
     const expandButton = byId('knowledge-expand');
     const search = byId('knowledge-search');
     const filters = root.querySelector('.knowledge-filters');
@@ -762,10 +856,9 @@
       grid.innerHTML = visible.length
         ? visible.map(cardMarkup).join('')
         : `<div class="knowledge-empty"><span aria-hidden="true">🔎</span><strong>Nothing found</strong><p>Try another word or switch the filter.</p></div>`;
-      count.textContent = filtered.length === 1 ? '1 material' : `${filtered.length} materials`;
       const canCollapse = filtered.length > previewLimit && !normalizedQuery && type === 'all';
       expandButton.hidden = filtered.length <= previewLimit || normalizedQuery || type !== 'all';
-      if (!expandButton.hidden) expandButton.textContent = expanded ? 'Show less' : `Show all ${filtered.length}`;
+      if (!expandButton.hidden) expandButton.textContent = expanded ? 'Show less' : 'Show all';
       if (!canCollapse && expanded && (normalizedQuery || type !== 'all')) expanded = false;
     };
 
@@ -790,6 +883,7 @@
 
     draw();
   }
+
 
   function renderHome() {
     const t = totals();
