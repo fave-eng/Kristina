@@ -328,7 +328,9 @@
     Object.entries(rawTopics).forEach(([topicId, state]) => {
       const attempts = Math.max(0, Number(state?.attempts || 0));
       const bestScore = Math.min(100, Math.max(0, Number(state?.bestScore || 0)));
-      const passed = Boolean(state?.passed || bestScore >= 100);
+      // A grammar topic is completed only after a genuine 100% result.
+      // Do not trust an old/stale passed flag if the recorded best score is below 100.
+      const passed = bestScore >= 100;
       const updatedAt = state?.updatedAt || null;
       const passedAt = passed
         ? (state?.passedAt || updatedAt || new Date().toISOString())
@@ -337,7 +339,10 @@
         passed,
         attempts,
         bestScore,
+        // A completed topic normally has no stored answers. If the learner starts a new
+        // practice attempt later, that unfinished attempt can still be kept locally.
         answers: state?.answers && typeof state.answers === 'object' ? state.answers : {},
+        checked: Boolean(state?.checked || (state?.answers && typeof state.answers === 'object' && Object.keys(state.answers).length)),
         updatedAt,
         passedAt
       };
@@ -446,7 +451,8 @@
         (grammarResponse.data || []).forEach((row) => {
           const local = grammar.topics[row.topic_id] || {};
           const bestScore = Math.max(Number(local.bestScore || 0), Number(row.best_score || 0));
-          const passed = Boolean(local.passed || row.passed || bestScore >= 100);
+          // Completion is derived from the score, never from a stale boolean flag.
+          const passed = bestScore >= 100;
           const cloudIsNewer = dateMs(row.updated_at) >= dateMs(local.updatedAt);
           const updatedAt = cloudIsNewer ? row.updated_at : local.updatedAt;
           const passedAt = passed
@@ -457,6 +463,7 @@
             attempts: Math.max(Number(local.attempts || 0), Number(row.attempts || 0)),
             bestScore,
             answers: local.answers && typeof local.answers === 'object' ? local.answers : {},
+            checked: Boolean(local.checked || (local.answers && typeof local.answers === 'object' && Object.keys(local.answers).length)),
             updatedAt,
             passedAt
           };
@@ -534,13 +541,14 @@
       if (sections.includes('grammar')) {
         const progress = this.loadGrammarProgress();
         const rows = Object.entries(progress.topics).map(([topicId, state]) => {
-          const passed = Boolean(state.passed || Number(state.bestScore || 0) >= 100);
+          const bestScore = Math.min(100, Math.max(0, Number(state.bestScore || 0)));
+          const passed = bestScore >= 100;
           return {
             student_id: studentId,
             topic_id: topicId,
             passed,
             attempts: Math.max(0, Number(state.attempts || 0)),
-            best_score: Math.min(100, Math.max(0, Number(state.bestScore || 0))),
+            best_score: bestScore,
             passed_at: passed ? (state.passedAt || state.updatedAt || new Date().toISOString()) : null
           };
         });
@@ -2527,17 +2535,23 @@
 
       total += 1;
       if (result.correct) correctCount += 1;
-      itemNode.classList.toggle('is-correct', result.correct);
+      const onlyHighlightErrors = options.onlyHighlightErrors === true;
+      itemNode.classList.toggle('is-correct', !onlyHighlightErrors && result.correct);
       itemNode.classList.toggle('is-wrong', !result.correct);
       itemNode.classList.remove('is-saved');
       if (feedback) {
-        feedback.className = `feedback show ${result.correct ? 'good' : 'bad'}`;
-        const hideAnswerOnError = options.hideAnswersOnError === true || block.hideAnswersOnError === true || item.hideAnswersOnError === true;
-        feedback.textContent = result.correct
-          ? 'Correct!'
-          : hideAnswerOnError
-            ? 'Incorrect. Check your answer and try again.'
-            : safeText(item.explanation, 'Check the answer and try again.');
+        if (result.correct && onlyHighlightErrors) {
+          feedback.className = 'feedback';
+          feedback.textContent = '';
+        } else {
+          feedback.className = `feedback show ${result.correct ? 'good' : 'bad'}`;
+          const hideAnswerOnError = options.hideAnswersOnError === true || block.hideAnswersOnError === true || item.hideAnswersOnError === true;
+          feedback.textContent = result.correct
+            ? 'Correct!'
+            : hideAnswerOnError
+              ? 'Check this answer and try again.'
+              : safeText(item.explanation, 'Check the answer and try again.');
+        }
       }
     });
 
@@ -2875,32 +2889,45 @@
       return;
     }
 
+    const applySavedGrammarErrors = (savedTopic) => {
+      if (!savedTopic?.checked) return;
+      let correct = 0;
+      let total = 0;
+      exercises.forEach((block, index) => {
+        const node = root.querySelector(`[data-grammar-exercise="${index}"]`);
+        if (!node) return;
+        const result = checkExerciseBlock(block, node, { hideAnswersOnError: true, onlyHighlightErrors: true });
+        correct += Number(result.correctCount || 0);
+        total += Number(result.total || 0);
+      });
+      const percent = safePercent(correct, total);
+      byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct</p><p class="grammar-success-note">The answers that need another try are highlighted. Correct only those places and check again.</p>`;
+    };
+
     const renderPractice = () => {
       const progress = window.ProgressService.loadGrammarProgress();
       const savedTopic = progress.topics[topic.id] || {};
       root.innerHTML = `${exercises.map((block, index) => renderGrammarExercise(block, index)).join('')}
         <div class="card grammar-practice-actions">
-          <div id="grammar-result"><h3>Practise step by step</h3><p class="muted">Start with the easier tasks and move on to the more challenging ones.</p></div>
+          <div id="grammar-result">${savedTopic.passed && !savedTopic.checked
+            ? '<h3>Topic completed</h3><p class="grammar-success-note">You have already completed this topic with 100%. The exercises are empty so you can practise again independently.</p>'
+            : '<h3>Practise step by step</h3><p class="muted">Start with the easier tasks and move on to the more challenging ones.</p>'}</div>
           <div class="button-row"><button class="btn btn-primary" type="button" id="check-grammar">Check exercises</button><button class="btn btn-secondary" type="button" id="retry-grammar">Start again</button></div>
         </div>`;
 
-      exercises.forEach((block, index) => {
-        const blockId = safeText(block.id, `grammar-exercise-${index + 1}`);
-        const node = root.querySelector(`[data-grammar-exercise="${index}"]`);
-        if (node) restoreExerciseAnswers(block, node, savedTopic.answers?.[blockId]);
-      });
+      // Restore only an active unfinished attempt. A completed topic with no active
+      // attempt opens with blank fields, so it can be practised again independently.
+      if (savedTopic.checked) {
+        exercises.forEach((block, index) => {
+          const blockId = safeText(block.id, `grammar-exercise-${index + 1}`);
+          const node = root.querySelector(`[data-grammar-exercise="${index}"]`);
+          if (node) restoreExerciseAnswers(block, node, savedTopic.answers?.[blockId]);
+        });
+        applySavedGrammarErrors(savedTopic);
+      }
 
       const checkButton = byId('check-grammar');
       const retryButton = byId('retry-grammar');
-      const lockPassedTopic = Boolean(savedTopic.passed && topic.lockOnPass === true);
-      if (lockPassedTopic) {
-        setGrammarPracticeLocked(root, true);
-        checkButton.disabled = true;
-        retryButton.disabled = true;
-        retryButton.hidden = true;
-        byId('grammar-result').innerHTML = '<h3>Topic completed</h3><p class="grammar-success-note">All answers are correct. The topic is marked as learned, and the answer fields are locked.</p>';
-        return;
-      }
 
       checkButton.addEventListener('click', () => {
         let correct = 0;
@@ -2910,36 +2937,54 @@
           const node = root.querySelector(`[data-grammar-exercise="${index}"]`);
           if (!node) return;
           const blockId = safeText(block.id, `grammar-exercise-${index + 1}`);
-          const result = checkExerciseBlock(block, node, { hideAnswersOnError: topic.revealAnswersOnError === false });
+          // Grammar never reveals the correct answer after an error. Only the exact item that needs work is marked.
+          const result = checkExerciseBlock(block, node, { hideAnswersOnError: true, onlyHighlightErrors: true });
           answers[blockId] = result.actual;
           correct += Number(result.correctCount || 0);
           total += Number(result.total || 0);
         });
+
         const percent = safePercent(correct, total);
-        byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct</p>${percent === 100 ? '<p class="grammar-success-note">Excellent! All answers are correct. The topic is marked as learned.</p>' : '<p class="grammar-success-note">There are errors. Correct them and check the exercises again.</p>'}`;
         const latestProgress = window.ProgressService.loadGrammarProgress();
         const previous = latestProgress.topics[topic.id] || {};
         const checkedAt = new Date().toISOString();
-        const passed = Boolean(previous.passed || percent === 100);
+        const bestScore = Math.max(Number(previous.bestScore || 0), percent);
+        const passed = bestScore >= 100;
+
         latestProgress.topics[topic.id] = {
           passed,
           attempts: Number(previous.attempts || 0) + 1,
-          bestScore: Math.max(Number(previous.bestScore || 0), percent),
-          answers,
+          bestScore,
+          // Keep the current attempt only while it still contains errors.
+          // At 100% the answers are erased; the completed topic can later be practised again from a blank state.
+          answers: percent === 100 ? {} : answers,
+          checked: percent !== 100,
           updatedAt: checkedAt,
           passedAt: passed ? (previous.passedAt || checkedAt) : null
         };
         window.ProgressService.saveGrammarProgress(latestProgress);
 
-        if (percent === 100 && topic.lockOnPass === true) {
-          setGrammarPracticeLocked(root, true);
-          checkButton.disabled = true;
-          retryButton.disabled = true;
-          retryButton.hidden = true;
+        if (percent === 100) {
+          byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">100% correct</p><p class="grammar-success-note">Excellent! The topic is completed. Your answers are not stored, so you can practise the topic again later from scratch.</p>`;
+          // Do not lock the inputs. The learner may review the current result or press Start again for a fresh attempt.
+        } else {
+          byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct</p><p class="grammar-success-note">The answers that need another try are highlighted. Correct only those places and check again.</p>`;
         }
       });
 
-      retryButton.addEventListener('click', renderPractice);
+      retryButton.addEventListener('click', () => {
+        const latestProgress = window.ProgressService.loadGrammarProgress();
+        const previous = latestProgress.topics[topic.id] || {};
+        // Start again clears only the current unfinished answer draft. It never removes a genuine 100% completion.
+        latestProgress.topics[topic.id] = {
+          ...previous,
+          answers: {},
+          checked: false,
+          updatedAt: new Date().toISOString()
+        };
+        window.ProgressService.saveGrammarProgress(latestProgress);
+        renderPractice();
+      });
     };
 
     renderPractice();
