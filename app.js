@@ -2340,8 +2340,12 @@
         : block.image
           ? [{ src: block.image, alt: block.imageAlt || '', label: '' }]
           : [];
-      const image = imageEntries.length
-        ? `<div class="exercise-images${imageEntries.length > 1 ? ' exercise-images-multiple' : ''}">${imageEntries.map((entry) => {
+      // image-spelling-grid already renders each item's image inside its own card.
+      // Suppress the generic exercise-level image renderer so the same pictures
+      // are not shown a second time above the cards.
+      const visibleImageEntries = block.layout === 'image-spelling-grid' ? [] : imageEntries;
+      const image = visibleImageEntries.length
+        ? `<div class="exercise-images${visibleImageEntries.length > 1 ? ' exercise-images-multiple' : ''}">${visibleImageEntries.map((entry) => {
             const src = typeof entry === 'string' ? entry : entry?.src;
             const alt = typeof entry === 'string' ? '' : entry?.alt || '';
             const label = typeof entry === 'string' ? '' : entry?.label || '';
