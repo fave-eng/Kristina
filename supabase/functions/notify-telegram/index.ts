@@ -66,7 +66,7 @@ function telegramBotTokenForStudent(studentId: string): string {
     ? Deno.env.get('TELEGRAM_BOT_TOKEN_MARINA')
     : Deno.env.get('TELEGRAM_BOT_TOKEN_COMMON')
 
-  return dedicatedToken || Deno.env.get('TELEGRAM_BOT_TOKEN') || ''
+  return dedicatedToken || ''
 }
 
 function notifyWebhookSecretForStudent(studentId: string): string {
@@ -74,7 +74,7 @@ function notifyWebhookSecretForStudent(studentId: string): string {
     ? Deno.env.get('NOTIFY_WEBHOOK_SECRET_MARINA')
     : Deno.env.get('NOTIFY_WEBHOOK_SECRET_COMMON')
 
-  return dedicatedSecret || Deno.env.get('NOTIFY_WEBHOOK_SECRET') || ''
+  return dedicatedSecret || ''
 }
 
 function escapeTelegramHtml(value: unknown): string {
