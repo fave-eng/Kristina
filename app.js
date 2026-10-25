@@ -1407,7 +1407,12 @@
 
     const clueMarkup = (direction) => {
       const list = entryList.filter((entry) => entry.direction === direction);
-      return `<section class="crossword-clue-column"><h4>${direction === 'across' ? 'ACROSS →' : 'DOWN ↓'}</h4><div class="crossword-clue-list">${list.map((entry) => `<button class="crossword-clue-row${entry.example ? ' is-example' : ''}" type="button" data-crossword-grid-clue="${escapeHtml(entry.id)}"><span class="crossword-clue-number">${escapeHtml(entry.number)}</span><span>${escapeHtml(entry.clue || '')}</span></button>`).join('')}</div></section>`;
+      return `<section class="crossword-clue-column"><h4>${direction === 'across' ? 'ACROSS →' : 'DOWN ↓'}</h4><div class="crossword-clue-list">${list.map((entry) => {
+        const clueVisual = entry.clueImage
+          ? `<span class="crossword-clue-visual"><img src="${escapeHtml(entry.clueImage)}" alt="${escapeHtml(entry.clueAlt || `Picture clue ${entry.number}`)}" loading="lazy" style="display:block;width:min(180px,100%);height:auto;max-height:110px;object-fit:contain;border-radius:8px;"><span class="sr-only">${escapeHtml(entry.clue || 'Picture clue')}</span></span>`
+          : `<span>${escapeHtml(entry.clue || '')}</span>`;
+        return `<button class="crossword-clue-row${entry.example ? ' is-example' : ''}" type="button" data-crossword-grid-clue="${escapeHtml(entry.id)}"><span class="crossword-clue-number">${escapeHtml(entry.number)}</span>${clueVisual}</button>`;
+      }).join('')}</div></section>`;
     };
 
     const defaultLabel = defaultEntry

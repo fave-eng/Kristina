@@ -3300,5 +3300,304 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Многие телеканалы доступны онлайн."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-26-the-country",
+    "title": "The country",
+    "label": "Lesson 26 · The country",
+    "icon": "🌿",
+    "type": "lesson",
+    "linkedLessonId": "lesson-26",
+    "page": "vocabulary.html?id=vocab-lesson-26-the-country",
+    "words": [
+      {
+        "id": "lesson-26-wood",
+        "en": "wood",
+        "ru": "лес, лесистая местность",
+        "transcription": "/wʊd/",
+        "exampleEn": "We walked through the wood.",
+        "exampleRu": "Мы гуляли по лесу."
+      },
+      {
+        "id": "lesson-26-hill",
+        "en": "hill",
+        "ru": "холм",
+        "transcription": "/hɪl/",
+        "exampleEn": "The house is on a hill.",
+        "exampleRu": "Дом находится на холме."
+      },
+      {
+        "id": "lesson-26-valley",
+        "en": "valley",
+        "ru": "долина",
+        "transcription": "/ˈvæli/",
+        "exampleEn": "A river runs through the valley.",
+        "exampleRu": "Через долину течёт река."
+      },
+      {
+        "id": "lesson-26-stream",
+        "en": "stream",
+        "ru": "ручей",
+        "transcription": "/striːm/",
+        "exampleEn": "There is a small stream behind the house.",
+        "exampleRu": "За домом есть небольшой ручей."
+      },
+      {
+        "id": "lesson-26-bush",
+        "en": "bush",
+        "ru": "куст",
+        "transcription": "/bʊʃ/",
+        "exampleEn": "There are bushes along the path.",
+        "exampleRu": "Вдоль тропинки растут кусты."
+      },
+      {
+        "id": "lesson-26-gate",
+        "en": "gate",
+        "ru": "ворота, калитка",
+        "transcription": "/ɡeɪt/",
+        "exampleEn": "Please close the gate.",
+        "exampleRu": "Пожалуйста, закрой калитку."
+      },
+      {
+        "id": "lesson-26-lake",
+        "en": "lake",
+        "ru": "озеро",
+        "transcription": "/leɪk/",
+        "exampleEn": "They live near a lake.",
+        "exampleRu": "Они живут рядом с озером."
+      },
+      {
+        "id": "lesson-26-field",
+        "en": "field",
+        "ru": "поле",
+        "transcription": "/fiːld/",
+        "exampleEn": "The cows are in the field.",
+        "exampleRu": "Коровы находятся в поле."
+      },
+      {
+        "id": "lesson-26-cliff",
+        "en": "cliff",
+        "ru": "утёс, обрыв",
+        "transcription": "/klɪf/",
+        "exampleEn": "The path goes along the cliff.",
+        "exampleRu": "Тропа идёт вдоль обрыва."
+      },
+      {
+        "id": "lesson-26-well",
+        "en": "well",
+        "ru": "колодец",
+        "transcription": "/wel/",
+        "exampleEn": "The farm has an old well.",
+        "exampleRu": "На ферме есть старый колодец."
+      },
+      {
+        "id": "lesson-26-stones",
+        "en": "stones",
+        "ru": "камни, небольшие куски камня",
+        "transcription": "/stəʊnz/",
+        "exampleEn": "The path is covered with stones.",
+        "exampleRu": "Тропинка покрыта камнями."
+      },
+      {
+        "id": "lesson-26-fence",
+        "en": "fence",
+        "ru": "забор, ограда",
+        "transcription": "/fens/",
+        "exampleEn": "There is a wooden fence around the field.",
+        "exampleRu": "Вокруг поля стоит деревянный забор."
+      },
+      {
+        "id": "lesson-26-grass",
+        "en": "grass",
+        "ru": "трава",
+        "transcription": "/ɡrɑːs/",
+        "exampleEn": "The grass is wet this morning.",
+        "exampleRu": "Сегодня утром трава мокрая."
+      },
+      {
+        "id": "lesson-26-branch",
+        "en": "branch",
+        "ru": "ветка",
+        "transcription": "/brɑːntʃ/",
+        "exampleEn": "A bird is sitting on a branch.",
+        "exampleRu": "Птица сидит на ветке."
+      },
+      {
+        "id": "lesson-26-sticks",
+        "en": "sticks",
+        "ru": "палочки, веточки",
+        "transcription": "/stɪks/",
+        "exampleEn": "We collected some dry sticks.",
+        "exampleRu": "Мы собрали сухие веточки."
+      },
+      {
+        "id": "lesson-26-hedge",
+        "en": "hedge",
+        "ru": "живая изгородь",
+        "transcription": "/hedʒ/",
+        "exampleEn": "A hedge separates the two fields.",
+        "exampleRu": "Живая изгородь разделяет два поля."
+      },
+      {
+        "id": "lesson-26-mud",
+        "en": "mud",
+        "ru": "грязь, мокрая земля",
+        "transcription": "/mʌd/",
+        "exampleEn": "My boots are covered in mud.",
+        "exampleRu": "Мои ботинки в грязи."
+      },
+      {
+        "id": "lesson-26-rocks",
+        "en": "rocks",
+        "ru": "крупные камни, скалы",
+        "transcription": "/rɒks/",
+        "exampleEn": "There are large rocks near the coast.",
+        "exampleRu": "У побережья есть большие камни."
+      },
+      {
+        "id": "lesson-26-path",
+        "en": "path",
+        "ru": "тропа, дорожка",
+        "transcription": "/pɑːθ/",
+        "exampleEn": "Follow the path through the woods.",
+        "exampleRu": "Иди по тропинке через лес."
+      },
+      {
+        "id": "lesson-26-leaf",
+        "en": "leaf",
+        "ru": "лист растения или дерева",
+        "transcription": "/liːf/",
+        "exampleEn": "A leaf fell from the tree.",
+        "exampleRu": "С дерева упал лист."
+      },
+      {
+        "id": "lesson-26-ripe",
+        "en": "ripe",
+        "ru": "спелый, созревший",
+        "transcription": "/raɪp/",
+        "exampleEn": "The apples are ripe.",
+        "exampleRu": "Яблоки созрели."
+      },
+      {
+        "id": "lesson-26-planted",
+        "en": "planted",
+        "ru": "посаженный; посадили",
+        "transcription": "/ˈplɑːntɪd/",
+        "exampleEn": "The seeds were planted in spring.",
+        "exampleRu": "Семена посадили весной."
+      },
+      {
+        "id": "lesson-26-tractor",
+        "en": "tractor",
+        "ru": "трактор",
+        "transcription": "/ˈtræktə/",
+        "exampleEn": "The farmer is driving a tractor.",
+        "exampleRu": "Фермер ведёт трактор."
+      },
+      {
+        "id": "lesson-26-sheep",
+        "en": "sheep",
+        "ru": "овца; овцы",
+        "transcription": "/ʃiːp/",
+        "exampleEn": "There are sheep in the field.",
+        "exampleRu": "В поле есть овцы."
+      },
+      {
+        "id": "lesson-26-cockerel",
+        "en": "cockerel",
+        "ru": "петух",
+        "transcription": "/ˈkɒkərəl/",
+        "exampleEn": "A cockerel is standing near the farm.",
+        "exampleRu": "Петух стоит рядом с фермой."
+      },
+      {
+        "id": "lesson-26-cow",
+        "en": "cow",
+        "ru": "корова",
+        "transcription": "/kaʊ/",
+        "exampleEn": "The cow is eating grass.",
+        "exampleRu": "Корова ест траву."
+      },
+      {
+        "id": "lesson-26-grow",
+        "en": "grow",
+        "ru": "выращивать; расти",
+        "transcription": "/ɡrəʊ/",
+        "exampleEn": "They grow vegetables on the farm.",
+        "exampleRu": "Они выращивают овощи на ферме."
+      },
+      {
+        "id": "lesson-26-farmhouse",
+        "en": "farmhouse",
+        "ru": "фермерский дом",
+        "transcription": "/ˈfɑːmhaʊs/",
+        "exampleEn": "They live in an old farmhouse.",
+        "exampleRu": "Они живут в старом фермерском доме."
+      },
+      {
+        "id": "lesson-26-barn",
+        "en": "barn",
+        "ru": "амбар, сарай",
+        "transcription": "/bɑːn/",
+        "exampleEn": "The hay is stored in the barn.",
+        "exampleRu": "Сено хранится в амбаре."
+      },
+      {
+        "id": "lesson-26-wheat",
+        "en": "wheat",
+        "ru": "пшеница",
+        "transcription": "/wiːt/",
+        "exampleEn": "Wheat can be made into flour.",
+        "exampleRu": "Из пшеницы можно сделать муку."
+      },
+      {
+        "id": "lesson-26-crops",
+        "en": "crops",
+        "ru": "сельскохозяйственные культуры, урожай",
+        "transcription": "/krɒps/",
+        "exampleEn": "Farmers grow different crops.",
+        "exampleRu": "Фермеры выращивают разные культуры."
+      },
+      {
+        "id": "lesson-26-donkey",
+        "en": "donkey",
+        "ru": "осёл",
+        "transcription": "/ˈdɒŋki/",
+        "exampleEn": "The donkey is standing by the fence.",
+        "exampleRu": "Осёл стоит у забора."
+      },
+      {
+        "id": "lesson-26-lambs",
+        "en": "lambs",
+        "ru": "ягнята",
+        "transcription": "/læmz/",
+        "exampleEn": "The lambs are in the field.",
+        "exampleRu": "Ягнята находятся в поле."
+      },
+      {
+        "id": "lesson-26-pick",
+        "en": "pick",
+        "ru": "срывать, собирать",
+        "transcription": "/pɪk/",
+        "exampleEn": "We picked apples from the tree.",
+        "exampleRu": "Мы сорвали яблоки с дерева."
+      },
+      {
+        "id": "lesson-26-harvested",
+        "en": "harvested",
+        "ru": "собранный (об урожае)",
+        "transcription": "/ˈhɑːvɪstɪd/",
+        "exampleEn": "The wheat was harvested in August.",
+        "exampleRu": "Пшеницу собрали в августе."
+      },
+      {
+        "id": "lesson-26-hens",
+        "en": "hens",
+        "ru": "куры",
+        "transcription": "/henz/",
+        "exampleEn": "The hens are outside the barn.",
+        "exampleRu": "Куры находятся у амбара."
+      }
+    ]
   }
 ];
