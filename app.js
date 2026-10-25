@@ -2135,7 +2135,10 @@
       const inputType = item.input === 'multiple' ? 'checkbox' : 'radio';
       control = `<div class="option-list compact-options">${(item.options || []).map((option, optionIndex) => `<label class="option"><input type="${inputType}" name="${escapeHtml(inputId)}" value="${optionIndex}"><span>${escapeHtml(option)}</span></label>`).join('')}</div>`;
     } else if (item.input === 'select') {
-      const selectControl = `<select id="${escapeHtml(inputId)}"><option value="">Choose an answer</option>${(item.options || []).map((option, optionIndex) => `<option value="${optionIndex}">${escapeHtml(option)}</option>`).join('')}</select>`;
+      const compactSelectStyle = item.compactSelect === true
+        ? ' style="width:min(145px,42vw);min-width:96px;max-width:145px;padding:6px 24px 6px 8px;"'
+        : '';
+      const selectControl = `<select id="${escapeHtml(inputId)}"${compactSelectStyle}><option value="">Choose</option>${(item.options || []).map((option, optionIndex) => `<option value="${optionIndex}">${escapeHtml(option)}</option>`).join('')}</select>`;
       const segments = Array.isArray(item.segments) ? item.segments : [];
       control = segments.length >= 2
         ? `<div class="sentence-gaps sentence-select-gap" aria-label="${prompt}"><span>${escapeHtml(segments[0] || '')}</span>${selectControl}<span>${escapeHtml(segments[1] || '')}</span></div>`

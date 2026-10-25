@@ -243,7 +243,8 @@
             "streaming",
             "two-screen"
           ],
-          "answer": 3
+          "answer": 3,
+          "compactSelect": true
         },
         {
           "id": "2",
@@ -262,7 +263,8 @@
             "streaming",
             "two-screen"
           ],
-          "answer": 0
+          "answer": 0,
+          "compactSelect": true
         },
         {
           "id": "3",
@@ -281,7 +283,8 @@
             "streaming",
             "two-screen"
           ],
-          "answer": 1
+          "answer": 1,
+          "compactSelect": true
         },
         {
           "id": "4",
@@ -300,7 +303,8 @@
             "streaming",
             "two-screen"
           ],
-          "answer": 6
+          "answer": 6,
+          "compactSelect": true
         },
         {
           "id": "5",
@@ -319,7 +323,8 @@
             "streaming",
             "two-screen"
           ],
-          "answer": 5
+          "answer": 5,
+          "compactSelect": true
         },
         {
           "id": "6",
@@ -338,7 +343,8 @@
             "streaming",
             "two-screen"
           ],
-          "answer": 2
+          "answer": 2,
+          "compactSelect": true
         },
         {
           "id": "7",
@@ -357,7 +363,8 @@
             "streaming",
             "two-screen"
           ],
-          "answer": 4
+          "answer": 4,
+          "compactSelect": true
         }
       ]
     },
@@ -381,13 +388,14 @@
           "example": true,
           "exampleLabel": "EXAMPLE",
           "exampleAnswer": "vote",
-          "prompt": "1"
+          "prompt": "",
+          "exampleMode": "text"
         },
         {
           "id": "2",
           "number": 2,
           "input": "text",
-          "prompt": "2",
+          "prompt": "",
           "acceptedAnswers": [
             "bake"
           ]
@@ -396,7 +404,7 @@
           "id": "3",
           "number": 3,
           "input": "text",
-          "prompt": "3",
+          "prompt": "",
           "acceptedAnswers": [
             "van"
           ]
@@ -405,7 +413,7 @@
           "id": "4",
           "number": 4,
           "input": "text",
-          "prompt": "4",
+          "prompt": "",
           "acceptedAnswers": [
             "born"
           ]
@@ -414,7 +422,7 @@
           "id": "5",
           "number": 5,
           "input": "text",
-          "prompt": "5",
+          "prompt": "",
           "acceptedAnswers": [
             "bin"
           ]
@@ -423,7 +431,7 @@
           "id": "6",
           "number": 6,
           "input": "text",
-          "prompt": "6",
+          "prompt": "",
           "acceptedAnswers": [
             "verse"
           ]
@@ -432,7 +440,7 @@
           "id": "7",
           "number": 7,
           "input": "text",
-          "prompt": "7",
+          "prompt": "",
           "acceptedAnswers": [
             "very"
           ]
@@ -441,7 +449,7 @@
           "id": "8",
           "number": 8,
           "input": "text",
-          "prompt": "8",
+          "prompt": "",
           "acceptedAnswers": [
             "best"
           ]
@@ -460,7 +468,9 @@
           "number": 1,
           "example": true,
           "exampleLabel": "EXAMPLE",
-          "prompt": "What’s the weather forecast for the weekend?"
+          "prompt": "",
+          "exampleTarget": "What’s the weather forecast for the weekend?",
+          "showExampleNumber": true
         },
         {
           "id": "2",
