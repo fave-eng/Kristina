@@ -1,0 +1,722 @@
+{
+  "id": "lesson-24",
+  "number": 24,
+  "title": "Screen time",
+  "subtitle": "Television, pronunciation and present perfect simple",
+  "status": "available",
+  "publishedAt": "2026-10-25",
+  "totalPoints": 36,
+  "vocabularyId": "vocab-lesson-24-screen-time",
+  "grammarIds": [
+    "grammar-present-perfect-simple"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY television",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "television"
+    },
+    {
+      "type": "exercise",
+      "id": "television-1d",
+      "title": "d Match the bold phrasal verbs to definitions a–f.",
+      "instructions": "Choose the definition that matches the bold phrase in each question.",
+      "wordBank": [
+        "a press a button to stop the TV working",
+        "b it’s being shown on TV at this moment",
+        "c make the volume quieter",
+        "d press a button to start the TV working",
+        "e make the volume louder",
+        "f press a button to watch a different channel"
+      ],
+      "wordBankLabel": "Definitions",
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "select",
+          "segments": [
+            "Do you turn on the TV as soon as you get home? Why / Why not? ",
+            ""
+          ],
+          "options": [
+            "a press a button to stop the TV working",
+            "b it’s being shown on TV at this moment",
+            "c make the volume quieter",
+            "d press a button to start the TV working",
+            "e make the volume louder",
+            "f press a button to watch a different channel"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "What do you normally do first: fall asleep or turn off the TV? ",
+            ""
+          ],
+          "options": [
+            "a press a button to stop the TV working",
+            "b it’s being shown on TV at this moment",
+            "c make the volume quieter",
+            "d press a button to start the TV working",
+            "e make the volume louder",
+            "f press a button to watch a different channel"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "How would you feel if someone turned over to another channel when you were watching something? ",
+            ""
+          ],
+          "options": [
+            "a press a button to stop the TV working",
+            "b it’s being shown on TV at this moment",
+            "c make the volume quieter",
+            "d press a button to start the TV working",
+            "e make the volume louder",
+            "f press a button to watch a different channel"
+          ],
+          "answer": 5
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "Which TV programme do you watch most often? When is it on? ",
+            ""
+          ],
+          "options": [
+            "a press a button to stop the TV working",
+            "b it’s being shown on TV at this moment",
+            "c make the volume quieter",
+            "d press a button to start the TV working",
+            "e make the volume louder",
+            "f press a button to watch a different channel"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "When might you turn the TV down? ",
+            ""
+          ],
+          "options": [
+            "a press a button to stop the TV working",
+            "b it’s being shown on TV at this moment",
+            "c make the volume quieter",
+            "d press a button to start the TV working",
+            "e make the volume louder",
+            "f press a button to watch a different channel"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "When would you turn it up? ",
+            ""
+          ],
+          "options": [
+            "a press a button to stop the TV working",
+            "b it’s being shown on TV at this moment",
+            "c make the volume quieter",
+            "d press a button to start the TV working",
+            "e make the volume louder",
+            "f press a button to watch a different channel"
+          ],
+          "answer": 4
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "television-1e",
+      "title": "e Answer the questions in d about you.",
+      "instructions": "Write your own answers. These answers are saved but are not auto-graded.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "textarea",
+          "prompt": "Do you turn on the TV as soon as you get home? Why / Why not?",
+          "placeholder": "Write your answer...",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "textarea",
+          "prompt": "What do you normally do first: fall asleep or turn off the TV?",
+          "placeholder": "Write your answer...",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "textarea",
+          "prompt": "How would you feel if someone turned over to another channel when you were watching something?",
+          "placeholder": "Write your answer...",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "textarea",
+          "prompt": "Which TV programme do you watch most often? When is it on?",
+          "placeholder": "Write your answer...",
+          "scored": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "textarea",
+          "prompt": "When might you turn the TV down?",
+          "placeholder": "Write your answer...",
+          "scored": false
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "textarea",
+          "prompt": "When would you turn it up?",
+          "placeholder": "Write your answer...",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "vocabulary-from-listening",
+      "title": "VOCABULARY FROM LISTENING · Complete the sentences with a word from the list.",
+      "wordBank": [
+        "binge-watched",
+        "catch-up",
+        "channels",
+        "contestants",
+        "device",
+        "streaming",
+        "two-screen"
+      ],
+      "wordBankLabel": "Word list",
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "select",
+          "segments": [
+            "The show starts with four pairs of ",
+            ", but only one pair goes through to the final."
+          ],
+          "options": [
+            "binge-watched",
+            "catch-up",
+            "channels",
+            "contestants",
+            "device",
+            "streaming",
+            "two-screen"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "select",
+          "segments": [
+            "I know several people who ",
+            " all five series of Breaking Bad in a week."
+          ],
+          "options": [
+            "binge-watched",
+            "catch-up",
+            "channels",
+            "contestants",
+            "device",
+            "streaming",
+            "two-screen"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "select",
+          "segments": [
+            "I missed my favourite soap last night, so I’m going to watch it on ",
+            " tonight."
+          ],
+          "options": [
+            "binge-watched",
+            "catch-up",
+            "channels",
+            "contestants",
+            "device",
+            "streaming",
+            "two-screen"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "select",
+          "segments": [
+            "I usually tell people to put down their phones if they ",
+            " while we’re watching TV."
+          ],
+          "options": [
+            "binge-watched",
+            "catch-up",
+            "channels",
+            "contestants",
+            "device",
+            "streaming",
+            "two-screen"
+          ],
+          "answer": 6
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "select",
+          "segments": [
+            "My family uses ",
+            " services more than TV."
+          ],
+          "options": [
+            "binge-watched",
+            "catch-up",
+            "channels",
+            "contestants",
+            "device",
+            "streaming",
+            "two-screen"
+          ],
+          "answer": 5
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "select",
+          "segments": [
+            "A huge number of TV ",
+            " in the UK are available to watch online."
+          ],
+          "options": [
+            "binge-watched",
+            "catch-up",
+            "channels",
+            "contestants",
+            "device",
+            "streaming",
+            "two-screen"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "select",
+          "segments": [
+            "If you want to watch live TV online, you need a ",
+            " like a tablet or a smartphone."
+          ],
+          "options": [
+            "binge-watched",
+            "catch-up",
+            "channels",
+            "contestants",
+            "device",
+            "streaming",
+            "two-screen"
+          ],
+          "answer": 4
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "PRONUNCIATION /w/, /v/, and /b/",
+      "sectionNumber": 2,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "/w/, /v/, and /b/"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2a",
+      "title": "a 5.1 Listen and write the words you hear.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_5.1.mp3",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleAnswer": "vote",
+          "prompt": "1"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "text",
+          "prompt": "2",
+          "acceptedAnswers": [
+            "bake"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "text",
+          "prompt": "3",
+          "acceptedAnswers": [
+            "van"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "text",
+          "prompt": "4",
+          "acceptedAnswers": [
+            "born"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "text",
+          "prompt": "5",
+          "acceptedAnswers": [
+            "bin"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "text",
+          "prompt": "6",
+          "acceptedAnswers": [
+            "verse"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "text",
+          "prompt": "7",
+          "acceptedAnswers": [
+            "very"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "text",
+          "prompt": "8",
+          "acceptedAnswers": [
+            "best"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2c",
+      "title": "c 5.2 Listen and complete the sentences.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_5.2.mp3",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "prompt": "What’s the weather forecast for the weekend?"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "The viewers ",
+            " for the ",
+            "."
+          ],
+          "answers": [
+            "voted",
+            "best band"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "Have you ever ",
+            " or Cambodia?"
+          ],
+          "answers": [
+            "visited Vietnam"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "Did you ",
+            " the ",
+            " show on ",
+            "?"
+          ],
+          "answers": [
+            "watch",
+            "quiz",
+            "Wednesday"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "The ",
+            " team won a ",
+            "."
+          ],
+          "answers": [
+            "volleyball",
+            "valuable victory"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "We’ve been ",
+            " since we set up our new ",
+            "."
+          ],
+          "answers": [
+            "very busy",
+            "business"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2d",
+      "title": "d 5.2 Listen again and repeat the sentences.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_5.2.mp3",
+      "items": [
+        {
+          "id": "done",
+          "number": "",
+          "input": "checkbox",
+          "prompt": "I listened again and repeated the sentences.",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "GRAMMAR present perfect simple",
+      "sectionNumber": 3,
+      "titleLead": "GRAMMAR",
+      "titleTail": "present perfect simple"
+    },
+    {
+      "type": "exercise",
+      "id": "present-perfect-3a",
+      "title": "a Correct any mistakes in the highlighted phrases. Tick (✓) the correct sentences.",
+      "instructions": "If the highlighted phrase is wrong, type only the corrected phrase. If it is correct, tick the checkbox. The correct answer is not shown when you make a mistake.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "contextParts": [
+            {
+              "text": "Have you seen",
+              "highlight": true
+            },
+            " tomorrow’s weather forecast?"
+          ],
+          "input": "correction-or-check",
+          "exampleMode": "correction-or-check",
+          "expectedCorrect": true
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "correction-or-check",
+          "contextParts": [
+            "The documentary ",
+            {
+              "text": "just has finished",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Type only the corrected phrase",
+          "acceptedAnswers": [
+            "has just finished"
+          ],
+          "expectedCorrect": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "correction-or-check",
+          "contextParts": [
+            "They’ve had the same TV ",
+            {
+              "text": "since 20 years",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Type only the corrected phrase",
+          "acceptedAnswers": [
+            "for 20 years"
+          ],
+          "expectedCorrect": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "I’ve already seen",
+              "highlight": true
+            },
+            " this film."
+          ],
+          "placeholder": "Type only the corrected phrase",
+          "acceptedAnswers": [],
+          "expectedCorrect": true
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "Have you ever been",
+              "highlight": true
+            },
+            " on TV?"
+          ],
+          "placeholder": "Type only the corrected phrase",
+          "acceptedAnswers": [],
+          "expectedCorrect": true
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "correction-or-check",
+          "contextParts": [
+            "I haven’t watched that programme ",
+            {
+              "text": "since they changed the presenter",
+              "highlight": true
+            },
+            "."
+          ],
+          "placeholder": "Type only the corrected phrase",
+          "acceptedAnswers": [],
+          "expectedCorrect": true
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "correction-or-check",
+          "contextParts": [
+            "Lauren and Steve ",
+            {
+              "text": "know each other",
+              "highlight": true
+            },
+            " for ages."
+          ],
+          "placeholder": "Type only the corrected phrase",
+          "acceptedAnswers": [
+            "have known each other",
+            "’ve known each other",
+            "'ve known each other"
+          ],
+          "expectedCorrect": false
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "I’ve never liked",
+              "highlight": true
+            },
+            " watching live sport."
+          ],
+          "placeholder": "Type only the corrected phrase",
+          "acceptedAnswers": [],
+          "expectedCorrect": true
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "correction-or-check",
+          "contextParts": [
+            {
+              "text": "Hasn’t yet the news started?",
+              "highlight": true
+            }
+          ],
+          "placeholder": "Type only the corrected phrase",
+          "acceptedAnswers": [
+            "Hasn’t the news started yet?",
+            "Hasn't the news started yet?",
+            "Hasn’t the news started yet",
+            "Hasn't the news started yet"
+          ],
+          "expectedCorrect": false
+        }
+      ]
+    }
+  ]
+}

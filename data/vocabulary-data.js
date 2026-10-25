@@ -3185,5 +3185,120 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Netflix — популярный стриминговый сервис."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-24-screen-time",
+    "title": "Screen time: viewing habits",
+    "label": "Lesson 24 · Screen time: viewing habits",
+    "icon": "📺",
+    "type": "lesson",
+    "linkedLessonId": "lesson-24",
+    "page": "vocabulary.html?id=vocab-lesson-24-screen-time",
+    "words": [
+      {
+        "id": "lesson-24-turn-on",
+        "en": "turn on",
+        "ru": "включать",
+        "transcription": "/tɜːn ˈɒn/",
+        "exampleEn": "Do you turn on the TV as soon as you get home?",
+        "exampleRu": "Ты включаешь телевизор сразу, как приходишь домой?"
+      },
+      {
+        "id": "lesson-24-turn-off",
+        "en": "turn off",
+        "ru": "выключать",
+        "transcription": "/tɜːn ˈɒf/",
+        "exampleEn": "I usually turn off the TV before I fall asleep.",
+        "exampleRu": "Я обычно выключаю телевизор перед тем, как заснуть."
+      },
+      {
+        "id": "lesson-24-turn-over",
+        "en": "turn over",
+        "ru": "переключить на другой канал",
+        "transcription": "/tɜːn ˈəʊvə/",
+        "exampleEn": "He turned over to another channel.",
+        "exampleRu": "Он переключил на другой канал."
+      },
+      {
+        "id": "lesson-24-be-on",
+        "en": "be on",
+        "ru": "идти, показываться по телевизору",
+        "transcription": "/bi ˈɒn/",
+        "exampleEn": "What time is the programme on?",
+        "exampleRu": "Во сколько идёт эта программа?"
+      },
+      {
+        "id": "lesson-24-turn-down",
+        "en": "turn down",
+        "ru": "убавить громкость",
+        "transcription": "/tɜːn ˈdaʊn/",
+        "exampleEn": "Could you turn the TV down?",
+        "exampleRu": "Можешь сделать телевизор потише?"
+      },
+      {
+        "id": "lesson-24-turn-up",
+        "en": "turn up",
+        "ru": "прибавить громкость",
+        "transcription": "/tɜːn ˈʌp/",
+        "exampleEn": "Turn it up — I can’t hear the presenter.",
+        "exampleRu": "Сделай погромче — я не слышу ведущего."
+      },
+      {
+        "id": "lesson-24-binge-watched",
+        "en": "binge-watched",
+        "ru": "посмотрел(а) много серий подряд; смотрел(а) запоем",
+        "transcription": "/ˈbɪndʒ ˌwɒtʃt/",
+        "exampleEn": "They binge-watched all five series in a week.",
+        "exampleRu": "Они посмотрели все пять сезонов подряд за неделю."
+      },
+      {
+        "id": "lesson-24-catch-up",
+        "en": "catch-up",
+        "ru": "просмотр пропущенных телепередач позже",
+        "transcription": "/ˈkætʃ ʌp/",
+        "exampleEn": "I’m going to watch it on catch-up tonight.",
+        "exampleRu": "Сегодня вечером я посмотрю пропущенную передачу в записи."
+      },
+      {
+        "id": "lesson-24-contestant",
+        "en": "contestant",
+        "ru": "участник конкурса или телешоу",
+        "transcription": "/kənˈtestənt/",
+        "exampleEn": "Four pairs of contestants start the show.",
+        "exampleRu": "Шоу начинают четыре пары участников."
+      },
+      {
+        "id": "lesson-24-device",
+        "en": "device",
+        "ru": "устройство",
+        "transcription": "/dɪˈvaɪs/",
+        "exampleEn": "You need a device like a tablet or smartphone.",
+        "exampleRu": "Тебе нужно устройство, например планшет или смартфон."
+      },
+      {
+        "id": "lesson-24-streaming",
+        "en": "streaming",
+        "ru": "стриминг; потоковая передача контента",
+        "transcription": "/ˈstriːmɪŋ/",
+        "exampleEn": "My family uses streaming services more than TV.",
+        "exampleRu": "Моя семья чаще пользуется стриминговыми сервисами, чем телевидением."
+      },
+      {
+        "id": "lesson-24-two-screen",
+        "en": "two-screen",
+        "ru": "использовать два экрана одновременно",
+        "transcription": "/ˌtuː ˈskriːn/",
+        "exampleEn": "Some people two-screen while they’re watching TV.",
+        "exampleRu": "Некоторые люди пользуются вторым экраном, пока смотрят телевизор."
+      },
+      {
+        "id": "lesson-24-channel",
+        "en": "channel",
+        "ru": "телеканал",
+        "transcription": "/ˈtʃænəl/",
+        "exampleEn": "Many TV channels are available online.",
+        "exampleRu": "Многие телеканалы доступны онлайн."
+      }
+    ]
   }
 ];

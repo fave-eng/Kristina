@@ -4008,5 +4008,540 @@ window.GRAMMAR_DATA = [
         ]
       }
     ]
+  },
+  {
+    "id": "grammar-present-perfect-simple",
+    "order": 10,
+    "title": "Present perfect simple",
+    "level": "B1",
+    "status": "available",
+    "page": "grammar-topic.html?id=grammar-present-perfect-simple",
+    "passed": false,
+    "attempts": 0,
+    "linkedLessonId": "lesson-24",
+    "revealAnswersOnError": false,
+    "lockOnPass": false,
+    "explanation": "Present Perfect Simple связывает прошлое с настоящим. Действие произошло раньше, но важен его результат сейчас, жизненный опыт до настоящего момента или период, который начался в прошлом и всё ещё продолжается.",
+    "formula": "have / has + past participle (V3)",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
+    "chapter": [
+      {
+        "id": "pp-core-idea",
+        "type": "compare",
+        "title": "Главная идея: прошлое связано с настоящим",
+        "columns": [
+          {
+            "title": "Present Perfect",
+            "points": [
+              "Точное законченное время в прошлом не называется.",
+              "Результат или опыт важен сейчас.",
+              "Период может продолжаться до настоящего момента."
+            ],
+            "examples": [
+              {
+                "en": "I [[have lost]] my wallet.",
+                "ru": "Я [[потерял]] кошелёк.",
+                "note": "Результат важен сейчас: кошелька у меня нет."
+              },
+              {
+                "en": "Have you ever [[been]] on TV?",
+                "ru": "Ты когда-нибудь [[был]] на телевидении?"
+              }
+            ]
+          },
+          {
+            "title": "Past Simple",
+            "points": [
+              "Говорим о законченном прошлом.",
+              "Часто называем конкретное время: yesterday, last week, in 2024, two days ago.",
+              "Событие рассматривается как завершённый факт прошлого."
+            ],
+            "examples": [
+              {
+                "en": "I [[lost]] my wallet yesterday.",
+                "ru": "Я [[потерял]] кошелёк вчера."
+              },
+              {
+                "en": "Did you [[watch]] the programme last night?",
+                "ru": "Ты [[смотрел]] программу вчера вечером?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pp-form",
+        "type": "table",
+        "title": "Как строится Present Perfect Simple",
+        "headers": [
+          "Тип",
+          "Структура",
+          "Пример"
+        ],
+        "rows": [
+          [
+            "утверждение",
+            "I / you / we / they + have + V3; he / she / it + has + V3",
+            "She has finished. — Она закончила."
+          ],
+          [
+            "отрицание",
+            "have not / has not + V3",
+            "I haven’t watched it. — Я это не смотрел."
+          ],
+          [
+            "вопрос",
+            "Have / Has + subject + V3?",
+            "Have you seen this film? — Ты видел этот фильм?"
+          ],
+          [
+            "краткий ответ",
+            "Yes, I have. / No, I haven’t. · Yes, she has. / No, she hasn’t.",
+            "Have they arrived? — Yes, they have."
+          ]
+        ]
+      },
+      {
+        "id": "pp-v3",
+        "type": "note",
+        "title": "V3: третья форма глагола",
+        "paragraphs": [
+          "У правильных глаголов V3 обычно совпадает с Past Simple: watch → watched → watched.",
+          "У неправильных глаголов форму нужно знать отдельно: see → saw → seen; be → was/were → been; know → knew → known.",
+          "После have / has нельзя ставить Past Simple: [[have saw]] неверно, правильно [[have seen]]."
+        ]
+      },
+      {
+        "id": "pp-result-experience",
+        "type": "cards",
+        "title": "Результат сейчас и жизненный опыт",
+        "cards": [
+          {
+            "title": "Результат сейчас",
+            "body": "Действие произошло раньше, но его результат важен в настоящем.",
+            "example": {
+              "en": "The documentary [[has finished]].",
+              "ru": "Документальный фильм [[закончился]]."
+            }
+          },
+          {
+            "title": "Жизненный опыт",
+            "body": "Говорим о том, случалось ли что-то когда-либо до настоящего момента. Точное время неважно.",
+            "example": {
+              "en": "[[Have]] you ever [[been]] on TV?",
+              "ru": "Ты когда-нибудь [[был]] на телевидении?"
+            }
+          }
+        ]
+      },
+      {
+        "id": "pp-just-already-yet",
+        "type": "table",
+        "title": "just, already, yet",
+        "headers": [
+          "Слово",
+          "Значение и позиция",
+          "Пример"
+        ],
+        "rows": [
+          [
+            "just",
+            "«только что»; обычно между have/has и V3",
+            "The programme has just finished. — Программа только что закончилась."
+          ],
+          [
+            "already",
+            "«уже»; обычно между have/has и V3",
+            "I’ve already seen this film. — Я уже видел этот фильм."
+          ],
+          [
+            "yet",
+            "«уже?» / «ещё не»; обычно в конце вопроса или отрицания",
+            "Has the news started yet? — Новости уже начались?"
+          ]
+        ]
+      },
+      {
+        "id": "pp-ever-never",
+        "type": "compare",
+        "title": "ever и never",
+        "columns": [
+          {
+            "title": "ever",
+            "points": [
+              "Обычно используется в вопросах о жизненном опыте.",
+              "Стоит перед V3."
+            ],
+            "examples": [
+              {
+                "en": "Have you [[ever been]] on TV?",
+                "ru": "Ты [[когда-нибудь был]] на телевидении?"
+              }
+            ]
+          },
+          {
+            "title": "never",
+            "points": [
+              "Означает «никогда».",
+              "Само слово уже отрицательное, поэтому not не нужен."
+            ],
+            "examples": [
+              {
+                "en": "I’ve [[never liked]] live sport.",
+                "ru": "Мне [[никогда не нравились]] спортивные трансляции."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pp-for-since",
+        "type": "table",
+        "title": "for и since: сколько времени и с какого момента",
+        "headers": [
+          "Предлог",
+          "Используем с",
+          "Пример"
+        ],
+        "rows": [
+          [
+            "for",
+            "периодом времени: for 20 years, for ages, for a month",
+            "They’ve had the same TV for 20 years. — У них один и тот же телевизор уже 20 лет."
+          ],
+          [
+            "since",
+            "точкой начала: since Monday, since 2020, since they changed the presenter",
+            "I haven’t watched it since they changed the presenter. — Я не смотрел это с тех пор, как сменили ведущего."
+          ]
+        ],
+        "note": "Не говорим [[since 20 years]]. Для длительности нужен [[for 20 years]]."
+      },
+      {
+        "id": "pp-continuing-states",
+        "type": "note",
+        "title": "Состояние началось в прошлом и продолжается сейчас",
+        "paragraphs": [
+          "С глаголами состояния Present Perfect часто показывает, что ситуация началась раньше и всё ещё верна сейчас.",
+          "Особенно часто это видно с know, have, like, love, believe и выражениями for / since."
+        ],
+        "examples": [
+          {
+            "en": "Lauren and Steve [[have known]] each other for ages.",
+            "ru": "Лорен и Стив [[знают]] друг друга уже много лет."
+          },
+          {
+            "en": "They [[have had]] the same TV for 20 years.",
+            "ru": "У них один и тот же телевизор уже 20 лет."
+          }
+        ]
+      },
+      {
+        "id": "pp-word-order",
+        "type": "note",
+        "title": "Порядок слов",
+        "paragraphs": [
+          "В утверждении just, already, ever, never обычно стоят после have / has и перед V3.",
+          "В вопросе have / has ставится перед подлежащим: [[Has the news started yet?]]",
+          "Yet обычно остаётся в конце: [[Hasn’t the news started yet?]]"
+        ]
+      },
+      {
+        "id": "pp-vs-past-simple",
+        "type": "compare",
+        "title": "Present Perfect или Past Simple?",
+        "columns": [
+          {
+            "title": "Present Perfect",
+            "points": [
+              "Нет законченного времени прошлого.",
+              "Важен результат сейчас.",
+              "Говорим об опыте до настоящего момента.",
+              "Ситуация продолжается до настоящего."
+            ],
+            "examples": [
+              {
+                "en": "I [[have seen]] this film.",
+                "ru": "Я видел этот фильм."
+              }
+            ]
+          },
+          {
+            "title": "Past Simple",
+            "points": [
+              "Есть законченное время прошлого.",
+              "Событие полностью относится к прошлому."
+            ],
+            "examples": [
+              {
+                "en": "I [[saw]] this film last week.",
+                "ru": "Я видел этот фильм на прошлой неделе."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pp-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки",
+        "items": [
+          {
+            "wrong": "The reporter haven’t switched on her microphone.",
+            "right": "The reporter hasn’t switched on her microphone.",
+            "why": "С he / she / it используем has / hasn’t."
+          },
+          {
+            "wrong": "The documentary just has finished.",
+            "right": "The documentary has just finished.",
+            "why": "Just обычно стоит между has и V3."
+          },
+          {
+            "wrong": "They’ve had the same TV since 20 years.",
+            "right": "They’ve had the same TV for 20 years.",
+            "why": "For + период времени; since + точка начала."
+          },
+          {
+            "wrong": "Lauren and Steve know each other for ages.",
+            "right": "Lauren and Steve have known each other for ages.",
+            "why": "Состояние началось в прошлом и продолжается сейчас."
+          },
+          {
+            "wrong": "Hasn’t yet the news started?",
+            "right": "Hasn’t the news started yet?",
+            "why": "В вопросе has стоит перед подлежащим, а yet обычно в конце."
+          }
+        ]
+      },
+      {
+        "id": "pp-decision",
+        "type": "decision",
+        "title": "Как выбрать время",
+        "items": [
+          {
+            "question": "Есть конкретное законченное время в прошлом: yesterday, last night, in 2024, two days ago?",
+            "yes": "Обычно нужен Past Simple.",
+            "no": "Переходи к следующему вопросу."
+          },
+          {
+            "question": "Важен результат сейчас или жизненный опыт до настоящего момента?",
+            "yes": "Используй Present Perfect.",
+            "no": "Переходи к следующему вопросу."
+          },
+          {
+            "question": "Ситуация началась раньше и продолжается сейчас?",
+            "yes": "Используй Present Perfect; часто понадобятся for или since.",
+            "no": "Проверь контекст и значение глагола."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "type": "exercise",
+        "title": "Build the form",
+        "difficulty": "Easy",
+        "instructions": "Choose the correct Present Perfect form.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "She ___ the programme.",
+            "options": [
+              "has watched",
+              "have watched",
+              "has watch"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "They ___ the news yet.",
+            "options": [
+              "haven’t seen",
+              "hasn’t seen",
+              "didn’t seen"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "___ you ever ___ on TV?",
+            "options": [
+              "Have / been",
+              "Did / been",
+              "Has / be"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "The documentary ___ just ___.",
+            "options": [
+              "has / finished",
+              "have / finished",
+              "has / finish"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "just, already, yet, ever, never",
+        "difficulty": "Medium",
+        "instructions": "Choose the word that fits the meaning and position.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "I’ve ___ seen this film.",
+            "options": [
+              "already",
+              "yet",
+              "ever"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "Has the news started ___?",
+            "options": [
+              "yet",
+              "already",
+              "never"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "Have you ___ been on TV?",
+            "options": [
+              "ever",
+              "yet",
+              "just"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "I’ve ___ liked watching live sport.",
+            "options": [
+              "never",
+              "yet",
+              "ever"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "for or since?",
+        "difficulty": "Medium",
+        "instructions": "Choose for or since.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "They’ve had the same TV ___ 20 years.",
+            "options": [
+              "for",
+              "since"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "I haven’t watched that programme ___ they changed the presenter.",
+            "options": [
+              "since",
+              "for"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "We’ve known each other ___ ages.",
+            "options": [
+              "for",
+              "since"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "She has lived here ___ 2022.",
+            "options": [
+              "since",
+              "for"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "type": "exercise",
+        "title": "Present Perfect or Past Simple?",
+        "difficulty": "Hard",
+        "instructions": "Choose the tense that matches the time reference.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "I ___ this film last week.",
+            "options": [
+              "saw",
+              "have seen"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "I ___ this film before.",
+            "options": [
+              "have seen",
+              "saw"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "___ you ever ___ a live TV show?",
+            "options": [
+              "Have / watched",
+              "Did / watch"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "We ___ the match yesterday.",
+            "options": [
+              "watched",
+              "have watched"
+            ],
+            "answer": 0
+          }
+        ]
+      }
+    ]
   }
 ];
