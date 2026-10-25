@@ -141,7 +141,7 @@
       "type": "exercise",
       "id": "present-perfect-3c",
       "title": "c Complete the second sentence so that it has a similar meaning to the first sentence. Use the word in brackets.",
-      "instructions": "Write only the missing part of the second sentence. Keep the meaning the same.",
+      "instructions": "Complete the second sentence. Type the missing words directly into the gap in the sentence.",
       "items": [
         {
           "id": "1",
@@ -149,127 +149,130 @@
           "example": true,
           "exampleLabel": "EXAMPLE",
           "showExampleNumber": true,
-          "exampleTarget": "has been an actress since",
+          "exampleMode": "gaps",
           "prompt": "Jennifer Lawrence became an actress when she was a child. (since)",
-          "contextParts": [
+          "segments": [
             "Jennifer Lawrence ",
-            {
-              "text": "has been an actress since",
-              "highlight": true
-            },
             " she was a child."
+          ],
+          "exampleAnswers": [
+            "has been an actress since"
           ]
         },
         {
           "id": "2",
           "number": 2,
-          "input": "text",
+          "input": "gaps",
           "prompt": "My friend bought his speakers a week ago. (had)",
-          "contextParts": [
+          "segments": [
             "My friend ",
             " a week."
           ],
-          "placeholder": "Write the missing words",
-          "acceptedAnswers": [
-            "has had his speakers for",
-            "he has had his speakers for",
-            "he's had his speakers for",
-            "he’s had his speakers for"
+          "answers": [
+            [
+              "has had his speakers for",
+              "'s had his speakers for",
+              "’s had his speakers for"
+            ]
           ]
         },
         {
           "id": "3",
           "number": 3,
-          "input": "text",
+          "input": "gaps",
           "prompt": "I got home two minutes ago. (just)",
-          "contextParts": [
+          "segments": [
             "I ",
             " home."
           ],
-          "placeholder": "Write the missing words",
-          "acceptedAnswers": [
-            "have just got",
-            "I've just got",
-            "I’ve just got"
+          "answers": [
+            [
+              "have just got",
+              "'ve just got",
+              "’ve just got"
+            ]
           ]
         },
         {
           "id": "4",
           "number": 4,
-          "input": "text",
+          "input": "gaps",
           "prompt": "Is this your first time in Spain? (been)",
-          "contextParts": [
+          "segments": [
             "",
             " before?"
           ],
-          "placeholder": "Write the missing words",
-          "acceptedAnswers": [
-            "Have you been to Spain",
-            "have you been to Spain"
+          "answers": [
+            [
+              "Have you been to Spain",
+              "have you been to Spain"
+            ]
           ]
         },
         {
           "id": "5",
           "number": 5,
-          "input": "text",
+          "input": "gaps",
           "prompt": "We moved house in 2005, 2008, and 2012. (times)",
-          "contextParts": [
+          "segments": [
             "We ",
             "."
           ],
-          "placeholder": "Write the missing words",
-          "acceptedAnswers": [
-            "have moved house three times",
-            "we have moved house three times",
-            "we've moved house three times",
-            "we’ve moved house three times"
+          "answers": [
+            [
+              "have moved house three times",
+              "'ve moved house three times",
+              "’ve moved house three times"
+            ]
           ]
         },
         {
           "id": "6",
           "number": 6,
-          "input": "text",
+          "input": "gaps",
           "prompt": "I didn’t like cartoons in the past, and I don’t like them now. (never)",
-          "contextParts": [
+          "segments": [
             "I ",
             " cartoons."
           ],
-          "placeholder": "Write the missing words",
-          "acceptedAnswers": [
-            "have never liked",
-            "I've never liked",
-            "I’ve never liked"
+          "answers": [
+            [
+              "have never liked",
+              "'ve never liked",
+              "’ve never liked"
+            ]
           ]
         },
         {
           "id": "7",
           "number": 7,
-          "input": "text",
+          "input": "gaps",
           "prompt": "They’ve been married for ten years. (get)",
-          "contextParts": [
+          "segments": [
             "They ",
             "."
           ],
-          "placeholder": "Write the missing words",
-          "acceptedAnswers": [
-            "got married ten years ago",
-            "they got married ten years ago"
+          "answers": [
+            [
+              "got married ten years ago"
+            ]
           ]
         },
         {
           "id": "8",
           "number": 8,
-          "input": "text",
+          "input": "gaps",
           "prompt": "I don’t want a coffee, thanks. I had one at home. (already)",
-          "contextParts": [
+          "segments": [
             "I don’t want a coffee, thanks. I ",
             "."
           ],
-          "placeholder": "Write the missing words",
-          "acceptedAnswers": [
-            "have already had one",
-            "I've already had one",
-            "I’ve already had one"
+          "answers": [
+            [
+              "have already had one",
+              "'ve already had one",
+              "’ve already had one"
+            ]
           ]
         }
       ]
