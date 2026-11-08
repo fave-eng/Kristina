@@ -4577,3 +4577,98 @@ a.knowledge-daily-card:hover {
 }
 .article-inline-answer.is-wrong::after { content: '✕'; color: #be123c; }
 .article-inline-answer.is-correct::after { content: '✓'; color: #15803d; }
+
+/* Lesson 30: restaurant vocabulary, workbook-style spelling and a/b/c choices. */
+.exercise-card[data-task="restaurant-1a"] .image-spelling-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px;
+}
+.exercise-card[data-task="restaurant-1a"] .image-spelling-item {
+  padding: 14px 8px 16px;
+  gap: 10px;
+}
+.exercise-card[data-task="restaurant-1a"] .image-spelling-picture-wrap {
+  min-height: 140px;
+  padding: 25px 0 0;
+}
+.exercise-card[data-task="restaurant-1a"] .image-spelling-picture {
+  width: 100%;
+  max-height: 190px;
+  border-radius: 10px;
+}
+.exercise-card[data-task="restaurant-1a"] .image-spelling-word {
+  font-size: .91rem;
+  gap: 2px;
+  letter-spacing: 0;
+  width: 100%;
+}
+.exercise-card[data-task="restaurant-1a"] .image-spelling-fixed { min-width: 12px; }
+.exercise-card[data-task="restaurant-1a"] .image-spelling-letter {
+  width: 17px;
+  min-width: 17px;
+  height: 32px;
+  padding: 0;
+}
+.exercise-card[data-task="restaurant-1a"] .image-spelling-space { width: 11px; }
+.exercise-card[data-task="restaurant-1b"] .gap-input { width: clamp(58px, 14vw, 118px); min-height: 38px; }
+.exercise-card[data-task="restaurant-1b"] .exercise-items {
+  gap: 0;
+  padding: 7px 16px;
+  background: #fff;
+}
+.exercise-card[data-task="restaurant-1b"] .exercise-item {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: none;
+  padding: 14px 4px;
+}
+.exercise-card[data-task="restaurant-1b"] .exercise-item:last-child { border-bottom: 0; }
+.exercise-card[data-task="restaurant-1b"] .sentence-gaps { line-height: 1.8; gap: 5px; }
+.abc-exercise { display: grid; gap: 0; padding: 7px 16px; }
+.abc-exercise-item {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 15px 4px;
+  box-shadow: none;
+}
+.abc-exercise-item:last-child { border-bottom: 0; }
+.abc-question { display: flex; align-items: flex-start; gap: 11px; line-height: 1.6; }
+.abc-question-text { flex: 1; padding-top: 2px; }
+.abc-question .exercise-example-label { min-width: 70px; }
+.abc-options { display: flex; flex-wrap: wrap; gap: 9px; margin: 10px 0 0 42px; }
+.abc-choice {
+  display: inline-flex; align-items: center; gap: 7px;
+  min-height: 40px; padding: 7px 12px;
+  border: 1px solid #cbd5e1; border-radius: 10px;
+  color: var(--dark); background: #fff;
+  font-size: .95rem; cursor: pointer;
+}
+.abc-choice strong { color: #4338ca; }
+.abc-choice:has(input:checked), .abc-choice.is-example-answer {
+  background: #eef2ff; border-color: #6366f1;
+  box-shadow: inset 0 0 0 1px #6366f1;
+}
+.abc-choice input { width: 16px; height: 16px; accent-color: #4f46e5; }
+.abc-choice-static { cursor: default; }
+.abc-exercise-item .feedback { margin-left: 42px; }
+@media (max-width: 1100px) {
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-word { font-size: 1rem; }
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-letter { width: 22px; min-width: 22px; }
+}
+@media (max-width: 720px) {
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-word { font-size: .94rem; }
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-letter { width: 19px; min-width: 19px; }
+}
+@media (max-width: 520px) {
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-grid { grid-template-columns: 1fr; }
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-word { font-size: 1.1rem; }
+  .exercise-card[data-task="restaurant-1a"] .image-spelling-letter { width: 27px; min-width: 27px; }
+  .abc-options { margin-left: 0; gap: 7px; }
+  .abc-choice { padding: 7px 9px; }
+  .abc-question .exercise-example-label { display: none; }
+}

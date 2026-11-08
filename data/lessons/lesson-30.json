@@ -1,0 +1,335 @@
+{
+  "id": "lesson-30",
+  "number": 30,
+  "title": "What the waiter really thinks",
+  "subtitle": "6A · Vocabulary: at a restaurant",
+  "status": "available",
+  "publishedAt": "2026-11-09",
+  "totalPoints": 23,
+  "vocabularyId": "vocab-lesson-30-at-a-restaurant",
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY at a restaurant",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "at a restaurant",
+      "eyebrow": "6A · What the waiter really thinks"
+    },
+    {
+      "type": "exercise",
+      "id": "restaurant-1a",
+      "title": "a Complete the words.",
+      "instructions": "",
+      "layout": "image-spelling-grid",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "pattern": "mug",
+          "answer": "mug",
+          "image": "images/lesson-30/restaurant-01.jpg",
+          "imageAlt": "Photo 1 from the workbook",
+          "example": true,
+          "exampleLabel": "EXAMPLE"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "pattern": "o__ and v_n_g__",
+          "answer": "oil and vinegar",
+          "image": "images/lesson-30/restaurant-02.jpg",
+          "imageAlt": "Photo 2 from the workbook"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "pattern": "c__d__",
+          "answer": "candle",
+          "image": "images/lesson-30/restaurant-03.jpg",
+          "imageAlt": "Photo 3 from the workbook"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "pattern": "c__",
+          "answer": "cup",
+          "image": "images/lesson-30/restaurant-04.jpg",
+          "imageAlt": "Photo 4 from the workbook"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "pattern": "s__v__g d__h",
+          "answer": "serving dish",
+          "image": "images/lesson-30/restaurant-05.jpg",
+          "imageAlt": "Photo 5 from the workbook"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "pattern": "f_r_",
+          "answer": "fork",
+          "image": "images/lesson-30/restaurant-06.jpg",
+          "imageAlt": "Photo 6 from the workbook"
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "pattern": "n__k__",
+          "answer": "napkin",
+          "image": "images/lesson-30/restaurant-07.jpg",
+          "imageAlt": "Photo 7 from the workbook"
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "pattern": "s__t and p__p__",
+          "answer": "salt and pepper",
+          "image": "images/lesson-30/restaurant-08.jpg",
+          "imageAlt": "Photo 8 from the workbook"
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "pattern": "t__s___n",
+          "answer": "teaspoon",
+          "image": "images/lesson-30/restaurant-09.jpg",
+          "imageAlt": "Photo 9 from the workbook"
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "pattern": "g___s",
+          "answer": "glass",
+          "image": "images/lesson-30/restaurant-10.jpg",
+          "imageAlt": "Photo 10 from the workbook"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "restaurant-1b",
+      "title": "b Complete the sentences.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleMode": "gaps",
+          "showExampleNumber": true,
+          "segments": [
+            "I’m hungry! I’m looking forward to a big ",
+            " of pasta."
+          ],
+          "exampleAnswers": [
+            "plate"
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "He always has a b",
+            " of cereal for breakfast."
+          ],
+          "answers": [
+            "owl"
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "I’m looking for a c",
+            " to open the wine."
+          ],
+          "answers": [
+            "orkscrew"
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "Let’s ask for a j",
+            " of tap water instead of mineral water."
+          ],
+          "answers": [
+            "ug"
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "I’ll lay the table for you. Which t",
+            " shall I use – the white one or the blue one?"
+          ],
+          "answers": [
+            "ablecloth"
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "Do you ever make tea in a t",
+            " or do you always make it in a mug?"
+          ],
+          "answers": [
+            "eapot"
+          ]
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "segments": [
+            "Can I have another w",
+            " gl",
+            ", please? I’m changing from white to red."
+          ],
+          "answers": [
+            "ine",
+            "ass"
+          ]
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "segments": [
+            "This kn",
+            " doesn’t cut very well. Could you bring me another one?"
+          ],
+          "answers": [
+            "ife"
+          ]
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "gaps",
+          "segments": [
+            "I’m having the soup to start. Could I have a sp",
+            "?"
+          ],
+          "answers": [
+            "oon"
+          ]
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "gaps",
+          "segments": [
+            "I don’t like drinking tea out of a mug. I prefer using a cup and s",
+            "."
+          ],
+          "answers": [
+            "aucer"
+          ]
+        },
+        {
+          "id": "11",
+          "number": 11,
+          "input": "gaps",
+          "segments": [
+            "I don’t think I can carry all these drinks. Can I have a tr",
+            "?"
+          ],
+          "answers": [
+            "ay"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "restaurant-1c",
+      "title": "c Circle a, b, or c.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "prompt": "Can you make a list of what ____ I need to buy when I go shopping?",
+          "options": [
+            "dish",
+            "food",
+            "meal"
+          ],
+          "answer": 1,
+          "example": true,
+          "exampleMode": "mcq",
+          "showExampleNumber": true,
+          "exampleLabel": "EXAMPLE"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "prompt": "Take a ____ and help yourself to some sandwiches.",
+          "options": [
+            "course",
+            "meal",
+            "plate"
+          ],
+          "answer": 2,
+          "input": "single"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "prompt": "Bouillabaisse is a French ____ made with fish and seafood.",
+          "options": [
+            "course",
+            "dish",
+            "food"
+          ],
+          "answer": 1,
+          "input": "single"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "prompt": "Some friends have invited us round for a ____ tonight.",
+          "options": [
+            "dish",
+            "meal",
+            "plate"
+          ],
+          "answer": 1,
+          "input": "single"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "prompt": "I had soup for a starter and roast lamb for my main ____.",
+          "options": [
+            "course",
+            "food",
+            "plate"
+          ],
+          "answer": 0,
+          "input": "single"
+        }
+      ],
+      "layout": "abc-choices"
+    }
+  ]
+}

@@ -2409,6 +2409,28 @@
     }).join('')}</div>`;
   }
 
+  // Compact workbook-style a/b/c choices. The printed example is static,
+  // but every other row uses the standard scored radio input and progress logic.
+  function renderAbcChoicesExercise(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    return `<div class="abc-exercise">${items.map((item, index) => {
+      const itemId = safeText(item.id, `${index + 1}`);
+      const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+      const number = item.number === undefined ? index + 1 : item.number;
+      const example = item.example === true;
+      const choices = (item.options || []).map((option, optionIndex) => {
+        const letter = String.fromCharCode(97 + optionIndex);
+        if (example) return `<span class="abc-choice abc-choice-static${Number(item.answer) === optionIndex ? ' is-example-answer' : ''}"><strong>${letter}</strong><span>${escapeHtml(option)}</span></span>`;
+        return `<label class="abc-choice"><input type="radio" name="${escapeHtml(inputId)}" value="${optionIndex}"><strong>${letter}</strong><span>${escapeHtml(option)}</span></label>`;
+      }).join('');
+      return `<div class="exercise-item abc-exercise-item${example ? ' exercise-example' : ''}" data-exercise-item="${escapeHtml(itemId)}"${example ? '' : ' data-input-type="single"'}>
+        <div class="abc-question"><span class="exercise-number">${escapeHtml(number)}</span><span class="abc-question-text">${escapeHtml(item.prompt || '')}</span>${example ? '<span class="exercise-example-label">EXAMPLE</span>' : ''}</div>
+        <div class="abc-options" role="group" aria-label="Options for question ${escapeHtml(number)}">${choices}</div>
+        ${example ? '' : '<div class="feedback" aria-live="polite"></div>'}
+      </div>`;
+    }).join('')}</div>`;
+  }
+
   function renderPronunciationChoiceTable(block, blockId) {
     const items = Array.isArray(block.items) ? block.items : [];
     return `<div class="pronunciation-choice-table" role="table" aria-label="Pronunciation exercise">
@@ -2621,7 +2643,9 @@
                   ? renderArticleMcqExercise(block, id)
                   : block.layout === 'pronunciation-choice-table'
                     ? renderPronunciationChoiceTable(block, id)
-                    : block.layout === 'image-spelling-grid'
+                    : block.layout === 'abc-choices'
+                      ? renderAbcChoicesExercise(block, id)
+                  : block.layout === 'image-spelling-grid'
                       ? renderImageSpellingGrid(block, id)
                       : `<div class="exercise-items">${items.map((item, itemIndex) => renderExerciseItem(item, id, itemIndex, block.inlineNumberedItems === true)).join('')}</div>`;
       const hasStickyImage = block.stickyImage === true && imageEntries.length === 1;

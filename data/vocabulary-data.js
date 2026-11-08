@@ -3869,5 +3869,184 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Она постоянно слушает Radio 4."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-30-at-a-restaurant",
+    "title": "At a restaurant",
+    "label": "Lesson 30 · What the waiter really thinks",
+    "icon": "🍽️",
+    "type": "lesson",
+    "linkedLessonId": "lesson-30",
+    "page": "vocabulary.html?id=vocab-lesson-30-at-a-restaurant",
+    "words": [
+      {
+        "id": "lesson-30-oil-and-vinegar",
+        "en": "oil and vinegar",
+        "ru": "масло и уксус",
+        "transcription": "/ˌɔɪl ən ˈvɪnɪɡə/",
+        "exampleEn": "There’s oil and vinegar on the table.",
+        "exampleRu": "На столе стоят масло и уксус."
+      },
+      {
+        "id": "lesson-30-serving-dish",
+        "en": "serving dish",
+        "ru": "блюдо для подачи еды",
+        "transcription": "/ˈsɜːvɪŋ dɪʃ/",
+        "exampleEn": "Put the roast potatoes in a serving dish.",
+        "exampleRu": "Положи запечённый картофель в блюдо для подачи."
+      },
+      {
+        "id": "lesson-30-napkin",
+        "en": "napkin",
+        "ru": "салфетка (тканевая или бумажная)",
+        "transcription": "/ˈnæpkɪn/",
+        "exampleEn": "Can I have a napkin, please?",
+        "exampleRu": "Можно мне салфетку, пожалуйста?"
+      },
+      {
+        "id": "lesson-30-salt-and-pepper",
+        "en": "salt and pepper",
+        "ru": "соль и перец",
+        "transcription": "/ˌsɔːlt ən ˈpepə/",
+        "exampleEn": "Could you pass the salt and pepper?",
+        "exampleRu": "Можешь передать соль и перец?"
+      },
+      {
+        "id": "lesson-30-teaspoon",
+        "en": "teaspoon",
+        "ru": "чайная ложка",
+        "transcription": "/ˈtiːspuːn/",
+        "exampleEn": "I need a teaspoon for my tea.",
+        "exampleRu": "Мне нужна чайная ложка для чая."
+      },
+      {
+        "id": "lesson-30-bowl",
+        "en": "bowl",
+        "ru": "миска; глубокая тарелка",
+        "transcription": "/bəʊl/",
+        "exampleEn": "He always has a bowl of cereal for breakfast.",
+        "exampleRu": "Он всегда ест миску хлопьев на завтрак."
+      },
+      {
+        "id": "lesson-30-corkscrew",
+        "en": "corkscrew",
+        "ru": "штопор",
+        "transcription": "/ˈkɔːkskruː/",
+        "exampleEn": "I’m looking for a corkscrew to open the wine.",
+        "exampleRu": "Я ищу штопор, чтобы открыть вино."
+      },
+      {
+        "id": "lesson-30-jug",
+        "en": "jug",
+        "ru": "кувшин",
+        "transcription": "/dʒʌɡ/",
+        "exampleEn": "Let’s ask for a jug of tap water.",
+        "exampleRu": "Давай попросим кувшин воды из-под крана."
+      },
+      {
+        "id": "lesson-30-tablecloth",
+        "en": "tablecloth",
+        "ru": "скатерть",
+        "transcription": "/ˈteɪbəlklɒθ/",
+        "exampleEn": "Which tablecloth shall I use?",
+        "exampleRu": "Какую скатерть мне использовать?"
+      },
+      {
+        "id": "lesson-30-teapot",
+        "en": "teapot",
+        "ru": "заварочный чайник",
+        "transcription": "/ˈtiːpɒt/",
+        "exampleEn": "Do you make tea in a teapot?",
+        "exampleRu": "Ты завариваешь чай в чайнике?"
+      },
+      {
+        "id": "lesson-30-wine-glass",
+        "en": "wine glass",
+        "ru": "бокал для вина",
+        "transcription": "/ˈwaɪn ɡlɑːs/",
+        "exampleEn": "Can I have another wine glass, please?",
+        "exampleRu": "Можно мне ещё один бокал для вина?"
+      },
+      {
+        "id": "lesson-30-saucer",
+        "en": "saucer",
+        "ru": "блюдце",
+        "transcription": "/ˈsɔːsə/",
+        "exampleEn": "I prefer using a cup and saucer.",
+        "exampleRu": "Я предпочитаю чашку с блюдцем."
+      },
+      {
+        "id": "lesson-30-tray",
+        "en": "tray",
+        "ru": "поднос",
+        "transcription": "/treɪ/",
+        "exampleEn": "Can I have a tray for these drinks?",
+        "exampleRu": "Можно мне поднос для этих напитков?"
+      },
+      {
+        "id": "lesson-30-starter",
+        "en": "starter",
+        "ru": "закуска; первое блюдо (перед основным)",
+        "transcription": "/ˈstɑːtə/",
+        "exampleEn": "I had soup for a starter.",
+        "exampleRu": "На первое я ел суп."
+      },
+      {
+        "id": "lesson-30-main-course",
+        "en": "main course",
+        "ru": "основное блюдо",
+        "transcription": "/ˌmeɪn ˈkɔːs/",
+        "exampleEn": "I had roast lamb for my main course.",
+        "exampleRu": "На основное блюдо я ел жареную баранину."
+      },
+      {
+        "id": "lesson-30-course",
+        "en": "course",
+        "ru": "блюдо (как часть обеда из нескольких блюд)",
+        "transcription": "/kɔːs/",
+        "exampleEn": "The main course comes after the starter.",
+        "exampleRu": "Основное блюдо подают после закуски."
+      },
+      {
+        "id": "lesson-30-dish",
+        "en": "dish",
+        "ru": "блюдо (приготовленная еда); посуда",
+        "transcription": "/dɪʃ/",
+        "exampleEn": "Bouillabaisse is a French dish.",
+        "exampleRu": "Буйабес — французское блюдо."
+      },
+      {
+        "id": "lesson-30-meal",
+        "en": "meal",
+        "ru": "приём пищи; еда",
+        "transcription": "/miːl/",
+        "exampleEn": "Some friends have invited us round for a meal.",
+        "exampleRu": "Друзья пригласили нас поесть к себе."
+      },
+      {
+        "id": "lesson-30-lay-the-table",
+        "en": "lay the table",
+        "ru": "накрывать на стол",
+        "transcription": "/ˌleɪ ðə ˈteɪbəl/",
+        "exampleEn": "I’ll lay the table for you.",
+        "exampleRu": "Я накрою для тебя на стол."
+      },
+      {
+        "id": "lesson-30-tap-water",
+        "en": "tap water",
+        "ru": "водопроводная вода; вода из-под крана",
+        "transcription": "/ˈtæp ˌwɔːtə/",
+        "exampleEn": "Let’s ask for a jug of tap water.",
+        "exampleRu": "Давай попросим кувшин воды из-под крана."
+      },
+      {
+        "id": "lesson-30-help-yourself",
+        "en": "help yourself",
+        "ru": "угощайся; бери сам",
+        "transcription": "/ˌhelp jɔːˈself/",
+        "exampleEn": "Help yourself to some sandwiches.",
+        "exampleRu": "Угощайся бутербродами."
+      }
+    ]
   }
 ];
