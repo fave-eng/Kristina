@@ -455,15 +455,27 @@
         (grammarResponse.data || []).forEach((row) => {
           const local = grammar.topics[row.topic_id] || {};
           const cloudIsNewer = !local.updatedAt || dateMs(row.updated_at) > dateMs(local.updatedAt);
+          const cloudAnswers = row.answers && typeof row.answers === 'object' && !Array.isArray(row.answers)
+            ? row.answers
+            : {};
+          const localAnswers = local.answers && typeof local.answers === 'object' && !Array.isArray(local.answers)
+            ? local.answers
+            : {};
+          // Recover unfinished local answers from the older website version:
+          // it saved scores to Supabase but did not send its answer data.
+          // Never restore them over a confirmed 100% cloud completion.
+          const preserveLegacyLocalAnswers = cloudIsNewer
+            && Number(row.best_score || 0) < 100
+            && Object.keys(cloudAnswers).length === 0
+            && Object.keys(localAnswers).length > 0;
+          const useCloud = cloudIsNewer && !preserveLegacyLocalAnswers;
           // Do not merge attempts using Math.max(score): an unsuccessful retake
           // must remove the completed status on every device.
-          const lastScore = Math.min(100, Math.max(0, Number(cloudIsNewer ? row.best_score : local.bestScore) || 0));
+          const lastScore = Math.min(100, Math.max(0, Number(useCloud ? row.best_score : local.bestScore) || 0));
           const passed = lastScore === 100;
-          const sourceAnswers = cloudIsNewer ? row.answers : local.answers;
-          const answers = !passed && sourceAnswers && typeof sourceAnswers === 'object' && !Array.isArray(sourceAnswers)
-            ? sourceAnswers
-            : {};
-          const updatedAt = cloudIsNewer ? row.updated_at : local.updatedAt;
+          const sourceAnswers = useCloud ? cloudAnswers : localAnswers;
+          const answers = !passed ? sourceAnswers : {};
+          const updatedAt = useCloud ? row.updated_at : (local.updatedAt || row.updated_at);
           grammar.topics[row.topic_id] = {
             passed,
             attempts: Math.max(Number(local.attempts || 0), Number(row.attempts || 0)),
