@@ -34,15 +34,8 @@
           "example": true,
           "exampleLabel": "EXAMPLE",
           "showExampleNumber": true,
-          "exampleMode": "gaps",
-          "prompt": "I’m fed up with my friend.",
-          "segments": [
-            "I ",
-            " for her for nearly an hour. (wait)"
-          ],
-          "exampleAnswers": [
-            "’ve been waiting"
-          ]
+          "prompt": "I’m fed up with my friend. I ______ for her for nearly an hour. (wait)",
+          "exampleTarget": "I’m fed up with my friend. I’ve been waiting for her for nearly an hour."
         },
         {
           "id": "2",
@@ -208,7 +201,7 @@
             "type": "gap",
             "id": "1",
             "example": true,
-            "answer": "’ve been trying"
+            "answer": "have been trying"
           },
           " to lead a healthier lifestyle recently. We ",
           {
@@ -344,15 +337,8 @@
           "example": true,
           "exampleLabel": "EXAMPLE",
           "showExampleNumber": true,
-          "exampleMode": "gaps",
           "prompt": "I’m looking after my neighbours’ dog. They went on holiday last Saturday.",
-          "segments": [
-            "I",
-            "."
-          ],
-          "exampleAnswers": [
-            "’ve been looking after my neighbours’ dog since last Saturday"
-          ]
+          "exampleTarget": "I’ve been looking after my neighbours’ dog since last Saturday."
         },
         {
           "id": "2",
@@ -471,8 +457,8 @@
         "with other people / alone",
         "exercise / food / hobbies / sleep"
       ],
-      "introTitle": "Examples",
-      "introText": "I have exams, so I’ve been studying. I’ve been eating more vegetables because I want to be healthier.",
+      "introTitle": "EXAMPLES — two complete sentences",
+      "introText": "1. I have exams, so I’ve been studying.   2. I’ve been eating more vegetables because I want to be healthier.",
       "items": [
         {
           "id": "1",
