@@ -327,27 +327,31 @@
     const topics = {};
     Object.entries(rawTopics).forEach(([topicId, state]) => {
       const attempts = Math.max(0, Number(state?.attempts || 0));
+      // "bestScore" is a legacy storage field; for completion it represents the
+      // LAST checked attempt, not the historical maximum.
       const bestScore = Math.min(100, Math.max(0, Number(state?.bestScore || 0)));
-      // A grammar topic is completed only after a genuine 100% result.
-      // Do not trust an old/stale passed flag if the recorded best score is below 100.
-      const passed = bestScore >= 100;
+      const passed = bestScore === 100;
       const updatedAt = state?.updatedAt || null;
-      const passedAt = passed
-        ? (state?.passedAt || updatedAt || new Date().toISOString())
-        : null;
+      const answers = !passed && state?.answers && typeof state.answers === 'object' && !Array.isArray(state.answers)
+        ? state.answers
+        : {};
       topics[topicId] = {
         passed,
         attempts,
         bestScore,
-        // A completed topic normally has no stored answers. If the learner starts a new
-        // practice attempt later, that unfinished attempt can still be kept locally.
-        answers: state?.answers && typeof state.answers === 'object' ? state.answers : {},
-        checked: Boolean(state?.checked || (state?.answers && typeof state.answers === 'object' && Object.keys(state.answers).length)),
+        answers,
+        checked: !passed && Boolean(state?.checked || Object.keys(answers).length),
         updatedAt,
-        passedAt
+        passedAt: passed ? (state?.passedAt || updatedAt || new Date().toISOString()) : null
       };
     });
     return { topics };
+  }
+
+  function grammarTopicCompleted(topic, grammarProgress) {
+    const saved = grammarProgress.topics?.[topic.id];
+    // A stored failed retake must override the static default in grammar-data.js.
+    return saved ? saved.passed === true : topic.passed === true;
   }
 
   window.ProgressService = {
@@ -450,22 +454,26 @@
         const grammar = this.loadGrammarProgress();
         (grammarResponse.data || []).forEach((row) => {
           const local = grammar.topics[row.topic_id] || {};
-          const bestScore = Math.max(Number(local.bestScore || 0), Number(row.best_score || 0));
-          // Completion is derived from the score, never from a stale boolean flag.
-          const passed = bestScore >= 100;
-          const cloudIsNewer = dateMs(row.updated_at) >= dateMs(local.updatedAt);
+          const cloudIsNewer = !local.updatedAt || dateMs(row.updated_at) > dateMs(local.updatedAt);
+          // Do not merge attempts using Math.max(score): an unsuccessful retake
+          // must remove the completed status on every device.
+          const lastScore = Math.min(100, Math.max(0, Number(cloudIsNewer ? row.best_score : local.bestScore) || 0));
+          const passed = lastScore === 100;
+          const sourceAnswers = cloudIsNewer ? row.answers : local.answers;
+          const answers = !passed && sourceAnswers && typeof sourceAnswers === 'object' && !Array.isArray(sourceAnswers)
+            ? sourceAnswers
+            : {};
           const updatedAt = cloudIsNewer ? row.updated_at : local.updatedAt;
-          const passedAt = passed
-            ? (local.passedAt || row.passed_at || updatedAt || new Date().toISOString())
-            : null;
           grammar.topics[row.topic_id] = {
             passed,
             attempts: Math.max(Number(local.attempts || 0), Number(row.attempts || 0)),
-            bestScore,
-            answers: local.answers && typeof local.answers === 'object' ? local.answers : {},
-            checked: Boolean(local.checked || (local.answers && typeof local.answers === 'object' && Object.keys(local.answers).length)),
+            bestScore: lastScore,
+            answers,
+            checked: !passed && Object.keys(answers).length > 0,
             updatedAt,
-            passedAt
+            passedAt: passed
+              ? ((cloudIsNewer ? row.passed_at : local.passedAt) || updatedAt || new Date().toISOString())
+              : null
           };
         });
         storage.write(key('grammar'), normalizeGrammarProgress(grammar));
@@ -541,14 +549,19 @@
       if (sections.includes('grammar')) {
         const progress = this.loadGrammarProgress();
         const rows = Object.entries(progress.topics).map(([topicId, state]) => {
-          const bestScore = Math.min(100, Math.max(0, Number(state.bestScore || 0)));
-          const passed = bestScore >= 100;
+          const lastScore = Math.min(100, Math.max(0, Number(state.bestScore || 0)));
+          const passed = lastScore === 100;
           return {
             student_id: studentId,
             topic_id: topicId,
             passed,
             attempts: Math.max(0, Number(state.attempts || 0)),
-            best_score: bestScore,
+            best_score: lastScore,
+            // grammar_progress already has an answers jsonb column. Save only
+            // unfinished answers, never the answer key or finished responses.
+            answers: !passed && state.checked && state.answers && typeof state.answers === 'object'
+              ? state.answers
+              : {},
             passed_at: passed ? (state.passedAt || state.updatedAt || new Date().toISOString()) : null
           };
         });
@@ -601,7 +614,7 @@
     const publishedHomework = HOMEWORK_DATA.filter((item) => ['available', 'completed', 'locked'].includes(item.status));
     const completedHomework = publishedHomework.filter((item) => hwProgress.completedIds.includes(item.id) || item.status === 'completed').length;
     const knownWordKeys = Object.entries(vocabProgress.words).filter(([wordKey, item]) => VOCABULARY_CATALOG.byKey.has(wordKey) && item.status === 'known').map(([wordKey]) => wordKey);
-    const passedGrammar = GRAMMAR_DATA.filter((topic) => grammarProgress.topics[topic.id]?.passed === true || topic.passed === true).length;
+    const passedGrammar = GRAMMAR_DATA.filter((topic) => grammarTopicCompleted(topic, grammarProgress)).length;
     return {
       homeworkTotal: publishedHomework.length,
       homeworkCompleted: completedHomework,
@@ -663,7 +676,7 @@
 
     GRAMMAR_DATA.forEach((topic, index) => {
       if (!topic || topic.status === 'draft' || topic.status === 'locked') return;
-      const passed = grammarProgress.topics?.[topic.id]?.passed === true || topic.passed === true;
+      const passed = grammarTopicCompleted(topic, grammarProgress);
       const lessonNumber = knowledgeLessonNumber(topic, index);
       const summary = knowledgeSummary(topic.explanation, 'Grammar explanation and practice.');
       const formula = knowledgeSummary(topic.formula, '');
@@ -1098,7 +1111,7 @@
   function renderGrammar() {
     const progress = window.ProgressService.loadGrammarProgress();
     const published = GRAMMAR_DATA.filter((topic) => topic.status !== 'draft');
-    const passed = published.filter((topic) => progress.topics[topic.id]?.passed || topic.passed).length;
+    const passed = published.filter((topic) => grammarTopicCompleted(topic, progress)).length;
     byId('grammar-passed').textContent = passed;
     byId('grammar-total').textContent = published.length;
     byId('grammar-overall-progress').innerHTML = progressMarkup('Overall progress', passed, published.length, 'green');
@@ -1110,7 +1123,7 @@
 
     const grammarCard = (topic) => {
       const locked = topic.status === 'locked';
-      const isPassed = progress.topics[topic.id]?.passed || topic.passed;
+      const isPassed = grammarTopicCompleted(topic, progress);
       const title = locked ? '🔒 Coming soon' : safeText(topic.title, 'Grammar topic');
       const tag = locked ? 'div' : 'a';
       const href = locked ? '' : ` href="${escapeHtml(topic.page || `grammar-topic.html?id=${encodeURIComponent(topic.id)}`)}"`;
@@ -1128,8 +1141,8 @@
         || dateMs(b.publishedAt) - dateMs(a.publishedAt)
         || Number(b.order || numericSuffix(b.linkedLessonId || b.id)) - Number(a.order || numericSuffix(a.linkedLessonId || a.id));
     });
-    const newTopics = newestFirst.filter((topic) => !(progress.topics[topic.id]?.passed || topic.passed));
-    const completedTopics = newestFirst.filter((topic) => progress.topics[topic.id]?.passed || topic.passed);
+    const newTopics = newestFirst.filter((topic) => !(grammarTopicCompleted(topic, progress)));
+    const completedTopics = newestFirst.filter((topic) => grammarTopicCompleted(topic, progress));
 
     root.innerHTML = [
       materialGroupMarkup('New', 'Open grammar topics, newest first.', newTopics.map(grammarCard), {
@@ -2960,8 +2973,9 @@
         const latestProgress = window.ProgressService.loadGrammarProgress();
         const previous = latestProgress.topics[topic.id] || {};
         const checkedAt = new Date().toISOString();
-        const bestScore = Math.max(Number(previous.bestScore || 0), percent);
-        const passed = bestScore >= 100;
+        // Completion must follow the latest checked attempt, not the best ever.
+        const bestScore = percent;
+        const passed = percent === 100;
 
         latestProgress.topics[topic.id] = {
           passed,
@@ -2972,13 +2986,15 @@
           answers: percent === 100 ? {} : answers,
           checked: percent !== 100,
           updatedAt: checkedAt,
-          passedAt: passed ? (previous.passedAt || checkedAt) : null
+          passedAt: passed ? checkedAt : null
         };
         window.ProgressService.saveGrammarProgress(latestProgress);
 
         if (percent === 100) {
-          byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">100% correct</p><p class="grammar-success-note">Excellent! The topic is completed. Your answers are not stored, so you can practise the topic again later from scratch.</p>`;
-          // Do not lock the inputs. The learner may review the current result or press Start again for a fresh attempt.
+          // Clear the visible correct answers immediately after completion.
+          // Reopening the topic shows blank fields and the Completed status.
+          renderPractice();
+          byId('grammar-result').innerHTML = '<h3>100% correct · Topic completed</h3><p class="grammar-success-note">Your answers have been cleared. You can practise the topic again from scratch.</p>';
         } else {
           byId('grammar-result').innerHTML = `<h3>Score: ${correct} of ${total}</h3><p class="muted">${percent}% correct</p><p class="grammar-success-note">The answers that need another try are highlighted. Correct only those places and check again.</p>`;
         }
@@ -2987,7 +3003,9 @@
       retryButton.addEventListener('click', () => {
         const latestProgress = window.ProgressService.loadGrammarProgress();
         const previous = latestProgress.topics[topic.id] || {};
-        // Start again clears only the current unfinished answer draft. It never removes a genuine 100% completion.
+        if (previous.checked && !window.confirm('Clear the saved answers and highlighted mistakes for this attempt?')) return;
+        // Clearing answers does not count as a checked attempt. A new Check
+        // will recalculate completion from the new score, even after 100%.
         latestProgress.topics[topic.id] = {
           ...previous,
           answers: {},
@@ -2999,6 +3017,32 @@
       });
     };
 
+    // Save edits to an already checked, unfinished attempt. Do not increment
+    // the attempt counter until the learner presses "Check exercises".
+    const saveEditedAttempt = (event) => {
+      if (!event.target.closest('[data-grammar-exercise]')) return;
+      const latest = window.ProgressService.loadGrammarProgress();
+      const saved = latest.topics[topic.id];
+      if (!saved?.checked || saved.passed) return;
+      const answers = {};
+      exercises.forEach((block, index) => {
+        const node = root.querySelector(`[data-grammar-exercise="${index}"]`);
+        if (!node) return;
+        const blockId = safeText(block.id, `grammar-exercise-${index + 1}`);
+        const blockAnswers = {};
+        (Array.isArray(block.items) ? block.items : []).forEach((item, itemIndex) => {
+          if (item.example || item.displayOnly) return;
+          const itemId = safeText(item.id, `${itemIndex + 1}`);
+          const itemNode = node.querySelector(`[data-exercise-item="${CSS.escape(itemId)}"]`);
+          if (itemNode) blockAnswers[itemId] = checkExerciseItem(item, itemNode).actual;
+        });
+        answers[blockId] = blockAnswers;
+      });
+      latest.topics[topic.id] = { ...saved, answers, updatedAt: new Date().toISOString() };
+      window.ProgressService.saveGrammarProgress(latest);
+    };
+    root.addEventListener('input', saveEditedAttempt);
+    root.addEventListener('change', saveEditedAttempt);
     renderPractice();
   }
 
