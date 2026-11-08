@@ -2257,7 +2257,6 @@
       <div class="exercise-control"><div class="word-order-workspace" data-word-order-workspace>
         <div class="word-order-tokens" role="group" aria-label="Reorder the words to make a question">${chips}</div>
         <input type="hidden" id="${escapeHtml(inputId)}" data-word-order-value value="">
-        <div class="word-order-preview" data-word-order-preview aria-live="polite"></div>
       </div></div>
       <div class="feedback" aria-live="polite"></div>
     </div>`;
@@ -2273,7 +2272,6 @@
     root.querySelectorAll('[data-word-order-workspace]').forEach((workspace) => {
       const list = workspace.querySelector('[data-word-order-tokens]') || workspace.querySelector('.word-order-tokens');
       const hidden = workspace.querySelector('[data-word-order-value]');
-      const preview = workspace.querySelector('[data-word-order-preview]');
       let selected = null;
       let dragged = null;
       const clear = () => {
@@ -2284,7 +2282,6 @@
         if (notify) workspace.dataset.wordOrderTouched = '1';
         const sentence = wordOrderSentence(workspace);
         hidden.value = sentence;
-        preview.textContent = sentence;
         [...list.querySelectorAll('[data-word-order-token]')].forEach((chip, index) => chip.setAttribute('aria-label', `${chip.textContent.trim()}, position ${index + 1}`));
         if (notify) hidden.dispatchEvent(new Event('input', { bubbles: true }));
       };
@@ -2352,7 +2349,6 @@
         } else if (raw) {
           // Keep an older, unparseable answer available rather than silently losing it.
           hidden.value = raw;
-          preview.textContent = raw;
         }
       });
       refresh(false);
