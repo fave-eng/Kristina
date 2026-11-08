@@ -4543,5 +4543,519 @@ window.GRAMMAR_DATA = [
         ]
       }
     ]
+  },
+  {
+    "id": "grammar-present-perfect-continuous",
+    "order": 11,
+    "title": "Present perfect continuous",
+    "level": "B1",
+    "status": "available",
+    "page": "grammar-topic.html?id=grammar-present-perfect-continuous",
+    "passed": false,
+    "attempts": 0,
+    "linkedLessonId": "lesson-27",
+    "revealAnswersOnError": false,
+    "lockOnPass": false,
+    "explanation": "Present Perfect Continuous показывает процесс, начавшийся до настоящего момента и связанный с ним: действие длится сейчас или его следы заметны в настоящем. Смысл определяет выбор времени.",
+    "formula": "have / has + been + verb-ing",
+    "glanceCards": [],
+    "anchorLinks": [],
+    "miniRules": [],
+    "tables": [],
+    "exampleGroups": [],
+    "commonMistakes": [],
+    "chapter": [
+      {
+        "id": "ppc-meaning",
+        "type": "compare",
+        "title": "Что меняется, когда нас интересует процесс?",
+        "columns": [
+          {
+            "title": "Present Perfect Continuous: процесс",
+            "points": [
+              "Действие началось раньше и продолжается сейчас либо только что закончилось.",
+              "Говорящий обращает внимание на продолжительность и сам процесс, а не обязательно на завершённый результат."
+            ],
+            "examples": [
+              {
+                "en": "I [[have been riding]] my bike to work this week.",
+                "ru": "На этой неделе я [[езжу]] на работу на велосипеде.",
+                "note": "Временный процесс в течение текущей недели."
+              },
+              {
+                "en": "She looks tired because she [[has been working]] all day.",
+                "ru": "Она выглядит уставшей, потому что [[работала]] весь день.",
+                "note": "Работа могла только что закончиться, но результат процесса заметен сейчас."
+              }
+            ]
+          },
+          {
+            "title": "Present Perfect Simple: результат / факт",
+            "points": [
+              "Выделяем то, что уже сделано, приобретено или сколько раз это произошло.",
+              "Форма особенно естественна с завершёнными результатами и количеством."
+            ],
+            "examples": [
+              {
+                "en": "I [[have ridden]] 40 kilometres this week.",
+                "ru": "На этой неделе я [[проехал]] 40 километров.",
+                "note": "Указан достигнутый результат."
+              },
+              {
+                "en": "She [[has written]] three emails.",
+                "ru": "Она [[написала]] три письма.",
+                "note": "Три законченных результата."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ppc-structure",
+        "type": "table",
+        "title": "Форма: have / has been + -ing",
+        "headers": [
+          "Тип предложения",
+          "Структура",
+          "Пример и перевод"
+        ],
+        "rows": [
+          [
+            "Утверждение",
+            "I / you / we / they + have been + V-ing; he / she / it + has been + V-ing",
+            "I have been studying. — Я занимаюсь уже некоторое время."
+          ],
+          [
+            "Отрицание",
+            "have not / has not + been + V-ing",
+            "He hasn’t been sleeping well. — Он плохо спит в последнее время."
+          ],
+          [
+            "Общий вопрос",
+            "Have / Has + подлежащее + been + V-ing?",
+            "Have you been waiting long? — Ты давно ждёшь?"
+          ],
+          [
+            "Специальный вопрос",
+            "How long / What / Why + have / has + подлежащее + been + V-ing?",
+            "How long have you been working here? — Как давно ты здесь работаешь?"
+          ],
+          [
+            "Краткий ответ",
+            "Yes, I have. / No, I haven’t.",
+            "Has she been practising? — Yes, she has. — Она тренировалась? — Да."
+          ]
+        ]
+      },
+      {
+        "id": "ppc-time-line",
+        "type": "note",
+        "title": "От прошлого до настоящего: как читать смысл",
+        "paragraphs": [
+          "Представь отрезок: начало действия в прошлом → некоторое время действие продолжалось → сейчас оно продолжается либо недавно закончилось.",
+          "I’ve been reading for two hours. — Я читаю уже два часа. Мы не сообщаем, дочитал ли я книгу.",
+          "Why are your shoes dirty? — I’ve been walking in the fields. — Почему у тебя грязная обувь? — Я гулял по полям. Вопрос о следе недавнего процесса."
+        ]
+      },
+      {
+        "id": "ppc-duration",
+        "type": "table",
+        "title": "Как долго? for, since, all day, lately",
+        "headers": [
+          "Слово / выражение",
+          "Когда употребляется",
+          "Пример и перевод"
+        ],
+        "rows": [
+          [
+            "for",
+            "Продолжительность: for two hours, for six months",
+            "I’ve been learning English for two years. — Я учу английский уже два года."
+          ],
+          [
+            "since",
+            "Отправная точка: since Monday, since 2022, since I moved",
+            "She’s been living here since May. — Она живёт здесь с мая."
+          ],
+          [
+            "all morning / all day",
+            "Период, на протяжении которого идёт или шла деятельность",
+            "We’ve been working all morning. — Мы работаем всё утро."
+          ],
+          [
+            "lately / recently",
+            "Недавний период без точного указания начала",
+            "I’ve been spending more time outside lately. — В последнее время я чаще бываю на улице."
+          ],
+          [
+            "How long?",
+            "Вопрос о длительности",
+            "How long have you been waiting? — Как давно ты ждёшь?"
+          ]
+        ],
+        "note": "For отвечает на вопрос «как долго?», since — «с какого момента?». Значение не зависит от того, стоит ли глагол в Present Perfect Simple или Continuous."
+      },
+      {
+        "id": "ppc-temp",
+        "type": "cards",
+        "title": "Две типичные ситуации",
+        "cards": [
+          {
+            "title": "Процесс ещё продолжается",
+            "body": "Есть явный или подразумеваемый период до настоящего момента.",
+            "example": {
+              "en": "It [[has been raining]] since morning.",
+              "ru": "С утра [[идёт]] дождь."
+            }
+          },
+          {
+            "title": "Процесс только что закончился",
+            "body": "Действие объясняет наблюдаемое сейчас состояние.",
+            "example": {
+              "en": "Your hands are dirty. [[Have]] you [[been gardening]]?",
+              "ru": "У тебя грязные руки. Ты [[работал]] в саду?"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ppc-vs-simple",
+        "type": "table",
+        "title": "Один сюжет, но разные акценты: Simple и Continuous",
+        "headers": [
+          "Ситуация",
+          "Present Perfect Continuous",
+          "Present Perfect Simple"
+        ],
+        "rows": [
+          [
+            "Книга",
+            "I’ve been reading the book. — Я читал / читаю книгу (процесс).",
+            "I’ve read the book. — Я прочитал книгу (результат)."
+          ],
+          [
+            "Письма",
+            "She’s been writing emails all morning. — Она пишет письма всё утро.",
+            "She’s written five emails. — Она написала пять писем."
+          ],
+          [
+            "Покраска",
+            "We’ve been painting the fence. — Мы красили забор (процесс).",
+            "We’ve painted the fence. — Мы покрасили забор (работа выполнена)."
+          ],
+          [
+            "Жильё",
+            "I’ve been living here for years. — Я живу здесь много лет.",
+            "I’ve lived here for years. — Я живу здесь много лет."
+          ]
+        ],
+        "note": "С live/work/study оба времени иногда возможны: Continuous сильнее подчёркивает продолжение деятельности, Simple — факт длительной ситуации. Нельзя механически выбирать только по for или since."
+      },
+      {
+        "id": "ppc-stative",
+        "type": "note",
+        "title": "Почему I have been knowing — ошибка: глаголы состояния",
+        "paragraphs": [
+          "Know, believe, own, understand и многие другие глаголы состояния обычно не используются в Continuous, когда обозначают состояние, а не действие.",
+          "Говорим I’ve known her for years. — Я знаю её много лет. Не I’ve been knowing her for years.",
+          "С have выбор зависит от значения: I’ve had this phone for years (владение), но I’ve been having problems with my phone lately (переживаю проблемы — развивающаяся ситуация)."
+        ]
+      },
+      {
+        "id": "ppc-present-cont",
+        "type": "compare",
+        "title": "Present Continuous vs Present Perfect Continuous",
+        "columns": [
+          {
+            "title": "Present Continuous — ситуация сейчас / временный период",
+            "points": [
+              "Смотрим на действие в настоящий момент или около него, не сообщая его длительность с прошлого."
+            ],
+            "examples": [
+              {
+                "en": "I [[am working]] from home this week.",
+                "ru": "На этой неделе я [[работаю]] из дома."
+              }
+            ]
+          },
+          {
+            "title": "Present Perfect Continuous — процесс начался раньше",
+            "points": [
+              "Подчёркиваем время от прошлого до настоящего или результат недавней активности."
+            ],
+            "examples": [
+              {
+                "en": "I [[have been working]] from home since Monday.",
+                "ru": "Я [[работаю]] из дома с понедельника."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ppc-forms-spelling",
+        "type": "note",
+        "title": "Правописание -ing и сокращения",
+        "paragraphs": [
+          "work → working, read → reading; write → writing (убираем немое -e); run → running (удваиваем конечную согласную при подходящей модели); lie → lying (ie → y).",
+          "I have been = I’ve been; she has been = she’s been; have not = haven’t; has not = hasn’t.",
+          "После have/has нужна форма been, а смысловой глагол стоит с -ing: I have been studying. Не I have studying и не I have been study."
+        ]
+      },
+      {
+        "id": "ppc-errors",
+        "type": "mistakes",
+        "title": "Типичные ошибки и как себя проверить",
+        "items": [
+          {
+            "wrong": "I have working all day.",
+            "right": "I have been working all day.",
+            "why": "Для Present Perfect Continuous нужно have/has + been + V-ing."
+          },
+          {
+            "wrong": "She has been work since Monday.",
+            "right": "She has been working since Monday.",
+            "why": "После been используется глагол с -ing."
+          },
+          {
+            "wrong": "I’ve been knowing him for years.",
+            "right": "I’ve known him for years.",
+            "why": "Know — глагол состояния; обычно нужен Present Perfect Simple."
+          },
+          {
+            "wrong": "We’ve been working since three hours.",
+            "right": "We’ve been working for three hours.",
+            "why": "Период времени — for; момент начала — since."
+          },
+          {
+            "wrong": "I have been finished my homework.",
+            "right": "I have finished my homework.",
+            "why": "Здесь акцент на готовом результате, а не на продолжающемся процессе."
+          }
+        ]
+      },
+      {
+        "id": "ppc-choice",
+        "type": "decision",
+        "title": "Как выбирать форму в упражнениях",
+        "items": [
+          {
+            "question": "Говорящий выделяет процесс, его продолжительность или следы недавней деятельности?",
+            "yes": "Часто подходит Present Perfect Continuous: have/has been + V-ing.",
+            "no": "Проверь, есть ли завершённый результат или количество."
+          },
+          {
+            "question": "Нужно сказать «сколько сделано» или «что уже завершено»?",
+            "yes": "Обычно нужен Present Perfect Simple: have/has + V3.",
+            "no": "Посмотри на значение глагола и временные обстоятельства."
+          },
+          {
+            "question": "Глагол обозначает состояние (know, own, believe)?",
+            "yes": "Обычно выбираем Present Perfect Simple, даже если сказано for/since.",
+            "no": "Определи, завершён ли процесс, продолжается ли он и какой смысл важен."
+          }
+        ]
+      }
+    ],
+    "exercises": [
+      {
+        "id": "ppc-practice-forms",
+        "type": "exercise",
+        "title": "Build Present Perfect Continuous",
+        "difficulty": "Easy",
+        "instructions": "Choose the only grammatically correct form.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "She ___ in the garden all morning.",
+            "options": [
+              "has been working",
+              "has working",
+              "have been working"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "___ you ___ long?",
+            "options": [
+              "Have / been waiting",
+              "Has / been waiting",
+              "Have / waiting"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "We ___ TV much lately.",
+            "options": [
+              "haven’t been watching",
+              "hasn’t been watching",
+              "haven’t watching"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "They ___ more time outdoors recently.",
+            "options": [
+              "have been spending",
+              "has been spending",
+              "have spending"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "id": "ppc-practice-simple-comparison",
+        "type": "exercise",
+        "title": "Process or result?",
+        "difficulty": "Medium",
+        "instructions": "Choose the form that best fits the meaning.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "I’m tired because I ___ all day.",
+            "options": [
+              "have been running",
+              "have run ten kilometres"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "She ___ three emails so far.",
+            "options": [
+              "has written",
+              "has been writing"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "I haven’t finished the fence yet. I ___ it all morning.",
+            "options": [
+              "have been painting",
+              "have painted"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "I ___ her for ten years.",
+            "options": [
+              "have known",
+              "have been knowing"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "id": "ppc-practice-for-since",
+        "type": "exercise",
+        "title": "for / since and duration",
+        "difficulty": "Medium",
+        "instructions": "Choose the correct time expression.",
+        "items": [
+          {
+            "id": "1",
+            "input": "single",
+            "prompt": "He has been studying ___ 8 a.m.",
+            "options": [
+              "since",
+              "for"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "2",
+            "input": "single",
+            "prompt": "We have been waiting ___ three hours.",
+            "options": [
+              "for",
+              "since"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "3",
+            "input": "single",
+            "prompt": "She’s been living here ___ 2021.",
+            "options": [
+              "since",
+              "for"
+            ],
+            "answer": 0
+          },
+          {
+            "id": "4",
+            "input": "single",
+            "prompt": "I’ve been practising ___ two hours.",
+            "options": [
+              "for",
+              "since"
+            ],
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "id": "ppc-practice-fix",
+        "type": "exercise",
+        "title": "Complete the correct form",
+        "difficulty": "Hard",
+        "instructions": "Write only the missing words. Check the structure and meaning before answering.",
+        "items": [
+          {
+            "id": "1",
+            "input": "text",
+            "prompt": "It ___ since this morning. (rain)",
+            "acceptedAnswers": [
+              "has been raining",
+              "'s been raining",
+              "’s been raining"
+            ]
+          },
+          {
+            "id": "2",
+            "input": "text",
+            "prompt": "How long ___ English? (you / learn)",
+            "acceptedAnswers": [
+              "have you been learning"
+            ]
+          },
+          {
+            "id": "3",
+            "input": "text",
+            "prompt": "She ___ for a few weeks. (not / sleep / well)",
+            "acceptedAnswers": [
+              "has not been sleeping well",
+              "hasn’t been sleeping well",
+              "hasn't been sleeping well"
+            ]
+          },
+          {
+            "id": "4",
+            "input": "text",
+            "prompt": "They ___ the fence all morning. (paint)",
+            "acceptedAnswers": [
+              "have been painting",
+              "'ve been painting",
+              "’ve been painting"
+            ]
+          }
+        ]
+      }
+    ]
   }
 ];

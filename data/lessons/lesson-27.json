@@ -1,0 +1,594 @@
+{
+  "id": "lesson-27",
+  "number": 27,
+  "title": "A quiet life?",
+  "subtitle": "Vocabulary: the country · vowel sounds · Present Perfect Continuous",
+  "status": "available",
+  "publishedAt": "2026-11-08",
+  "totalPoints": 34,
+  "vocabularyId": "vocab-lesson-27-country-in-context",
+  "grammarIds": [
+    "grammar-present-perfect-continuous"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "VOCABULARY the country",
+      "sectionNumber": 1,
+      "titleLead": "VOCABULARY",
+      "titleTail": "the country"
+    },
+    {
+      "type": "exercise",
+      "id": "country-1c",
+      "title": "c Complete the text with the words from the list.",
+      "instructions": "Read the whole text and select a suitable word for each gap. Use each word once. The first gap is an example.",
+      "wordBank": [
+        "barn",
+        "cockerel",
+        "cows",
+        "crops",
+        "fences",
+        "fields",
+        "grass",
+        "hens",
+        "lambs",
+        "ripe",
+        "tractor",
+        "wheat"
+      ],
+      "wordBankLabel": "Words from the lesson",
+      "layout": "continuous-gaps",
+      "paragraphs": [
+        [
+          "One of the best ways to see the English countryside is from the air. Green ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "fields"
+          },
+          " separated by hedges or ",
+          {
+            "type": "gap",
+            "id": "2",
+            "input": "select",
+            "answer": "fences",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          " stretch out below you as far as the eye can see. ",
+          {
+            "type": "gap",
+            "id": "3",
+            "input": "select",
+            "answer": "crops",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          " are growing in some of them, such as golden ",
+          {
+            "type": "gap",
+            "id": "4",
+            "input": "select",
+            "answer": "wheat",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          " or ",
+          {
+            "type": "gap",
+            "id": "5",
+            "input": "select",
+            "answer": "ripe",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          " corn, while in others there are animals peacefully eating ",
+          {
+            "type": "gap",
+            "id": "6",
+            "input": "select",
+            "answer": "grass",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          ". As the plane nears the ground, you can see black-and-white ",
+          {
+            "type": "gap",
+            "id": "7",
+            "input": "select",
+            "answer": "cows",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          " standing in groups, and in the spring you can see sheep with their ",
+          {
+            "type": "gap",
+            "id": "8",
+            "input": "select",
+            "answer": "lambs",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          ". Every so often, there is a farmhouse with a ",
+          {
+            "type": "gap",
+            "id": "9",
+            "input": "select",
+            "answer": "tractor",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          " parked outside the door. Usually, there is an enormous ",
+          {
+            "type": "gap",
+            "id": "10",
+            "input": "select",
+            "answer": "barn",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          " nearby where the grain is stored. Outside, there are sometimes ",
+          {
+            "type": "gap",
+            "id": "11",
+            "input": "select",
+            "answer": "hens",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          " walking around the farmyard looking for food. With the female birds, there’s often one noisy male – the ",
+          {
+            "type": "gap",
+            "id": "12",
+            "input": "select",
+            "answer": "cockerel",
+            "options": [
+              "barn",
+              "cockerel",
+              "cows",
+              "crops",
+              "fences",
+              "fields",
+              "grass",
+              "hens",
+              "lambs",
+              "ripe",
+              "tractor",
+              "wheat"
+            ]
+          },
+          "."
+        ]
+      ],
+      "hideAnswersOnError": true
+    },
+    {
+      "type": "exercise",
+      "id": "country-1d",
+      "title": "d Write a short paragraph describing the countryside where you live.",
+      "instructions": "Use the text in exercise c to help you. Write a coherent short paragraph (about 5–7 sentences).",
+      "items": [
+        {
+          "id": "paragraph",
+          "number": "",
+          "input": "textarea",
+          "prompt": "Describe the countryside where you live.",
+          "placeholder": "In the countryside near my home, there are…",
+          "scored": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "PRONUNCIATION vowel sounds",
+      "sectionNumber": 2,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "vowel sounds"
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2a",
+      "title": "a Circle the word with a different sound.",
+      "instructions": "Compare the vowel sound in each word with the reference word. Choose the one that sounds different (British English).",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "choice",
+          "prompt": "fish /ɪ/: cliff / pick / ripe / sticks",
+          "exampleAnswer": "ripe"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "single",
+          "prompt": "tree /iː/",
+          "options": [
+            "field",
+            "hill",
+            "leaf",
+            "sheep"
+          ],
+          "answer": 1,
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "single",
+          "prompt": "egg /e/",
+          "options": [
+            "earth",
+            "fence",
+            "hedge",
+            "threaten"
+          ],
+          "answer": 0,
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "single",
+          "prompt": "cat /æ/",
+          "options": [
+            "lambs",
+            "harvest",
+            "tractor",
+            "valley"
+          ],
+          "answer": 1,
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "single",
+          "prompt": "car /ɑː/",
+          "options": [
+            "barn",
+            "farm",
+            "path",
+            "warn"
+          ],
+          "answer": 3,
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "single",
+          "prompt": "train /eɪ/",
+          "options": [
+            "gate",
+            "grass",
+            "lake",
+            "wait"
+          ],
+          "answer": 1,
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "single",
+          "prompt": "clock /ɒ/",
+          "options": [
+            "cockerel",
+            "crops",
+            "donkey",
+            "stones"
+          ],
+          "answer": 3,
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "single",
+          "prompt": "bull /ʊ/",
+          "options": [
+            "bush",
+            "look",
+            "mud",
+            "wood"
+          ],
+          "answer": 2,
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "single",
+          "prompt": "owl /aʊ/",
+          "options": [
+            "cow",
+            "grow",
+            "mountain",
+            "town"
+          ],
+          "answer": 1,
+          "hideAnswersOnError": true
+        }
+      ],
+      "hideAnswersOnError": true
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2b",
+      "title": "b 5.3 Listen and check. Then listen again and repeat the words.",
+      "instructions": "Listen to track 5.3, check your choices in 2a and practise saying the words. Tick the box when you finish.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_5.3.mp3",
+      "items": [
+        {
+          "id": "repeat-53",
+          "number": "",
+          "input": "checkbox",
+          "label": "I listened, checked my answers and repeated the words."
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2c",
+      "title": "c 5.4 Listen and complete the sentences.",
+      "instructions": "Listen to track 5.4 and type the missing words directly into the sentences. Each gap is checked automatically. If an answer is incorrect, check the highlighted gap and try again.",
+      "audio": "audio/EnglishFile_4e_Intermediate_Plus_WB_5.4.mp3",
+      "inlineNumberedItems": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "gaps",
+          "segments": [
+            "I’ve been ",
+            " my ",
+            " to ",
+            " this week."
+          ],
+          "exampleAnswers": [
+            "riding",
+            "bike",
+            "work"
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "I’ve been ",
+            " more ",
+            " recently."
+          ],
+          "answers": [
+            "eating",
+            "healthily"
+          ],
+          "inputSize": "medium"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "I’ve been ",
+            " my ",
+            "."
+          ],
+          "answers": [
+            "painting",
+            "house"
+          ],
+          "inputSize": "medium"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " been ",
+            " so much ",
+            "."
+          ],
+          "answers": [
+            [
+              "haven't",
+              "haven’t"
+            ],
+            "drinking",
+            "coffee"
+          ],
+          "inputSize": "medium"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " been ",
+            " that ",
+            " lately."
+          ],
+          "answers": [
+            [
+              "haven't",
+              "haven’t"
+            ],
+            "watching",
+            "series"
+          ],
+          "inputSize": "medium"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "I ",
+            " been ",
+            " much ",
+            "."
+          ],
+          "answers": [
+            [
+              "haven't",
+              "haven’t"
+            ],
+            "sleeping",
+            "recently"
+          ],
+          "inputSize": "medium"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "pronunciation-2d",
+      "title": "d 5.4 Listen again and repeat the sentences. Copy the rhythm.",
+      "instructions": "After listening again and practising the rhythm, tick the box.",
+      "items": [
+        {
+          "id": "repeat-54",
+          "number": "",
+          "input": "checkbox",
+          "label": "I listened again and repeated the sentences, copying the rhythm."
+        }
+      ]
+    }
+  ]
+}

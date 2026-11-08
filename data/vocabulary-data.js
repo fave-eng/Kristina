@@ -3599,5 +3599,112 @@ window.VOCABULARY_DATA = [
         "exampleRu": "Куры находятся у амбара."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-27-country-in-context",
+    "title": "The country: in context",
+    "label": "Lesson 27 · The country in context",
+    "icon": "🌿",
+    "type": "lesson",
+    "linkedLessonId": "lesson-27",
+    "page": "vocabulary.html?id=vocab-lesson-27-country-in-context",
+    "words": [
+      {
+        "id": "lesson-27-countryside",
+        "en": "countryside",
+        "ru": "сельская местность",
+        "transcription": "/ˈkʌntrisaɪd/",
+        "exampleEn": "The English countryside is beautiful in spring.",
+        "exampleRu": "Английская сельская местность красива весной."
+      },
+      {
+        "id": "lesson-27-from-the-air",
+        "en": "from the air",
+        "ru": "с высоты, с воздуха",
+        "transcription": "/frəm ði ˈeə/",
+        "exampleEn": "We could see the fields from the air.",
+        "exampleRu": "С высоты мы видели поля."
+      },
+      {
+        "id": "lesson-27-stretch-out",
+        "en": "stretch out",
+        "ru": "простираться, тянуться",
+        "transcription": "/stretʃ ˈaʊt/",
+        "exampleEn": "The fields stretch out as far as you can see.",
+        "exampleRu": "Поля тянутся до самого горизонта."
+      },
+      {
+        "id": "lesson-27-as-far-as-the-eye-can-see",
+        "en": "as far as the eye can see",
+        "ru": "насколько хватает глаз",
+        "transcription": "/əz fɑːr əz ði aɪ kən siː/",
+        "exampleEn": "There are fields as far as the eye can see.",
+        "exampleRu": "Поля простираются насколько хватает глаз."
+      },
+      {
+        "id": "lesson-27-peacefully",
+        "en": "peacefully",
+        "ru": "мирно, спокойно",
+        "transcription": "/ˈpiːsfəli/",
+        "exampleEn": "The cows were grazing peacefully.",
+        "exampleRu": "Коровы мирно паслись."
+      },
+      {
+        "id": "lesson-27-enormous",
+        "en": "enormous",
+        "ru": "огромный",
+        "transcription": "/ɪˈnɔːməs/",
+        "exampleEn": "There is an enormous barn near the farmhouse.",
+        "exampleRu": "Недалеко от фермерского дома есть огромный амбар."
+      },
+      {
+        "id": "lesson-27-nearby",
+        "en": "nearby",
+        "ru": "неподалёку, поблизости",
+        "transcription": "/ˌnɪəˈbaɪ/",
+        "exampleEn": "There is a large barn nearby.",
+        "exampleRu": "Неподалёку стоит большой амбар."
+      },
+      {
+        "id": "lesson-27-grain",
+        "en": "grain",
+        "ru": "зерно",
+        "transcription": "/ɡreɪn/",
+        "exampleEn": "The grain is stored in a barn.",
+        "exampleRu": "Зерно хранится в амбаре."
+      },
+      {
+        "id": "lesson-27-farmyard",
+        "en": "farmyard",
+        "ru": "двор фермы",
+        "transcription": "/ˈfɑːmjɑːd/",
+        "exampleEn": "The hens are walking around the farmyard.",
+        "exampleRu": "Куры ходят по двору фермы."
+      },
+      {
+        "id": "lesson-27-noisy",
+        "en": "noisy",
+        "ru": "шумный",
+        "transcription": "/ˈnɔɪzi/",
+        "exampleEn": "The cockerel is a noisy bird.",
+        "exampleRu": "Петух — шумная птица."
+      },
+      {
+        "id": "lesson-27-lately",
+        "en": "lately",
+        "ru": "в последнее время",
+        "transcription": "/ˈleɪtli/",
+        "exampleEn": "I have been working more lately.",
+        "exampleRu": "В последнее время я работаю больше."
+      },
+      {
+        "id": "lesson-27-recently",
+        "en": "recently",
+        "ru": "недавно, в последнее время",
+        "transcription": "/ˈriːsəntli/",
+        "exampleEn": "She has been spending more time outdoors recently.",
+        "exampleRu": "В последнее время она проводит больше времени на свежем воздухе."
+      }
+    ]
   }
 ];
