@@ -49,101 +49,93 @@
           "number": "b",
           "prompt": "anything / notice / about / unusual / did / you / her",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "Did you notice anything unusual about her?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         },
         {
           "id": "c",
           "number": "c",
           "prompt": "your / aunt / missing / how / long / has / been",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "How long has your aunt been missing?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         },
         {
           "id": "d",
           "number": "d",
           "prompt": "you / were / where",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "Where were you?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         },
         {
           "id": "e",
           "number": "e",
           "prompt": "her / you / describe / can",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "Can you describe her?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         },
         {
           "id": "f",
           "number": "f",
           "prompt": "anything / tonight / there / about / the / unusual / was / house",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "Was there anything unusual about the house tonight?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         },
         {
           "id": "g",
           "number": "g",
           "prompt": "some / idea / her / normal / can / you / routine / of / give / me",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "Can you give me some idea of her normal routine?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         },
         {
           "id": "h",
           "number": "h",
           "prompt": "her / see / you / when / last / did",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "When did you last see her?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         },
         {
           "id": "i",
           "number": "i",
           "prompt": "she / was / remember / what / wearing / do / you",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "Do you remember what she was wearing?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         },
         {
           "id": "j",
           "number": "j",
           "prompt": "anything / there / else / is",
           "hideAnswersOnError": true,
-          "input": "text",
+          "input": "word-order",
           "acceptedAnswers": [
             "Is there anything else?"
-          ],
-          "placeholder": "Write the complete question"
+          ]
         }
-      ]
+      ],
+      "interactiveHint": "Drag words to change their order. On a phone, tap two words to swap them."
     },
     {
       "type": "exercise",
@@ -358,12 +350,22 @@
             "Thanks for ",
             " me stay."
           ],
-          "input": "gaps",
+          "input": "select",
           "answers": [
             [
               "letting"
             ]
-          ]
+          ],
+          "options": [
+            "carefully",
+            "idea",
+            "letting",
+            "mean",
+            "message",
+            "right"
+          ],
+          "answer": 2,
+          "compactSelect": true
         },
         {
           "id": "3",
@@ -372,12 +374,22 @@
             "Listen ",
             "."
           ],
-          "input": "gaps",
+          "input": "select",
           "answers": [
             [
               "carefully"
             ]
-          ]
+          ],
+          "options": [
+            "carefully",
+            "idea",
+            "letting",
+            "mean",
+            "message",
+            "right"
+          ],
+          "answer": 0,
+          "compactSelect": true
         },
         {
           "id": "4",
@@ -386,12 +398,22 @@
             "It’s a ",
             " from"
           ],
-          "input": "gaps",
+          "input": "select",
           "answers": [
             [
               "message"
             ]
-          ]
+          ],
+          "options": [
+            "carefully",
+            "idea",
+            "letting",
+            "mean",
+            "message",
+            "right"
+          ],
+          "answer": 4,
+          "compactSelect": true
         },
         {
           "id": "5",
@@ -400,12 +422,22 @@
             "I have no ",
             "."
           ],
-          "input": "gaps",
+          "input": "select",
           "answers": [
             [
               "idea"
             ]
-          ]
+          ],
+          "options": [
+            "carefully",
+            "idea",
+            "letting",
+            "mean",
+            "message",
+            "right"
+          ],
+          "answer": 1,
+          "compactSelect": true
         },
         {
           "id": "6",
@@ -414,12 +446,22 @@
             "What does it ",
             "?"
           ],
-          "input": "gaps",
+          "input": "select",
           "answers": [
             [
               "mean"
             ]
-          ]
+          ],
+          "options": [
+            "carefully",
+            "idea",
+            "letting",
+            "mean",
+            "message",
+            "right"
+          ],
+          "answer": 3,
+          "compactSelect": true
         }
       ],
       "inlineNumberedItems": true
@@ -541,9 +583,7 @@
           "text": "Yes, I really like Budapest. ",
           "itemId": "6"
         }
-      ],
-      "image": "images/lesson-29/social-english.jpg",
-      "imageAlt": "Original workbook illustration: two travellers with backpacks."
+      ]
     },
     {
       "type": "section",
@@ -852,13 +892,11 @@
       "layout": "article-mcq",
       "articleTitle": "A British Institution",
       "articleText": "Every evening, people all over Britain tune in to BBC Radio 4 and listen to an introductory tune that 1 ____ every night for more than 60 years. It is the theme tune to The Archers, the longest-running radio 2 ____ in the world. The Archers is 3 ____ just before seven o’clock. The programme is about life in the fictional village of Ambridge. The aim of the show was to give 4 ____ information about new farming methods after the Second World War. The programme was originally about the lives of three farmers: Dan Archer, Walter Gabriel, and George Fairbrother, but a lot has changed 5 ____ the first episode. The Archers’ family farm, Brookfield, no longer belongs 6 ____ Dan. First, it passed to Dan’s son, Phil, and his wife Jill, and now it is owned by 7 ____ four children. Their son, David, manages Brookfield, and he keeps animals as well as growing 8 ____. The programme has been very 9 ____, and at the height of its popularity, it was estimated that 60% of British adults were regular listeners. Today, it isn’t quite as popular 10 ____ it used to be, but it still has over a million listeners.",
-      "articleImage": "images/lesson-29/british-institution.jpg",
-      "articleImageAlt": "Original workbook photograph of a farmer and cattle.",
       "items": [
         {
           "id": "1",
           "number": 1,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  ’s playing",
             "b  plays",
@@ -869,7 +907,7 @@
         {
           "id": "2",
           "number": 2,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  chat show",
             "b  documentary",
@@ -880,7 +918,7 @@
         {
           "id": "3",
           "number": 3,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  in",
             "b  on",
@@ -891,7 +929,7 @@
         {
           "id": "4",
           "number": 4,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  for farmers",
             "b  farmers",
@@ -902,7 +940,7 @@
         {
           "id": "5",
           "number": 5,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  since",
             "b  for",
@@ -913,7 +951,7 @@
         {
           "id": "6",
           "number": 6,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  at",
             "b  of",
@@ -924,7 +962,7 @@
         {
           "id": "7",
           "number": 7,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  Phil’s and Jill’s",
             "b  Phil and Jills’",
@@ -935,7 +973,7 @@
         {
           "id": "8",
           "number": 8,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  crops",
             "b  grass",
@@ -946,7 +984,7 @@
         {
           "id": "9",
           "number": 9,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  colourful",
             "b  successful",
@@ -957,7 +995,7 @@
         {
           "id": "10",
           "number": 10,
-          "input": "single",
+          "input": "select",
           "options": [
             "a  as",
             "b  than",

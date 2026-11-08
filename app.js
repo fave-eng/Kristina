@@ -1996,6 +1996,8 @@
       : baseNumberMarkup;
     const context = renderExerciseContext(item);
 
+    if (item.input === 'word-order') return renderWordOrderItem(item, blockId, index);
+
     if (item.displayOnly) {
       const className = item.displayStyle === 'heading' ? 'exercise-display-heading' : 'exercise-display-copy';
       return `<div class="${className}" data-exercise-item="${escapeHtml(itemId)}">${prompt}</div>`;
@@ -2243,21 +2245,145 @@
   }
 
 
-  function renderArticleMcqExercise(block, blockId) {
-    const items = Array.isArray(block.items) ? block.items : [];
-    const articleTitle = escapeHtml(block.articleTitle || '');
-    const articleText = escapeHtml(block.articleText || '').replaceAll('\n', '<br>');
-    const questions = items.map((item, itemIndex) => renderExerciseItem(item, blockId, itemIndex, false)).join('');
-    return `<div class="article-mcq-layout">
-      <article class="article-mcq-copy" aria-label="Article">
-        ${articleTitle ? `<h4>${articleTitle}</h4>` : ''}
-        <p>${articleText}</p>
-        ${block.articleImage ? `<figure class="article-original-illustration"><img src="${escapeHtml(block.articleImage)}" alt="${escapeHtml(block.articleImageAlt || '')}" loading="lazy"></figure>` : ''}
-      </article>
-      <div class="article-mcq-questions exercise-items">${questions}</div>
+  // Keep the original word order as movable individual tokens. The hidden value
+  // uses the same string answer contract as the previous text-entry exercise.
+  function renderWordOrderItem(item, blockId, index) {
+    const itemId = safeText(item.id, String(index + 1));
+    const tokens = safeText(item.prompt).split(/\s*\/\s*/).map((part) => part.trim()).filter(Boolean);
+    const inputId = `exercise-${blockId}-${itemId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+    const chips = tokens.map((token, tokenIndex) => `<button type="button" class="word-order-chip" draggable="true" data-word-order-token="${tokenIndex}" aria-label="${escapeHtml(token)}, position ${tokenIndex + 1}">${escapeHtml(token)}</button>`).join('');
+    return `<div class="exercise-item word-order-item" data-exercise-item="${escapeHtml(itemId)}" data-input-type="word-order">
+      <div class="exercise-item-header"><span class="exercise-number">${escapeHtml(item.number || itemId)}</span></div>
+      <div class="exercise-control"><div class="word-order-workspace" data-word-order-workspace>
+        <div class="word-order-tokens" role="group" aria-label="Reorder the words to make a question">${chips}</div>
+        <input type="hidden" id="${escapeHtml(inputId)}" data-word-order-value value="">
+        <div class="word-order-preview" data-word-order-preview aria-live="polite"></div>
+      </div></div>
+      <div class="feedback" aria-live="polite"></div>
     </div>`;
   }
 
+  function wordOrderSentence(workspace) {
+    const tokens = [...workspace.querySelectorAll('[data-word-order-token]')].map((chip) => safeText(chip.textContent).trim());
+    const sentence = tokens.join(' ').trim();
+    return sentence ? sentence.charAt(0).toLocaleUpperCase('en') + sentence.slice(1) + '?' : '';
+  }
+
+  function wireWordOrderExercises(root) {
+    root.querySelectorAll('[data-word-order-workspace]').forEach((workspace) => {
+      const list = workspace.querySelector('[data-word-order-tokens]') || workspace.querySelector('.word-order-tokens');
+      const hidden = workspace.querySelector('[data-word-order-value]');
+      const preview = workspace.querySelector('[data-word-order-preview]');
+      let selected = null;
+      let dragged = null;
+      const clear = () => {
+        list.querySelectorAll('.is-selected, .is-drop-target').forEach((chip) => chip.classList.remove('is-selected', 'is-drop-target'));
+        selected = null;
+      };
+      const refresh = (notify = true) => {
+        if (notify) workspace.dataset.wordOrderTouched = '1';
+        const sentence = wordOrderSentence(workspace);
+        hidden.value = sentence;
+        preview.textContent = sentence;
+        [...list.querySelectorAll('[data-word-order-token]')].forEach((chip, index) => chip.setAttribute('aria-label', `${chip.textContent.trim()}, position ${index + 1}`));
+        if (notify) hidden.dispatchEvent(new Event('input', { bubbles: true }));
+      };
+      const swap = (a, b) => {
+        if (!a || !b || a === b || a.parentElement !== list || b.parentElement !== list) { clear(); return; }
+        const marker = document.createTextNode('');
+        list.replaceChild(marker, a);
+        list.replaceChild(a, b);
+        list.replaceChild(b, marker);
+        clear();
+        workspace.closest('[data-exercise-item]')?.classList.remove('is-wrong','is-correct');
+        refresh();
+      };
+      const chips = [...list.querySelectorAll('[data-word-order-token]')];
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          if (selected === chip) { clear(); return; }
+          if (selected) swap(selected, chip);
+          else { selected = chip; chip.classList.add('is-selected'); }
+        });
+        chip.addEventListener('dragstart', (event) => {
+          dragged = chip;
+          event.dataTransfer.effectAllowed = 'move';
+          event.dataTransfer.setData('text/plain', chip.dataset.wordOrderToken);
+          chip.classList.add('is-dragging');
+        });
+        chip.addEventListener('dragover', (event) => {
+          if (!dragged || dragged === chip) return;
+          event.preventDefault();
+          chip.classList.add('is-drop-target');
+        });
+        chip.addEventListener('dragleave', () => chip.classList.remove('is-drop-target'));
+        chip.addEventListener('drop', (event) => {
+          event.preventDefault();
+          chip.classList.remove('is-drop-target');
+          if (dragged) swap(dragged, chip);
+        });
+        chip.addEventListener('dragend', () => {
+          chip.classList.remove('is-dragging');
+          dragged = null;
+          list.querySelectorAll('.is-drop-target').forEach((candidate) => candidate.classList.remove('is-drop-target'));
+        });
+        chip.addEventListener('keydown', (event) => {
+          if (!event.altKey || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+          event.preventDefault();
+          const ordered = [...list.querySelectorAll('[data-word-order-token]')];
+          const index = ordered.indexOf(chip);
+          const nextIndex = index + (event.key === 'ArrowLeft' ? -1 : 1);
+          if (nextIndex >= 0 && nextIndex < ordered.length) { swap(chip, ordered[nextIndex]); chip.focus(); }
+        });
+      });
+      // Restore legacy free-text answers from earlier versions when possible.
+      workspace.addEventListener('wordorder:restore', (event) => {
+        const raw = safeText(event.detail?.value).trim();
+        workspace.dataset.wordOrderTouched = raw ? '1' : '0';
+        const units = raw.replace(/[?!.,]/g, '').split(/\s+/).filter(Boolean);
+        const remaining = [...list.querySelectorAll('[data-word-order-token]')];
+        const newOrder = units.map((unit) => {
+          const index = remaining.findIndex((chip) => normalizeAnswer(chip.textContent) === normalizeAnswer(unit));
+          return index >= 0 ? remaining.splice(index, 1)[0] : null;
+        });
+        if (newOrder.length === chips.length && newOrder.every(Boolean) && !remaining.length) {
+          newOrder.forEach((chip) => list.appendChild(chip));
+          refresh(false);
+        } else if (raw) {
+          // Keep an older, unparseable answer available rather than silently losing it.
+          hidden.value = raw;
+          preview.textContent = raw;
+        }
+      });
+      refresh(false);
+    });
+  }
+
+  function renderArticleMcqExercise(block, blockId) {
+    const items = Array.isArray(block.items) ? block.items : [];
+    const itemMap = new Map(items.map((item) => [safeText(item.number), item]));
+    // articleText is plain workbook text. Escape static spans, retaining only
+    // our generated markup inserted at numbered gaps.
+    const escapedParts = [];
+    let cursor = 0;
+    const gapPattern = /(\d+)\s+____/g;
+    for (const match of safeText(block.articleText).matchAll(gapPattern)) {
+      escapedParts.push(escapeHtml(safeText(block.articleText).slice(cursor, match.index)));
+      escapedParts.push(match[0].replace(/(\d+)\s+____/, (_, number) => {
+        const item = itemMap.get(number);
+        if (!item) return escapeHtml(match[0]);
+        const selectId = `exercise-${blockId}-${number}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+        const options = (item.options || []).map((label, optionIndex) => `<option value="${optionIndex}">${escapeHtml(label)}</option>`).join('');
+        return `<span class="article-inline-answer" data-exercise-item="${escapeHtml(item.id)}" data-input-type="select"><label class="article-gap-label" for="${escapeHtml(selectId)}">${escapeHtml(number)}</label><select id="${escapeHtml(selectId)}" class="article-inline-select" aria-label="Choose a, b, or c for gap ${escapeHtml(number)}"><option value="">Choose</option>${options}</select><span class="feedback" aria-live="polite"></span></span>`;
+      }));
+      cursor = match.index + match[0].length;
+    }
+    escapedParts.push(escapeHtml(safeText(block.articleText).slice(cursor)));
+    return `<article class="article-reading-inline" aria-label="Article">
+      <h4>${escapeHtml(block.articleTitle || '')}</h4>
+      <p>${escapedParts.join('')}</p>
+    </article>`;
+  }
 
   function renderImageSpellingGrid(block, blockId) {
     const items = Array.isArray(block.items) ? block.items : [];
@@ -2336,7 +2462,7 @@
       const number = groupStarts ? `<span class="dependent-conversation-number">${escapeHtml(group)}</span>` : '';
       return `<div class="dialogue-line dependent-dialogue-line${groupStarts ? ' is-group-start' : ''}">${number}<span class="dialogue-speaker" aria-label="Speaker ${speaker}">${speaker}</span><div class="dialogue-utterance">${text}${answer}${suffix}</div></div>`;
     }).join('');
-    return `<div class="dialogue-exercise dependent-dialogue" data-dependent-dialogue="${escapeHtml(blockId)}" data-dependency-source="${escapeHtml(block.sourceBlockId || '')}">${lines}</div>`;
+    return `<div class="dialogue-exercise dependent-dialogue ${blockId === 'social-2b' ? 'social-conversations' : 'police-conversation'}" data-dependent-dialogue="${escapeHtml(blockId)}" data-dependency-source="${escapeHtml(block.sourceBlockId || '')}">${lines}</div>`;
   }
 
   function wireDependentDialogues(root, blocks) {
@@ -2365,6 +2491,14 @@
           const answers = inputs.map((input) => input.value.trim());
           return answers.length === (item.answers || []).length && answers.every(Boolean)
             ? assemble(item.segments || [], answers) : '';
+        }
+        if (item.input === 'word-order') {
+          const workspace = itemNode.querySelector('[data-word-order-workspace]');
+          return workspace?.dataset.wordOrderTouched === '1' ? safeText(workspace.querySelector('[data-word-order-value]')?.value).trim() : '';
+        }
+        if (item.input === 'select') {
+          const selected = itemNode.querySelector('select')?.value ?? '';
+          return selected === '' ? '' : assemble(item.segments || [], [safeText(item.options?.[Number(selected)])]);
         }
         return safeText(itemNode.querySelector('input, textarea')?.value).trim();
       };
@@ -2499,7 +2633,7 @@
         ? `<div class="exercise-sticky-layout"><div class="exercise-sticky-media">${image}</div><div class="exercise-sticky-content">${intro}${exerciseContent}</div></div>`
         : `${image}${intro}${exerciseContent}`;
       return `<article class="card lesson-block exercise-card${block.layout === 'dialogue' ? ' dialogue-card' : ''}${hasStickyImage ? ' has-sticky-image' : ''}" data-task="${escapeHtml(id)}" data-type="exercise">
-        <div class="exercise-heading">${Object.prototype.hasOwnProperty.call(block, 'eyebrow') ? (safeText(block.eyebrow) ? `<span class="eyebrow">${escapeHtml(safeText(block.eyebrow))}</span>` : '') : '<span class="eyebrow">Exercise</span>'}<h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}</div>
+        <div class="exercise-heading">${Object.prototype.hasOwnProperty.call(block, 'eyebrow') ? (safeText(block.eyebrow) ? `<span class="eyebrow">${escapeHtml(safeText(block.eyebrow))}</span>` : '') : '<span class="eyebrow">Exercise</span>'}<h3>${title}</h3>${block.instructions ? `<p class="muted exercise-instructions">${escapeHtml(block.instructions)}</p>` : ''}${player}${wordBank}${wordBanks}${block.interactiveHint ? `<p class="word-order-help">${escapeHtml(block.interactiveHint)}</p>` : ''}</div>
         ${exerciseBody}
       </article>`;
     }
@@ -2588,6 +2722,10 @@
       actual = itemNode.querySelector('input:checked')?.value ?? '';
       // An unanswered choice must never count as option zero.
       correct = actual !== '' && Number(actual) === Number(item.answer);
+    } else if (inputType === 'word-order') {
+      const workspace = itemNode.querySelector('[data-word-order-workspace]');
+      actual = workspace?.dataset.wordOrderTouched === '1' ? workspace.querySelector('[data-word-order-value]')?.value || '' : '';
+      correct = textAnswerMatches(item, actual);
     } else if (inputType === 'dependent-select') {
       const choice = itemNode.querySelector('select');
       actual = choice && !choice.disabled ? choice.value : '';
@@ -2757,9 +2895,16 @@
       } else if (inputType === 'dependent-select') {
         const select = itemNode.querySelector('select');
         if (select) select.dataset.savedValue = safeText(value);
+      } else if (inputType === 'word-order') {
+        itemNode.querySelector('[data-word-order-workspace]')?.dispatchEvent(new CustomEvent('wordorder:restore', { detail: { value } }));
       } else if (inputType === 'select') {
         const select = itemNode.querySelector('select');
-        if (select) select.value = safeText(value);
+        if (select) {
+          // Existing progress may contain the previously typed word as a gaps array.
+          const oldWord = Array.isArray(value) ? safeText(value[0]) : '';
+          const oldIndex = oldWord ? (item.options || []).findIndex((word) => normalizeAnswer(word) === normalizeAnswer(oldWord)) : -1;
+          select.value = oldIndex >= 0 ? String(oldIndex) : safeText(value);
+        }
       } else if (inputType === 'gaps') {
         const values = Array.isArray(value) ? value : [];
         itemNode.querySelectorAll('[data-gap-index]').forEach((input, gapIndex) => { input.value = safeText(values[gapIndex]); });
@@ -2864,6 +3009,7 @@
       <div id="lesson-blocks">${renderedBlocks}</div>
       <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Check answers</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Submit to teacher</button></div><p class="muted save-note">After checking, your answers are saved on this device and synced with Supabase.</p></div>`;
 
+    wireWordOrderExercises(root);
     restoreLessonAnswers(root, blocks, progress.drafts?.[lesson.id] || savedResult?.answers);
     wireLessonInteractiveInputs(root);
     wireDependentDialogues(root, blocks);
@@ -2883,6 +3029,9 @@
             if (!itemNode) return;
             if (item.input === 'gaps') {
               answers[item.id] = [...itemNode.querySelectorAll('[data-gap-index]')].map((input) => input.value);
+            } else if (item.input === 'word-order') {
+              const workspace = itemNode.querySelector('[data-word-order-workspace]');
+              answers[item.id] = workspace?.dataset.wordOrderTouched === '1' ? workspace.querySelector('[data-word-order-value]')?.value || '' : '';
             } else if (item.input === 'single') {
               answers[item.id] = itemNode.querySelector('input:checked')?.value || '';
             } else if (item.input === 'dependent-select') {
