@@ -33,7 +33,7 @@
           "number": 1,
           "pattern": "mug",
           "answer": "mug",
-          "image": "images/lesson-30/restaurant-01.jpg",
+          "image": "images/lesson-30/restaurant-01.jpg?v=20261109-crop2",
           "imageAlt": "Photo 1 from the workbook",
           "example": true,
           "exampleLabel": "EXAMPLE"
@@ -43,7 +43,7 @@
           "number": 2,
           "pattern": "o__ and v_n_g__",
           "answer": "oil and vinegar",
-          "image": "images/lesson-30/restaurant-02.jpg",
+          "image": "images/lesson-30/restaurant-02.jpg?v=20261109-crop2",
           "imageAlt": "Photo 2 from the workbook"
         },
         {
@@ -51,7 +51,7 @@
           "number": 3,
           "pattern": "c__d__",
           "answer": "candle",
-          "image": "images/lesson-30/restaurant-03.jpg",
+          "image": "images/lesson-30/restaurant-03.jpg?v=20261109-crop2",
           "imageAlt": "Photo 3 from the workbook"
         },
         {
@@ -59,7 +59,7 @@
           "number": 4,
           "pattern": "c__",
           "answer": "cup",
-          "image": "images/lesson-30/restaurant-04.jpg",
+          "image": "images/lesson-30/restaurant-04.jpg?v=20261109-crop2",
           "imageAlt": "Photo 4 from the workbook"
         },
         {
@@ -67,7 +67,7 @@
           "number": 5,
           "pattern": "s__v__g d__h",
           "answer": "serving dish",
-          "image": "images/lesson-30/restaurant-05.jpg",
+          "image": "images/lesson-30/restaurant-05.jpg?v=20261109-crop2",
           "imageAlt": "Photo 5 from the workbook"
         },
         {
@@ -75,7 +75,7 @@
           "number": 6,
           "pattern": "f_r_",
           "answer": "fork",
-          "image": "images/lesson-30/restaurant-06.jpg",
+          "image": "images/lesson-30/restaurant-06.jpg?v=20261109-crop2",
           "imageAlt": "Photo 6 from the workbook"
         },
         {
@@ -83,7 +83,7 @@
           "number": 7,
           "pattern": "n__k__",
           "answer": "napkin",
-          "image": "images/lesson-30/restaurant-07.jpg",
+          "image": "images/lesson-30/restaurant-07.jpg?v=20261109-crop2",
           "imageAlt": "Photo 7 from the workbook"
         },
         {
@@ -91,7 +91,7 @@
           "number": 8,
           "pattern": "s__t and p__p__",
           "answer": "salt and pepper",
-          "image": "images/lesson-30/restaurant-08.jpg",
+          "image": "images/lesson-30/restaurant-08.jpg?v=20261109-crop2",
           "imageAlt": "Photo 8 from the workbook"
         },
         {
@@ -99,7 +99,7 @@
           "number": 9,
           "pattern": "t__s___n",
           "answer": "teaspoon",
-          "image": "images/lesson-30/restaurant-09.jpg",
+          "image": "images/lesson-30/restaurant-09.jpg?v=20261109-crop2",
           "imageAlt": "Photo 9 from the workbook"
         },
         {
@@ -107,7 +107,7 @@
           "number": 10,
           "pattern": "g___s",
           "answer": "glass",
-          "image": "images/lesson-30/restaurant-10.jpg",
+          "image": "images/lesson-30/restaurant-10.jpg?v=20261109-crop2",
           "imageAlt": "Photo 10 from the workbook"
         }
       ]
