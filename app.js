@@ -2488,7 +2488,8 @@
       correct = JSON.stringify(actual) === JSON.stringify(expected);
     } else if (inputType === 'single') {
       actual = itemNode.querySelector('input:checked')?.value ?? '';
-      correct = Number(actual) === Number(item.answer);
+      // An unanswered choice must never count as option zero.
+      correct = actual !== '' && Number(actual) === Number(item.answer);
     } else if (inputType === 'select') {
       actual = itemNode.querySelector('select')?.value ?? '';
       correct = actual !== '' && Number(actual) === Number(item.answer);
