@@ -3706,5 +3706,168 @@ window.VOCABULARY_DATA = [
         "exampleRu": "В последнее время она проводит больше времени на свежем воздухе."
       }
     ]
+  },
+  {
+    "id": "vocab-lesson-29-practical-english-review",
+    "title": "Police reports, social English & radio",
+    "label": "Lesson 29 · Time to tell the police",
+    "icon": "📋",
+    "type": "lesson",
+    "linkedLessonId": "lesson-29",
+    "page": "vocabulary.html?id=vocab-lesson-29-practical-english-review",
+    "words": [
+      {
+        "id": "lesson-29-report-a-missing-person",
+        "en": "report a missing person",
+        "ru": "сообщить о пропаже человека",
+        "transcription": "/rɪˈpɔːt ə ˈmɪsɪŋ ˈpɜːsən/",
+        "exampleEn": "She called the police to report a missing person.",
+        "exampleRu": "Она позвонила в полицию, чтобы сообщить о пропаже человека."
+      },
+      {
+        "id": "lesson-29-take-a-statement",
+        "en": "take a statement",
+        "ru": "записать показания (принять заявление)",
+        "transcription": "/teɪk ə ˈsteɪtmənt/",
+        "exampleEn": "The police officer took a statement from the witness.",
+        "exampleRu": "Полицейский записал показания свидетеля."
+      },
+      {
+        "id": "lesson-29-be-missing",
+        "en": "be missing",
+        "ru": "пропасть; числиться пропавшим",
+        "transcription": "/bi ˈmɪsɪŋ/",
+        "exampleEn": "Her aunt has been missing for four hours.",
+        "exampleRu": "Её тётя пропала четыре часа назад."
+      },
+      {
+        "id": "lesson-29-unusual",
+        "en": "unusual",
+        "ru": "необычный, странный",
+        "transcription": "/ʌnˈjuːʒuəl/",
+        "exampleEn": "Did you notice anything unusual?",
+        "exampleRu": "Ты заметил что-нибудь необычное?"
+      },
+      {
+        "id": "lesson-29-normal-routine",
+        "en": "normal routine",
+        "ru": "обычный распорядок дня",
+        "transcription": "/ˈnɔːməl ruːˈtiːn/",
+        "exampleEn": "Can you describe her normal routine?",
+        "exampleRu": "Можешь описать её обычный распорядок дня?"
+      },
+      {
+        "id": "lesson-29-describe",
+        "en": "describe",
+        "ru": "описывать",
+        "transcription": "/dɪˈskraɪb/",
+        "exampleEn": "Can you describe the person you saw?",
+        "exampleRu": "Можешь описать человека, которого ты видел?"
+      },
+      {
+        "id": "lesson-29-unlocked",
+        "en": "unlocked",
+        "ru": "незапертый",
+        "transcription": "/ʌnˈlɒkt/",
+        "exampleEn": "The front door was unlocked.",
+        "exampleRu": "Входная дверь была не заперта."
+      },
+      {
+        "id": "lesson-29-leggings",
+        "en": "leggings",
+        "ru": "легинсы",
+        "transcription": "/ˈleɡɪŋz/",
+        "exampleEn": "She was wearing black leggings.",
+        "exampleRu": "На ней были чёрные легинсы."
+      },
+      {
+        "id": "lesson-29-handbag",
+        "en": "handbag",
+        "ru": "женская сумка",
+        "transcription": "/ˈhændbæɡ/",
+        "exampleEn": "Her handbag was on the table.",
+        "exampleRu": "Её сумка лежала на столе."
+      },
+      {
+        "id": "lesson-29-have-no-idea",
+        "en": "have no idea",
+        "ru": "не иметь ни малейшего понятия",
+        "transcription": "/hæv nəʊ aɪˈdɪə/",
+        "exampleEn": "I have no idea where he went.",
+        "exampleRu": "Я понятия не имею, куда он ушёл."
+      },
+      {
+        "id": "lesson-29-listen-carefully",
+        "en": "listen carefully",
+        "ru": "слушать внимательно",
+        "transcription": "/ˈlɪsən ˈkeəfəli/",
+        "exampleEn": "Listen carefully this time.",
+        "exampleRu": "На этот раз слушай внимательно."
+      },
+      {
+        "id": "lesson-29-leave-a-message",
+        "en": "leave a message",
+        "ru": "оставить сообщение",
+        "transcription": "/liːv ə ˈmesɪdʒ/",
+        "exampleEn": "Can I leave a message for Anna?",
+        "exampleRu": "Можно я оставлю сообщение для Анны?"
+      },
+      {
+        "id": "lesson-29-tune-in",
+        "en": "tune in",
+        "ru": "включить радио или телевизор для просмотра программы",
+        "transcription": "/tjuːn ˈɪn/",
+        "exampleEn": "Millions of people tune in every evening.",
+        "exampleRu": "Миллионы людей включают радиопередачу каждый вечер."
+      },
+      {
+        "id": "lesson-29-introductory-tune",
+        "en": "introductory tune",
+        "ru": "вступительная мелодия",
+        "transcription": "/ˌɪntrəˈdʌktəri tjuːn/",
+        "exampleEn": "The show begins with a familiar introductory tune.",
+        "exampleRu": "Передача начинается со знакомой вступительной мелодии."
+      },
+      {
+        "id": "lesson-29-long-running",
+        "en": "long-running",
+        "ru": "долго идущий (о передаче, сериале)",
+        "transcription": "/ˌlɒŋ ˈrʌnɪŋ/",
+        "exampleEn": "The Archers is a long-running radio programme.",
+        "exampleRu": "«Арчеры» — радиопередача, которая выходит много лет."
+      },
+      {
+        "id": "lesson-29-fictional",
+        "en": "fictional",
+        "ru": "вымышленный",
+        "transcription": "/ˈfɪkʃənəl/",
+        "exampleEn": "Ambridge is a fictional village.",
+        "exampleRu": "Амбридж — вымышленная деревня."
+      },
+      {
+        "id": "lesson-29-farming-methods",
+        "en": "farming methods",
+        "ru": "методы ведения сельского хозяйства",
+        "transcription": "/ˈfɑːmɪŋ ˈmeθədz/",
+        "exampleEn": "The programme discussed new farming methods.",
+        "exampleRu": "В передаче обсуждались новые методы ведения сельского хозяйства."
+      },
+      {
+        "id": "lesson-29-at-the-height-of",
+        "en": "at the height of",
+        "ru": "на пике (популярности и т. п.)",
+        "transcription": "/ət ðə haɪt əv/",
+        "exampleEn": "At the height of its popularity, the show had millions of listeners.",
+        "exampleRu": "На пике популярности у передачи были миллионы слушателей."
+      },
+      {
+        "id": "lesson-29-regular-listener",
+        "en": "regular listener",
+        "ru": "постоянный слушатель",
+        "transcription": "/ˈreɡjələ ˈlɪsənə/",
+        "exampleEn": "She is a regular listener of Radio 4.",
+        "exampleRu": "Она постоянно слушает Radio 4."
+      }
+    ]
   }
 ];

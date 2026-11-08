@@ -360,7 +360,8 @@
       return {
         completedIds: unique(value.completedIds),
         results: value.results && typeof value.results === 'object' ? value.results : {},
-        submissions: value.submissions && typeof value.submissions === 'object' ? value.submissions : {}
+        submissions: value.submissions && typeof value.submissions === 'object' ? value.submissions : {},
+        drafts: value.drafts && typeof value.drafts === 'object' ? value.drafts : {}
       };
     },
     saveHomeworkProgress(progress) {
@@ -2251,6 +2252,7 @@
       <article class="article-mcq-copy" aria-label="Article">
         ${articleTitle ? `<h4>${articleTitle}</h4>` : ''}
         <p>${articleText}</p>
+        ${block.articleImage ? `<figure class="article-original-illustration"><img src="${escapeHtml(block.articleImage)}" alt="${escapeHtml(block.articleImageAlt || '')}" loading="lazy"></figure>` : ''}
       </article>
       <div class="article-mcq-questions exercise-items">${questions}</div>
     </div>`;
@@ -2309,6 +2311,88 @@
         </div>`;
       }).join('')}
     </div>`;
+  }
+
+  // Dependent workbook dialogues: choices always come from the student's own
+  // completed answers in the preceding part, never from the answer key.
+  function renderDependentDialogueExercise(block, blockId) {
+    const items = new Map((block.items || []).map((item) => [safeText(item.id), item]));
+    let lastGroup = '';
+    const lines = (block.dialogueLines || []).map((line) => {
+      const speaker = escapeHtml(line.speaker || '');
+      const group = safeText(line.group);
+      const groupStarts = group && group !== lastGroup;
+      if (group) lastGroup = group;
+      const item = items.get(safeText(line.itemId));
+      const text = escapeHtml(line.text || '');
+      const suffix = escapeHtml(line.suffix || '');
+      let answer = '';
+      if (item?.example) {
+        answer = `<span class="dependent-answer dependent-example" data-exercise-item="${escapeHtml(item.id)}"><sup>${escapeHtml(item.number)}</sup>${escapeHtml(item.exampleAnswer || '')}</span>`;
+      } else if (item) {
+        const itemId = escapeHtml(item.id);
+        answer = `<span class="dependent-answer" data-exercise-item="${itemId}" data-input-type="dependent-select"><sup>${escapeHtml(item.number)}</sup><select class="dependent-select" data-source-option="${itemId}" data-saved-value="" disabled aria-label="Question or phrase ${itemId}"><option value="">Complete exercise a first</option></select><span class="feedback" aria-live="polite"></span></span>`;
+      }
+      const number = groupStarts ? `<span class="dependent-conversation-number">${escapeHtml(group)}</span>` : '';
+      return `<div class="dialogue-line dependent-dialogue-line${groupStarts ? ' is-group-start' : ''}">${number}<span class="dialogue-speaker" aria-label="Speaker ${speaker}">${speaker}</span><div class="dialogue-utterance">${text}${answer}${suffix}</div></div>`;
+    }).join('');
+    return `<div class="dialogue-exercise dependent-dialogue" data-dependent-dialogue="${escapeHtml(blockId)}" data-dependency-source="${escapeHtml(block.sourceBlockId || '')}">${lines}</div>`;
+  }
+
+  function wireDependentDialogues(root, blocks) {
+    root.querySelectorAll('[data-dependent-dialogue]').forEach((dialogue) => {
+      const block = blocks.find((entry) => entry.id === dialogue.dataset.dependentDialogue);
+      const sourceBlock = blocks.find((entry) => entry.id === dialogue.dataset.dependencySource);
+      const sourceNode = root.querySelector(`[data-task="${CSS.escape(safeText(sourceBlock?.id))}"]`);
+      if (!block || !sourceBlock || !sourceNode) return;
+      const sourceItems = Array.isArray(sourceBlock.items) ? sourceBlock.items : [];
+      const assemble = (segments, answers) => {
+        const parts = [];
+        answers.forEach((answer, index) => { parts.push(safeText(segments[index])); parts.push(safeText(answer)); });
+        parts.push(safeText(segments[answers.length]));
+        return parts.join('').trim();
+      };
+      const getSource = (item) => {
+        if (item.example) {
+          if (item.exampleTarget) return safeText(item.exampleTarget).trim();
+          if (item.exampleMode === 'gaps') return assemble(item.segments || [], item.exampleAnswers || []);
+          return safeText(item.exampleAnswer).trim();
+        }
+        const itemNode = sourceNode.querySelector(`[data-exercise-item="${CSS.escape(safeText(item.id))}"]`);
+        if (!itemNode) return '';
+        if (item.input === 'gaps') {
+          const inputs = [...itemNode.querySelectorAll('[data-gap-index]')];
+          const answers = inputs.map((input) => input.value.trim());
+          return answers.length === (item.answers || []).length && answers.every(Boolean)
+            ? assemble(item.segments || [], answers) : '';
+        }
+        return safeText(itemNode.querySelector('input, textarea')?.value).trim();
+      };
+      const update = () => {
+        const texts = sourceItems.map(getSource);
+        const unlocked = texts.length > 0 && texts.every(Boolean);
+        dialogue.querySelectorAll('[data-source-option]').forEach((select) => {
+          const previous = select.value || select.dataset.savedValue || '';
+          // Setting options as DOM text nodes prevents HTML injection from student answers.
+          select.replaceChildren(new Option(unlocked ? 'Choose from your answers' : 'Complete exercise a first', ''));
+          if (unlocked) texts.forEach((full, index) => {
+            const label = safeText(sourceItems[index].id);
+            select.add(new Option(`${label}. ${full}`, String(index)));
+          });
+          select.disabled = !unlocked;
+          if (unlocked && previous !== '' && Number(previous) >= 0 && Number(previous) < texts.length) {
+            select.value = previous;
+          }
+          select.dataset.savedValue = previous;
+        });
+      };
+      sourceNode.addEventListener('input', update);
+      sourceNode.addEventListener('change', update);
+      dialogue.addEventListener('change', (event) => {
+        if (event.target.matches('[data-source-option]')) event.target.dataset.savedValue = event.target.value;
+      });
+      update();
+    });
   }
 
   function renderDialogueExercise(block, blockId) {
@@ -2387,7 +2471,9 @@
           }).join('')}</div>`
         : '';
       const intro = block.introTitle || block.introText ? `<div class="exercise-source"><h4>${escapeHtml(block.introTitle || '')}</h4>${block.introText ? `<p>${escapeHtml(block.introText)}</p>` : ''}</div>` : '';
-      const exerciseContent = block.layout === 'dialogue'
+      const exerciseContent = block.layout === 'dependent-dialogue'
+        ? renderDependentDialogueExercise(block, id)
+        : block.layout === 'dialogue'
         ? renderDialogueExercise(block, id)
         : block.layout === 'crossword'
           ? renderCrosswordExercise(block, id)
@@ -2501,6 +2587,10 @@
     } else if (inputType === 'single') {
       actual = itemNode.querySelector('input:checked')?.value ?? '';
       // An unanswered choice must never count as option zero.
+      correct = actual !== '' && Number(actual) === Number(item.answer);
+    } else if (inputType === 'dependent-select') {
+      const choice = itemNode.querySelector('select');
+      actual = choice && !choice.disabled ? choice.value : '';
       correct = actual !== '' && Number(actual) === Number(item.answer);
     } else if (inputType === 'select') {
       actual = itemNode.querySelector('select')?.value ?? '';
@@ -2664,6 +2754,9 @@
       } else if (inputType === 'single') {
         const input = itemNode.querySelector(`input[value="${CSS.escape(safeText(value))}"]`);
         if (input) input.checked = true;
+      } else if (inputType === 'dependent-select') {
+        const select = itemNode.querySelector('select');
+        if (select) select.dataset.savedValue = safeText(value);
       } else if (inputType === 'select') {
         const select = itemNode.querySelector('select');
         if (select) select.value = safeText(value);
@@ -2771,8 +2864,49 @@
       <div id="lesson-blocks">${renderedBlocks}</div>
       <div class="card section lesson-actions"><div id="lesson-result" aria-live="polite"></div><div class="button-row"><button class="btn btn-primary" id="check-lesson" type="button">Check answers</button><button class="btn btn-secondary" id="submit-lesson" type="button" ${savedResult ? '' : 'disabled'}>Submit to teacher</button></div><p class="muted save-note">After checking, your answers are saved on this device and synced with Supabase.</p></div>`;
 
-    restoreLessonAnswers(root, blocks, savedResult?.answers);
+    restoreLessonAnswers(root, blocks, progress.drafts?.[lesson.id] || savedResult?.answers);
     wireLessonInteractiveInputs(root);
+    wireDependentDialogues(root, blocks);
+
+    // A draft in the *existing homework storage record* keeps the dependent
+    // dialogues usable after reload, without prematurely grading or submitting.
+    if (lesson.id === 'lesson-29') {
+      let draftTimer = 0;
+      const collectDraft = () => {
+        const draft = {};
+        blocks.filter((block) => block.type === 'exercise').forEach((block) => {
+          const blockNode = root.querySelector(`[data-task="${CSS.escape(block.id)}"]`);
+          if (!blockNode) return;
+          const answers = {};
+          (block.items || []).filter((item) => !item.example && !item.displayOnly).forEach((item) => {
+            const itemNode = blockNode.querySelector(`[data-exercise-item="${CSS.escape(safeText(item.id))}"]`);
+            if (!itemNode) return;
+            if (item.input === 'gaps') {
+              answers[item.id] = [...itemNode.querySelectorAll('[data-gap-index]')].map((input) => input.value);
+            } else if (item.input === 'single') {
+              answers[item.id] = itemNode.querySelector('input:checked')?.value || '';
+            } else if (item.input === 'dependent-select') {
+              const select = itemNode.querySelector('select');
+              answers[item.id] = select?.value || select?.dataset.savedValue || '';
+            } else {
+              answers[item.id] = itemNode.querySelector('input, textarea, select')?.value || '';
+            }
+          });
+          draft[block.id] = answers;
+        });
+        const state = window.ProgressService.loadHomeworkProgress();
+        state.drafts[lesson.id] = draft;
+        storage.write(key('homework'), state);
+      };
+      const queueDraft = (event) => {
+        if (!event.target.matches('input, textarea, select')) return;
+        window.clearTimeout(draftTimer);
+        draftTimer = window.setTimeout(collectDraft, 350);
+      };
+      root.addEventListener('input', queueDraft);
+      root.addEventListener('change', queueDraft);
+    }
+
 
     root.querySelectorAll('[data-reorder-source]').forEach((source) => {
       source.addEventListener('click', (event) => {
@@ -2828,6 +2962,7 @@
       const manualNote = hasManualResponses ? ' · the extended answer is saved separately and is not included in the score' : '';
       byId('lesson-result').innerHTML = `<h3>Score: ${result.correct} of ${result.total}</h3><p class="muted">${result.percent}% correct${manualNote}</p>`;
       const updatedProgress = window.ProgressService.loadHomeworkProgress();
+      if (updatedProgress.drafts) delete updatedProgress.drafts[lesson.id];
       updatedProgress.results[lesson.id] = {
         correct: result.correct,
         total: result.total,

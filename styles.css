@@ -4418,3 +4418,85 @@ a.knowledge-daily-card:hover {
   }
 }
 
+
+/* Lesson 29: linked Practical English dialogues. */
+.dependent-dialogue {
+  padding: 14px;
+  border-radius: 16px;
+}
+.dependent-dialogue-line {
+  position: relative;
+  grid-template-columns: 34px minmax(0, 1fr);
+}
+.dependent-dialogue-line.is-group-start {
+  margin-top: 14px;
+  border-top: 2px solid #c7d2fe;
+}
+.dependent-conversation-number {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  min-width: 22px;
+  padding: 1px 6px;
+  border-radius: 99px;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: .75rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.5;
+}
+.dependent-dialogue .dialogue-utterance {
+  line-height: 2;
+  font-weight: 560;
+  overflow-wrap: anywhere;
+}
+.dependent-answer { display: inline; }
+.dependent-answer sup {
+  margin: 0 6px;
+  color: #4338ca;
+  font-weight: 800;
+}
+.dependent-example {
+  padding: 3px 6px;
+  border-bottom: 2px solid #a5b4fc;
+  color: #312e81;
+  font-weight: 750;
+}
+.dependent-select {
+  display: inline-block;
+  width: min(100%, 540px);
+  max-width: 100%;
+  padding: 9px 30px 9px 10px;
+  min-height: 40px;
+  border: 1px solid #a5b4fc;
+  border-radius: 10px;
+  background: #fff;
+  font-size: .89rem;
+  font-weight: 600;
+  line-height: 1.45;
+  vertical-align: middle;
+}
+.dependent-select:disabled {
+  color: #64748b;
+  border-color: #e2e8f0;
+  background: #f1f5f9;
+}
+.dependent-answer.is-wrong .dependent-select { border-color: #e11d48; background: #fff1f2; }
+.dependent-answer.is-correct .dependent-select { border-color: #16a34a; background: #f0fdf4; }
+.dependent-answer .feedback { margin-left: 6px; }
+.article-original-illustration { margin: 17px 0 0; }
+.article-original-illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+@media (max-width: 720px) {
+  .dependent-dialogue { padding: 8px; }
+  .dependent-dialogue-line { grid-template-columns: 30px minmax(0, 1fr); }
+  .dependent-select { width: 100%; margin: 5px 0; font-size: .88rem; }
+  .dependent-answer:not(.dependent-example) { display: inline-block; max-width: 100%; width: 100%; }
+  .dependent-answer sup { margin-left: 0; }
+}

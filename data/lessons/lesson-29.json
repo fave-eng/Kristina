@@ -1,0 +1,971 @@
+{
+  "id": "lesson-29",
+  "number": 29,
+  "title": "Time to tell the police",
+  "subtitle": "Practical English · Making a police report · Social English · Can you remember…? 1–5",
+  "status": "available",
+  "publishedAt": "2026-11-08",
+  "totalPoints": 55,
+  "vocabularyId": "vocab-lesson-29-practical-english-review",
+  "grammarIds": [
+    "grammar-possessives",
+    "grammar-past-simple-continuous-used-to",
+    "grammar-future-forms",
+    "grammar-first-second-conditionals",
+    "grammar-present-perfect-continuous"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "MAKING A POLICE REPORT",
+      "sectionNumber": 1,
+      "titleLead": "MAKING A POLICE REPORT",
+      "titleTail": "",
+      "eyebrow": "Practical English · Episode 3 · Time to tell the police"
+    },
+    {
+      "type": "exercise",
+      "id": "police-1a",
+      "title": "a Re-order the words to make questions.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "a",
+          "number": "a",
+          "prompt": "do / know / you / her / were / what / plans / for / today",
+          "hideAnswersOnError": true,
+          "example": true,
+          "showExampleNumber": true,
+          "exampleLabel": "EXAMPLE",
+          "exampleTarget": "Do you know what her plans were for today?"
+        },
+        {
+          "id": "b",
+          "number": "b",
+          "prompt": "anything / notice / about / unusual / did / you / her",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "Did you notice anything unusual about her?"
+          ],
+          "placeholder": "Write the complete question"
+        },
+        {
+          "id": "c",
+          "number": "c",
+          "prompt": "your / aunt / missing / how / long / has / been",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "How long has your aunt been missing?"
+          ],
+          "placeholder": "Write the complete question"
+        },
+        {
+          "id": "d",
+          "number": "d",
+          "prompt": "you / were / where",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "Where were you?"
+          ],
+          "placeholder": "Write the complete question"
+        },
+        {
+          "id": "e",
+          "number": "e",
+          "prompt": "her / you / describe / can",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "Can you describe her?"
+          ],
+          "placeholder": "Write the complete question"
+        },
+        {
+          "id": "f",
+          "number": "f",
+          "prompt": "anything / tonight / there / about / the / unusual / was / house",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "Was there anything unusual about the house tonight?"
+          ],
+          "placeholder": "Write the complete question"
+        },
+        {
+          "id": "g",
+          "number": "g",
+          "prompt": "some / idea / her / normal / can / you / routine / of / give / me",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "Can you give me some idea of her normal routine?"
+          ],
+          "placeholder": "Write the complete question"
+        },
+        {
+          "id": "h",
+          "number": "h",
+          "prompt": "her / see / you / when / last / did",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "When did you last see her?"
+          ],
+          "placeholder": "Write the complete question"
+        },
+        {
+          "id": "i",
+          "number": "i",
+          "prompt": "she / was / remember / what / wearing / do / you",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "Do you remember what she was wearing?"
+          ],
+          "placeholder": "Write the complete question"
+        },
+        {
+          "id": "j",
+          "number": "j",
+          "prompt": "anything / there / else / is",
+          "hideAnswersOnError": true,
+          "input": "text",
+          "acceptedAnswers": [
+            "Is there anything else?"
+          ],
+          "placeholder": "Write the complete question"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "police-1b",
+      "title": "b Complete the conversation with the questions in a.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "layout": "dependent-dialogue",
+      "sourceBlockId": "police-1a",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleAnswer": "How long has your aunt been missing?",
+          "sourceChoice": "c"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "dependent-select",
+          "answer": 4
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "dependent-select",
+          "answer": 7
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "dependent-select",
+          "answer": 3
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "dependent-select",
+          "answer": 8
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "dependent-select",
+          "answer": 1
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "dependent-select",
+          "answer": 0
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "dependent-select",
+          "answer": 6
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "dependent-select",
+          "answer": 5
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "dependent-select",
+          "answer": 9
+        }
+      ],
+      "dialogueLines": [
+        {
+          "speaker": "A",
+          "text": "Hello. I’d like to report a missing person – my aunt."
+        },
+        {
+          "speaker": "B",
+          "text": "OK, I’ll take a statement. ",
+          "itemId": "1"
+        },
+        {
+          "speaker": "A",
+          "text": "She was supposed to be home four hours ago."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "2"
+        },
+        {
+          "speaker": "A",
+          "text": "Well, she’s 55 years old. She’s quite tall with long brown hair."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "3"
+        },
+        {
+          "speaker": "A",
+          "text": "Around five o’clock last night."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "4"
+        },
+        {
+          "speaker": "A",
+          "text": "At her house. I often go round on my way home from work."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "5"
+        },
+        {
+          "speaker": "A",
+          "text": "A purple T-shirt and a pair of black leggings."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "6"
+        },
+        {
+          "speaker": "A",
+          "text": "Well, I suppose she seemed a bit nervous."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "7"
+        },
+        {
+          "speaker": "A",
+          "text": "No, she didn’t mention anything."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "8"
+        },
+        {
+          "speaker": "A",
+          "text": "She works from 8.00 to 4.00. She’s always at home by 5.00."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "9"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, the front door was unlocked, which was strange."
+        },
+        {
+          "speaker": "B",
+          "text": "",
+          "itemId": "10"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, there is one other thing. Her handbag was on the table."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "SOCIAL ENGLISH",
+      "sectionNumber": 2,
+      "titleLead": "SOCIAL ENGLISH",
+      "titleTail": "",
+      "eyebrow": "Practical English · Episode 3"
+    },
+    {
+      "type": "exercise",
+      "id": "social-2a",
+      "title": "a Complete the phrases with a word from the list.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "wordBank": [
+        "carefully",
+        "idea",
+        "letting",
+        "mean",
+        "message",
+        "right"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "segments": [
+            "I’m all ",
+            "."
+          ],
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "gaps",
+          "exampleAnswers": [
+            "right"
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "segments": [
+            "Thanks for ",
+            " me stay."
+          ],
+          "input": "gaps",
+          "answers": [
+            [
+              "letting"
+            ]
+          ]
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "segments": [
+            "Listen ",
+            "."
+          ],
+          "input": "gaps",
+          "answers": [
+            [
+              "carefully"
+            ]
+          ]
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "segments": [
+            "It’s a ",
+            " from"
+          ],
+          "input": "gaps",
+          "answers": [
+            [
+              "message"
+            ]
+          ]
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "segments": [
+            "I have no ",
+            "."
+          ],
+          "input": "gaps",
+          "answers": [
+            [
+              "idea"
+            ]
+          ]
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "segments": [
+            "What does it ",
+            "?"
+          ],
+          "input": "gaps",
+          "answers": [
+            [
+              "mean"
+            ]
+          ]
+        }
+      ],
+      "inlineNumberedItems": true
+    },
+    {
+      "type": "exercise",
+      "id": "social-2b",
+      "title": "b Complete the conversations with the phrases in a.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "layout": "dependent-dialogue",
+      "sourceBlockId": "social-2a",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleAnswer": "I have no idea.",
+          "sourceChoice": "5"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "dependent-select",
+          "answer": 2
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "dependent-select",
+          "answer": 5
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "dependent-select",
+          "answer": 0
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "dependent-select",
+          "answer": 3
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "dependent-select",
+          "answer": 1
+        }
+      ],
+      "dialogueLines": [
+        {
+          "group": 1,
+          "speaker": "A",
+          "text": "Where’s everyone else?"
+        },
+        {
+          "group": 1,
+          "speaker": "B",
+          "text": "",
+          "itemId": "1"
+        },
+        {
+          "group": 2,
+          "speaker": "A",
+          "text": "Can you tell me again what the homework is?"
+        },
+        {
+          "group": 2,
+          "speaker": "B",
+          "text": "Yes, but ",
+          "itemId": "2",
+          "suffix": " this time! I won’t repeat it again."
+        },
+        {
+          "group": 3,
+          "speaker": "A",
+          "text": "I texted John and this is his reply."
+        },
+        {
+          "group": 3,
+          "speaker": "B",
+          "text": "I don’t understand. ",
+          "itemId": "3"
+        },
+        {
+          "group": 4,
+          "speaker": "A",
+          "text": "Are you sure you’re OK?"
+        },
+        {
+          "group": 4,
+          "speaker": "B",
+          "text": "Yes, ",
+          "itemId": "4",
+          "suffix": " Don’t worry about me."
+        },
+        {
+          "group": 5,
+          "speaker": "A",
+          "text": "Was that your phone?"
+        },
+        {
+          "group": 5,
+          "speaker": "B",
+          "text": "Yes. ",
+          "itemId": "5",
+          "suffix": " my boyfriend."
+        },
+        {
+          "group": 6,
+          "speaker": "A",
+          "text": "It was great to see you. Have you had a good time?"
+        },
+        {
+          "group": 6,
+          "speaker": "B",
+          "text": "Yes, I really like Budapest. ",
+          "itemId": "6"
+        }
+      ],
+      "image": "images/lesson-29/social-english.jpg",
+      "imageAlt": "Original workbook illustration: two travellers with backpacks."
+    },
+    {
+      "type": "section",
+      "title": "GRAMMAR",
+      "sectionNumber": 1,
+      "titleLead": "GRAMMAR",
+      "titleTail": "",
+      "eyebrow": "Can you remember…? 1–5"
+    },
+    {
+      "type": "exercise",
+      "id": "review-grammar-1",
+      "title": "Complete the sentences.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "gaps",
+          "segments": [
+            "My cousin Sue is m",
+            " o",
+            " th",
+            " me. She’s 56, and I’m only 32."
+          ],
+          "answers": [
+            "uch",
+            "lder",
+            "an"
+          ],
+          "inputSize": "short"
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "segments": [
+            "John is a good fr",
+            " o",
+            " m",
+            ". We’ve known each other for years."
+          ],
+          "answers": [
+            "iend",
+            "f",
+            "ine"
+          ],
+          "inputSize": "short"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "segments": [
+            "I saw you sitting in your car last night. What w",
+            " y",
+            " d",
+            "?"
+          ],
+          "answers": [
+            "ere",
+            "ou",
+            "oing"
+          ],
+          "inputSize": "short"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "segments": [
+            "I’m hungry. Where sh",
+            " w",
+            " g",
+            " for lunch?"
+          ],
+          "answers": [
+            "all",
+            "e",
+            "o"
+          ],
+          "inputSize": "short"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "segments": [
+            "If we had a bigger house, I c",
+            " h",
+            " my own office."
+          ],
+          "answers": [
+            "ould",
+            "ave"
+          ],
+          "inputSize": "short"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "segments": [
+            "I think we need to stop the car and have a break. We’ve b",
+            " dr",
+            " f",
+            " nearly three hours."
+          ],
+          "answers": [
+            "een",
+            "iving",
+            "or"
+          ],
+          "inputSize": "short"
+        }
+      ],
+      "inlineNumberedItems": true
+    },
+    {
+      "type": "section",
+      "title": "VOCABULARY",
+      "sectionNumber": 2,
+      "titleLead": "VOCABULARY",
+      "titleTail": "",
+      "eyebrow": "Can you remember…? 1–5"
+    },
+    {
+      "type": "exercise",
+      "id": "review-vocabulary-2",
+      "title": "Circle the word that is different.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "single",
+          "options": [
+            "fold",
+            "unpack",
+            "zoom in",
+            "wrap"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "single",
+          "options": [
+            "healthy",
+            "messy",
+            "noisy",
+            "dirty"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "single",
+          "options": [
+            "bin",
+            "carton",
+            "jar",
+            "tub"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "single",
+          "options": [
+            "seminar",
+            "dissertation",
+            "tutorial",
+            "lecture"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "single",
+          "options": [
+            "advert",
+            "dissertation",
+            "documentary",
+            "series"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "single",
+          "options": [
+            "lake",
+            "stream",
+            "gate",
+            "well"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "PRONUNCIATION",
+      "sectionNumber": 3,
+      "titleLead": "PRONUNCIATION",
+      "titleTail": "",
+      "eyebrow": "Can you remember…? 1–5"
+    },
+    {
+      "type": "exercise",
+      "id": "review-pronunciation-3",
+      "title": "Circle the word with a different sound.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "layout": "pronunciation-choice-table",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "single",
+          "reference": "train",
+          "options": [
+            "raincoat",
+            "height",
+            "baker’s",
+            "weight"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "single",
+          "reference": "bike",
+          "options": [
+            "recycle",
+            "behind",
+            "replay",
+            "polystyrene"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "single",
+          "reference": "cat",
+          "options": [
+            "tractor",
+            "wrapper",
+            "batteries",
+            "vacancy"
+          ],
+          "answer": 3
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "single",
+          "reference": "car",
+          "options": [
+            "campus",
+            "drama",
+            "barn",
+            "pyjamas"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "single",
+          "reference": "bull",
+          "options": [
+            "butcher’s",
+            "wood",
+            "bush",
+            "cartoon"
+          ],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "GRAMMAR & VOCABULARY",
+      "sectionNumber": 4,
+      "titleLead": "GRAMMAR & VOCABULARY",
+      "titleTail": "",
+      "eyebrow": "Can you remember…? 1–5"
+    },
+    {
+      "type": "exercise",
+      "id": "review-article-4",
+      "title": "Read the article. Circle a, b, or c.",
+      "instructions": "",
+      "hideAnswersOnError": true,
+      "layout": "article-mcq",
+      "articleTitle": "A British Institution",
+      "articleText": "Every evening, people all over Britain tune in to BBC Radio 4 and listen to an introductory tune that 1 ____ every night for more than 60 years. It is the theme tune to The Archers, the longest-running radio 2 ____ in the world. The Archers is 3 ____ just before seven o’clock. The programme is about life in the fictional village of Ambridge. The aim of the show was to give 4 ____ information about new farming methods after the Second World War. The programme was originally about the lives of three farmers: Dan Archer, Walter Gabriel, and George Fairbrother, but a lot has changed 5 ____ the first episode. The Archers’ family farm, Brookfield, no longer belongs 6 ____ Dan. First, it passed to Dan’s son, Phil, and his wife Jill, and now it is owned by 7 ____ four children. Their son, David, manages Brookfield, and he keeps animals as well as growing 8 ____. The programme has been very 9 ____, and at the height of its popularity, it was estimated that 60% of British adults were regular listeners. Today, it isn’t quite as popular 10 ____ it used to be, but it still has over a million listeners.",
+      "articleImage": "images/lesson-29/british-institution.jpg",
+      "articleImageAlt": "Original workbook photograph of a farmer and cattle.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "single",
+          "options": [
+            "a  ’s playing",
+            "b  plays",
+            "c  ’s been playing"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "single",
+          "options": [
+            "a  chat show",
+            "b  documentary",
+            "c  soap"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "single",
+          "options": [
+            "a  in",
+            "b  on",
+            "c  up"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "single",
+          "options": [
+            "a  for farmers",
+            "b  farmers",
+            "c  to farmers"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "single",
+          "options": [
+            "a  since",
+            "b  for",
+            "c  from"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "single",
+          "options": [
+            "a  at",
+            "b  of",
+            "c  to"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "single",
+          "options": [
+            "a  Phil’s and Jill’s",
+            "b  Phil and Jills’",
+            "c  Phil and Jill’s"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "single",
+          "options": [
+            "a  crops",
+            "b  grass",
+            "c  plants"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "9",
+          "number": 9,
+          "input": "single",
+          "options": [
+            "a  colourful",
+            "b  successful",
+            "c  useful"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "10",
+          "number": 10,
+          "input": "single",
+          "options": [
+            "a  as",
+            "b  than",
+            "c  that"
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}
