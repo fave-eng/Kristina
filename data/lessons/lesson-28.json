@@ -1,0 +1,520 @@
+{
+  "id": "lesson-28",
+  "number": 28,
+  "title": "A quiet life?",
+  "subtitle": "Grammar · Present Perfect Continuous (Unit 5B)",
+  "status": "available",
+  "publishedAt": "2026-11-08",
+  "totalPoints": 21,
+  "grammarIds": [
+    "grammar-present-perfect-continuous"
+  ],
+  "notification": {
+    "enabled": true,
+    "version": 1
+  },
+  "blocks": [
+    {
+      "type": "section",
+      "title": "GRAMMAR present perfect continuous",
+      "sectionNumber": 3,
+      "titleLead": "GRAMMAR",
+      "titleTail": "present perfect continuous"
+    },
+    {
+      "type": "exercise",
+      "id": "present-perfect-continuous-3a",
+      "title": "a Complete the sentences with the present perfect continuous form of the verb in brackets.",
+      "instructions": "Use contractions if possible. Write the missing words directly in each sentence.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "gaps",
+          "prompt": "I’m fed up with my friend.",
+          "segments": [
+            "I ",
+            " for her for nearly an hour. (wait)"
+          ],
+          "exampleAnswers": [
+            "’ve been waiting"
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "prompt": "Charlie’s bored.",
+          "segments": [
+            "He ",
+            " history all day. (study)"
+          ],
+          "answers": [
+            [
+              "has been studying",
+              "'s been studying",
+              "’s been studying"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "prompt": "I didn’t know that you’d passed your test.",
+          "segments": [
+            "How long ",
+            " you ",
+            "? (drive)"
+          ],
+          "answers": [
+            [
+              "have"
+            ],
+            [
+              "been driving"
+            ]
+          ],
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "prompt": "Tina’s gone to the doctor’s.",
+          "segments": [
+            "She ",
+            " well recently. (not feel)"
+          ],
+          "answers": [
+            [
+              "hasn't been feeling",
+              "hasn’t been feeling",
+              "has not been feeling"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "prompt": "Mary and Paul aren’t getting on.",
+          "segments": [
+            "They ",
+            " a lot lately. (argue)"
+          ],
+          "answers": [
+            [
+              "have been arguing",
+              "'ve been arguing",
+              "’ve been arguing"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "prompt": "My parents are very excited about their holiday to Turkey.",
+          "segments": [
+            "They ",
+            " it all year. (look forward to)"
+          ],
+          "answers": [
+            [
+              "have been looking forward to",
+              "'ve been looking forward to",
+              "’ve been looking forward to"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        },
+        {
+          "id": "7",
+          "number": 7,
+          "input": "gaps",
+          "prompt": "Your sister’s really good at tennis.",
+          "segments": [
+            "How long ",
+            " she ",
+            "? (play)"
+          ],
+          "answers": [
+            [
+              "has"
+            ],
+            [
+              "been playing"
+            ]
+          ],
+          "hideAnswersOnError": true
+        },
+        {
+          "id": "8",
+          "number": 8,
+          "input": "gaps",
+          "prompt": "I think I’ve put on weight.",
+          "segments": [
+            "I ",
+            " to the gym recently. (not go)"
+          ],
+          "answers": [
+            [
+              "haven't been going",
+              "haven’t been going",
+              "have not been going"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "present-perfect-continuous-3b",
+      "title": "b Complete the text with the present perfect continuous form of the verbs from the list.",
+      "instructions": "Use contractions if possible. Use each verb once. 'Try' is already used in the example.",
+      "wordBankLabel": "Verbs",
+      "wordBank": [
+        "not add",
+        "drink",
+        "not eat",
+        "go",
+        "make",
+        "play",
+        "swim",
+        "try",
+        "use",
+        "walk"
+      ],
+      "layout": "continuous-gaps",
+      "hideAnswersOnError": true,
+      "paragraphs": [
+        [
+          "My husband and I ",
+          {
+            "type": "gap",
+            "id": "1",
+            "example": true,
+            "answer": "’ve been trying"
+          },
+          " to lead a healthier lifestyle recently. We ",
+          {
+            "type": "gap",
+            "id": "2",
+            "input": "text",
+            "answer": "’ve been going",
+            "width": "wide",
+            "acceptedAnswers": [
+              "’ve been going",
+              "'ve been going",
+              "have been going"
+            ]
+          },
+          " jogging together every day before we go to work. He ",
+          {
+            "type": "gap",
+            "id": "3",
+            "input": "text",
+            "answer": "’s been walking",
+            "width": "wide",
+            "acceptedAnswers": [
+              "’s been walking",
+              "'s been walking",
+              "has been walking"
+            ]
+          },
+          " to work instead of driving, and I ",
+          {
+            "type": "gap",
+            "id": "4",
+            "input": "text",
+            "answer": "’ve been using",
+            "width": "wide",
+            "acceptedAnswers": [
+              "’ve been using",
+              "'ve been using",
+              "have been using"
+            ]
+          },
+          " the stairs at work instead of taking the lift. We ",
+          {
+            "type": "gap",
+            "id": "5",
+            "input": "text",
+            "answer": "’ve been drinking",
+            "width": "wide",
+            "acceptedAnswers": [
+              "’ve been drinking",
+              "'ve been drinking",
+              "have been drinking"
+            ]
+          },
+          " a lot of water during the day, and we ",
+          {
+            "type": "gap",
+            "id": "6",
+            "input": "text",
+            "answer": "haven’t been eating",
+            "width": "wide",
+            "acceptedAnswers": [
+              "haven’t been eating",
+              "haven't been eating",
+              "have not been eating"
+            ]
+          },
+          " any snacks. After work, I ",
+          {
+            "type": "gap",
+            "id": "7",
+            "input": "text",
+            "answer": "’ve been swimming",
+            "width": "wide",
+            "acceptedAnswers": [
+              "’ve been swimming",
+              "'ve been swimming",
+              "have been swimming"
+            ]
+          },
+          " every evening and my husband ",
+          {
+            "type": "gap",
+            "id": "8",
+            "input": "text",
+            "answer": "’s been playing",
+            "width": "wide",
+            "acceptedAnswers": [
+              "’s been playing",
+              "'s been playing",
+              "has been playing"
+            ]
+          },
+          " tennis twice a week. Instead of cooking a big meal when we get home, my husband ",
+          {
+            "type": "gap",
+            "id": "9",
+            "input": "text",
+            "answer": "’s been making",
+            "width": "wide",
+            "acceptedAnswers": [
+              "’s been making",
+              "'s been making",
+              "has been making"
+            ]
+          },
+          " us some lovely salads. He ",
+          {
+            "type": "gap",
+            "id": "10",
+            "input": "text",
+            "answer": "hasn’t been adding",
+            "width": "wide",
+            "acceptedAnswers": [
+              "hasn’t been adding",
+              "hasn't been adding",
+              "has not been adding"
+            ]
+          },
+          " a lot of oil to the salads, but they still taste delicious!"
+        ]
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "present-perfect-continuous-3c",
+      "title": "c Write present perfect continuous sentences with for or since.",
+      "instructions": "Use contractions if possible. Read the original situation, then complete the new sentence in the gap.",
+      "hideAnswersOnError": true,
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "example": true,
+          "exampleLabel": "EXAMPLE",
+          "showExampleNumber": true,
+          "exampleMode": "gaps",
+          "prompt": "I’m looking after my neighbours’ dog. They went on holiday last Saturday.",
+          "segments": [
+            "I",
+            "."
+          ],
+          "exampleAnswers": [
+            "’ve been looking after my neighbours’ dog since last Saturday"
+          ]
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "gaps",
+          "prompt": "My brother lives in Paris. He went there two years ago.",
+          "segments": [
+            "My brother ",
+            "."
+          ],
+          "answers": [
+            [
+              "has been living in Paris for two years",
+              "'s been living in Paris for two years",
+              "’s been living in Paris for two years"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "gaps",
+          "prompt": "Emma is my girlfriend. We started going out a year ago.",
+          "segments": [
+            "Emma and I ",
+            "."
+          ],
+          "answers": [
+            [
+              "have been going out together for a year",
+              "have been going out for a year",
+              "'ve been going out together for a year",
+              "’ve been going out together for a year",
+              "'ve been going out for a year",
+              "’ve been going out for a year"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "gaps",
+          "prompt": "Rosie is studying. She started when she came home.",
+          "segments": [
+            "Rosie ",
+            "."
+          ],
+          "answers": [
+            [
+              "has been studying since she came home",
+              "'s been studying since she came home",
+              "’s been studying since she came home"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "gaps",
+          "prompt": "They’re training for the new season. Their first session was three weeks ago.",
+          "segments": [
+            "They ",
+            "."
+          ],
+          "answers": [
+            [
+              "have been training for three weeks",
+              "'ve been training for three weeks",
+              "’ve been training for three weeks"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        },
+        {
+          "id": "6",
+          "number": 6,
+          "input": "gaps",
+          "prompt": "It’s raining. It started at about eight o’clock.",
+          "segments": [
+            "It ",
+            "."
+          ],
+          "answers": [
+            [
+              "has been raining since eight o'clock",
+              "has been raining since eight o’clock",
+              "has been raining since about eight o'clock",
+              "has been raining since about eight o’clock",
+              "'s been raining since eight o'clock",
+              "’s been raining since eight o’clock",
+              "'s been raining since about eight o'clock",
+              "’s been raining since about eight o’clock"
+            ]
+          ],
+          "hideAnswersOnError": true,
+          "inputSize": "wide"
+        }
+      ]
+    },
+    {
+      "type": "exercise",
+      "id": "present-perfect-continuous-3d",
+      "title": "d What have you been doing recently? Write five sentences.",
+      "instructions": "Write five different sentences about your recent activities. You can use the ideas below or your own ideas. These are personal answers and are not automatically graded.",
+      "wordBankLabel": "Ideas",
+      "wordBank": [
+        "at home",
+        "at school / university / work",
+        "with other people / alone",
+        "exercise / food / hobbies / sleep"
+      ],
+      "introTitle": "Examples",
+      "introText": "I have exams, so I’ve been studying. I’ve been eating more vegetables because I want to be healthier.",
+      "items": [
+        {
+          "id": "1",
+          "number": 1,
+          "input": "textarea",
+          "prompt": "",
+          "placeholder": "Write one sentence about what you have been doing recently...",
+          "scored": false
+        },
+        {
+          "id": "2",
+          "number": 2,
+          "input": "textarea",
+          "prompt": "",
+          "placeholder": "Write one sentence about what you have been doing recently...",
+          "scored": false
+        },
+        {
+          "id": "3",
+          "number": 3,
+          "input": "textarea",
+          "prompt": "",
+          "placeholder": "Write one sentence about what you have been doing recently...",
+          "scored": false
+        },
+        {
+          "id": "4",
+          "number": 4,
+          "input": "textarea",
+          "prompt": "",
+          "placeholder": "Write one sentence about what you have been doing recently...",
+          "scored": false
+        },
+        {
+          "id": "5",
+          "number": 5,
+          "input": "textarea",
+          "prompt": "",
+          "placeholder": "Write one sentence about what you have been doing recently...",
+          "scored": false
+        }
+      ]
+    }
+  ]
+}
